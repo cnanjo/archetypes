@@ -1,5 +1,8 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-ITEM_GROUP.cluster.v1.0.0
+  CIMI-CORE-ITEM_GROUP.subject_of_information1.v1.0.0
+
+specialize
+  CIMI-CORE-ITEM_GROUP.cluster.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -9,14 +12,14 @@ description
     ["name"] = <"Patrick Langford">
     ["organisation"] = <"Intermountain Healthcare">
     ["email"] = <"patrick@neuronsong.com">
-    ["date"] = <"10/06/2014">
+    ["date"] = <"03/04/2015">
   >
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Top-level reference archetype for CIMI 'cluster' concept">
+      purpose = <"Top-level reference archetype for CIMI 'information information' concept">
       use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"cluster">
+      keywords = <"information","subject">
     >
   >
   other_details = <["model_level"] = <"reference">>
@@ -32,24 +35,46 @@ description
   >
 
 definition
-  ITEM_GROUP[id1] matches {  -- Cluster
+  ITEM_GROUP[id1.1] matches {  -- Subject of information
     item matches {
-      ELEMENT[id2] occurrences matches {0..*}   -- Element
-      use_archetype ITEM_GROUP[id3, CIMI-CORE-ITEM_GROUP.cluster.v1] occurrences matches {0..*} 
+      ELEMENT[id2.1] occurrences matches {1} matches { -- Subject relationship
+        value existence matches {1} matches {[ac0.1]}
+        link existence matches {0}
+        null_flavor existence matches {0}
+      }
+    }
+    participation matches {
+      PARTICIPATION[id0.10] occurrences matches {0..1} matches { -- Subject party
+        type matches {[ac0.2]}
+        link existence matches {0}
+        details existence matches {0}
+        party matches {
+          PARTY[id0.110] matches {
+            relationship existence matches {0}
+          }
+        }
+      }
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1"] = <
-        text = <"Cluster">
-      >
-      ["id2"] = <
-        text = <"Element">
-      >
-      ["id3"] = <
-        text = <"Cluster">
-      >
+      ["id1.1"] = <text = <"Subject of information">>
+      ["ac0.1"] = <text = <"Subject relationship">>
+      ["id2.1"] = <text = <"Subject relationship">>
+      ["id0.10"] = <text = <"Subject party">>
+      ["ac0.2"] = <text = <"Subject information">>
+      ["id0.110"] = <text = <"Party">>
     >
   >
+  term_bindings = <
+    ["snomed-ct"] = <
+      ["id1.1"] = <http://snomed.info/id/131195008> -- Subject of information
+      ["id2.1"] = <http://snomed.info/id/408732007> -- Subject relationship
+      ["ac0.1"] = <http://snomed.info/id/_________> -- Subject relationship (CIMI extension)
+      ["ac0.2"] = <http://snomed.info/id/_________> -- Subject information
+    >
+  >
+
+

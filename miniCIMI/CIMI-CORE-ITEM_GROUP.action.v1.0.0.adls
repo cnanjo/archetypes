@@ -80,6 +80,12 @@ definition
           CODED_TEXT[id0.108]
         }
       }
+      ELEMENT[id2.12] occurrences matches {0..1} matches {  -- RecordedOn
+        value matches {
+          DATE_TIME[id0.215] 
+        }
+      }
+      use_archetype ITEM_GROUP[id3.1, CIMI-CORE-ITEM_GROUP.signature.v1] occurrences matches {0..*} 
     }
     participation matches {
       PARTICIPATION[id0.109] -- Location
@@ -129,6 +135,12 @@ terminology
       >
       ["id2.11"] = <
         text = <"Status">
+      >
+      ["id2.12"] = <
+        text = <"Recorded on">
+      >
+      ["id3.1"] = <
+        text = <"Signature">
       >
       ["id0.109"] = <
         text = <"Location">

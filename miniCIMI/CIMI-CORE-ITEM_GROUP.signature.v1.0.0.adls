@@ -1,8 +1,8 @@
 archetype (adl_version=2.0.6; rm_release=2.0.2)
-	CIMI-CORE-ITEM_GROUP.provenance.v1.0.0
+	CIMI-CORE-ITEM_GROUP.signature.v1.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.base.v1
+	CIMI-CORE-ITEM_GROUP.cluster.v1
 
 language
 	original_language = <[ISO_639-1::en]>
@@ -27,45 +27,72 @@ description
 		["en"] = <
 			language = <[ISO_639-1::en]>
 			purpose = <"Archetype for CIMI 'attribution' concept">
-			use = <"Use for provenance.">
-			keywords = <"provenance", ...>
+			use = <"Use for attribution.">
+			keywords = <"signature", ...>
 		>
 	>
 	other_contributors = <"Linda Bird <lbi@ihtsdo.org>", "Joey Coyle <joey@xcoyle.com>", "Stan Huff <Stan.Huff@imail.org>", "Harold Solbrig <Solbrig.Harold@mayo.edu>", "Thomas Beale <thomas.beale@oceaninformatics.com>">
 
 definition
-	ITEM_GROUP[id1.1] matches {	-- Provenance
-		item matches {
-			use_archetype ITEM_GROUP[id3.1, CIMI-CORE-ITEM_GROUP.action.v1] occurrences matches {1} -- Attribution
+	ITEM_GROUP[id1.1] matches {	-- Signature
+		/item matches {
+			use_archetype ITEM_GROUP[id3, CIMI-CORE-ITEM_GROUP.cluster.v1] occurrences matches {0..*} 
+			after [id2]
+			ELEMENT[id0.5] occurrences matches {1..*} matches {	-- Type
+				value matches {
+					CODED_TEXT[id0.201] 
+				}
+			}
+			ELEMENT[id0.10] occurrences matches {1..1} matches {	-- When
+				value matches {
+					DATE_TIME[id0.210] 
+				}
+			}
+			ELEMENT[id0.15] occurrences matches {0..1} matches {	-- MimeType
+				value matches {
+					CODED_TEXT[id0.215] 
+				}
+			}
+			ELEMENT[id0.20] occurrences matches {0..1} matches {	-- SignatureContent
+				value matches {
+					ENCAPSULATED[id0.220] 
+				}
+			}
 		}
-		link matches {  -- Referent
-	      LINK[id0.50] occurrences matches {1..*} matches {
-	      	target matches {
-	      		use_archetype ITEM_GROUP[id0.55, CIMI-CORE-ITEM_GROUP.clinical_statement.v1] occurrences matches {1} -- Target
-	      	}
-	      }
-	    }
-	   }
+		participation matches { 
+			PARTICIPATION[id0.100] occurrences matches {0..1} matches { -- Signer
+		        party matches {
+		          ACTOR[id0.110]
+		        }
+      		}
+		}
+	}
 
 terminology
 	term_definitions = <
 		["en"] = <
 			["id1.1"] = <
-				text = <"Provenance">
+				text = <"Signature">
 			>
-			["id3.1"] = <
-				text = <"Attribution">
+			["id0.5"] = <
+				text = <"Type">
 			>
-			["id0.50"] = <
-				text = <"Referent">
+			["id0.10"] = <
+				text = <"When">
 			>
-			["id0.55"] = <
-				text = <"Target">
+			["id0.15"] = <
+				text = <"MimeType">
+			>
+			["id0.20"] = <
+				text = <"SignatureContent">
+			>
+			["id0.100"] = <
+				text = <"Signer">
 			>
 		>
 	>
 	term_bindings = <
 		["snomed-ct"] = <
-			["id1.1"] = <http://snomed.info/id/tbd>
+			["id1.1"] = <http://snomed.info/id/tbd> -- Add as needed
 		>
 	>

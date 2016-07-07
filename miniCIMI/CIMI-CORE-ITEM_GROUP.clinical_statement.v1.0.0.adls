@@ -32,11 +32,23 @@ description
   >
 
 definition
-  ITEM_GROUP[id1] matches {  -- Clinical Statment
+  ITEM_GROUP[id1] matches {  -- Clinical Statement
     item matches {
-      use_archetype ITEM_GROUP[id2, CIMI-CORE-ITEM_GROUP.subject_of_information.v1] occurrences matches {1} 
-      use_archetype ITEM_GROUP[id4, CIMI-CORE-ITEM_GROUP.cluster.v1] occurrences matches {0..*} 
-      use_archetype ITEM_GROUP[id10, CIMI-CORE-ITEM_GROUP.asserted.v1] occurrences matches {0..1}
+      use_archetype ITEM_GROUP[id2, CIMI-CORE-ITEM_GROUP.subject_of_information.v1] occurrences matches {1} -- Subject of information
+      use_archetype ITEM_GROUP[id4, CIMI-CORE-ITEM_GROUP.cluster.v1] occurrences matches {0..*}
+      use_archetype ITEM_GROUP[id10, CIMI-CORE-ITEM_GROUP.author_action.v1] occurrences matches {0..1} -- Author
+      use_archetype ITEM_GROUP[id11, CIMI-CORE-ITEM_GROUP.topic.v1] occurrences matches {0..1} -- Topic
+      use_archetype ITEM_GROUP[id12, CIMI-CORE-ITEM_GROUP.statement_mode.v1] occurrences matches {0..1} -- Mode
+      ELEMENT[id15] occurrences matches {0..*} matches { -- Identifier
+        value matches {
+          IDENTIFIER[id200]
+        }
+      }
+      ELEMENT[id40] occurrences matches {0..*} matches { -- Additional text
+        value matches {
+          PLAIN_TEXT[id215]
+        }
+      }
       ELEMENT[id5] occurrences matches {0..*}   -- Element
     }
   }
@@ -48,7 +60,11 @@ terminology
       ["id2"] = <text = <"Subject of information">>
       ["id4"] = <text = <"Cluster">>
       ["id5"] = <text = <"Element">>
-      ["id10"] = <text = <"Asserted">>
+      ["id10"] = <text = <"Author">>
+      ["id11"] = <text = <"Topic">>
+      ["id12"] = <text = <"Modality">>
+      ["id15"] = <text = <"Identifier">>
+      ["id40"] = <text = <"AdditionalText">>
     >
   >
   term_bindings = <
