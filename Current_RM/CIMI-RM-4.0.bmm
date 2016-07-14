@@ -31,7 +31,7 @@ packages = <
         packages = <
             ["Core"] = <
                 name = <"Core">
-                classes = <"ARCHETYPED", "ELEMENT", "ITEM", "CLUSTER", "LINK", "LOCATABLE", "PARTICIPATION">
+                classes = <"ARCHETYPED", "COMPOSITION", "COMPOSITION_GROUP", "CONTENT", "ENTRY_GROUP", "SECTION", "ENTRY", "CLINICAL_STATEMENT", "ELEMENT", "ITEM", "CLUSTER", "LINK", "LOCATABLE", "PARTICIPATION", "STATEMENT_BODY", "COMPOSITE_STATEMENT_BODY", "INDIVISIBLE_STATEMENT_BODY">
             >
             ["Data_Value_Types"] = <
                 name = <"Data_Value_Types">
@@ -40,10 +40,6 @@ packages = <
             ["Party"] = <
                 name = <"Party">
                 classes = <"ACTOR", "PARTY", "PARTY_RELATIONSHIP", "ROLE">
-            >
-            ["Statement"] = <
-                name = <"Statement">
-                classes = <"STATEMENT", "STATEMENT_GROUP">
             >
             ["Primitive_Types"] = <
                 name = <"Primitive_Types">
@@ -81,6 +77,74 @@ class_definitions = <
         >
     >
 
+    ["CONTENT"] = <
+        name = <"CONTENT">
+        ancestors = <"LOCATABLE", ...>
+        is_abstract = <True>
+        properties = <
+            ["details"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"details">
+                type_def = <
+                    container_type = <"List">
+                    type = <"ITEM">
+                >
+                cardinality = <|>=0|>
+                is_mandatory = <False>
+            >
+            ["participation"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"participation">
+                type_def = <
+                    container_type = <"List">
+                    type = <"PARTICIPATION">
+                >
+                cardinality = <|>=0|>
+            >
+        >
+    >
+
+    ["ENTRY_GROUP"] = <
+        name = <"ENTRY_GROUP">
+        ancestors = <"CONTENT", ...>
+        properties = <
+            ["members"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"members">
+                type_def = <
+                    container_type = <"List">
+                    type = <"CONTENT">
+                >
+                cardinality = <|>=0|>
+                is_mandatory = <False>
+            >
+        >
+    >
+
+    ["SECTION"] = <
+        name = <"SECTION">
+        ancestors = <"ENTRY_GROUP", ...>
+    >
+
+    ["ENTRY"] = <
+        name = <"ENTRY">
+        ancestors = <"CONTENT", ...>
+    >
+
+    ["CLINICAL_STATEMENT"] = <
+        name = <"CLINICAL_STATEMENT">
+        ancestors = <"ENTRY", ...>
+        properties = <
+            ["data"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"body">
+                type = <"STATEMENT_BODY">
+            >
+        >
+    >
+
+    ["ITEM"] = <
+        name = <"ITEM">
+        ancestors = <"LOCATABLE", ...>
+        is_abstract = <True>
+    >
+
     ["ELEMENT"] = <
         name = <"ELEMENT">
         ancestors = <"ITEM", ...>
@@ -94,12 +158,6 @@ class_definitions = <
                 type = <"DATA_VALUE">
             >
         >
-    >
-
-    ["ITEM"] = <
-        name = <"ITEM">
-        ancestors = <"LOCATABLE", ...>
-        is_abstract = <True>
     >
 
     ["CLUSTER"] = <
@@ -126,15 +184,31 @@ class_definitions = <
         >
     >
 
-    ["STATEMENT"] = <
-        name = <"STATEMENT">
+    ["STATEMENT_BODY"] = <
+        name = <"STATEMENT_BODY">
+        ancestors = <"CLUSTER", ...>
+        is_abstract = <True>
+    >
+
+    ["INDIVISIBLE_STATEMENT_BODY"] = <
+        name = <"INDIVISIBLE_STATEMENT_BODY">
+        ancestors = <"STATEMENT_BODY", ...>
+    >
+
+    ["COMPOSITE_STATEMENT_BODY"] = <
+        name = <"COMPOSITE_STATEMENT_BODY">
+        ancestors = <"STATEMENT_BODY", ...>
+    >
+
+    ["COMPOSITION"] = <
+        name = <"COMPOSITION">
         ancestors = <"LOCATABLE", ...>
         properties = <
-            ["items"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"items">
+            ["content"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"content">
                 type_def = <
                     container_type = <"List">
-                    type = <"ITEM">
+                    type = <"CONTENT">
                 >
                 cardinality = <|>=1|>
                 is_mandatory = <True>
@@ -150,18 +224,33 @@ class_definitions = <
         >
     >
 
-    ["STATEMENT_GROUP"] = <
-        name = <"STATEMENT_GROUP">
-        ancestors = <"STATEMENT", ...>
+    ["COMPOSITION_GROUP"] = <
+        name = <"COMPOSITION_GROUP">
+        ancestors = <"LOCATABLE", ...>
         properties = <
-            ["statements"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"statements">
+            ["compositions"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"compositions">
                 type_def = <
                     container_type = <"List">
-                    type = <"STATEMENT">
+                    type = <"COMPOSITION">
                 >
-                cardinality = <|>=1|>
-                is_mandatory = <True>
+                cardinality = <|>=0|>
+            >
+            ["parts"] = (COMPOSITION_GROUP) <
+                name = <"parts">
+                type_def = <
+                    container_type = <"List">
+                    type = <"COMPOSITION_GROUP">
+                >
+                cardinality = <|>=0|>
+            >
+            ["participation"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"participation">
+                type_def = <
+                    container_type = <"List">
+                    type = <"PARTICIPATION">
+                >
+                cardinality = <|>=0|>
             >
         >
     >
@@ -210,8 +299,8 @@ class_definitions = <
                 type = <"ARCHETYPED">
                 is_im_infrastructure = <True>
             >
-            ["link"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"link">
+            ["links"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"links">
                 type_def = <
                     container_type = <"List">
                     type = <"LINK">

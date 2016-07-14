@@ -1,5 +1,5 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-STATEMENT_GROUP.laboratory_panel1.v1.0.0
+  CIMI-CORE-COMPOSITE_STATEMENT.laboratory_panel1.v1.0.0
 
 specialize
   CIMI-CORE-STATEMENT.laboratory_clinical_statement1.v1
@@ -35,7 +35,7 @@ description
   >
 
 definition
-  STATEMENT_GROUP[id1.1.1] matches {  -- Laboratory Panel
+  COMPOSITE_STATEMENT[id1.1.1] matches {  -- Laboratory Panel
     statements
   }
 

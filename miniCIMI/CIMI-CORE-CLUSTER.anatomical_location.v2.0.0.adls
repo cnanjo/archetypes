@@ -1,5 +1,8 @@
-archetype (adl_version=1.5.1; rm_release=4.0.0; generated)
-  CIMI-CORE-STATEMENT.clinical_statement1.v1.0.0
+archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
+  CIMI-CORE-CLUSTER.anatomical_location.v2.0.0
+
+specialize
+  CIMI-CORE-CLUSTER.material_entity.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -14,12 +17,11 @@ description
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Top-level reference archetype for CIMI 'clinical statement' concept">
-      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"clinical","statement">
+      purpose = <"Archetype for CIMI 'anatomical location' concept">
+      use = <"Use for anatomical location.">
+      keywords = <"anatomical","location">
     >
   >
-  other_details = <["model_level"] = <"reference">>
   lifecycle_state = <"unmanaged">
   other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
   custodian_namespace = <"org.opencimi">
@@ -32,32 +34,32 @@ description
   >
 
 definition
-  STATEMENT[id1] matches {  -- Clinical Statement
+  CLUSTER[id1.1] matches { -- Anatomical location
     items matches {
-      ELEMENT[id2] occurrences matches {0..*} matches { -- Identifier
+      ELEMENT[id0.1] occurrences matches {0..1} matches { -- Body side
         value matches {
-          IDENTIFIER[id200]
+          TEXT[id0.2]
         }
       }
-      ELEMENT[id3] occurrences matches {0..*} matches { -- Additional text
-        value matches {
-          PLAIN_TEXT[id215]
-        }
-      }
-      use_archetype CLUSTER[id4, CIMI-CORE-CLUSTER.topic1.v1] occurrences matches {0..1} -- Topic
-      use_archetype CLUSTER[id5, CIMI-CORE-CLUSTER.statement_mode1.v1] occurrences matches {0..1} -- Modality
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1"] = <text = <"Clinical Statement">>
-      ["id2"] = <text = <"Identifier">>
-      ["id3"] = <text = <"AdditionalText">>
-      ["id4"] = <text = <"Topic">>
-      ["id5"] = <text = <"Modality">>
+      ["id1.1"] = <
+        text = <"Anatomical Location">
+      >
+      ["id0.1"] = <
+        text = <"Body side">
+      >
     >
   >
-
-
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+        ["id1.1"] = <http://snomed.info/id/123037004>
+        ["id0.1"] = <http://snomed.info/id/182353008>
+      >
+    >
+  >

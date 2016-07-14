@@ -1,0 +1,177 @@
+archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
+  CIMI-CORE-CLUSTER.action.v1.0.0
+  
+language
+  original_language = <[ISO_639-1::en]>
+
+description
+  original_author = <
+    ["name"] = <"Patrick Langford">
+    ["organisation"] = <"Intermountain Healthcare">
+    ["email"] = <"patrick@neuronsong.com">
+    ["date"] = <"10/06/2014">
+  >
+  details = <
+    ["en"] = <
+      language = <[ISO_639-1::en]>
+      purpose = <"Archetype for CIMI 'action' concept">
+      use = <"Use for action.">
+      keywords = <"action">
+    >
+  >
+  lifecycle_state = <"unmanaged">
+  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
+  custodian_namespace = <"org.opencimi">
+  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
+  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
+  ip_acknowledgements = <
+    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+  >
+
+definition
+  CLUSTER[id1] matches { -- Action
+    items matches {
+      ELEMENT[id2] occurrences matches {1} matches { -- Action type
+        value existence matches {1} matches {
+          CODED_TEXT[id101]
+        }
+        null_flavor existence matches {0}
+      }
+      ELEMENT[id3] matches { -- Identifier
+        value matches {
+          IDENTIFIER[id102]
+        }
+      }
+      ELEMENT[id4] occurrences matches {0..1} matches { -- Datetime
+        value matches {
+          DATE_TIME[id103]
+        }
+      }
+      ELEMENT[id5] occurrences matches {0..1} matches { -- Datetime range
+        value matches {
+          INTERVAL_VALUE<DATE_TIME>[id104]
+        }
+      }
+      ELEMENT[id6] occurrences matches {0..1} matches { -- Duration
+        value matches {
+          DURATION[id105]
+        }
+      }
+      ELEMENT[id7] occurrences matches {0..1} matches { -- Timing offset
+        value matches {
+          DURATION[id106]
+        }
+      }
+      ELEMENT[id8] occurrences matches {0..1} matches { -- Timing offset origin
+        value matches {
+          DATE_TIME[id107]
+        }
+      }
+      ELEMENT[id9] -- Timing
+      ELEMENT[id10] -- Reason
+      ELEMENT[id11] -- Method
+      ELEMENT[id12] occurrences matches {0..1} matches { -- Status
+        value matches {
+          CODED_TEXT[id108]
+        }
+      }
+      ELEMENT[id13] occurrences matches {0..1} matches {  -- RecordedOn
+        value matches {
+          DATE_TIME[id215] 
+        }
+      }
+      use_archetype CLUSTER[id14, CIMI-CORE-CLUSTER.signature.v1] occurrences matches {0..*} 
+    }
+    participation matches {
+      PARTICIPATION[id109] -- Location
+    }
+    links matches {
+      LINK[id110] occurrences matches {0..1} -- Associated activity
+      LINK[id111] -- Previous action
+      LINK[id112] -- Subsequent action
+    }
+  }
+
+terminology
+  term_definitions = <
+    ["en"] = <
+      ["id1"] = <
+        text = <"Action">
+      >
+      ["id2"] = <
+        text = <"Action type">
+      >
+      ["id3"] = <
+        text = <"Identifier">
+      >
+      ["id4"] = <
+        text = <"Datetime">
+      >
+      ["id5"] = <
+        text = <"Datetime range">
+      >
+      ["id6"] = <
+        text = <"Duration">
+      >
+      ["id7"] = <
+        text = <"Timing offset">
+      >
+      ["id8"] = <
+        text = <"Timing offset origin">
+      >
+      ["id9"] = <
+        text = <"Timing">
+      >
+      ["id10"] = <
+        text = <"Reason">
+      >
+      ["id11"] = <
+        text = <"Method">
+      >
+      ["id12"] = <
+        text = <"Status">
+      >
+      ["id13"] = <
+        text = <"Recorded on">
+      >
+      ["id14"] = <
+        text = <"Signature">
+      >
+      ["id109"] = <
+        text = <"Location">
+      >
+      ["id110"] = <
+        text = <"Associated activity">
+      >
+      ["id111"] = <
+        text = <"Previous action">
+      >
+      ["id112"] = <
+        text = <"Subsequent action">
+      >
+    >
+  >
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+        ["id1"] = <http://snomed.info/id/129264002>
+        ["id2"] = <http://snomed.info/id/129264002>
+        ["id3"] = <http://snomed.info/id/129264002>
+        ["id4"] = <http://snomed.info/id/364713004>
+        ["id5"] = <http://snomed.info/id/364713004>
+        ["id6"] = <http://snomed.info/id/364713004>
+        ["id7"] = <http://snomed.info/id/364713004>
+        ["id8"] = <http://snomed.info/id/364713004>
+        ["id9"] = <http://snomed.info/id/364713004>
+        ["id10"] = <http://snomed.info/id/138875005>
+        ["id11"] = <http://snomed.info/id/272394005>
+        ["id12"] = <http://snomed.info/id/288532009>
+        ["id109"] = <http://snomed.info/id/308916002>
+        ["id110"] = <http://snomed.info/id/71388002>
+        ["id111"] = <http://snomed.info/id/71388002>
+        ["id112"] = <http://snomed.info/id/71388002>
+      >
+    >
+  >

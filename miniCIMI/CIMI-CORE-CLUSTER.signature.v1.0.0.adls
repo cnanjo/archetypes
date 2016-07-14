@@ -1,8 +1,5 @@
 archetype (adl_version=2.0.6; rm_release=2.0.2)
-	CIMI-CORE-ITEM_GROUP.signature.v1.0.0
-
-specialize
-	CIMI-CORE-ITEM_GROUP.cluster.v1
+	CIMI-CORE-CLUSTER.signature.v1.0.0
 
 language
 	original_language = <[ISO_639-1::en]>
@@ -34,35 +31,33 @@ description
 	other_contributors = <"Linda Bird <lbi@ihtsdo.org>", "Joey Coyle <joey@xcoyle.com>", "Stan Huff <Stan.Huff@imail.org>", "Harold Solbrig <Solbrig.Harold@mayo.edu>", "Thomas Beale <thomas.beale@oceaninformatics.com>">
 
 definition
-	ITEM_GROUP[id1.1] matches {	-- Signature
-		/item matches {
-			use_archetype ITEM_GROUP[id3, CIMI-CORE-ITEM_GROUP.cluster.v1] occurrences matches {0..*} 
-			after [id2]
-			ELEMENT[id0.5] occurrences matches {1..*} matches {	-- Type
+	CLUSTER[id1] matches {	-- Signature
+		items matches {
+			ELEMENT[id2] occurrences matches {1..*} matches {	-- Type
 				value matches {
-					CODED_TEXT[id0.201] 
+					CODED_TEXT[id201] 
 				}
 			}
-			ELEMENT[id0.10] occurrences matches {1..1} matches {	-- When
+			ELEMENT[id3] occurrences matches {1..1} matches {	-- When
 				value matches {
-					DATE_TIME[id0.210] 
+					DATE_TIME[id210] 
 				}
 			}
-			ELEMENT[id0.15] occurrences matches {0..1} matches {	-- MimeType
+			ELEMENT[id4] occurrences matches {0..1} matches {	-- MimeType
 				value matches {
-					CODED_TEXT[id0.215] 
+					CODED_TEXT[id215] 
 				}
 			}
-			ELEMENT[id0.20] occurrences matches {0..1} matches {	-- SignatureContent
+			ELEMENT[id5] occurrences matches {0..1} matches {	-- SignatureContent
 				value matches {
-					ENCAPSULATED[id0.220] 
+					ENCAPSULATED[id220] 
 				}
 			}
 		}
 		participation matches { 
-			PARTICIPATION[id0.100] occurrences matches {0..1} matches { -- Signer
+			PARTICIPATION[id100] occurrences matches {0..1} matches { -- Signer
 		        party matches {
-		          ACTOR[id0.110]
+		          ACTOR[id110]
 		        }
       		}
 		}
@@ -71,28 +66,28 @@ definition
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1"] = <
+			["id1"] = <
 				text = <"Signature">
 			>
-			["id0.5"] = <
+			["id2"] = <
 				text = <"Type">
 			>
-			["id0.10"] = <
+			["id3"] = <
 				text = <"When">
 			>
-			["id0.15"] = <
+			["id4"] = <
 				text = <"MimeType">
 			>
-			["id0.20"] = <
+			["id5"] = <
 				text = <"SignatureContent">
 			>
-			["id0.100"] = <
+			["id100"] = <
 				text = <"Signer">
 			>
 		>
 	>
 	term_bindings = <
 		["snomed-ct"] = <
-			["id1.1"] = <http://snomed.info/id/tbd> -- Add as needed
+			["id1"] = <http://snomed.info/id/tbd> -- Add as needed
 		>
 	>

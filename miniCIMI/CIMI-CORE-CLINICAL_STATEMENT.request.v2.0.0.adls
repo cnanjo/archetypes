@@ -1,8 +1,8 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-INDIVISIBLE_STATEMENT.laboratory_test1.v1.0.0
+  CIMI-CORE-CLINICAL_STATEMENT.request.v2.0.0
 
 specialize
-  CIMI-CORE-STATEMENT.laboratory_clinical_statement1.v1
+  CIMI-CORE-CLINICAL_STATEMENT.clinical_activity.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -17,12 +17,11 @@ description
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Top-level reference archetype for CIMI 'compound clinical statement' concept">
-            use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-            keywords = <"compound","clinical","statement">
+      purpose = <"Archetype for CIMI 'request' concept">
+      use = <"Use for request.">
+      keywords = <"request">
     >
   >
-  other_details = <["model_level"] = <"reference">>
   lifecycle_state = <"unmanaged">
   other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
   custodian_namespace = <"org.opencimi">
@@ -35,13 +34,20 @@ description
   >
 
 definition
-  INDIVISIBLE_STATEMENT[id1.1.1] -- Laboratory test
+  CLINICAL_STATEMENT[id1.1.1.1]
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1"] = <
-        text = <"Laboratory test">
+      ["id1.1.1.1"] = <
+        text = <"Request">
+      >
+    >
+  >
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+        ["id1.1.1.1"] = <http://snomed.info/id/308539001>
       >
     >
   >

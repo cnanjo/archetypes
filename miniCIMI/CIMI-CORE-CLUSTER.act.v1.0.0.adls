@@ -1,8 +1,8 @@
 archetype (adl_version=2.0.6; rm_release=2.0.2)
-  CIMI-CORE-ITEM_GROUP.justification.v1.0.0
+  CIMI-CORE-CLUSTER.act.v1.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.cluster.v1
+  CIMI-CORE-CLUSTER.topic.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -19,7 +19,7 @@ description
       language = <[ISO_639-1::en]>
       purpose = <"Top-level reference archetype for CIMI 'clinical statement' concept">
       use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"justification">
+      keywords = <"topic","observable">
     >
   >
   other_details = <["model_level"] = <"reference">>
@@ -35,32 +35,14 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1] matches { -- Justification
-    /item matches {
-		use_archetype ITEM_GROUP[id3, CIMI-CORE-ITEM_GROUP.cluster.v1] occurrences matches {0..*} 
-		ELEMENT[id0.5] occurrences matches {0..1} matches {
-			value matches {
-			  CODED_TEXT[id205]
-			}
-		}
-		use_archetype ITEM_GROUP[id0.10, CIMI-CORE-ITEM_GROUP.clinical_statement.v1] occurrences matches {0..1}
-    }
-  }
+  CLUSTER[id1.1]
 
 terminology
   term_definitions = <
     ["en"] = <
       ["id1.1"] = <
-        text = <"Justification">
-        description = <"Asserted clinical justification to perform or not perform an act such as a diagnostic test, a medication treatment, or a procedure. The justification can be specified as a code or as a clinical statement, e.g., code for diabetes (ICD-9-CM 250.0) or a Condition occurrence statement (with diabetes code) documented elsewhere in a patient's record.">
-      >
-      ["id0.5"] = <
-        text = <"code">
-        description = <"A code representing the justification. Typically, the code is for a condition that is suspected or is observed in a patient.">
-      >
-      ["id0.10"] = <
-        text = <"supportingStatement">
-        description = <"A clinical statement that lends support for the action.">
+        text = <"Act">
+        description = <"The parent 'Act' topic of a clinical statement">
       >
     >
   >
