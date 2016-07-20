@@ -35,8 +35,8 @@ description
 
 definition
   ITEM_GROUP[id1.1.1] matches { -- Clinical activity
-    item matches {
-      use_archetype ITEM_GROUP[id2.0.1, CIMI-CORE-ITEM_GROUP.subject_of_information.v1] -- Information subject
+    participation matches {
+      use_archetype PARTICIPATION[id2.0.1, CIMI-CORE-PARTICIPATION.subject_of_information.v1] -- Information subject
     }
   }
 

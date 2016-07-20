@@ -2,7 +2,7 @@ archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
   CIMI-CORE-ITEM_GROUP.laboratory_results_report.v2.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.clinical_document.v2
+  CIMI-CORE-ITEM_GROUP.clinical_report.v2
 
 language
   original_language = <[ISO_639-1::en]>
@@ -34,11 +34,11 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1] matches { -- Laboratory results report
+  ITEM_GROUP[id1.1.1.1] matches { -- Laboratory results report
     item matches {
-      use_archetype ITEM_GROUP [id3.1, CIMI-CORE-ITEM_GROUP.laboratory_report_header.v3] -- Laboratory report header
-      use_archetype ITEM_GROUP [id0.2, CIMI-CORE-ITEM_GROUP.patient_encounter_summary.v2] -- Patient encounter summary
-      use_archetype ITEM_GROUP [id0.3, CIMI-CORE-ITEM_GROUP.laboratory_test_request_summary.v2] -- Laboratory test request summary
+      use_archetype ITEM_GROUP [id0.0.3.1, CIMI-CORE-ITEM_GROUP.laboratory_report_header.v3] -- Laboratory report header
+      use_archetype ITEM_GROUP [id0.0.0.2, CIMI-CORE-ITEM_GROUP.patient_encounter_summary.v2] -- Patient encounter summary
+      use_archetype ITEM_GROUP [id0.0.0.3, CIMI-CORE-ITEM_GROUP.laboratory_test_request_summary.v2] -- Laboratory test request summary
     }
     link matches {
       LINK[id0.1] occurrences matches {0..*} -- Patient encounter
@@ -48,19 +48,19 @@ definition
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1"] = <
+      ["id1.1.1.1"] = <
         text = <"Laboratory results report">
       >
-      ["id0.1"] = <
+      ["id0.0.0.1"] = <
         text = <"Patient encounter">
       >
-      ["id3.1"] = <
+      ["id0.0.3.1"] = <
         text = <"Laboratory Report Header">
       >
-      ["id0.2"] = <
+      ["id0.0.0.2"] = <
         text = <"Patient Encounter Summary">
       >
-      ["id0.3"] = <
+      ["id0.0.0.3"] = <
         text = <"Laboratory Test Request Summary">
       >
     >
@@ -68,8 +68,8 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id1.1"] = <http://snomed.info/id/371528001>
-        ["id0.1"] = <http://snomed.info/id/308335008>
+        ["id1.1.1.1"] = <http://snomed.info/id/371528001>
+        ["id0.0.0.1"] = <http://snomed.info/id/308335008>
       >
     >
   >

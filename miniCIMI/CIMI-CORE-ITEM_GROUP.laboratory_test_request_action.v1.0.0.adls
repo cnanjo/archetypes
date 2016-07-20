@@ -36,7 +36,7 @@ description
 definition
   ITEM_GROUP[id1.1.1.1] matches { -- Laboratory test request action
     item matches {
-      ELEMENT[id2.2.1.1] -- Requester request identifier
+      ELEMENT[id0.2.1.1] -- Requester request identifier
       ELEMENT[id0.0.0.1] occurrences matches {0..1} matches { -- Receiver request identifier
         value matches {
           IDENTIFIER[id0.0.0.101]
@@ -51,7 +51,7 @@ terminology
       ["id1.1.1.1"] = <
         text = <"Laboratory test request action">
       >
-      ["id2.2.1.1"] = <
+      ["id0.2.1.1"] = <
         text = <"Requester request identifier">
       >
       ["id0.0.0.1"] = <
@@ -62,7 +62,7 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id2.2.1.1"] = <http://snomed.info/id/129264002>
+        ["id0.2.1.1"] = <http://snomed.info/id/129264002>
         ["id0.0.0.1"] = <http://snomed.info/id/138875005>
       >
     >

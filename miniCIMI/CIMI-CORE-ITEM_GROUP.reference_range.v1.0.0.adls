@@ -36,17 +36,17 @@ description
 definition
   ITEM_GROUP[id1.1] matches { -- Reference range
     item matches {
-      ELEMENT[id2.1] matches { -- Reference criteria
+      ELEMENT[id0.1] matches { -- Reference criteria
         value matches {
           TEXT[id0.4]
         }
       }
-      ELEMENT[id2.2] occurrences matches {0..1} matches { -- Reference value
+      ELEMENT[id0.2] occurrences matches {0..1} matches { -- Reference value
         value matches {
           DATA_VALUE[id0.5]
         }
       }
-      ELEMENT[id2.3] occurrences matches {0..1} matches { -- Narrative
+      ELEMENT[id0.3] occurrences matches {0..1} matches { -- Narrative
         value matches {
           TEXT[id0.6]
         }
@@ -60,13 +60,13 @@ terminology
       ["id1.1"] = <
         text = <"Reference range">
       >
-      ["id2.1"] = <
+      ["id0.1"] = <
         text = <"Reference criteria">
       >
-      ["id2.2"] = <
+      ["id0.2"] = <
         text = <"Reference value">
       >
-      ["id2.3"] = <
+      ["id0.3"] = <
         text = <"Narrative">
       >
     >
@@ -74,8 +74,8 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id2.1"] = <http://snomed.info/id/138875005>
-        ["id2.2"] = <http://snomed.info/id/138875005>
+        ["id0.1"] = <http://snomed.info/id/138875005>
+        ["id0.2"] = <http://snomed.info/id/138875005>
       >
     >
   >

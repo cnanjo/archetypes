@@ -2,7 +2,7 @@ archetype (adl_version=2.0.6; rm_release=2.0.2)
   CIMI-CORE-ITEM_GROUP.statement_mode.v1.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.cluster.v1
+  CIMI-CORE-ITEM_GROUP.cluster.v1.0.0
 
 language
   original_language = <[ISO_639-1::en]>
@@ -35,9 +35,14 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1] matches { -- Act
-    /item matches {
-      use_archetype ITEM_GROUP[id3, CIMI-CORE-ITEM_GROUP.cluster.v1] occurrences matches {0..*} 
+  ITEM_GROUP[id1.1] matches { -- Statement mode
+    processing_directives matches {
+      CODED_NAME_VALUE[id500.1] matches { -- kind
+        value matches { -- Here we fix it to be only virtual_cluster
+          CODED_TEXT[id502] occurrences matches {0}
+          CODED_TEXT[id503] occurrences matches {1}
+        }
+      }
     }
   }
 
@@ -47,6 +52,10 @@ terminology
       ["id1.1"] = <
         text = <"Statement mode">
         description = <"The mode of a Clinical Statement describes the way the topic exists, happens, or is experienced.">
+      >
+      ["id500.1"] = <
+        text = <"Kind">
+        description = <"Processing directive instructing a compiler that the ITEM_GROUP is a virtual_cluster, meaning that it may be inlined by processing tools and need not retain is cluster structure in the derived artifact.">
       >
     >
   >

@@ -2,7 +2,7 @@ archetype (adl_version=2.0.6; rm_release=2.0.2)
 	CIMI-CORE-ITEM_GROUP.provenance.v1.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.base.v1
+  CIMI-CORE-ITEM_GROUP.cluster.v1
 
 language
 	original_language = <[ISO_639-1::en]>
@@ -36,7 +36,7 @@ description
 definition
 	ITEM_GROUP[id1.1] matches {	-- Provenance
 		item matches {
-			use_archetype ITEM_GROUP[id3.1, CIMI-CORE-ITEM_GROUP.action.v1] occurrences matches {1} -- Attribution
+			use_archetype ITEM_GROUP[id0.1, CIMI-CORE-ITEM_GROUP.action.v1] occurrences matches {1} -- Attribution
 		}
 		link matches {  -- Referent
 	      LINK[id0.50] occurrences matches {1..*} matches {
@@ -53,7 +53,7 @@ terminology
 			["id1.1"] = <
 				text = <"Provenance">
 			>
-			["id3.1"] = <
+			["id0.1"] = <
 				text = <"Attribution">
 			>
 			["id0.50"] = <

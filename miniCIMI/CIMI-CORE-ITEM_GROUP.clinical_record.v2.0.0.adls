@@ -1,5 +1,8 @@
-archetype (adl_version=1.5.1; rm_release=4.0.0; generated)
-  CIMI-CORE-COMPOSITE_STATEMENT_BODY.composite_statement_body.v1.0.0
+archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
+  CIMI-CORE-ITEM_GROUP.clinical_record.v1.0.0
+
+specialize
+  CIMI-CORE-ITEM_GROUP.composition.v1.0.0
 
 language
   original_language = <[ISO_639-1::en]>
@@ -14,9 +17,9 @@ description
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Top-level reference archetype for CIMI 'clinical statement' concept">
-      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"clinical","statement">
+      purpose = <"Archetype for CIMI 'clinical document' concept">
+      use = <"Use for clinical document.">
+      keywords = <"clinical","document">
     >
   >
   other_details = <["model_level"] = <"reference">>
@@ -32,18 +35,32 @@ description
   >
 
 definition
-  COMPOSITE_STATEMENT_BODY[id1] matches {  -- Composite Statement Content
-    items matches {
-      STATEMENT_BODY[id2] -- items
+  ITEM_GROUP[id1.1] matches { -- Clinical record
+    processing_directives matches {
+      CODED_NAME_VALUE[id500.1] matches { -- kind
+        value matches { -- Here we fix it to be only composition
+          CODED_TEXT[id502] occurrences matches {1}
+          CODED_TEXT[id503] occurrences matches {0}
+        }
+      }
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1"] = <text = <"Indivisible Statement Content">>
-      ["id2"] = <text = <"Items">>
+      ["id1.1"] = <
+        text = <"Clinical record">
+      >
+      ["id500.1"] = <
+        text = <"Kind">
+      >
     >
   >
-
-
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+        ["id1.1"] = <http://snomed.info/id/424545009> -- Record composition (record artifact)
+      >
+    >
+  >

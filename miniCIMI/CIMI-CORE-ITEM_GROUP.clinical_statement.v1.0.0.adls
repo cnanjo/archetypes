@@ -33,8 +33,27 @@ description
 
 definition
   ITEM_GROUP[id1] matches {  -- Clinical Statement
+    processing_directives matches {
+      CODED_NAME_VALUE[id500] matches { -- kind
+        name matches {
+          CODED_TEXT[id501] matches {
+            terminology_id matches {"http://cimi.org/terminology"}
+            code matches {"101"}
+            terminology_version matches {"v1.0.0"}
+            term matches {"container_kind"}
+          }
+        }
+        value matches { -- Disjunct: either cluster or inline_cluster
+          CODED_TEXT[id502] matches {
+            terminology_id matches {"http://cimi.org/terminology"}
+            code matches {"1"}
+            terminology_version matches {"v1.0.0"}
+            term matches {"statement"}
+          }
+        }
+      }
+    }
     item matches {
-      use_archetype ITEM_GROUP[id2, CIMI-CORE-ITEM_GROUP.subject_of_information.v1] occurrences matches {1} -- Subject of information
       use_archetype ITEM_GROUP[id4, CIMI-CORE-ITEM_GROUP.cluster.v1] occurrences matches {0..*}
       use_archetype ITEM_GROUP[id10, CIMI-CORE-ITEM_GROUP.author_action.v1] occurrences matches {0..1} -- Author
       use_archetype ITEM_GROUP[id11, CIMI-CORE-ITEM_GROUP.topic.v1] occurrences matches {0..1} -- Topic
@@ -51,6 +70,10 @@ definition
       }
       ELEMENT[id5] occurrences matches {0..*}   -- Element
     }
+
+    participation matches {
+      use_archetype PARTICIPATION[id2, CIMI-CORE-PARTICIPATION.subject_of_information.v1] occurrences matches {1} -- Subject of information
+    }
   }
 
 terminology
@@ -65,6 +88,9 @@ terminology
       ["id12"] = <text = <"Modality">>
       ["id15"] = <text = <"Identifier">>
       ["id40"] = <text = <"AdditionalText">>
+      ["id500"] = <
+        text = <"Kind">
+      >
     >
   >
   term_bindings = <

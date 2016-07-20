@@ -1,5 +1,8 @@
-archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-ITEM_GROUP.base.v1.0.0
+archetype (adl_version=2.0.6; rm_release=2.0.2)
+  CIMI-CORE-ITEM_GROUP.act.v1.0.0
+
+specialize
+  CIMI-CORE-ITEM_GROUP.topic.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -8,15 +11,15 @@ description
   original_author = <
     ["name"] = <"Claude Nanjo">
     ["organisation"] = <"Cognitive Medical Systems">
-    ["email"] = <"patrick@neuronsong.com">
-    ["date"] = <"06/27/2016">
+    ["email"] = <"cnanjo@gmail.com">
+    ["date"] = <"06/15/2016">
   >
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Top-level reference archetype for CIMI 'ITEM_GROUP' archetypes">
+      purpose = <"Top-level reference archetype for CIMI 'clinical statement' concept">
       use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"base">
+      keywords = <"topic","observable">
     >
   >
   other_details = <["model_level"] = <"reference">>
@@ -32,24 +35,14 @@ description
   >
 
 definition
-  ITEM_GROUP[id1] matches {  -- Base
-    item matches {
-      ELEMENT[id2] occurrences matches {0..*}   -- Element
-      use_archetype ITEM_GROUP[id3, CIMI-CORE-ITEM_GROUP.cluster.v1] occurrences matches {0..*} 
-    }
-  }
+  ITEM_GROUP[id1.1.1]
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1"] = <
-        text = <"Base">
-      >
-      ["id2"] = <
-        text = <"Element">
-      >
-      ["id3"] = <
-        text = <"Cluster">
+      ["id1.1.1"] = <
+        text = <"Act">
+        description = <"The parent 'Act' topic of a clinical statement">
       >
     >
   >

@@ -1,8 +1,8 @@
 archetype (adl_version=2.0.6; rm_release=2.0.2)
-  CIMI-CORE-CLUSTER.proposal_mode.v1.0.0
+  CIMI-CORE-ITEM_GROUP.proposal_mode.v1.0.0
 
 specialize
-  CIMI-CORE-CLUSTER.action_mode.v1
+  CIMI-CORE-ITEM_GROUP.action_mode.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -35,31 +35,31 @@ description
   >
 
 definition
-  CLUSTER[id1.1.1] matches { -- Proposal
-    items matches {
-      use_archetype CLUSTER[id0.0.5, CIMI-CORE-CLUSTER.request_action.v1] occurrences matches {0..1}
-      ELEMENT[id0.0.10] occurrences matches {0..1} matches { -- Urgency
+  ITEM_GROUP[id1.1.1.1] matches { -- Proposal
+    item matches {
+      use_archetype ITEM_GROUP[id0.0.0.5, CIMI-CORE-ITEM_GROUP.request_action.v1] occurrences matches {0..1}
+      ELEMENT[id0.0.0.10] occurrences matches {0..1} matches { -- Urgency
         value matches {
-          CODED_TEXT[id0.0.205]
+          CODED_TEXT[id0.0.0.205]
         }
       }
-      ELEMENT[id0.0.15] occurrences matches {0..1} matches { -- Is PRN
+      ELEMENT[id0.0.0.15] occurrences matches {0..1} matches { -- Is PRN
         value matches {
           YESNO[id0.0.210]
         }
       }
-      use_archetype CLUSTER[id0.0.20, CIMI-CORE-CLUSTER.justification.v1] occurrences matches {0..*} -- PRN reason
-      ELEMENT[id0.0.25] occurrences matches {0..1} matches { -- Expected performance time
+      use_archetype ITEM_GROUP[id0.0.0.20, CIMI-CORE-ITEM_GROUP.justification.v1] occurrences matches {0..*} -- PRN reason
+      ELEMENT[id0.0.0.25] occurrences matches {0..1} matches { -- Expected performance time
         value matches {
-          INTERVAL_VALUE<DATE_TIME>[id0.0.105]
+          INTERVAL_VALUE<DATE_TIME>[id0.0.0.105]
         }
       }
-      ELEMENT[id0.0.30] occurrences matches {0..1} -- Placeholder for timing (over fixed calendar times)
+      ELEMENT[id0.0.0.30] occurrences matches {0..1} -- Placeholder for timing (over fixed calendar times)
     }
     participation matches {
-      PARTICIPATION[id0.0.100] matches { -- Expected performer
+      PARTICIPATION[id0.0.0.100] matches { -- Expected performer
         party matches { -- use_archetype ACTOR[id0.0.0.300, CIMI-CORE-ACTOR.actor.v1]
-          ACTOR[id0.0.300]
+          ACTOR[id0.0.0.300]
         }
       }
     }
@@ -68,35 +68,35 @@ definition
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1"] = <
+      ["id1.1.1.1"] = <
         text = <"Proposal">
         description = <"An offer or a suggestion to perform a healthcare act. A recommendation to a provider is an example of proposal made by a CDS system. A proposal must be accepted by an entity in order for it to be performed.">
       >
-      ["id0.0.5"] = <
+      ["id0.0.0.5"] = <
         text = <"Proposed">
         description = <"Provenance information about who proposed the action, when, where, why, how, etc...">
       >
-      ["id0.0.10"] = <
+      ["id0.0.0.10"] = <
         text = <"Urgency">
         description = <"Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.">
       >
-      ["id0.0.15"] = <
+      ["id0.0.0.15"] = <
         text = <"Is PRN">
         description = <"Indicates whether the act being proposed should be performed only if needed, i.e., when a certain condition occurs. The condition can be described in the attribute prnReason.">
       >
-      ["id0.0.20"] = <
+      ["id0.0.0.20"] = <
         text = <"PRN reason">
         description = <"The proposed act must be performed if the indicated conditions occur, e.g.., shortness of breath, SpO2 less than x%, insomnia, nausea.">
       >
-      ["id0.0.25"] = <
+      ["id0.0.0.25"] = <
         text = <"Expected performance time">
         description = <"The time when the action is expected to be performed.">
       >
-      ["id0.0.30"] = <
+      ["id0.0.0.30"] = <
         text = <"Schedule">
         description = <"If the procedure is repeated, the frequency pattern for repetitions.">
       >
-      ["id0.0.100"] = <
+      ["id0.0.0.100"] = <
         text = <"Expected performer">
         description = <"Persons who are expected to or intended to perform this action, e.g., the person who will perform the surgery.">
       >

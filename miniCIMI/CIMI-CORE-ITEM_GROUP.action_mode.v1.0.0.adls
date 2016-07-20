@@ -1,8 +1,8 @@
 archetype (adl_version=2.0.6; rm_release=2.0.2)
-  CIMI-CORE-CLUSTER.observable.v1.0.0
+  CIMI-CORE-ITEM_GROUP.action_mode.v1.0.0
 
 specialize
-  CIMI-CORE-CLUSTER.topic.v1
+  CIMI-CORE-ITEM_GROUP.statement_mode.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -19,7 +19,7 @@ description
       language = <[ISO_639-1::en]>
       purpose = <"Top-level reference archetype for CIMI 'clinical statement' concept">
       use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"topic","observable">
+      keywords = <"statement","modality">
     >
   >
   other_details = <["model_level"] = <"reference">>
@@ -35,14 +35,32 @@ description
   >
 
 definition
-  CLUSTER[id1.1]
+  ITEM_GROUP[id1.1.1] matches { -- Act
+    item matches {
+      use_archetype ITEM_GROUP[id0.0.1, CIMI-CORE-ITEM_GROUP.justification.v1] occurrences matches {0..*}
+      use_archetype ITEM_GROUP[id0.0.2, CIMI-CORE-ITEM_GROUP.action.v1] occurrences matches {0..1}
+      use_archetype ITEM_GROUP[id0.0.3, CIMI-CORE-ITEM_GROUP.action.v1] occurrences matches {0..*}
+    }
+  }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1"] = <
-        text = <"Observable">
-        description = <"An Observable topic of a clinical statement">
+      ["id1.1.1"] = <
+        text = <"Action mode">
+        description = <"Description of a healthcare action, independent of the performance of the action.">
+      >
+      ["id0.0.1"] = <
+        text = <"Justification">
+        description = <"Reason or justification for the action. Reasons may also be specified for not performing an action. ">
+      >
+      ["id0.0.2"] = <
+        text = <"Current status">
+        description = <"The status of an action. It is expected that different action modes will constraint the provenance subtypes of current status. For example, Proposal might have one of its status value as Declined.">
+      >
+      ["id0.0.3"] = <
+        text = <"Status history">
+        description = <"The past statuses of this action, e.g., an order may evolve from draft to placed to in progress to completed or canceled.">
       >
     >
   >

@@ -1,27 +1,28 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-CLUSTER.anatomical_location.v2.0.0
+  CIMI-CORE-PARTICIPATION.subject_of_information.v1.0.0
 
 specialize
-  CIMI-CORE-CLUSTER.material_entity.v1
+  CIMI-CORE-PARTICIPATION.participation.v1.0.0
 
 language
   original_language = <[ISO_639-1::en]>
 
 description
   original_author = <
-    ["name"] = <"Patrick Langford">
-    ["organisation"] = <"Intermountain Healthcare">
-    ["email"] = <"patrick@neuronsong.com">
-    ["date"] = <"10/06/2014">
+    ["name"] = <"Claude Nanjo">
+    ["organisation"] = <"Cognitive Medical Systems">
+    ["email"] = <"cnanjo@cogmedsys.com">
+    ["date"] = <"07/18/2016">
   >
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Archetype for CIMI 'anatomical location' concept">
-      use = <"Use for anatomical location.">
-      keywords = <"anatomical","location">
+      purpose = <"Archetype represents the subject-of-information">
+      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+      keywords = <"subject">
     >
   >
+  other_details = <["model_level"] = <"reference">>
   lifecycle_state = <"unmanaged">
   other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
   custodian_namespace = <"org.opencimi">
@@ -34,12 +35,19 @@ description
   >
 
 definition
-  CLUSTER[id1.1] matches { -- Anatomical location
-    items matches {
-      ELEMENT[id0.1] occurrences matches {0..1} matches { -- Body side
-        value matches {
-          TEXT[id0.2]
-        }
+  PARTICIPATION[id1.1] matches {  -- Subject of information
+    details matches {
+      ELEMENT[id0.1] occurrences matches {1} matches { -- Subject relationship
+        value existence matches {1} matches {[ac0.1]}
+        link existence matches {0}
+        null_flavor existence matches {0}
+      }
+    }
+    type matches {[ac0.2]}
+    link existence matches {0}
+    party matches {
+      PARTY[id0.2] matches {
+        relationship existence matches {0}
       }
     }
   }
@@ -47,19 +55,20 @@ definition
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1"] = <
-        text = <"Anatomical Location">
-      >
-      ["id0.1"] = <
-        text = <"Body side">
-      >
+      ["id1.1"] = <text = <"Subject of information">>
+      ["ac0.1"] = <text = <"Subject relationship">>
+      ["id0.1"] = <text = <"Subject relationship">>
+      ["ac0.2"] = <text = <"Subject information">>
+      ["id0.2"] = <text = <"Party">>
     >
   >
   term_bindings = <
     ["snomed-ct"] = <
-      items = <
-        ["id1.1"] = <http://snomed.info/id/123037004>
-        ["id0.1"] = <http://snomed.info/id/182353008>
-      >
+      ["id1.1"] = <http://snomed.info/id/131195008> -- Subject of information
+      ["id0.1"] = <http://snomed.info/id/408732007> -- Subject relationship
+      ["ac0.1"] = <http://snomed.info/id/_________> -- Subject relationship (CIMI extension)
+      ["ac0.2"] = <http://snomed.info/id/_________> -- Subject information
     >
   >
+
+

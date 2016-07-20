@@ -31,11 +31,11 @@ packages = <
         packages = <
             ["Core"] = <
                 name = <"Core">
-                classes = <"ARCHETYPED", "COMPOSITION", "COMPOSITION_GROUP", "CONTENT", "ENTRY_GROUP", "SECTION", "ENTRY", "CLINICAL_STATEMENT", "ELEMENT", "ITEM", "CLUSTER", "LINK", "LOCATABLE", "PARTICIPATION", "STATEMENT_BODY", "COMPOSITE_STATEMENT_BODY", "INDIVISIBLE_STATEMENT_BODY">
+                classes = <"ARCHETYPED", "ELEMENT", "ITEM", "ITEM_GROUP", "LINK", "LOCATABLE", "PARTICIPATION">
             >
             ["Data_Value_Types"] = <
                 name = <"Data_Value_Types">
-                classes = <"AMOUNT", "CODED_TEXT", "COUNT", "DATA_VALUE", "DATE", "DATE_TIME", "DURATION", "EHR_URI", "ENCAPSULATED", "IDENTIFIER", "INTERVAL_VALUE", "MULTIMEDIA", "ORDERED_VALUE", "ORDINAL", "PARSABLE", "PLAIN_TEXT", "PROPORTION", "QUANTIFIED", "QUANTITY", "TERM_MAPPING", "TEXT", "TIME", "URI_VALUE", "YESNO">
+                classes = <"AMOUNT", "CODED_TEXT", "COUNT", "CODED_NAME_VALUE", "DATA_VALUE", "DATE", "DATE_TIME", "DURATION", "EHR_URI", "ENCAPSULATED", "IDENTIFIER", "INTERVAL_VALUE", "MULTIMEDIA", "ORDERED_VALUE", "ORDINAL", "PARSABLE", "PLAIN_TEXT", "PROPORTION", "QUANTIFIED", "QUANTITY", "TERM_MAPPING", "TEXT", "TIME", "URI_VALUE", "YESNO">
             >
             ["Party"] = <
                 name = <"Party">
@@ -77,74 +77,6 @@ class_definitions = <
         >
     >
 
-    ["CONTENT"] = <
-        name = <"CONTENT">
-        ancestors = <"LOCATABLE", ...>
-        is_abstract = <True>
-        properties = <
-            ["details"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"details">
-                type_def = <
-                    container_type = <"List">
-                    type = <"ITEM">
-                >
-                cardinality = <|>=0|>
-                is_mandatory = <False>
-            >
-            ["participation"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"participation">
-                type_def = <
-                    container_type = <"List">
-                    type = <"PARTICIPATION">
-                >
-                cardinality = <|>=0|>
-            >
-        >
-    >
-
-    ["ENTRY_GROUP"] = <
-        name = <"ENTRY_GROUP">
-        ancestors = <"CONTENT", ...>
-        properties = <
-            ["members"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"members">
-                type_def = <
-                    container_type = <"List">
-                    type = <"CONTENT">
-                >
-                cardinality = <|>=0|>
-                is_mandatory = <False>
-            >
-        >
-    >
-
-    ["SECTION"] = <
-        name = <"SECTION">
-        ancestors = <"ENTRY_GROUP", ...>
-    >
-
-    ["ENTRY"] = <
-        name = <"ENTRY">
-        ancestors = <"CONTENT", ...>
-    >
-
-    ["CLINICAL_STATEMENT"] = <
-        name = <"CLINICAL_STATEMENT">
-        ancestors = <"ENTRY", ...>
-        properties = <
-            ["data"] = (P_BMM_SINGLE_PROPERTY) <
-                name = <"body">
-                type = <"STATEMENT_BODY">
-            >
-        >
-    >
-
-    ["ITEM"] = <
-        name = <"ITEM">
-        ancestors = <"LOCATABLE", ...>
-        is_abstract = <True>
-    >
-
     ["ELEMENT"] = <
         name = <"ELEMENT">
         ancestors = <"ITEM", ...>
@@ -160,89 +92,35 @@ class_definitions = <
         >
     >
 
-    ["CLUSTER"] = <
-        name = <"CLUSTER">
+    ["ITEM"] = <
+        name = <"ITEM">
+        ancestors = <"LOCATABLE", ...>
+        is_abstract = <True>
+        properties = <
+        	["processing_directives"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"processing_directives">
+                type_def = <
+                    container_type = <"List">
+                    type = <"CODED_NAME_VALUE">
+                >
+                cardinality = <|>=0|>
+                is_mandatory = <False>
+            >
+        >
+    >
+
+    ["ITEM_GROUP"] = <
+        name = <"ITEM_GROUP">
         ancestors = <"ITEM", ...>
         properties = <
-            ["items"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"items">
+            ["item"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"item">
                 type_def = <
                     container_type = <"List">
                     type = <"ITEM">
                 >
                 cardinality = <|>=1|>
                 is_mandatory = <True>
-            >
-            ["participation"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"participation">
-                type_def = <
-                    container_type = <"List">
-                    type = <"PARTICIPATION">
-                >
-                cardinality = <|>=0|>
-            >
-        >
-    >
-
-    ["STATEMENT_BODY"] = <
-        name = <"STATEMENT_BODY">
-        ancestors = <"CLUSTER", ...>
-        is_abstract = <True>
-    >
-
-    ["INDIVISIBLE_STATEMENT_BODY"] = <
-        name = <"INDIVISIBLE_STATEMENT_BODY">
-        ancestors = <"STATEMENT_BODY", ...>
-    >
-
-    ["COMPOSITE_STATEMENT_BODY"] = <
-        name = <"COMPOSITE_STATEMENT_BODY">
-        ancestors = <"STATEMENT_BODY", ...>
-    >
-
-    ["COMPOSITION"] = <
-        name = <"COMPOSITION">
-        ancestors = <"LOCATABLE", ...>
-        properties = <
-            ["content"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"content">
-                type_def = <
-                    container_type = <"List">
-                    type = <"CONTENT">
-                >
-                cardinality = <|>=1|>
-                is_mandatory = <True>
-            >
-            ["participation"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"participation">
-                type_def = <
-                    container_type = <"List">
-                    type = <"PARTICIPATION">
-                >
-                cardinality = <|>=0|>
-            >
-        >
-    >
-
-    ["COMPOSITION_GROUP"] = <
-        name = <"COMPOSITION_GROUP">
-        ancestors = <"LOCATABLE", ...>
-        properties = <
-            ["compositions"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"compositions">
-                type_def = <
-                    container_type = <"List">
-                    type = <"COMPOSITION">
-                >
-                cardinality = <|>=0|>
-            >
-            ["parts"] = (COMPOSITION_GROUP) <
-                name = <"parts">
-                type_def = <
-                    container_type = <"List">
-                    type = <"COMPOSITION_GROUP">
-                >
-                cardinality = <|>=0|>
             >
             ["participation"] = (P_BMM_CONTAINER_PROPERTY) <
                 name = <"participation">
@@ -299,8 +177,8 @@ class_definitions = <
                 type = <"ARCHETYPED">
                 is_im_infrastructure = <True>
             >
-            ["links"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"links">
+            ["link"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"link">
                 type_def = <
                     container_type = <"List">
                     type = <"LINK">
@@ -682,6 +560,23 @@ class_definitions = <
         >
     >
 
+    ["CODED_NAME_VALUE"] = <
+    	name = <"CODED_NAME_VALUE">
+        ancestors = <"DATA_VALUE", ...>
+        properties = <
+        	["name"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"name">
+                type = <"CODED_TEXT">
+                is_mandatory = <True>
+            >
+            ["value"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"value">
+                type = <"DATA_VALUE">
+                is_mandatory = <True>
+            >
+        >
+    >
+
     ["TIME"] = <
         name = <"TIME">
         ancestors = <"DATE_TIME", ...>
@@ -725,8 +620,8 @@ class_definitions = <
                 type = <"CODED_TEXT">
                 is_mandatory = <True>
             >
-            ["roles"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"roles">
+            ["role"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"role">
                 type_def = <
                     container_type = <"List">
                     type = <"ROLE">
@@ -749,8 +644,8 @@ class_definitions = <
                 >
                 cardinality = <|>=0|>
             >
-            ["relationships"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"relationships">
+            ["relationship"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"relationship">
                 type_def = <
                     container_type = <"List">
                     type = <"PARTY_RELATIONSHIP">

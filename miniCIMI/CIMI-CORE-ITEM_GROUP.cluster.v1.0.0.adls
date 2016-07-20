@@ -33,9 +33,31 @@ description
 
 definition
   ITEM_GROUP[id1] matches {  -- Cluster
-    item matches {
-      ELEMENT[id2] occurrences matches {0..*}   -- Element
-      use_archetype ITEM_GROUP[id3, CIMI-CORE-ITEM_GROUP.cluster.v1] occurrences matches {0..*} 
+    processing_directives matches {
+      CODED_NAME_VALUE[id500] matches { -- kind
+        name matches {
+          CODED_TEXT[id501] matches {
+            terminology_id matches {"http://cimi.org/terminology"}
+            code matches {"101"}
+            terminology_version matches {"v1.0.0"}
+            term matches {"container_kind"}
+          }
+        }
+        value matches { -- Disjunct: either cluster or inline_cluster
+          CODED_TEXT[id502] matches {
+            terminology_id matches {"http://cimi.org/terminology"}
+            code matches {"2"}
+            terminology_version matches {"v1.0.0"}
+            term matches {"cluster"}
+          }
+          CODED_TEXT[id503] matches {
+            terminology_id matches {"http://cimi.org/terminology"}
+            code matches {"3"}
+            terminology_version matches {"v1.0.0"}
+            term matches {"virtual_cluster"}
+          }
+        }
+      }
     }
   }
 
@@ -45,11 +67,8 @@ terminology
       ["id1"] = <
         text = <"Cluster">
       >
-      ["id2"] = <
-        text = <"Element">
-      >
-      ["id3"] = <
-        text = <"Cluster">
+      ["id500"] = <
+        text = <"Kind">
       >
     >
   >

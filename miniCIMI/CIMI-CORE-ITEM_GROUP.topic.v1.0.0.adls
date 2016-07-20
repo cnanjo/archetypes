@@ -36,9 +36,14 @@ description
 
 definition
 	ITEM_GROUP[id1.1] matches {	-- Topic
-		/item matches {
-			use_archetype ITEM_GROUP[id3, CIMI-CORE-ITEM_GROUP.cluster.v1] occurrences matches {0..*} 
-		}
+		processing_directives matches {
+      CODED_NAME_VALUE[id500.1] matches { -- kind
+        value matches { -- Here we fix it to be only virtual_cluster
+          CODED_TEXT[id502] occurrences matches {0}
+          CODED_TEXT[id503] occurrences matches {1}
+        }
+      }
+    }
 	}
 
 terminology
@@ -48,5 +53,9 @@ terminology
 				text = <"Topic">
 				description = <"Topic of clinical statement">
 			>
+      ["id500.1"] = <
+        text = <"Kind">
+        description = <"Processing directive instructing a compiler that the ITEM_GROUP is a virtual_cluster, meaning that it may be inlined by processing tools and need not retain is cluster structure in the derived artifact.">
+      >
 		>
 	>
