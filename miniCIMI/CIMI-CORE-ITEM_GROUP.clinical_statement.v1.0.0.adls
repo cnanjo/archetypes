@@ -33,7 +33,7 @@ description
 
 definition
   ITEM_GROUP[id1] matches {  -- Clinical Statement
-    processing_directives matches {
+    metadata matches {
       CODED_NAME_VALUE[id500] matches { -- kind
         name matches {
           CODED_TEXT[id501] matches {

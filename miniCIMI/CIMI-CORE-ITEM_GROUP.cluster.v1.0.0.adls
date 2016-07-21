@@ -33,7 +33,7 @@ description
 
 definition
   ITEM_GROUP[id1] matches {  -- Cluster
-    processing_directives matches {
+    metadata matches { -- metadata
       CODED_NAME_VALUE[id500] matches { -- kind
         name matches {
           CODED_TEXT[id501] matches {
@@ -43,7 +43,7 @@ definition
             term matches {"container_kind"}
           }
         }
-        value matches { -- Disjunct: either cluster or inline_cluster
+        value matches { -- Disjunct: either cluster or virtual_cluster
           CODED_TEXT[id502] matches {
             terminology_id matches {"http://cimi.org/terminology"}
             code matches {"2"}

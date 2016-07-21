@@ -36,7 +36,7 @@ description
 
 definition
   ITEM_GROUP[id1.1] matches { -- Clinical record
-    processing_directives matches {
+    metadata matches {
       CODED_NAME_VALUE[id500.1] matches { -- kind
         value matches { -- Here we fix it to be only composition
           CODED_TEXT[id502] occurrences matches {1}

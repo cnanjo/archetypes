@@ -36,15 +36,6 @@ description
 
 definition
   ITEM_GROUP[id1.1.1] matches { -- Author action
-
-    processing_directives matches {
-      CODED_NAME_VALUE[id500.1.1] matches { -- kind
-        value matches { -- This should generate an error
-          CODED_TEXT[id502]
-        }
-      }
-    }
-
     item matches {
       ELEMENT[id0.3.1] -- Author datetime
       ELEMENT[id0.4.1] -- Author datetime range
