@@ -1,8 +1,8 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-ITEM_GROUP.procedure_proposal.v1.0.0
+  CIMI-CORE-ITEM_GROUP.laboratory_procedure_proposal.v1.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.request.v2
+  CIMI-CORE-ITEM_GROUP.procedure_proposal.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -34,27 +34,22 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1.1.1] matches { -- Procedure Proposal
+  ITEM_GROUP[id1.1.1.1.1.1] matches { -- Procedure Proposal
     item matches {
-      use_archetype ITEM_GROUP[id11.0.0.0.1, CIMI-CORE-ITEM_GROUP.procedure.v1] occurrences matches {0..1} -- Topic
-      use_archetype ITEM_GROUP[id12.0.0.0.2, CIMI-CORE-ITEM_GROUP.proposal.v1] occurrences matches {0..1} -- Modality
+      use_archetype ITEM_GROUP[id11.0.0.0.1.1, CIMI-CORE-ITEM_GROUP.laboratory_procedure.v1] occurrences matches {0..1} -- Topic
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1.1"] = <
-        text = <"Procedure proposal">
-        description = <"A proposal for a clinical procedure.">
+      ["id1.1.1.1.1.1"] = <
+        text = <"Laboratory procedure proposal">
+        description = <"A proposal for a laboratory procedure requiring the collection of a specimen.">
       >
-      ["id11.0.0.0.1"] = <
-        text = <"Procedure">
-        description = <"The procedure described in this statement.">
-      >
-      ["id12.0.0.0.2"] = <
-        text = <"Proposal">
-        description = <"The proposal mode axis for this statement.">
+      ["id11.0.0.0.1.1"] = <
+        text = <"Laboratory procedure">
+        description = <"The laboratory procedure described in this statement.">
       >
     >
   >

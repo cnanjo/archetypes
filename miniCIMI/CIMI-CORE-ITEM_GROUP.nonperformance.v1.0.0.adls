@@ -1,8 +1,8 @@
-archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-ITEM_GROUP.procedure_proposal.v1.0.0
+archetype (adl_version=2.0.6; rm_release=2.0.2)
+  CIMI-CORE-ITEM_GROUP.nonperformance.v1.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.request.v2
+  CIMI-CORE-ITEM_GROUP.action_mode.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -17,11 +17,12 @@ description
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Archetype for CIMI 'procedure proposal'">
-      use = <"Use to represent a proposal for a procedure such as one offered as clinical guidance by a CDS system.">
-      keywords = <"procedure","proposal">
+      purpose = <"Top-level reference archetype for CIMI 'clinical statement' concept">
+      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+      keywords = <"statement","modality">
     >
   >
+  other_details = <["model_level"] = <"reference">>
   lifecycle_state = <"unmanaged">
   other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
   custodian_namespace = <"org.opencimi">
@@ -34,34 +35,22 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1.1.1] matches { -- Procedure Proposal
+  ITEM_GROUP[id1.1.1.1] matches { -- Non Performance
     item matches {
-      use_archetype ITEM_GROUP[id11.0.0.0.1, CIMI-CORE-ITEM_GROUP.procedure.v1] occurrences matches {0..1} -- Topic
-      use_archetype ITEM_GROUP[id12.0.0.0.2, CIMI-CORE-ITEM_GROUP.proposal.v1] occurrences matches {0..1} -- Modality
+      use_archetype ITEM_GROUP[id0.0.1.1, CIMI-CORE-ITEM_GROUP.justification.v1] occurrences matches {0..*}
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1.1"] = <
-        text = <"Procedure proposal">
-        description = <"A proposal for a clinical procedure.">
+      ["id1.1.1.1"] = <
+        text = <"Non performance">
+        description = <"An offer or a suggestion to perform a healthcare act. A recommendation to a provider is an example of proposal made by a CDS system. A proposal must be accepted by an entity in order for it to be performed.">
       >
-      ["id11.0.0.0.1"] = <
-        text = <"Procedure">
-        description = <"The procedure described in this statement.">
-      >
-      ["id12.0.0.0.2"] = <
-        text = <"Proposal">
-        description = <"The proposal mode axis for this statement.">
-      >
-    >
-  >
-  term_bindings = <
-    ["snomed-ct"] = <
-      items = <
-        ["id1.1.1.1.1"] = <http://snomed.info/id/tbd>
+      ["id0.0.1.1"] = <
+        text = <"Reason not performed">
+        description = <"Justification for not performing the action">
       >
     >
   >

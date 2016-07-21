@@ -41,7 +41,7 @@ definition
       use_archetype ITEM_GROUP [id0.0.0.3, CIMI-CORE-ITEM_GROUP.laboratory_test_request_summary.v2] -- Laboratory test request summary
     }
     link matches {
-      LINK[id0.1] occurrences matches {0..*} -- Patient encounter
+      LINK[id0.0.0.1] occurrences matches {0..*} -- Patient encounter
     }
   }
 

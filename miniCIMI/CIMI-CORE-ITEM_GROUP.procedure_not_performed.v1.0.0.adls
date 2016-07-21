@@ -1,8 +1,8 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-ITEM_GROUP.procedure_proposal.v1.0.0
+  CIMI-CORE-ITEM_GROUP.procedure_not_performed.v1.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.request.v2
+  CIMI-CORE-ITEM_GROUP.clinical_activity.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -34,34 +34,34 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1.1.1] matches { -- Procedure Proposal
+  ITEM_GROUP[id1.1.1.1] matches { -- Procedure Proposal
     item matches {
-      use_archetype ITEM_GROUP[id11.0.0.0.1, CIMI-CORE-ITEM_GROUP.procedure.v1] occurrences matches {0..1} -- Topic
-      use_archetype ITEM_GROUP[id12.0.0.0.2, CIMI-CORE-ITEM_GROUP.proposal.v1] occurrences matches {0..1} -- Modality
+      use_archetype ITEM_GROUP[id11.0.0.1, CIMI-CORE-ITEM_GROUP.procedure.v1] occurrences matches {0..1} -- Topic
+      use_archetype ITEM_GROUP[id12.0.0.2, CIMI-CORE-ITEM_GROUP.nonperformance.v1] occurrences matches {0..1} -- Modality
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1.1"] = <
-        text = <"Procedure proposal">
-        description = <"A proposal for a clinical procedure.">
+      ["id1.1.1.1"] = <
+        text = <"Procedure not performed">
+        description = <"A statement indicating a clinical procedure was not performed.">
       >
-      ["id11.0.0.0.1"] = <
+      ["id11.0.0.1"] = <
         text = <"Procedure">
         description = <"The procedure described in this statement.">
       >
-      ["id12.0.0.0.2"] = <
-        text = <"Proposal">
-        description = <"The proposal mode axis for this statement.">
+      ["id12.0.0.2"] = <
+        text = <"Non-performance">
+        description = <"The non-performance mode axis for this statement indicating that this statement is about an action (procedure) that was not performed.">
       >
     >
   >
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id1.1.1.1.1"] = <http://snomed.info/id/tbd>
+        ["id1.1.1.1"] = <http://snomed.info/id/tbd>
       >
     >
   >
