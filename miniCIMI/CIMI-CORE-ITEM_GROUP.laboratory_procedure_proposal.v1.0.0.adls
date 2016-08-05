@@ -34,20 +34,20 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1.1.1.1] matches { -- Procedure Proposal
+  ITEM_GROUP[id1.1.1.1.1.1.1.1.1] matches { -- Procedure Proposal
     item matches {
-      use_archetype ITEM_GROUP[id11.0.0.0.1.1, CIMI-CORE-ITEM_GROUP.laboratory_procedure.v1] occurrences matches {0..1} -- Topic
+      use_archetype ITEM_GROUP[id0.0.0.11.0.0.0.1.1, CIMI-CORE-ITEM_GROUP.laboratory_procedure.v1] occurrences matches {0..1} -- Topic
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1.1.1"] = <
+      ["id1.1.1.1.1.1.1.1.1"] = <
         text = <"Laboratory procedure proposal">
         description = <"A proposal for a laboratory procedure requiring the collection of a specimen.">
       >
-      ["id11.0.0.0.1.1"] = <
+      ["id0.0.0.11.0.0.0.1.1"] = <
         text = <"Laboratory procedure">
         description = <"The laboratory procedure described in this statement.">
       >
@@ -56,7 +56,7 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id1.1.1.1.1"] = <http://snomed.info/id/tbd>
+        ["id1.1.1.1.1.1.1.1"] = <http://snomed.info/id/tbd>
       >
     >
   >

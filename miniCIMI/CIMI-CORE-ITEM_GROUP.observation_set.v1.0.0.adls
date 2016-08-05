@@ -34,87 +34,81 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1] matches {  -- Observation set
+  ITEM_GROUP[id1.1.1.1.1.1] matches {  -- Observation set
     item matches {
-      ELEMENT[id5.0.1] matches { -- Identifier
-        value matches {
-          IDENTIFIER[id0.0.101]
-        }
-      }
-      ELEMENT[id5.0.2] occurrences matches {1} matches { -- Code
+      ELEMENT[id0.0.0.0.0.1] occurrences matches {1} matches { -- Code
         value existence matches {1} matches {
-          CODED_TEXT[id0.0.102]
+          CODED_TEXT[id0.0.0.0.0.102]
         }
         null_flavor existence matches {0}
       }
-      ELEMENT[id5.0.3] matches { -- Reason
+      ELEMENT[id0.0.0.0.0.2] matches { -- Reason
         value matches {
-          TEXT[id0.0.103]
+          TEXT[id0.0.0.0.0.103]
         }
       }
-      ELEMENT[id5.0.4] matches { -- Method
+      ELEMENT[id0.0.0.0.0.3] matches { -- Method
         value matches {
-          TEXT[id0.0.104]
+          TEXT[id0.0.0.0.0.104]
         }
       }
-      ELEMENT[id5.0.5] occurrences matches {0..1}matches { -- Status
+      ELEMENT[id0.0.0.0.0.4] occurrences matches {0..1}matches { -- Status
         value matches {
-          TEXT[id0.0.105]
+          TEXT[id0.0.0.0.0.105]
         }
       }
-      ELEMENT[id5.0.6] occurrences matches {0..1} matches { -- Priority
+      ELEMENT[id0.0.0.0.0.5] occurrences matches {0..1} matches { -- Priority
         value matches {
-          TEXT[id0.0.106]
+          TEXT[id0.0.0.0.0.106]
         }
       }
-      use_archetype ITEM_GROUP[id0.1.1, CIMI-CORE-ITEM_GROUP.observation_result.v1] -- Observation
-      use_archetype ITEM_GROUP[id0.1.2, CIMI-CORE-ITEM_GROUP.observation_set.v1] -- Observation set
-      ELEMENT[id5.0.7] occurrences matches {0..1} matches { -- Interpretation category
+      use_archetype ITEM_GROUP[id0.0.0.0.1.1, CIMI-CORE-ITEM_GROUP.observation_result.v1] -- Observation
+      use_archetype ITEM_GROUP[id0.0.0.0.1.2, CIMI-CORE-ITEM_GROUP.observation_set.v1] -- Observation set
+      ELEMENT[id0.0.0.0.0.8] occurrences matches {0..1} matches { -- Interpretation category
         value matches {
-          TEXT[id0.0.107]
+          TEXT[id0.0.0.0.0.107]
         }
       }
-      ELEMENT[id5.0.8] occurrences matches {0..1} matches { -- Sequence
+      ELEMENT[id0.0.0.0.0.9] occurrences matches {0..1} matches { -- Sequence
         value matches {
-          TEXT[id0.0.108]
+          TEXT[id0.0.0.0.0.108]
         }
       }
-      ELEMENT[id5.0.9] matches { -- Comment
+      ELEMENT[id0.0.0.0.0.10] matches { -- Comment
         value matches {
-          TEXT[id0.0.109]
+          TEXT[id0.0.0.0.0.109]
         }
       }
-      use_archetype ITEM_GROUP [id4.0.1, CIMI-CORE-ITEM_GROUP.observation_action_set.v1] -- Action set
-      use_archetype ITEM_GROUP [id0.1, CIMI-CORE-ITEM_GROUP.clinical_statement.v1] occurrences matches {0} -- Clinical statement
+      use_archetype ITEM_GROUP [id0.0.0.0.0.11, CIMI-CORE-ITEM_GROUP.observation_action_set.v1] -- Action set
+      use_archetype ITEM_GROUP [id0.0.0.0.1, CIMI-CORE-ITEM_GROUP.clinical_statement.v1] occurrences matches {0} -- Clinical statement
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1"] = < text = <"Observation set"> >
-      ["id5.0.1"] = < text = <"Identifier"> >
-      ["id5.0.2"] = < text = <"Code"> >
-      ["id5.0.3"] = < text = <"Reason"> >
-      ["id5.0.4"] = < text = <"Method"> >
-      ["id5.0.5"] = < text = <"Status"> >
-      ["id5.0.6"] = < text = <"Priority"> >
-      ["id5.0.7"] = < text = <"Interpretation category"> >
-      ["id5.0.8"] = < text = <"Sequence"> >
-      ["id5.0.9"] = < text = <"Comment"> >
-      ["id4.0.1"] = < text = <"Action set"> >
-      ["id0.1.1"] = < text = <"Observation"> >
-      ["id0.1.2"] = < text = <"Observation set"> >
+      ["id1.1.1.1.1.1"] = < text = <"Observation set"> >
+      ["id0.0.0.0.0.1"] = < text = <"Code"> >
+      ["id0.0.0.0.0.2"] = < text = <"Reason"> >
+      ["id0.0.0.0.0.3"] = < text = <"Method"> >
+      ["id0.0.0.0.0.4"] = < text = <"Status"> >
+      ["id0.0.0.0.0.5"] = < text = <"Priority"> >
+      ["id0.0.0.0.1.1"] = < text = <"Observation"> >
+      ["id0.0.0.0.1.2"] = < text = <"Observation set"> >
+      ["id0.0.0.0.0.8"] = < text = <"Interpretation category"> >
+      ["id0.0.0.0.0.9"] = < text = <"Sequence"> >
+      ["id0.0.0.0.0.10"] = < text = <"Comment"> >
+      ["id0.0.0.0.0.11"] = < text = <"Action set"> >
     >
   >
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id5.0.3"] = <http://snomed.info/id/363702006> -- Has focus
-        ["id5.0.4"] = <http://snomed.info/id/246501002> -- Method
-        ["id5.0.5"] = <http://snomed.info/id/408730004> -- Procedure context
-        ["id5.0.6"] = <http://snomed.info/id/260870009> -- Priority
-        ["id5.0.7"] = <http://snomed.info/id/363713009> -- Has interpretation
+        ["id0.0.0.0.0.2"] = <http://snomed.info/id/363702006> -- Has focus
+        ["id0.0.0.0.0.3"] = <http://snomed.info/id/246501002> -- Method
+        ["id0.0.0.0.0.4"] = <http://snomed.info/id/408730004> -- Procedure context
+        ["id0.0.0.0.0.5"] = <http://snomed.info/id/260870009> -- Priority
+        ["id0.0.0.0.0.8"] = <http://snomed.info/id/363713009> -- Has interpretation
       >
     >
   >

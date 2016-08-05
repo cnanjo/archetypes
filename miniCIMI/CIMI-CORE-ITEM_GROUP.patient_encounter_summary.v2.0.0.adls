@@ -34,12 +34,12 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1.1] -- Patient encounter summary
+  ITEM_GROUP[id1.1.1.1.1.1.1] -- Patient encounter summary
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1"] = <
+      ["id1.1.1.1.1.1.1"] = <
         text = <"Patient encounter summary">
       >
     >
@@ -47,7 +47,7 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id1.1.1.1"] = <http://snomed.info/id/308335008>
+        ["id1.1.1.1.1.1.1"] = <http://snomed.info/id/308335008>
       >
     >
   >

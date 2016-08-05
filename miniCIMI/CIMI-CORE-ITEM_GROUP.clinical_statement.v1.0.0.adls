@@ -1,6 +1,9 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
   CIMI-CORE-ITEM_GROUP.clinical_statement.v1.0.0
 
+specialize
+  CIMI-CORE-ITEM_GROUP.entry.v1
+
 language
   original_language = <[ISO_639-1::en]>
 
@@ -32,70 +35,53 @@ description
   >
 
 definition
-  ITEM_GROUP[id1] matches {  -- Clinical Statement
+  ITEM_GROUP[id1.1.1.1] matches {  -- Clinical Statement
     metadata matches {
-      CODED_NAME_VALUE[id500] matches { -- kind
-        name matches {
-          CODED_TEXT[id501] matches {
-            terminology_id matches {"http://cimi.org/terminology"}
-            code matches {"101"}
-            terminology_version matches {"v1.0.0"}
-            term matches {"container_kind"}
-          }
-        }
-        value matches { -- Disjunct: either cluster or inline_cluster
-          CODED_TEXT[id502] matches {
-            terminology_id matches {"http://cimi.org/terminology"}
-            code matches {"1"}
-            terminology_version matches {"v1.0.0"}
-            term matches {"statement"}
-          }
+      CODED_NAME_VALUE[id500.1.1.1] matches { -- kind
+        value matches {
+          CODED_TEXT[id506] occurrences matches {0}
         }
       }
     }
     item matches {
-      use_archetype ITEM_GROUP[id4, CIMI-CORE-ITEM_GROUP.cluster.v1] occurrences matches {0..*}
-      use_archetype ITEM_GROUP[id10, CIMI-CORE-ITEM_GROUP.author_action.v1] occurrences matches {0..1} -- Author
-      use_archetype ITEM_GROUP[id11, CIMI-CORE-ITEM_GROUP.topic.v1] occurrences matches {0..1} -- Topic
-      use_archetype ITEM_GROUP[id12, CIMI-CORE-ITEM_GROUP.statement_mode.v1] occurrences matches {0..1} -- Mode
-      ELEMENT[id15] occurrences matches {0..*} matches { -- Identifier
+      use_archetype ITEM_GROUP[id0.0.0.10, CIMI-CORE-ITEM_GROUP.author_action.v1] occurrences matches {0..1} -- Author
+      use_archetype ITEM_GROUP[id0.0.0.11, CIMI-CORE-ITEM_GROUP.topic.v1] occurrences matches {0..1} -- Topic
+      use_archetype ITEM_GROUP[id0.0.0.12, CIMI-CORE-ITEM_GROUP.statement_mode.v1] occurrences matches {0..1} -- Mode
+      ELEMENT[id0.0.0.15] occurrences matches {0..*} matches { -- Identifier
         value matches {
           IDENTIFIER[id200]
         }
       }
-      ELEMENT[id40] occurrences matches {0..*} matches { -- Additional text
+      ELEMENT[id0.0.0.40] occurrences matches {0..*} matches { -- Additional text
         value matches {
           PLAIN_TEXT[id215]
         }
       }
-      ELEMENT[id5] occurrences matches {0..*}   -- Element
     }
 
     participation matches {
-      use_archetype PARTICIPATION[id2, CIMI-CORE-PARTICIPATION.subject_of_information.v1] occurrences matches {1} -- Subject of information
+      use_archetype PARTICIPATION[id0.0.0.2, CIMI-CORE-PARTICIPATION.subject_of_information.v1] occurrences matches {1} -- Subject of information
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1"] = <text = <"Clinical Statement">>
-      ["id2"] = <text = <"Subject of information">>
-      ["id4"] = <text = <"Cluster">>
-      ["id5"] = <text = <"Element">>
-      ["id10"] = <text = <"Author">>
-      ["id11"] = <text = <"Topic">>
-      ["id12"] = <text = <"Modality">>
-      ["id15"] = <text = <"Identifier">>
-      ["id40"] = <text = <"AdditionalText">>
-      ["id500"] = <
+      ["id1.1.1.1"] = <text = <"Clinical Statement">>
+      ["id0.0.0.2"] = <text = <"Subject of information">>
+      ["id0.0.0.10"] = <text = <"Author">>
+      ["id0.0.0.11"] = <text = <"Topic">>
+      ["id0.0.0.12"] = <text = <"Modality">>
+      ["id0.0.0.15"] = <text = <"Identifier">>
+      ["id0.0.0.40"] = <text = <"AdditionalText">>
+      ["id500.1.1.1"] = <
         text = <"Kind">
       >
     >
   >
   term_bindings = <
     ["snomed-ct"] = <
-      ["id2"] = <http://snomed.info/id/131195008> -- Subject of information
+      ["id0.0.0.2"] = <http://snomed.info/id/131195008> -- Subject of information
     >
   >
 

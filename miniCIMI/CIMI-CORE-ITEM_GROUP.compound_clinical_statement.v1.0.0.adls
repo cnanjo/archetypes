@@ -35,19 +35,19 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1] matches {  -- Compound clinical statement
+  ITEM_GROUP[id1.1.1.1.1] matches {  -- Compound clinical statement
     item matches {
-      use_archetype ITEM_GROUP[id0.1, CIMI-CORE-ITEM_GROUP.clinical_statement.v1] occurrences matches {0..*}
+      use_archetype ITEM_GROUP[id0.0.0.0.1, CIMI-CORE-ITEM_GROUP.clinical_statement.v1] occurrences matches {0..*}
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1"] = <
+      ["id1.1.1.1.1"] = <
         text = <"Compound clinical statement">
       >
-      ["id0.1"] = <
+      ["id0.0.0.0.1"] = <
         text = <"Clinical statement">
       >
     >

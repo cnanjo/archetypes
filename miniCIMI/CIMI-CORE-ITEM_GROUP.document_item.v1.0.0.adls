@@ -1,22 +1,22 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-ITEM_GROUP.composition.v1.0.0
+  CIMI-CORE-ITEM_GROUP.document_item.v1.0.0
 
 language
   original_language = <[ISO_639-1::en]>
 
 description
   original_author = <
-    ["name"] = <"Patrick Langford">
-    ["organisation"] = <"Intermountain Healthcare">
-    ["email"] = <"patrick@neuronsong.com">
-    ["date"] = <"10/06/2014">
+    ["name"] = <"Claude Nanjo">
+    ["organisation"] = <"Cognitive Medical Systems">
+    ["email"] = <"cnanjo@cognitivemedicine.com">
+    ["date"] = <"08/03/2016">
   >
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Top-level reference archetype for CIMI 'clinical statement' concept">
+      purpose = <"Top-level reference archetype for CIMI document content. Content may either be a section, a grouping of content entries (e.g., a grouping of clinical statements) or an atomic entry (e.g., an individual clinical statement)">
       use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"clinical","statement">
+      keywords = <"document","content">
     >
   >
   other_details = <["model_level"] = <"reference">>
@@ -32,37 +32,57 @@ description
   >
 
 definition
-  ITEM_GROUP[id1] matches {  -- Composition
+  ITEM_GROUP[id1] matches {  -- Document Item
     metadata matches {
       CODED_NAME_VALUE[id500] matches { -- kind
         name matches {
           CODED_TEXT[id501] matches {
-            terminology_id matches {"http://cimi.org/terminology"}
-            code matches {"101"}
+            terminology_id matches {"http://cimi.org/valueset/metadata"}
+            code matches {"1"}
             terminology_version matches {"v1.0.0"}
             term matches {"container_kind"}
           }
         }
-        value matches { -- Disjunct: either composition or statement_group
+        value matches { -- Disjunct: one of the following parent container patterns
           CODED_TEXT[id502] matches {
-            terminology_id matches {"http://cimi.org/terminology"}
+            terminology_id matches {"http://cimi.org/valueset/container_kind"}
+            code matches {"3"}
+            terminology_version matches {"v1.0.0"}
+            term matches {"section"}
+          }
+          CODED_TEXT[id503] matches {
+            terminology_id matches {"http://cimi.org/valueset/container_kind"}
+            code matches {"4"}
+            terminology_version matches {"v1.0.0"}
+            term matches {"statement_group"}
+          }
+          CODED_TEXT[id504] matches {
+            terminology_id matches {"http://cimi.org/valueset/container_kind"}
             code matches {"5"}
             terminology_version matches {"v1.0.0"}
-            term matches {"composition"}
+            term matches {"statement"}
+          }
+          CODED_TEXT[id505] matches {
+            terminology_id matches {"http://cimi.org/valueset/container_kind"}
+            code matches {"6"}
+            terminology_version matches {"v1.0.0"}
+            term matches {"knowledge_definition_group"}
+          }
+          CODED_TEXT[id506] matches {
+            terminology_id matches {"http://cimi.org/valueset/container_kind"}
+            code matches {"7"}
+            terminology_version matches {"v1.0.0"}
+            term matches {"knowledge_definition"}
           }
         }
       }
-    }
-    item matches {
-      use_archetype ITEM_GROUP[id2, CIMI-CORE-ITEM_GROUP.document_item.v1] occurrences matches {0..*} -- Document Components
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1"] = <text = <"Composition">>
-      ["id2"] = <text = <"Document Components">>
+      ["id1"] = <text = <"Document Item">>
       ["id500"] = <text = <"Kind">>
     >
   >

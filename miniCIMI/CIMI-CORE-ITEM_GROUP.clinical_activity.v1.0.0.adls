@@ -34,19 +34,19 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1] matches { -- Clinical activity
+  ITEM_GROUP[id1.1.1.1.1.1] matches { -- Clinical activity
     participation matches {
-      use_archetype PARTICIPATION[id2.0.1, CIMI-CORE-PARTICIPATION.subject_of_information.v1] -- Information subject
+      use_archetype PARTICIPATION[id0.0.0.2.0.1, CIMI-CORE-PARTICIPATION.subject_of_information.v1] -- Subject of information
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1"] = <
+      ["id1.1.1.1.1.1"] = <
         text = <"Clinical activity">
       >
-      ["id2.0.1"] = <
+      ["id0.0.0.2.0.1"] = <
         text = <"Information subject">
       >
     >
@@ -54,8 +54,8 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id1.1.1"] = <http://snomed.info/id/71388002>
-        ["id2.0.1"] = <http://snomed.info/id/125676002>
+        ["id1.1.1.1.1.1"] = <http://snomed.info/id/71388002>
+        ["id0.0.0.2.0.1"] = <http://snomed.info/id/125676002>
       >
     >
   >

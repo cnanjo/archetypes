@@ -34,11 +34,11 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1.1.1] matches { -- Laboratory test narrative
+  ITEM_GROUP[id1.1.1.1.1.1.1.1] matches { -- Laboratory test narrative
     item matches {
-      ELEMENT[id5.0.8.0.1] occurrences matches {1} matches { -- Result value
+      ELEMENT[id0.0.0.0.0.7.0.1] occurrences matches {1} matches { -- Result value
         value matches {
-          CODED_TEXT[id0.0.0.0.1]
+          CODED_TEXT[id0.0.0.0.0.0.0.1]
         }
         null_flavor existence matches {0}
       }
@@ -48,13 +48,13 @@ definition
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1.1"] = < text = <"Laboratory test narrative"> >
-      ["id5.0.8.0.1"] = < text = <"Result value"> >
-      ["id0.0.0.0.1"] = < text = <"Narrative"> >
+      ["id1.1.1.1.1.1.1.1"] = < text = <"Laboratory test narrative"> >
+      ["id0.0.0.0.0.7.0.1"] = < text = <"Result value"> >
+      ["id0.0.0.0.0.0.0.1"] = < text = <"Narrative"> >
     >
   >
   term_bindings = <
     ["snomed-ct"] = <
-      items = < ["id0.0.0.0.1"] = <http://snomed.info/id/________> >
+      items = < ["id0.0.0.0.0.0.0.1"] = <http://snomed.info/id/________> >
     >
   >

@@ -35,12 +35,12 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1]  -- Indivisible clinical statement
+  ITEM_GROUP[id1.1.1.1.1]  -- Indivisible clinical statement
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1"] = <
+      ["id1.1.1.1.1"] = <
         text = <"Indivisible clinical statement">
       >
     >

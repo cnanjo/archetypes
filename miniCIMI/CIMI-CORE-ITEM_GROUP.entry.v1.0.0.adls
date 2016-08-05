@@ -1,8 +1,8 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-ITEM_GROUP.procedure_not_performed.v1.0.0
+  CIMI-CORE-ITEM_GROUP.entry.v1.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.clinical_activity.v1
+  CIMI-CORE-ITEM_GROUP.content.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -11,17 +11,18 @@ description
   original_author = <
     ["name"] = <"Claude Nanjo">
     ["organisation"] = <"Cognitive Medical Systems">
-    ["email"] = <"cnanjo@gmail.com">
-    ["date"] = <"06/15/2016">
+    ["email"] = <"cnanjo@cognitivemedicine.com">
+    ["date"] = <"08/03/2016">
   >
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Archetype for CIMI 'procedure proposal'">
-      use = <"Use to represent a proposal for a procedure such as one offered as clinical guidance by a CDS system.">
-      keywords = <"procedure","proposal">
+      purpose = <"Top-level reference archetype for CIMI 'clinical statement' concept">
+      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+      keywords = <"document","entry">
     >
   >
+  other_details = <["model_level"] = <"reference">>
   lifecycle_state = <"unmanaged">
   other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
   custodian_namespace = <"org.opencimi">
@@ -34,34 +35,23 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1.1.1.1.1] matches { -- Procedure not performed
-    item matches {
-      use_archetype ITEM_GROUP[id0.0.0.11.0.0.1, CIMI-CORE-ITEM_GROUP.procedure.v1] occurrences matches {0..1} -- Topic
-      use_archetype ITEM_GROUP[id0.0.0.12.0.0.2, CIMI-CORE-ITEM_GROUP.nonperformance.v1] occurrences matches {0..1} -- Modality
+  ITEM_GROUP[id1.1.1] matches {  -- Entry
+    metadata matches {
+      CODED_NAME_VALUE[id500.1.1] matches { -- kind
+        value matches {
+          CODED_TEXT[id503] occurrences matches {0}
+          CODED_TEXT[id505] occurrences matches {0}
+        }
+      }
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1.1.1.1"] = <
-        text = <"Procedure not performed">
-        description = <"A statement indicating a clinical procedure was not performed.">
-      >
-      ["id0.0.0.11.0.0.1"] = <
-        text = <"Procedure">
-        description = <"The procedure described in this statement.">
-      >
-      ["id0.0.0.12.0.0.2"] = <
-        text = <"Non-performance">
-        description = <"The non-performance mode axis for this statement indicating that this statement is about an action (procedure) that was not performed.">
-      >
+      ["id1.1.1"] = <text = <"Entry">>
+      ["id500.1.1"] = <text = <"Kind">>
     >
   >
-  term_bindings = <
-    ["snomed-ct"] = <
-      items = <
-        ["id1.1.1.1.1.1.1"] = <http://snomed.info/id/tbd>
-      >
-    >
-  >
+
+

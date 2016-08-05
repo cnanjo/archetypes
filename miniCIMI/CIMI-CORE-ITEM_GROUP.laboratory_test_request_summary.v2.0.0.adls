@@ -34,26 +34,26 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1.1.1.1] matches { -- Laboratory test request summary
+  ITEM_GROUP[id1.1.1.1.1.1.1.1.1] matches { -- Laboratory test request summary
     item matches {
-      use_archetype ITEM_GROUP [id0.0.0.1.1.1, CIMI-CORE-ITEM_GROUP.laboratory_test_request_action.v1] -- Request action
-      -- use_archetype ITEM_GROUP [id0.0.0.2.1.1, CIMI-CORE-ITEM_GROUP.laboratory_test_observable.v1] -- Test requested
+      use_archetype ITEM_GROUP [id0.0.0.0.0.0.1.1.1, CIMI-CORE-ITEM_GROUP.laboratory_test_request_action.v1] -- Request action
+      -- use_archetype ITEM_GROUP [id0.0.0.0.0.0.2.1.1, CIMI-CORE-ITEM_GROUP.laboratory_test_observable.v1] -- Test requested
     }
     link matches {
-      LINK[id0.0.0.3.1.1] -- Requested laboratory test link
+      LINK[id0.0.0.0.0.0.3.1.1] -- Requested laboratory test link
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1.1.1"] = <
+      ["id1.1.1.1.1.1.1.1.1"] = <
         text = <"Laboratory test request summary">
       >
-      ["id0.0.0.3.1.1"] = <
+      ["id0.0.0.0.0.0.3.1.1"] = <
         text = <"Requested laboratory test link">
       >
-      ["id0.0.0.1.1.1"] = <
+      ["id0.0.0.0.0.0.1.1.1"] = <
         text = <"Request action">
       >
     >
@@ -61,8 +61,8 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id1.1.1.1.1.1"] = <http://snomed.info/id/394838008>
-        ["id0.0.0.3.1.1"] = <http://snomed.info/id/364712009>
+        ["id1.1.1.1.1.1.1.1.1"] = <http://snomed.info/id/394838008>
+        ["id0.0.0.0.0.0.3.1.1"] = <http://snomed.info/id/364712009>
       >
     >
   >

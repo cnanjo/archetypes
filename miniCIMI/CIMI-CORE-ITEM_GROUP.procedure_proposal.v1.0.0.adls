@@ -34,25 +34,25 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1.1.1] matches { -- Procedure Proposal
+  ITEM_GROUP[id1.1.1.1.1.1.1.1] matches { -- Procedure proposal
     item matches {
-      use_archetype ITEM_GROUP[id11.0.0.0.1, CIMI-CORE-ITEM_GROUP.procedure.v1] occurrences matches {0..1} -- Topic
-      use_archetype ITEM_GROUP[id12.0.0.0.2, CIMI-CORE-ITEM_GROUP.proposal.v1] occurrences matches {0..1} -- Modality
+      use_archetype ITEM_GROUP[id0.0.0.11.0.0.0.1, CIMI-CORE-ITEM_GROUP.procedure.v1] occurrences matches {0..1} -- Topic
+      use_archetype ITEM_GROUP[id0.0.0.12.0.0.0.2, CIMI-CORE-ITEM_GROUP.proposal.v1] occurrences matches {0..1} -- Modality
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1.1"] = <
+      ["id1.1.1.1.1.1.1.1"] = <
         text = <"Procedure proposal">
         description = <"A proposal for a clinical procedure.">
       >
-      ["id11.0.0.0.1"] = <
+      ["id0.0.0.11.0.0.0.1"] = <
         text = <"Procedure">
         description = <"The procedure described in this statement.">
       >
-      ["id12.0.0.0.2"] = <
+      ["id0.0.0.12.0.0.0.2"] = <
         text = <"Proposal">
         description = <"The proposal mode axis for this statement.">
       >
@@ -61,7 +61,7 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id1.1.1.1.1"] = <http://snomed.info/id/tbd>
+        ["id1.1.1.1.1.1.1.1"] = <http://snomed.info/id/tbd>
       >
     >
   >

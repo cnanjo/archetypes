@@ -34,29 +34,29 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1.1] matches { -- Request
+  ITEM_GROUP[id1.1.1.1.1.1.1] matches { -- Request
     item matches {
-      use_archetype ITEM_GROUP [id0.0.0.1, CIMI-CORE-ITEM_GROUP.request_action.v1] -- Request action
-      ITEM_GROUP[id0.0.0.2] -- Requested item (PROPOSE ELIMINATING AND REPLACING WITH TOPIC IN PARENT CLINICAL STATEMENT)
+      use_archetype ITEM_GROUP [id0.0.0.0.0.0.1, CIMI-CORE-ITEM_GROUP.request_action.v1] -- Request action
+      ITEM_GROUP[id0.0.0.0.0.0.2] -- Requested item (PROPOSE ELIMINATING AND REPLACING WITH TOPIC IN PARENT CLINICAL STATEMENT)
     }
     link matches {
-      LINK[id0.0.0.3] -- Requested item link
+      LINK[id0.0.0.0.0.0.3] -- Requested item link
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1"] = <
+      ["id1.1.1.1.1.1.1"] = <
         text = <"Request">
       >
-      ["id0.0.0.2"] = <
+      ["id0.0.0.0.0.0.2"] = <
         text = <"Requested item">
       >
-      ["id0.0.0.3"] = <
+      ["id0.0.0.0.0.0.3"] = <
         text = <"Requested item link">
       >
-      ["id0.0.0.1"] = <
+      ["id0.0.0.0.0.0.1"] = <
         text = <"Request Action">
       >
     >
@@ -64,8 +64,8 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id1.1.1.1"] = <http://snomed.info/id/308539001>
-        ["id0.0.0.1"] = <http://snomed.info/id/138875005>
+        ["id1.1.1.1.1.1.1"] = <http://snomed.info/id/308539001>
+        ["id0.0.0.0.0.0.1"] = <http://snomed.info/id/138875005>
       >
     >
   >
