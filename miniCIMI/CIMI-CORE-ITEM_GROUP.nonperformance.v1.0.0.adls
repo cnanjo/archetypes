@@ -2,7 +2,7 @@ archetype (adl_version=2.0.6; rm_release=2.0.2)
   CIMI-CORE-ITEM_GROUP.nonperformance.v1.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.action_mode.v1
+  CIMI-CORE-ITEM_GROUP.action_context.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -37,6 +37,9 @@ description
 definition
   ITEM_GROUP[id1.1.1.1] matches { -- Non Performance
     item matches {
+      ELEMENT[id0.1.1.1] matches { -- Action context
+        value matches {[ac0.1.1.1]} -- Not done
+      }
       use_archetype ITEM_GROUP[id0.0.1.1, CIMI-CORE-ITEM_GROUP.justification.v1] occurrences matches {0..*}
     }
   }
@@ -48,9 +51,28 @@ terminology
         text = <"Non performance">
         description = <"An offer or a suggestion to perform a healthcare act. A recommendation to a provider is an example of proposal made by a CDS system. A proposal must be accepted by an entity in order for it to be performed.">
       >
+      ["id0.1.1.1"] = <
+        text = <"Action context">
+        description = <"Context type indicating that context is for an action such as a procedure.">
+      >
       ["id0.0.1.1"] = <
         text = <"Reason not performed">
         description = <"Justification for not performing the action">
       >
+      ["at0.0.0.1"] = <
+        text = <"Not done">
+        description = <"Code indicating that the activity has been performed. ">
+      >
+      ["ac0.1.1.1"] = <
+        text = <"Not done">
+        description = <"Value set containing a single code indicating that the procedure is not done (SCTID: 385660001).">
+      >
     >
   >
+
+  term_bindings = <
+    ["snomed_ct"] = <
+      ["at0.0.0.1"] = <http://snomedct.info/id/385660001>
+    >
+  >
+

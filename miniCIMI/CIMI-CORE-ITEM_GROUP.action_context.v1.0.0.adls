@@ -1,8 +1,8 @@
 archetype (adl_version=2.0.6; rm_release=2.0.2)
-  CIMI-CORE-ITEM_GROUP.action_mode.v1.0.0
+  CIMI-CORE-ITEM_GROUP.action_context.v1.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.statement_mode.v1
+  CIMI-CORE-ITEM_GROUP.statement_context.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -35,8 +35,11 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1] matches { -- Act
+  ITEM_GROUP[id1.1.1] matches { -- Action context
     item matches {
+      ELEMENT[id0.1.1] matches { -- Action context
+        value matches {[ac0.1.1]}
+      }
       use_archetype ITEM_GROUP[id0.0.1, CIMI-CORE-ITEM_GROUP.justification.v1] occurrences matches {0..*}
       use_archetype ITEM_GROUP[id0.0.2, CIMI-CORE-ITEM_GROUP.action.v1] occurrences matches {0..1}
       use_archetype ITEM_GROUP[id0.0.3, CIMI-CORE-ITEM_GROUP.action.v1] occurrences matches {0..*}
@@ -47,8 +50,12 @@ terminology
   term_definitions = <
     ["en"] = <
       ["id1.1.1"] = <
-        text = <"Action mode">
-        description = <"Description of a healthcare action, independent of the performance of the action.">
+        text = <"Action context">
+        description = <"Context for a healthcare action such as a procedure.">
+      >
+      ["id0.1.1"] = <
+        text = <"Action context">
+        description = <"Context type indicating that context is for an action such as a procedure.">
       >
       ["id0.0.1"] = <
         text = <"Justification">
@@ -62,5 +69,19 @@ terminology
         text = <"Status history">
         description = <"The past statuses of this action, e.g., an order may evolve from draft to placed to in progress to completed or canceled.">
       >
+      ["ac0.1.1"] = <
+        text = <"Procedure context type">
+        description = <"Intentional value set created from subsumption set of SCTID: 288532009 (Context Values)">
+      >
     >
   >
+
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+        ["id0.1.1"] = <http://snomedct.info/id/408730004>
+        ["ac0.1.1"] = <http://vsac.org/valuesetforsnomedctcontextvaluesForProcedures_tbd>
+      >
+    >
+  >
+  

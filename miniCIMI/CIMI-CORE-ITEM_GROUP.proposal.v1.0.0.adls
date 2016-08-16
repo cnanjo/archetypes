@@ -2,7 +2,7 @@ archetype (adl_version=2.0.6; rm_release=2.0.2)
   CIMI-CORE-ITEM_GROUP.proposal.v1.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.action_mode.v1
+  CIMI-CORE-ITEM_GROUP.action_context.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -37,6 +37,9 @@ description
 definition
   ITEM_GROUP[id1.1.1.1] matches { -- Proposal
     item matches {
+      ELEMENT[id0.1.1.1] matches { -- Action context
+        value matches {[ac0.1.1.1]} -- Requested (Note how requested in a proposal context means a proposal as opposed to an order)
+      }
       use_archetype ITEM_GROUP[id0.0.0.5, CIMI-CORE-ITEM_GROUP.request_action.v1] occurrences matches {0..1}
       ELEMENT[id0.0.0.10] occurrences matches {0..1} matches { -- Urgency
         value matches {
@@ -72,6 +75,10 @@ terminology
         text = <"Proposal">
         description = <"An offer or a suggestion to perform a healthcare act. A recommendation to a provider is an example of proposal made by a CDS system. A proposal must be accepted by an entity in order for it to be performed.">
       >
+      ["id0.1.1.1"] = <
+        text = <"Action context">
+        description = <"Context type indicating that context is for an action such as a procedure.">
+      >
       ["id0.0.0.5"] = <
         text = <"Proposed">
         description = <"Provenance information about who proposed the action, when, where, why, how, etc...">
@@ -100,5 +107,22 @@ terminology
         text = <"Expected performer">
         description = <"Persons who are expected to or intended to perform this action, e.g., the person who will perform the surgery.">
       >
+      ["at0.0.0.1"] = <
+        text = <"Under consideration">
+        description = <"Code indicating that the activity is proposed (an under consideration). Perhaps we need a synonym for 'Proposed'. Could be an extension as a subtype of 'Under consideration'.">
+      >
+      ["ac0.1.1.1"] = <
+        text = <"Requested">
+        description = <"Value set containing a single code indicating that the context is 'Under consideration' (SCTID: 385642001).">
+      >
     >
   >
+
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+        ["at0.0.0.1"] = <http://snomedct.info/id/385642001> -- Under consideration
+      >
+    >
+  >
+

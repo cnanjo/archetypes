@@ -1,5 +1,5 @@
 archetype (adl_version=2.0.6; rm_release=2.0.2)
-  CIMI-CORE-ITEM_GROUP.statement_mode.v1.0.0
+  CIMI-CORE-ITEM_GROUP.statement_context.v1.0.0
 
 specialize
   CIMI-CORE-ITEM_GROUP.cluster.v1.0.0
@@ -44,18 +44,40 @@ definition
         }
       }
     }
+    item matches {
+      ELEMENT[id0.1] matches { -- Context. id0.1 is not bounded at this level (not sure how to bind attribute itself to value set) but will be in subclasses. Allowed values are: Finding Context (408729009) and Procedure Context (408730004)
+        value matches {[ac0.1]}
+      }
+    }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
       ["id1.1"] = <
-        text = <"Statement mode">
+        text = <"Statement context">
         description = <"The mode of a Clinical Statement describes the way the topic exists, happens, or is experienced.">
+      >
+      ["id0.1"] = <
+        text = <"Context">
+        description = <"Code indicating the context of the clinical topic in a clinical statement.">
       >
       ["id500.1"] = <
         text = <"Kind">
         description = <"Processing directive instructing a compiler that the ITEM_GROUP is a virtual_cluster, meaning that it may be inlined by processing tools and need not retain is cluster structure in the derived artifact.">
+      >
+      ["ac0.1"] = <
+        text = <"Context type">
+        description = <"Intentional value set created from subsumption set of SCTID: 288529006 (Context Values)">
+      >
+    >
+  >
+
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+        ["id0.1"] = <http://snomedct.info/id/249228009>
+        ["ac0.1"] = <http://vsac.org/valuesetforsnomedctcontextvalues_tbd>
       >
     >
   >
