@@ -1,8 +1,8 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-ITEM_GROUP.patient_encounter_summary.v2.0.0
+  CIMI-CORE-INDIVISIBLE_ENTRY.patient_encounter_summary.v2.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.clinical_activity.v1
+  CIMI-CORE-INDIVISIBLE_ENTRY.clinical_activity.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -34,12 +34,12 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1.1.1.1.1] -- Patient encounter summary
+  INDIVISIBLE_ENTRY[id1.1.1.1] -- Patient encounter summary
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1.1.1.1"] = <
+      ["id1.1.1.1"] = <
         text = <"Patient encounter summary">
       >
     >
@@ -47,7 +47,7 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id1.1.1.1.1.1.1"] = <http://snomed.info/id/308335008>
+        ["id1.1.1.1"] = <http://snomed.info/id/308335008>
       >
     >
   >

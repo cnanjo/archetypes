@@ -46,7 +46,7 @@ definition
     link matches {  -- Supporting Statement
       LINK[id0.50] occurrences matches {1..*} matches {
         target matches {
-          use_archetype ITEM_GROUP[id0.203, CIMI-CORE-ITEM_GROUP.clinical_statement.v1] occurrences matches {1} -- Supporting Statement
+          use_archetype ENTRY[id0.203, CIMI-CORE-ENTRY.clinical_statement.v1] occurrences matches {1} -- Supporting Statement
         }
       }
     }

@@ -1,8 +1,8 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-ITEM_GROUP.laboratory_procedure_proposal.v1.0.0
+  CIMI-CORE-INDIVISIBLE_ENTRY.laboratory_procedure_proposal.v1.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.procedure_proposal.v1
+  CIMI-CORE-INDIVISIBLE_ENTRY.procedure_proposal.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -34,20 +34,20 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1.1.1.1.1.1.1] matches { -- Procedure Proposal
+  INDIVISIBLE_ENTRY[id1.1.1.1.1.1] matches { -- Procedure Proposal
     item matches {
-      use_archetype ITEM_GROUP[id0.0.0.11.0.0.0.1.1, CIMI-CORE-ITEM_GROUP.laboratory_procedure.v1] occurrences matches {0..1} -- Topic
+      use_archetype VIRTUAL_ITEM_GROUP[id4.0.0.0.1.1, CIMI-CORE-VIRTUAL_ITEM_GROUP.laboratory_procedure.v1] occurrences matches {0..1} -- Topic
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1.1.1.1.1.1"] = <
+      ["id1.1.1.1.1.1"] = <
         text = <"Laboratory procedure proposal">
         description = <"A proposal for a laboratory procedure requiring the collection of a specimen.">
       >
-      ["id0.0.0.11.0.0.0.1.1"] = <
+      ["id4.0.0.0.1.1"] = <
         text = <"Laboratory procedure">
         description = <"The laboratory procedure described in this statement.">
       >
@@ -56,7 +56,7 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id1.1.1.1.1.1.1.1"] = <http://snomed.info/id/tbd>
+        ["id1.1.1.1.1.1"] = <http://snomed.info/id/tbd>
       >
     >
   >

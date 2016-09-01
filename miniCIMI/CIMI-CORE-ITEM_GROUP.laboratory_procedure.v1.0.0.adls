@@ -1,8 +1,8 @@
 archetype (adl_version=2.0.6; rm_release=2.0.2)
-  CIMI-CORE-ITEM_GROUP.laboratory_procedure.v1.0.0
+  CIMI-CORE-VIRTUAL_ITEM_GROUP.laboratory_procedure.v1.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.procedure.v1
+  CIMI-CORE-VIRTUAL_ITEM_GROUP.procedure.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -35,20 +35,20 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1.1.1] matches { -- Laboratory Procedure
+  VIRTUAL_ITEM_GROUP[id1.1.1.1] matches { -- Laboratory Procedure
     item matches {
-      use_archetype ITEM_GROUP[id0.0.0.0.1, CIMI-CORE-ITEM_GROUP.specimen.v3] occurrences matches {0..*} -- Specimen
+      use_archetype ITEM_GROUP[id0.0.0.1, CIMI-CORE-ITEM_GROUP.specimen.v3] occurrences matches {0..*} -- Specimen
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1.1"] = <
+      ["id1.1.1.1"] = <
         text = <"Laboratory Procedure">
         description = <"A specialization of Procedure to represent laboratory procedures that require the collection of a specimen.">
       >
-      ["id0.0.0.0.1"] = <
+      ["id0.0.0.1"] = <
         text = <"Specimen">
         description = <"The specimen collected or to be collected as part of this procedure.">
       >
@@ -58,8 +58,8 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id1.1.1.1.1"] = <http://snomed.info/id/71388002>
-        ["id0.0.0.0.1"] = <http://snomed.info/id/116686009>
+        ["id1.1.1.1"] = <http://snomed.info/id/71388002>
+        ["id0.0.0.1"] = <http://snomed.info/id/116686009>
       >
     >
   >

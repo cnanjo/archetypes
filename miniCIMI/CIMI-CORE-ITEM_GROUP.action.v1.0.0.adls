@@ -35,14 +35,6 @@ description
 
 definition
   ITEM_GROUP[id1.1] matches { -- Action
-    metadata matches {
-      CODED_NAME_VALUE[id500.1] matches { -- kind
-        value matches { -- Here we fix it to be only Cluster
-          CODED_TEXT[id502] occurrences matches {1}
-          CODED_TEXT[id503] occurrences matches {0}
-        }
-      }
-    }
     item matches {
       ELEMENT[id0.1] occurrences matches {1} matches { -- Action type
         value existence matches {1} matches {

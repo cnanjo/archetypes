@@ -32,43 +32,13 @@ description
   >
 
 definition
-  ITEM_GROUP[id1] matches {  -- Cluster
-    metadata matches { -- metadata
-      CODED_NAME_VALUE[id500] matches { -- kind
-        name matches {
-          CODED_TEXT[id501] matches {
-            terminology_id matches {"http://cimi.org/terminology"}
-            code matches {"101"}
-            terminology_version matches {"v1.0.0"}
-            term matches {"container_kind"}
-          }
-        }
-        value matches { -- Disjunct: either cluster or virtual_cluster
-          CODED_TEXT[id502] matches {
-            terminology_id matches {"http://cimi.org/terminology"}
-            code matches {"2"}
-            terminology_version matches {"v1.0.0"}
-            term matches {"cluster"}
-          }
-          CODED_TEXT[id503] matches {
-            terminology_id matches {"http://cimi.org/terminology"}
-            code matches {"3"}
-            terminology_version matches {"v1.0.0"}
-            term matches {"virtual_cluster"}
-          }
-        }
-      }
-    }
-  }
+  ITEM_GROUP[id1]
 
 terminology
   term_definitions = <
     ["en"] = <
       ["id1"] = <
         text = <"Cluster">
-      >
-      ["id500"] = <
-        text = <"Kind">
       >
     >
   >

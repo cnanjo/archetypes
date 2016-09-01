@@ -1,8 +1,8 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-ITEM_GROUP.laboratory_report_header.v3.0.0
+  CIMI-CORE-INDIVISIBLE_ENTRY.laboratory_report_header.v3.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.clinical_report_header.v1
+  CIMI-CORE-INDIVISIBLE_ENTRY.clinical_report_header.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -34,16 +34,16 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1] matches { -- Laboratory report header
+  INDIVISIBLE_ENTRY[id1.1] matches { -- Laboratory report header
     item matches {
-      ELEMENT[id0.0.1] matches { -- Report type
+      ELEMENT[id0.1] matches { -- Report type
         value matches {
-          TEXT[id0.0.3]
+          TEXT[id0.101]
         }
       }
-      ELEMENT[id0.0.2] matches { -- Diagnosis
+      ELEMENT[id0.2] matches { -- Diagnosis
         value matches {
-          TEXT[id0.0.4]
+          TEXT[id0.102]
         }
       }
     }
@@ -52,13 +52,13 @@ definition
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1"] = <
+      ["id1.1"] = <
         text = <"Laboratory report header">
       >
-      ["id0.0.1"] = <
+      ["id0.1"] = <
         text = <"Report type">
       >
-      ["id0.0.2"] = <
+      ["id0.2"] = <
         text = <"Diagnosis">
       >
     >
@@ -66,8 +66,8 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id1.1.1"] = <http://snomed.info/id/364712009>
-        ["id0.0.1"] = <http://snomed.info/id/138875005>
+        ["id1.1"] = <http://snomed.info/id/364712009>
+        ["id0.1"] = <http://snomed.info/id/138875005>
       >
     >
   >

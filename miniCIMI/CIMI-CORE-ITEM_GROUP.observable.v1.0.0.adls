@@ -1,8 +1,8 @@
 archetype (adl_version=2.0.6; rm_release=2.0.2)
-  CIMI-CORE-ITEM_GROUP.observable.v1.0.0
+  CIMI-CORE-VIRTUAL_ITEM_GROUP.observable.v1.0.0
 
 specialize
-  CIMI-CORE-ITEM_GROUP.topic.v1
+  CIMI-CORE-VIRTUAL_ITEM_GROUP.topic.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -35,12 +35,12 @@ description
   >
 
 definition
-  ITEM_GROUP[id1.1.1]
+  VIRTUAL_ITEM_GROUP[id1.1]
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1"] = <
+      ["id1.1"] = <
         text = <"Observable">
         description = <"An Observable topic of a clinical statement">
       >

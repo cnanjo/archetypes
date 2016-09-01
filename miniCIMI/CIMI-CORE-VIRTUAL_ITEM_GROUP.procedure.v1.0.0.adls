@@ -1,0 +1,168 @@
+archetype (adl_version=2.0.6; rm_release=2.0.2)
+  CIMI-CORE-VIRTUAL_ITEM_GROUP.procedure.v1.0.0
+
+specialize
+  CIMI-CORE-VIRTUAL_ITEM_GROUP.act.v1
+
+language
+  original_language = <[ISO_639-1::en]>
+
+description
+  original_author = <
+    ["name"] = <"Claude Nanjo">
+    ["organisation"] = <"Cognitive Medical Systems">
+    ["email"] = <"cnanjo@gmail.com">
+    ["date"] = <"06/15/2016">
+  >
+  details = <
+    ["en"] = <
+      language = <[ISO_639-1::en]>
+      purpose = <"Top-level reference archetype for CIMI 'clinical statement' concept">
+      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+      keywords = <"topic","observable">
+    >
+  >
+  other_details = <["model_level"] = <"reference">>
+  lifecycle_state = <"unmanaged">
+  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
+  custodian_namespace = <"org.opencimi">
+  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
+  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
+  ip_acknowledgements = <
+    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+  >
+
+definition
+  VIRTUAL_ITEM_GROUP[id1.1.1] matches { -- Procedure
+    item matches {
+      ELEMENT[id0.0.1] matches { -- Name
+        value matches {
+          CODED_TEXT[id0.0.100]
+        }
+      }
+      ELEMENT[id0.0.2] occurrences matches {0..1} matches { -- Description
+        value matches {
+          PLAIN_TEXT[id0.0.101]
+        }
+      }
+      use_archetype ITEM_GROUP[id0.0.3, CIMI-CORE-ITEM_GROUP.anatomical_location.v2] occurrences matches {0..*} -- Approach body site
+      use_archetype ITEM_GROUP[id0.0.4, CIMI-CORE-ITEM_GROUP.anatomical_location.v2] occurrences matches {0..*} -- Target body site
+      ELEMENT[id0.0.5] matches { -- Method
+        value matches {
+          CODED_TEXT[id0.0.102]
+        }
+      }
+      ELEMENT[id0.0.6] occurrences matches {0..*} matches { -- Device
+        value matches {
+          CODED_TEXT[id0.0.103]
+        }
+      }
+      ELEMENT[id0.0.7] occurrences matches {0..*} matches { -- Surgical Approach
+        value matches {
+          CODED_TEXT[id0.0.104]
+        }
+      }
+      ELEMENT[id0.0.8] occurrences matches {0..*} matches { -- Access
+        value matches {
+          CODED_TEXT[id0.0.105]
+        }
+      }
+      ELEMENT[id0.0.9] occurrences matches {0..*} matches { -- Has intent
+        value matches {
+          CODED_TEXT[id0.0.106]
+        }
+      }
+      ELEMENT[id0.0.10] occurrences matches {0..*} matches { -- Implants
+        value matches {
+          CODED_TEXT[id0.0.107]
+        }
+      }
+      ELEMENT[id0.0.11] occurrences matches {0..*} matches { -- Morphology
+        value matches {
+          CODED_TEXT[id0.0.108]
+        }
+      }
+      ELEMENT[id0.0.12] occurrences matches {0..*} matches { -- Using substance
+        value matches {
+          CODED_TEXT[id0.0.109]
+        }
+      }
+    }
+  }
+
+terminology
+  term_definitions = <
+    ["en"] = <
+      ["id1.1.1"] = <
+        text = <"Procedure">
+        description = <"A procedure is an activity that is performed with or on a patient as part of the provision of care. This can be a physical 'thing' like an operation, or less invasive like counseling or hypnotherapy. Examples include surgical procedures, diagnostic procedures, endoscopic procedures, biopsies, and exclude things for which there are specific types of acts defined, such as those for immunizations, medication administrations, nutrition administration, and use of devices.">
+      >
+      ["id0.0.1"] = <
+        text = <"Name">
+        description = <"The concept in a terminology that best represents the procedure being performed on a subject, most often a patient.">
+      >
+      ["id0.0.2"] = <
+        text = <"Description">
+        description = <"A human-friendly description for this procedure. [To Susan: I don't think we would want an op report here. It should be a separate artifact I believe].">
+      >
+      ["id0.0.3"] = <
+        text = <"Approach body site">
+        description = <"The body site used for gaining access to the procedure site. E.g., femoral artery for a coronary angiography.">
+      >
+      ["id0.0.4"] = <
+        text = <"Procedure site">
+        description = <"The anatomical location where the procedure takes place.  E.g., left lower arm for fracture reduction.">
+      >
+      ["id0.0.5"] = <
+        text = <"Method">
+        description = <"Describes the method used for the procedure and can vary depending on the procedure.  For example, a surgical procedure method might be laparoscopic surgery or robotic surgery; an imaging procedure such as a chest radiograph might have methods that represent the views such as PA and lateral; a laboratory procedure like urinalysis might have a method of clean catch; a respiratory care procedure such as supplemental oxygen might have a method of nasal cannula, hood, face mask, or non-rebreather mask.">
+      >
+      ["id0.0.6"] = <
+        text = <"Device">
+        description = <"A concept representing the device that was used to perform the procedure. [To CIMI group - we may wish to add another attribute that references a device archetype. Note that there currently is no such archetype defined in CIMI-CORE.">
+      >
+      ["id0.0.7"] = <
+        text = <"Surgical approach">
+        description = <"[To Susan: Need formal definition for this attribute.]">
+      >
+      ["id0.0.8"] = <
+        text = <"Access">
+        description = <"The route used to access the site of a procedure. It is used to distinguish open, closed, and percutaneous procedures.">
+      >
+      ["id0.0.9"] = <
+        text = <"Has intent">
+        description = <"The intent of the procedure. [To Susan: Definition a bit circular.]">
+      >
+      ["id0.0.10"] = <
+        text = <"Implants">
+        description = <"[To Susan: Need a definition.]">
+      >
+      ["id0.0.11"] = <
+        text = <"Morphology">
+        description = <"[To Susan: Need a definition.]">
+      >
+      ["id0.0.12"] = <
+        text = <"Using substance">
+        description = <"Substance used to execute the action of a procedure.">
+      >
+    >
+  >
+
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+        ["id1.1.1"] = <http://snomed.info/id/71388002>
+        ["id0.0.3"] = <http://snomed.info/id/116688005>
+        ["id0.0.4"] = <http://snomed.info/id/363704007>
+        ["id0.0.5"] = <http://snomed.info/id/260686004>
+        ["id0.0.6"] = <http://snomed.info/id/424226004> -- Using device or device used? Ask Linda
+        ["id0.0.7"] = <http://snomed.info/id/424876005>
+        ["id0.0.8"] = <http://snomed.info/id/260507000>
+        ["id0.0.9"] = <http://snomed.info/id/363703001>
+        ["id0.0.11"] = <http://snomed.info/id/363700003>
+        ["id0.0.12"] = <http://snomed.info/id/424361007>
+      >
+    >
+  >
