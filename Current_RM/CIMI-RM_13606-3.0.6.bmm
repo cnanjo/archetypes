@@ -1,0 +1,150 @@
+-- xxx
+bmm_version = <"2.0">
+
+------------------------------------
+-- schema identification
+-- (schema_id computed as <rm_publisher>_<schema_name>_<rm_release>)
+------------------------------------
+rm_publisher = <"CIMI">
+schema_name = <"RM13606">
+rm_release = <"3.0.6">
+
+------------------------------------
+-- schema documentation
+------------------------------------
+schema_revision = <"Monday, September 8, 2016">
+schema_lifecycle_state = <"dstu">
+schema_description = <"CIMI_Reference_Model v3.0.6 ISO13606 Module">
+
+------------------------------------
+-- schema Inclusion
+------------------------------------
+includes = <
+    ["1"] = <
+        id = <"cimi_rm_3.0.6">
+    >
+>
+
+------------------------------------
+-- archetyping
+------------------------------------
+archetype_rm_closure_packages = <"CIMI_Reference_Model.Foundation", ...>
+
+------------------------------------
+-- packages
+------------------------------------
+
+packages = <
+    ["CIMI_Reference_Model"] = <
+        name = <"CIMI_Reference_Model">
+        packages = <
+            ["Foundation"] = <
+                name = <"Foundation">
+                classes = <"COMPOSITION", "CONTENT", "SECTION", "ENTRY", "COMPOUND_ENTRY", "INDIVISIBLE_ENTRY">
+            >
+        >
+    >
+>
+
+------------------------------------
+-- classes
+------------------------------------
+
+class_definitions = <
+
+    ------------------------------------
+    -- FOUNDATION
+    ------------------------------------
+
+    ["COMPOSITION"] = <
+        name = <"COMPOSITION">
+        ancestors = <"LOCATABLE", ...>
+        properties = <
+            ["content"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"content">
+                type_def = <
+                    container_type = <"List">
+                    type = <"CONTENT">
+                >
+                cardinality = <|>=0|>
+                is_mandatory = <True>
+            >
+            ["participation"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"participation">
+                type_def = <
+                    container_type = <"List">
+                    type = <"PARTICIPATION">
+                >
+                cardinality = <|>=0|>
+            >
+        >
+    >
+
+    ["CONTENT"] = <
+        name = <"CONTENT">
+        ancestors = <"LOCATABLE", ...>
+        is_abstract = <True>
+    >
+
+    ["SECTION"] = <
+        name = <"SECTION">
+        ancestors = <"CONTENT", ...>
+        properties = <
+            ["content"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"content">
+                type_def = <
+                    container_type = <"List">
+                    type = <"CONTENT">
+                >
+                cardinality = <|>=0|>
+                is_mandatory = <True>
+            >
+        >
+    >
+
+    ["ENTRY"] = <
+        name = <"ENTRY">
+        ancestors = <"CONTENT", ...>
+        is_abstract = <True>
+        properties = <
+            ["item"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"item">
+                type_def = <
+                    container_type = <"List">
+                    type = <"ITEM">
+                >
+                cardinality = <|>=0|>
+                is_mandatory = <True>
+            >
+            ["participation"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"participation">
+                type_def = <
+                    container_type = <"List">
+                    type = <"PARTICIPATION">
+                >
+                cardinality = <|>=0|>
+            >
+        >
+    >
+
+    ["COMPOUND_ENTRY"] = <
+        name = <"COMPOUND_ENTRY">
+        ancestors = <"ENTRY", ...>
+        properties = <
+            ["entry"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"entry">
+                type_def = <
+                    container_type = <"List">
+                    type = <"ENTRY">
+                >
+                cardinality = <|>=0|>
+                is_mandatory = <True>
+            >
+        >
+    >
+
+    ["INDIVISIBLE_ENTRY"] = <
+        name = <"INDIVISIBLE_ENTRY">
+        ancestors = <"ENTRY", ...>
+    >
+>

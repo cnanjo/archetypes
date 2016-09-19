@@ -31,7 +31,7 @@ packages = <
         packages = <
             ["Core"] = <
                 name = <"Core">
-                classes = <"ARCHETYPED", "ELEMENT", "ITEM", "ITEM_GROUP", "VIRTUAL_ITEM_GROUP", "LINK", "LOCATABLE", "PARTICIPATION", "COMPOSITION", "CONTENT", "SECTION", "ENTRY", "COMPOUND_ENTRY", "INDIVISIBLE_ENTRY">
+                classes = <"ARCHETYPED", "ELEMENT", "ITEM", "ITEM_GROUP", "VIRTUAL_ITEM_GROUP", "LINK", "LOCATABLE", "PARTICIPATION">
             >
             ["Data_Value_Types"] = <
                 name = <"Data_Value_Types">
@@ -125,98 +125,6 @@ class_definitions = <
     ["VIRTUAL_ITEM_GROUP"] = <
         name = <"VIRTUAL_ITEM_GROUP">
         ancestors = <"ITEM_GROUP", ...>
-    >
-
-    ["COMPOSITION"] = <
-        name = <"COMPOSITION">
-        ancestors = <"LOCATABLE", ...>
-        properties = <
-            ["content"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"content">
-                type_def = <
-                    container_type = <"List">
-                    type = <"CONTENT">
-                >
-                cardinality = <|>=0|>
-                is_mandatory = <True>
-            >
-            ["participation"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"participation">
-                type_def = <
-                    container_type = <"List">
-                    type = <"PARTICIPATION">
-                >
-                cardinality = <|>=0|>
-            >
-        >
-    >
-
-    ["CONTENT"] = <
-        name = <"CONTENT">
-        ancestors = <"LOCATABLE", ...>
-        is_abstract = <True>
-    >
-
-    ["SECTION"] = <
-        name = <"SECTION">
-        ancestors = <"CONTENT", ...>
-        properties = <
-            ["content"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"content">
-                type_def = <
-                    container_type = <"List">
-                    type = <"CONTENT">
-                >
-                cardinality = <|>=0|>
-                is_mandatory = <True>
-            >
-        >
-    >
-
-    ["ENTRY"] = <
-        name = <"ENTRY">
-        ancestors = <"CONTENT", ...>
-        is_abstract = <True>
-        properties = <
-            ["item"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"item">
-                type_def = <
-                    container_type = <"List">
-                    type = <"ITEM">
-                >
-                cardinality = <|>=0|>
-                is_mandatory = <True>
-            >
-            ["participation"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"participation">
-                type_def = <
-                    container_type = <"List">
-                    type = <"PARTICIPATION">
-                >
-                cardinality = <|>=0|>
-            >
-        >
-    >
-
-    ["COMPOUND_ENTRY"] = <
-        name = <"COMPOUND_ENTRY">
-        ancestors = <"ENTRY", ...>
-        properties = <
-            ["entry"] = (P_BMM_CONTAINER_PROPERTY) <
-                name = <"entry">
-                type_def = <
-                    container_type = <"List">
-                    type = <"ENTRY">
-                >
-                cardinality = <|>=0|>
-                is_mandatory = <True>
-            >
-        >
-    >
-
-    ["INDIVISIBLE_ENTRY"] = <
-        name = <"INDIVISIBLE_ENTRY">
-        ancestors = <"ENTRY", ...>
     >
 
     ["LINK"] = <

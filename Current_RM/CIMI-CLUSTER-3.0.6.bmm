@@ -1,0 +1,237 @@
+-- xxx
+bmm_version = <"2.0">
+
+------------------------------------
+-- schema identification
+-- (schema_id computed as <rm_publisher>_<schema_name>_<rm_release>)
+------------------------------------
+rm_publisher = <"CIMI">
+schema_name = <"CLUSTER">
+rm_release = <"3.0.6">
+
+------------------------------------
+-- schema documentation
+------------------------------------
+schema_revision = <"Monday, September 8, 2016">
+schema_lifecycle_state = <"dstu">
+schema_description = <"CIMI_Reference_Model v3.0.6 ISO13606 Module">
+
+------------------------------------
+-- schema Inclusion
+------------------------------------
+includes = <
+    ["1"] = <
+        id = <"cimi_rm13606_3.0.6">
+    >
+>
+
+------------------------------------
+-- archetyping
+------------------------------------
+archetype_rm_closure_packages = <"CIMI_Reference_Model.Cluster", ...>
+
+------------------------------------
+-- packages
+------------------------------------
+
+packages = <
+    ["CIMI_Reference_Model"] = <
+        name = <"CIMI_Reference_Model">
+        packages = <
+            ["Cluster"] = <
+                name = <"Cluster">
+                classes = <"CLUSTER", "AddressStreet", "AddressStreetNumber", "AddressLine">
+            >
+        >
+    >
+>
+
+------------------------------------
+-- classes
+------------------------------------
+
+class_definitions = <
+
+    ------------------------------------
+    -- FOUNDATION
+    ------------------------------------
+
+    ["CLUSTER"] = <
+        name = <"CLUSTER">
+        ancestors = <"LOCATABLE", ...>
+        is_abstract = <True>
+    >
+
+    ["AddressStreet"] = <
+        name = <"AddressStreet">
+        ancestors = <"CLUSTER", ...>
+        properties = <
+            ["type"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"type">
+                type = <"CODED_TEXT">
+            >
+            ["name"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"name">
+                type = <"CODED_TEXT">
+            >
+            ["streetType"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"streetType">
+                type = <"TEXT">
+            >
+            ["direction"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"direction">
+                type = <"CODED_TEXT">
+            >
+            ["suffix"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"suffix">
+                type = <"TEXT">
+            >
+        >
+    >
+
+    ["AddressStreetNumber"] = <
+        name = <"AddressStreetNumber">
+        ancestors = <"CLUSTER", ...>
+        properties = <
+            ["type"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"type">
+                type = <"CODED_TEXT">
+            >
+            ["numeric"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"numeric">
+                type = <"TEXT">
+            >
+            ["suffix"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"suffix">
+                type = <"TEXT">
+            >
+        >
+    >
+
+    ["AddressLine"] = <
+        name = <"AddressLine">
+        ancestors = <"CLUSTER", ...>
+        properties = <
+            ["lineNumber"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"lineNumber">
+                type = <"COUNT">
+            >
+            ["type"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"type">
+                type = <"CODED_TEXT">
+            >
+            ["additionalLocator"] = (P_BMM_CONTAINER_PROPERTY) <
+                name = <"additionalLocator">
+                type_def = <
+                    container_type = <"List">
+                    type = <"CODED_TEXT">
+                >
+                cardinality = <|>=0|>
+            >
+            ["siteName"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"siteName">
+                type = <"CODED_TEXT">
+            >
+            ["unitNumber"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"unitNumber">
+                type = <"CODED_TEXT">
+            >
+            ["unitType"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"unitType">
+                type = <"CODED_TEXT">
+            >
+            ["postalBoxNumber"] = (P_BMM_SINGLE_PROPERTY) < -- Why is this CODED_TEXT?
+                name = <"postalBoxNumber">
+                type = <"CODED_TEXT">
+            >
+            ["levelType"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"levelType">
+                type = <"CODED_TEXT">
+            >
+            ["lotNumber"] = (P_BMM_SINGLE_PROPERTY) < -- Why is that CODED_TEXT?
+                name = <"lotNumber">
+                type = <"CODED_TEXT">
+            >
+            ["street"] = (P_BMM_SINGLE_PROPERTY) < -- Why is that CODED_TEXT?
+                name = <"street">
+                type = <"AddressStreet">
+            >
+            ["streetNumber"] = (P_BMM_SINGLE_PROPERTY) < -- Why is that CODED_TEXT?
+                name = <"streetNumber">
+                type = <"AddressStreetNumber">
+            >
+            ["intersectionDescription"] = (P_BMM_SINGLE_PROPERTY) < -- Why is that CODED_TEXT?
+                name = <"intersectionDescription">
+                type = <"CODED_TEXT">
+            >
+            ["visualization"] = (P_BMM_SINGLE_PROPERTY) < -- Why is that CODED_TEXT?
+                name = <"visualization">
+                type = <"CODED_TEXT">
+            >
+            ["censusArea"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"censusArea">
+                type = <"CODED_TEXT">
+            >
+            ["deliveryPointIdentifier"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"deliveryPointIdentifier">
+                type = <"CODED_TEXT">
+            >
+            ["deliveryNumber"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"deliveryNumber">
+                type = <"CODED_TEXT">
+            >
+            ["deliveryInstallationType"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"deliveryInstallationType">
+                type = <"CODED_TEXT">
+            >
+            ["deliveryInstallationArea"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"deliveryInstallationArea">
+                type = <"CODED_TEXT">
+            >
+            ["deliveryInstallationQualifier"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"deliveryInstallationQualifier">
+                type = <"CODED_TEXT">
+            >
+            ["deliveryMode"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"deliveryMode">
+                type = <"CODED_TEXT">
+            >
+            ["deliveryModeIdentifier"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"deliveryModeIdentifier">
+                type = <"CODED_TEXT">
+            >
+            ["postalCode"] = (P_BMM_SINGLE_PROPERTY) < -- Why is this CODED_TEXT?
+                name = <"postalCode">
+                type = <"CODED_TEXT">
+            >
+            ["district"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"district">
+                type = <"CODED_TEXT">
+            >
+            ["locality"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"locality">
+                type = <"CODED_TEXT">
+            >
+            ["city"] = (P_BMM_SINGLE_PROPERTY) < 
+                name = <"city">
+                type = <"CODED_TEXT">
+            >
+            ["state"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"state">
+                type = <"CODED_TEXT">
+            >
+            ["country"] = (P_BMM_SINGLE_PROPERTY) <
+                name = <"country">
+                type = <"CODED_TEXT">
+            >
+            ["careOf"] = (P_BMM_SINGLE_PROPERTY) < -- Why is this CODED_TEXT?
+                name = <"careOf">
+                type = <"CODED_TEXT">
+            >
+            ["delimiter"] = (P_BMM_SINGLE_PROPERTY) < 
+                name = <"delimiter">
+                type = <"CODED_TEXT">
+            >
+        >
+    >
+>
