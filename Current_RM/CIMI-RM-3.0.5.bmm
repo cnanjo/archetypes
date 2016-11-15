@@ -359,11 +359,11 @@ class_definitions = <
                 type = <"Boolean">
                 is_mandatory = <True>
             >
-            ["lower"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
+            ["lower"] = (P_BMM_SINGLE_PROPERTY) <
                 name = <"lower">
                 type = <"T">
             >
-            ["upper"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
+            ["upper"] = (P_BMM_SINGLE_PROPERTY) <
                 name = <"upper">
                 type = <"T">
             >

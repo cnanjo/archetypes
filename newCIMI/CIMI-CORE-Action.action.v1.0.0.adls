@@ -1,0 +1,174 @@
+archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
+  CIMI-CORE-Action.action.v1.0.0
+  
+language
+  original_language = <[ISO_639-1::en]>
+
+description
+  original_author = <
+    ["name"] = <"Patrick Langford">
+    ["organisation"] = <"Intermountain Healthcare">
+    ["email"] = <"patrick@neuronsong.com">
+    ["date"] = <"10/06/2014">
+  >
+  details = <
+    ["en"] = <
+      language = <[ISO_639-1::en]>
+      purpose = <"Archetype for CIMI 'action' concept">
+      use = <"Use for action.">
+      keywords = <"action">
+    >
+  >
+  lifecycle_state = <"unmanaged">
+  other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
+  custodian_namespace = <"org.opencimi">
+  custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
+  licence = <"Creative Commons CC-BY <https://creativecommons.org/licenses/by/3.0/>">
+  copyright = <"Copyright (c) Clinical Information Modelling Initiative <http://opencimi.org>">
+  ip_acknowledgements = <
+    ["loinc"] = <"This content from LOINC® is copyright © 1995 Regenstrief Institute, Inc. and the LOINC Committee, and available at no cost under the license at http://loinc.org/terms-of-use">
+    ["snomed"] = <"This specification includes SNOMED Clinical Terms® (SNOMED CT®) which is used by permission of the International Health Terminology Standards Development Organization (IHTSDO). All rights reserved. SNOMED CT® was originally created by the College of American Pathologists. 'SNOMED' and 'SNOMED CT' are registered trademarks of the IHTSDO (www.ihtsdo.org). Use of any SNOMED CT content (including codes, identifiers, terms, expressions or derivatives) in any operational system (including any Data Creation System or Data Analysis System as defined in the SNOMED CT Affiliate License Agreement) is subject to the terms and conditions of the SNOMED CT Affiliate License (www.ihtsdo.org/license.pdf) or to a written variation to that agreement that has been agreed and formally executed between the IHTSDO and the Affiliate Licensee.">
+  >
+
+definition
+  Action[id1] matches { -- Action
+    type matches {
+      CODED_TEXT[id2] -- Action type
+    }
+    identifier matches { 
+      IDENTIFIER[id3] -- Identifier
+    }
+    datetime matches {
+      DATE_TIME[id4]  -- Datetime
+    }
+    datetimeRange matches { 
+      INTERVAL_VALUE<DATE_TIME>[id5] -- Datetime range
+    }
+    duration matches { 
+      DURATION[id6] -- Duration
+    }
+    timingOffset matches {
+        DURATION[id7]  -- Timing offset
+    }
+    timingOffsetOrigin matches { 
+        DATE_TIME[id8] -- Timing offset origin
+    }
+    timing matches {
+      DATA_VALUE[id9] -- Timing
+    } 
+    reason matches {
+      DATA_VALUE[id10] -- Reason
+    }
+    method matches {
+      DATA_VALUE[id11] -- Method
+    }
+    status matches { 
+      CODED_TEXT[id12] -- Status
+    }
+    recordedOn matches { 
+      DATE_TIME[id13]  -- RecordedOn
+    }
+    signature matches {
+      Signature[id14] -- Signature
+    }
+    location matches {
+      PARTICIPATION[id15] -- Location
+    }
+    performer matches {
+      PARTICIPATION[id16] -- Performer
+    }
+    associatedActivity matches {
+      Action[id17] -- Associated activity
+    }
+    previousAction matches {
+      Action[id18] -- Previous action
+    }
+    subsequentAction matches {
+      Action[id19] -- Subsequent action
+    }
+  }
+
+terminology
+  term_definitions = <
+    ["en"] = <
+      ["id1"] = <
+        text = <"Action">
+      >
+      ["id2"] = <
+        text = <"Action type">
+      >
+      ["id3"] = <
+        text = <"Identifier">
+      >
+      ["id4"] = <
+        text = <"Datetime">
+      >
+      ["id5"] = <
+        text = <"Datetime range">
+      >
+      ["id6"] = <
+        text = <"Duration">
+      >
+      ["id7"] = <
+        text = <"Timing offset">
+      >
+      ["id8"] = <
+        text = <"Timing offset origin">
+      >
+      ["id9"] = <
+        text = <"Timing">
+      >
+      ["id10"] = <
+        text = <"Reason">
+      >
+      ["id11"] = <
+        text = <"Method">
+      >
+      ["id12"] = <
+        text = <"Status">
+      >
+      ["id13"] = <
+        text = <"Recorded on">
+      >
+      ["id14"] = <
+        text = <"Signature">
+      >
+      ["id15"] = <
+        text = <"Location">
+      >
+      ["id16"] = <
+        text = <"Performer">
+      >
+      ["id17"] = <
+        text = <"Associated activity">
+      >
+      ["id18"] = <
+        text = <"Previous action">
+      >
+      ["id19"] = <
+        text = <"Subsequent action">
+      >
+    >
+  >
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+        ["id1"] = <http://snomed.info/id/129264002>
+        ["id2"] = <http://snomed.info/id/129264002>
+        ["id3"] = <http://snomed.info/id/129264002>
+        ["id4"] = <http://snomed.info/id/364713004>
+        ["id5"] = <http://snomed.info/id/364713004>
+        ["id6"] = <http://snomed.info/id/364713004>
+        ["id7"] = <http://snomed.info/id/364713004>
+        ["id8"] = <http://snomed.info/id/364713004>
+        ["id9"] = <http://snomed.info/id/364713004>
+        ["id10"] = <http://snomed.info/id/138875005>
+        ["id11"] = <http://snomed.info/id/272394005>
+        ["id12"] = <http://snomed.info/id/288532009>
+        ["id13"] = <http://snomed.info/id/308916002>
+        ["id14"] = <http://snomed.info/id/71388002>
+        ["id15"] = <http://snomed.info/id/71388002>
+        ["id16"] = <http://snomed.info/id/71388002>
+      >
+    >
+  >
