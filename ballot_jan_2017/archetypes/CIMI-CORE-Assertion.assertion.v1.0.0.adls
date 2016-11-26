@@ -36,8 +36,8 @@ description
 
 definition
   Assertion[id1.1.1] matches {
-    /key[id0.1.1] matches {[ac0.0.1]}
-    /precondition[id0.2.1] matches {[ac0.0.2]}
+    /key matches {[ac0.1.1]}
+    --/precondition[id0.2.1] matches {[ac0.0.2]}
     name matches {
       CODED_TEXT[id0.0.1]
     }
@@ -209,7 +209,7 @@ terminology
         text = <"periodicity">
         description = <"">
       >
-      ["ac0.0.1"] = <
+      ["ac0.1.1"] = <
         text = <"Key intentional value set">
         description = <"Value set encompassing clinical finding and observable hierarchies in SNOMED-CT">
       >
@@ -223,7 +223,7 @@ terminology
   term_bindings = <
     ["to-be-defined-in-future"] = <
       items = <
-        ["ac0.0.1"] = <http://example.com/value_set/not_yet_defined>
+        ["ac0.1.1"] = <http://example.com/value_set/not_yet_defined>
         ["ac0.0.2"] = <http://example.com/value_set/not_yet_defined>
       >
     >
