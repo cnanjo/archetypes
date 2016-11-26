@@ -1,5 +1,5 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-Action.action.v1.0.0
+  CIMI-CORE-Attribution.attribution.v1.0.0
   
 language
   original_language = <[ISO_639-1::en]>
@@ -31,60 +31,39 @@ description
   >
 
 definition
-  Action[id1] matches { -- Action
-    type matches {
-      CODED_TEXT[id2] -- Action type
-    }
+  Attribution[id1] matches { -- Attribution
     identifier matches { 
-      IDENTIFIER[id3] -- Identifier
+      IDENTIFIER[id2] -- Identifier
     }
-    datetime matches {
-      DATE_TIME[id4]  -- Datetime
+    activity matches {
+      CODED_TEXT[id3] -- Activity
+    }
+    recordedOn matches {
+      DATE_TIME[id4]  -- Recorded on
+    }
+    recordedBy matches { 
+      PARTICIPATION[id5] -- Recorded by
     }
     datetimeRange matches { 
-      INTERVAL_VALUE<DATE_TIME>[id5] -- Datetime range
+      INTERVAL_VALUE<DATE_TIME>[id6] -- Datetime range
     }
-    duration matches { 
-      DURATION[id6] -- Duration
-    }
-    timingOffset matches {
-        DURATION[id7]  -- Timing offset
-    }
-    timingOffsetOrigin matches { 
-        DATE_TIME[id8] -- Timing offset origin
-    }
-    timing matches {
-      DATA_VALUE[id9] -- Timing
-    } 
     reason matches {
-      DATA_VALUE[id10] -- Reason
+      TEXT[id7]  -- Reason
     }
-    method matches {
-      DATA_VALUE[id11] -- Method
+    location matches { 
+      PARTICIPATION[id8] occurrences matches {0..*} -- Location
     }
-    status matches { 
-      CODED_TEXT[id12] -- Status
+    policy matches {
+      URI[id9] -- URI
+    } 
+    agent matches {
+      PARTICIPATION[id10] -- Participation
     }
-    recordedOn matches { 
-      DATE_TIME[id13]  -- RecordedOn
+    entity matches { 
+      PARTICIPATION[id11] -- Status
     }
-    signature matches {
-      Signature[id14] -- Signature
-    }
-    location matches {
-      PARTICIPATION[id15] -- Location
-    }
-    performer matches {
-      PARTICIPATION[id16] -- Performer
-    }
-    associatedActivity matches {
-      Action[id17] -- Associated activity
-    }
-    previousAction matches {
-      Action[id18] -- Previous action
-    }
-    subsequentAction matches {
-      Action[id19] -- Subsequent action
+    signature matches { 
+      Signature[id12]  -- Signature
     }
   }
 
@@ -92,61 +71,40 @@ terminology
   term_definitions = <
     ["en"] = <
       ["id1"] = <
-        text = <"Action">
+        text = <"Attribution">
       >
       ["id2"] = <
-        text = <"Action type">
-      >
-      ["id3"] = <
         text = <"Identifier">
       >
+      ["id3"] = <
+        text = <"Activity">
+      >
       ["id4"] = <
-        text = <"Datetime">
-      >
-      ["id5"] = <
-        text = <"Datetime range">
-      >
-      ["id6"] = <
-        text = <"Duration">
-      >
-      ["id7"] = <
-        text = <"Timing offset">
-      >
-      ["id8"] = <
-        text = <"Timing offset origin">
-      >
-      ["id9"] = <
-        text = <"Timing">
-      >
-      ["id10"] = <
-        text = <"Reason">
-      >
-      ["id11"] = <
-        text = <"Method">
-      >
-      ["id12"] = <
-        text = <"Status">
-      >
-      ["id13"] = <
         text = <"Recorded on">
       >
-      ["id14"] = <
-        text = <"Signature">
+      ["id5"] = <
+        text = <"Recorded by">
       >
-      ["id15"] = <
+      ["id6"] = <
+        text = <"Datetime Range">
+      >
+      ["id7"] = <
+        text = <"Reason">
+      >
+      ["id8"] = <
         text = <"Location">
       >
-      ["id16"] = <
-        text = <"Performer">
+      ["id9"] = <
+        text = <"URI">
       >
-      ["id17"] = <
-        text = <"Associated activity">
+      ["id10"] = <
+        text = <"Participation">
       >
-      ["id18"] = <
-        text = <"Previous action">
+      ["id11"] = <
+        text = <"Status">
       >
-      ["id19"] = <
-        text = <"Subsequent action">
+      ["id12"] = <
+        text = <"Signature">
       >
     >
   >
@@ -165,10 +123,6 @@ terminology
         ["id10"] = <http://snomed.info/id/138875005>
         ["id11"] = <http://snomed.info/id/272394005>
         ["id12"] = <http://snomed.info/id/288532009>
-        ["id13"] = <http://snomed.info/id/308916002>
-        ["id14"] = <http://snomed.info/id/71388002>
-        ["id15"] = <http://snomed.info/id/71388002>
-        ["id16"] = <http://snomed.info/id/71388002>
       >
     >
   >

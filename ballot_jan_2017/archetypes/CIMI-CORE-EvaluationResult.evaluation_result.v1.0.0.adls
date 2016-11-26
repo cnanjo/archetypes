@@ -1,8 +1,8 @@
-archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-Action.record_action.v1.0.0
+archetype (adl_version=2.0.6; rm_release=2.0.2)
+  CIMI-CORE-EvaluationResult.evaluation_result.v1.0.0
 
 specialize
-  CIMI-CORE-Action.action.v1
+  CIMI-CORE-Finding.finding.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -11,19 +11,19 @@ description
   original_author = <
     ["name"] = <"Claude Nanjo">
     ["organisation"] = <"Cognitive Medical Systems">
-    ["email"] = <"cnanjo@cogmedsys.com">
-    ["date"] = <"11/06/2017">
+    ["email"] = <"cnanjo@gmail.com">
+    ["date"] = <"11/24/2016">
   >
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Archetype for CIMI 'record action' concept">
-      use = <"Use for data recording action.">
-      keywords = <"record","action">
+      purpose = <"CIMI base assertion archetype">
+      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
+      keywords = <"evaluation result","observation">
     >
   >
-  lifecycle_state = <"unmanaged">
   other_details = <["model_level"] = <"reference">>
+  lifecycle_state = <"unmanaged">
   other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
   custodian_namespace = <"org.opencimi">
   custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
@@ -35,46 +35,22 @@ description
   >
 
 definition
-  Action[id1.1] matches { -- Record action
-    datetime matches {  -- Entry datetime
-      DATE_TIME[id4.1]
-    }
-    datetimeRange matches {  -- Entry datetime range
-      INTERVAL_VALUE<DATE_TIME>[id5.1]
-    }
-    duration matches { -- Entry duration
-      DURATION[id6.1]
-    }
-    timingOffset matches { -- Entry timing offset
-      DURATION[id7.1]
-    }
-    timingOffsetOrigin matches {  -- Entry timing offset origin
-      DATE_TIME[id8.1]
-    }
-    location matches {
-      PARTICIPATION[id15.1]  -- Location of data enterer
-    }
-    performer matches { -- Data enterer
-      PARTICIPATION[id16.1]
-    }
-  }
+  EvaluationResult[id1.1.1]
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1"] = < text = <"Record action"> >
-      ["id4.1"] = < text = <"Entry datetime"> >
-      ["id5.1"] = < text = <"Entry datetime range"> >
-      ["id6.1"] = < text = <"Entry duration"> >
-      ["id7.1"] = < text = <"Entry timing offset"> >
-      ["id8.1"] = < text = <"Entry timing offset origin"> >
-      ["id15.1"] = < text = <"Location of data enterer"> >
-      ["id16.1"] = < text = <"Data enterer"> >
+      ["id1.1.1"] = <
+        text = <"Evaluation result">
+        description = <"">
+      >
     >
   >
+
   term_bindings = <
     ["snomed-ct"] = <
       items = <
+        ["id1.1.1"] = <http://snomed.info/id/TBD>
       >
     >
   >

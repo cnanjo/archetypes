@@ -1,4 +1,4 @@
-name = <"new-CIMI archetypes">
-short_name = <"new-CIMI">
+name = <"CIMI Core archetypes">
+short_name = <"CIMI-CORE">
 maintainer = <"CIMI">
-description = <"new-CIMI based archetypes based on expanded reference model">
+description = <"Core CIMI archetypes based on expanded reference model">

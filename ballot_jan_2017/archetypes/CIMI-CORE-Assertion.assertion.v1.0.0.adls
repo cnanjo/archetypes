@@ -1,6 +1,9 @@
 archetype (adl_version=2.0.6; rm_release=2.0.2)
   CIMI-CORE-Assertion.assertion.v1.0.0
 
+specialize
+  CIMI-CORE-Finding.finding.v1
+
 language
   original_language = <[ISO_639-1::en]>
 
@@ -32,22 +35,196 @@ description
   >
 
 definition
-  Assertion[id1]
+  Assertion[id1.1.1] matches {
+    /key[id0.1.1] matches {[ac0.0.1]}
+    /precondition[id0.2.1] matches {[ac0.0.2]}
+    name matches {
+      CODED_TEXT[id0.0.1]
+    }
+    bodyLocation matches {
+      AnatomicalLocation[id0.0.2]
+    }
+    bodyLocationPrecoord matches {
+      CODED_TEXT[id0.0.3]
+    }
+    causativeAgentCode matches {
+      CODED_TEXT[id0.0.4]
+    }
+    causativeAgent matches {
+      use_archetype ClinicalStatement [id0.0.5, CIMI-CORE-ClinicalStatement.clinical_statement.v1] occurrences matches {0..*}
+    }
+    dueToCode matches {
+      CODED_TEXT[id0.0.6]
+    }
+    dueTo matches {
+      use_archetype ClinicalStatement [id0.0.7, CIMI-CORE-ClinicalStatement.clinical_statement.v1] occurrences matches {0..*}
+    }
+    severity matches {
+      CODED_TEXT[id0.0.8]
+    }
+    clinicalCourse matches {
+      CODED_TEXT[id0.0.9]
+    }
+    interpretation matches {
+      Interpretation[id0.0.10]
+    }
+    periodOfLife matches {
+      CODED_TEXT[id0.0.11]
+    }
+    findingMethod matches {
+      CODED_TEXT[id0.0.12]
+    }
+    ageAtOnset matches {
+      QUANTITY[id0.0.13]
+    }
+    dateAbated matches {
+      DATE_TIME[id0.0.14]
+    }
+    clinicalStatus matches {
+      CODED_TEXT[id0.0.15]
+    }
+    verificationStatus matches {
+      CODED_TEXT[id0.0.16]
+    }
+    diagnosisDate matches {
+      DATE_TIME[id0.0.17]
+    }
+    diseasePhase matches {
+      CODED_TEXT[id0.0.18]
+    }
+    associatedPrecondition matches {
+      CODED_TEXT[id0.0.19]
+    }
+    associatedSignAndSymptom matches {
+     CODED_TEXT[id0.0.20]
+    }
+    alleviatingFactor matches {
+     CODED_TEXT[id0.0.21]
+    }
+    exacerbatingFactor matches {
+     CODED_TEXT[id0.0.22]
+    }
+    periodicity matches {
+     CODED_TEXT[id0.0.23]
+    }
+
+  }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1"] = <
+      ["id1.1.1"] = <
         text = <"Assertion">
         description = <"">
+      >
+      ["id0.0.1"] = <
+        text = <"name">
+        description = <"">
+      >
+      ["id0.0.2"] = <
+        text = <"bodyLocation">
+        description = <"">
+      >
+      ["id0.0.3"] = <
+        text = <"bodyLocationPrecoord">
+        description = <"">
+      >
+      ["id0.0.4"] = <
+        text = <"causativeAgentCode">
+        description = <"">
+      >
+      ["id0.0.5"] = <
+        text = <"causativeAgent">
+        description = <"">
+      >
+      ["id0.0.6"] = <
+        text = <"dueToCode">
+        description = <"">
+      >
+      ["id0.0.7"] = <
+        text = <"dueTo">
+        description = <"">
+      >
+      ["id0.0.8"] = <
+        text = <"severity">
+        description = <"">
+      >
+      ["id0.0.9"] = <
+        text = <"clinicalCourse">
+        description = <"">
+      >
+      ["id0.0.10"] = <
+        text = <"interpretation">
+        description = <"">
+      >
+      ["id0.0.11"] = <
+        text = <"periodOfLife">
+        description = <"">
+      >
+      ["id0.0.12"] = <
+        text = <"findingMethod">
+        description = <"">
+      >
+      ["id0.0.13"] = <
+        text = <"ageAtOnset">
+        description = <"">
+      >
+      ["id0.0.14"] = <
+        text = <"dateAbated">
+        description = <"">
+      >
+      ["id0.0.15"] = <
+        text = <"clinicalStatus">
+        description = <"">
+      >
+      ["id0.0.16"] = <
+        text = <"verificationStatus">
+        description = <"">
+      >
+      ["id0.0.17"] = <
+        text = <"diagnosisDate">
+        description = <"">
+      >
+      ["id0.0.18"] = <
+        text = <"diseasePhase">
+        description = <"">
+      >
+      ["id0.0.19"] = <
+        text = <"associatedPrecondition">
+        description = <"">
+      >
+      ["id0.0.20"] = <
+        text = <"associatedSignAndSymptom">
+        description = <"">
+      >
+      ["id0.0.21"] = <
+        text = <"alleviatingFactor">
+        description = <"">
+      >
+      ["id0.0.22"] = <
+        text = <"exacerbatingFactor">
+        description = <"">
+      >
+      ["id0.0.23"] = <
+        text = <"periodicity">
+        description = <"">
+      >
+      ["ac0.0.1"] = <
+        text = <"Key intentional value set">
+        description = <"Value set encompassing clinical finding and observable hierarchies in SNOMED-CT">
+      >
+      ["ac0.0.2"] = <
+        text = <"Precondition intentional value set">
+        description = <"Value set encompassing precondition codes in SNOMED-CT">
       >
     >
   >
 
   term_bindings = <
-    ["snomed-ct"] = <
+    ["to-be-defined-in-future"] = <
       items = <
-        ["id1"] = <http://snomed.info/id/TBD>
+        ["ac0.0.1"] = <http://example.com/value_set/not_yet_defined>
+        ["ac0.0.2"] = <http://example.com/value_set/not_yet_defined>
       >
     >
   >

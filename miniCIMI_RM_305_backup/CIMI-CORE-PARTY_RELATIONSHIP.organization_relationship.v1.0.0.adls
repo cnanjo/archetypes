@@ -1,29 +1,28 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-Action.verify_action.v1.0.0
+  CIMI-CORE-PARTY_RELATIONSHIP.organization_relationship.v1.0.0
 
 specialize
-  CIMI-CORE-Action.action.v1
+  CIMI-CORE-PARTY_RELATIONSHIP.party_relationship.v1
 
 language
   original_language = <[ISO_639-1::en]>
 
 description
   original_author = <
-    ["name"] = <"Claude Nanjo">
-    ["organisation"] = <"Cognitive Medical Systems">
-    ["email"] = <"cnanjo@cogmedsys.com">
-    ["date"] = <"11/06/2016">
+    ["name"] = <"Patrick Langford">
+    ["organisation"] = <"Intermountain Healthcare">
+    ["email"] = <"patrick@neuronsong.com">
+    ["date"] = <"10/06/2014">
   >
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Archetype for CIMI 'verify action' concept">
-      use = <"Use for verification action.">
-      keywords = <"verify","action">
+      purpose = <"Archetype for CIMI 'organization relationship' concept">
+      use = <"Use for organization relationship.">
+      keywords = <"organization","relationship">
     >
   >
   lifecycle_state = <"unmanaged">
-  other_details = <["model_level"] = <"reference">>
   other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
   custodian_namespace = <"org.opencimi">
   custodian_organisation = <"Clinical Information Modeling Initiative <http://opencimi.org>">
@@ -35,42 +34,36 @@ description
   >
 
 definition
-  Action[id1.1] matches { -- Verify action
-    datetime matches {  -- Verification datetime
-      DATE_TIME[id4.1]
-    }
-    datetimeRange matches {  -- Verification datetime range
-      INTERVAL_VALUE<DATE_TIME>[id5.1]
-    }
-    duration matches { -- Verification duration
-      DURATION[id6.1]
-    }
-    timingOffset matches { -- Verification timing offset
-      DURATION[id7.1]
-    }
-    timingOffsetOrigin matches {  -- Verify timing offset origin
-      DATE_TIME[id8.1]
-    }
-    performer matches { -- Verifier
-      PARTICIPATION[id16.1]
+  PARTY_RELATIONSHIP[id1.1] matches { -- Organization relationship
+    details matches {
+      ELEMENT[id0.2] occurrences matches {1} matches { -- Scoping status
+        value existence matches {1} matches {
+          CODED_TEXT[id0.4]
+        }
+        null_flavor existence matches {0}
+      }
+      use_archetype ITEM_GROUP [id0.3, CIMI-CORE-ITEM_GROUP.location.v1] -- Location
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1"] = < text = <"Verify action"> >
-      ["id4.1"] = < text = <"Verification datetime"> >
-      ["id5.1"] = < text = <"Verification datetime range"> >
-      ["id6.1"] = < text = <"Verification duration"> >
-      ["id7.1"] = < text = <"Verification timing offset"> >
-      ["id8.1"] = < text = <"Verification timing offset origin"> >
-      ["id16.1"] = < text = <"Verifier"> >
+      ["id1.1"] = <
+        text = <"Organization relationship">
+      >
+      ["id0.2"] = <
+        text = <"Scoping status">
+      >
+      ["id0.3"] = <
+        text = <"Location">
+      >
     >
   >
   term_bindings = <
     ["snomed-ct"] = <
       items = <
+        ["id0.2"] = <http://snomed.info/id/138875005>
       >
     >
   >

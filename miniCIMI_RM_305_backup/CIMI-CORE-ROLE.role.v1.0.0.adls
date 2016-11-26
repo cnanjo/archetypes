@@ -1,5 +1,8 @@
 archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-ClinicalStatement.clinical_statement.v1.0.0
+  CIMI-CORE-ROLE.role.v1.0.0
+
+specialize
+  CIMI-CORE-PARTY.party.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -9,17 +12,16 @@ description
     ["name"] = <"Patrick Langford">
     ["organisation"] = <"Intermountain Healthcare">
     ["email"] = <"patrick@neuronsong.com">
-    ["date"] = <"10/18/2016">
+    ["date"] = <"10/06/2014">
   >
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Top-level reference archetype for CIMI 'clinical statement' concept">
-      use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"clinical","statement">
+      purpose = <"Archetype for CIMI 'role' concept">
+      use = <"Use for role.">
+      keywords = <"role">
     >
   >
-  other_details = <["model_level"] = <"reference">>
   lifecycle_state = <"unmanaged">
   other_contributors = <"Linda Bird <lbi@ihtsdo.org>","Joey Coyle <joey@xcoyle.com>","Stan Huff <Stan.Huff@imail.org>","Harold Solbrig <Solbrig.Harold@mayo.edu>","Thomas Beale <thomas.beale@oceaninformatics.com>">
   custodian_namespace = <"org.opencimi">
@@ -32,50 +34,60 @@ description
   >
 
 definition
-  ClinicalStatement[id1] matches {
-    key matches {
-      CODED_TEXT[id2]
-    } 
-    identifier matches {
-      IDENTIFIER[id3] occurrences matches {0..*}
-    } 
-    topic existence matches {0..1} matches {
-      StatementTopic[id4]
-    }
-    context existence matches {0..1} matches {
-      StatementContext[id5]
-    }
-    subjectOfInformation matches {
-      PARTICIPATION[id6]
-    }
-    authored matches {
-      use_archetype Action [id7, CIMI-CORE-ACTION.author_action.v1]
-    }
-    recorded matches {
-      use_archetype Action [id8, CIMI-CORE-ACTION.record_action.v1]
-    }
-    verified matches {
-      use_archetype Action [id9, CIMI-CORE-ACTION.verify_action.v1]
-    }
-    additionalText matches {
-      TEXT[id10]
+  ROLE[id1.1] matches { -- Role
+    details matches {
+      ELEMENT[id0.1] occurrences matches {1} matches { -- Role type
+        value existence matches {1} matches {
+          CODED_TEXT[id0.5] matches {*}
+        }
+        null_flavor existence matches {0}
+      }
+      ELEMENT[id0.2] occurrences matches {0..1} matches { -- Datetime range
+        value matches {
+          INTERVAL_VALUE<DATE>[id0.6] matches {*}
+        }
+      }
+      ELEMENT[id0.3] occurrences matches {0..*} matches { -- Confidentialty level
+        value matches {
+          CODED_TEXT[id0.7] matches {*}
+        }
+      }
+      ELEMENT[id0.4] occurrences matches {0..1} matches { -- Status
+        value matches {
+          CODED_TEXT[id0.8] matches {*}
+        }
+      }
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1"] = <text = <"Clinical Statement">>
-      ["id2"] = <text = <"Key">>
-      ["id3"] = <text = <"Identifier">>
-      ["id4"] = <text = <"Statement topic">>
-      ["id5"] = <text = <"Statement context">>
-      ["id6"] = <text = <"Subject of information">>
-      ["id7"] = <text = <"Authored">>
-      ["id8"] = <text = <"Recorded">>
-      ["id9"] = <text = <"Verified">>
-      ["id10"] = <text = <"Additional text">>
+      ["id1.1"] = <
+        text = <"Role">
+      >
+      ["id0.1"] = <
+        text = <"Role type">
+      >
+      ["id0.2"] = <
+        text = <"Datetime range">
+      >
+      ["id0.3"] = <
+        text = <"Confidentialty level">
+      >
+      ["id0.4"] = <
+        text = <"Status">
+      >
     >
   >
-
-
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+        ["id1.1"] = <http://snomed.info/id/138875005>
+        ["id0.1"] = <http://snomed.info/id/138875005>
+        ["id0.2"] = <http://snomed.info/id/138875005>
+        ["id0.3"] = <http://snomed.info/id/138875005>
+        ["id0.4"] = <http://snomed.info/id/138875005>
+      >
+    >
+  >
