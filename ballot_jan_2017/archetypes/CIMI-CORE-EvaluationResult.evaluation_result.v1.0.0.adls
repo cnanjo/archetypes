@@ -35,14 +35,78 @@ description
   >
 
 definition
-  EvaluationResult[id1.1.1]
+  EvaluationResult[id1.1.1] matches {
+    result matches {
+      DATA_VALUE[id0.0.1]
+    }
+    method matches {
+      CODED_TEXT[id0.0.2]
+    }
+    device matches {
+      CODED_TEXT[id0.0.3]
+    }
+    priority matches {
+      CODED_TEXT[id0.0.4]
+    }
+    sequence matches {
+      CODED_TEXT[id0.0.5]
+    }
+    deltaFlag matches {
+      CODED_TEXT[id0.0.6]
+    }
+    referenceRange matches {
+      ReferenceRange[id0.0.7]
+    }
+    interpretation matches {
+      CODED_TEXT[id0.0.8]
+    }
+    multimedia matches {
+      MULTIMEDIA[id0.0.9]
+    }
+  }
 
 terminology
   term_definitions = <
     ["en"] = <
       ["id1.1.1"] = <
         text = <"Evaluation result">
-        description = <"">
+        description = <"The outcome of an evaluation of a characteristic. This model holds a 'question' in the key and holds a value in the result. This value is further qualified through the model's properties.">
+      >
+      ["id0.0.1"] = <
+        text = <"Result">
+        description = <"The unqualified value of the evaluation.">
+      >
+      ["id0.0.2"] = <
+        text = <"Method">
+        description = <"The means by which a measurement, evaluation, or assessment was made.">
+      >
+      ["id0.0.3"] = <
+        text = <"Device">
+        description = <"The device used to evaluate the characteristic such as the type of blood pressure cuff used on a patient.">
+      >
+      ["id0.0.4"] = <
+        text = <"Priority">
+        description = <"The urgency of the evaluation result.">
+      >
+      ["id0.0.5"] = <
+        text = <"Sequence">
+        description = <"Sequence is a number placed onto the data which refers to the order it occurred in or needs to be retrieved by.">
+      >
+      ["id0.0.6"] = <
+        text = <"Delta flag">
+        description = <"Flag indicating whether there was a significant change from previous results.">
+      >
+      ["id0.0.7"] = <
+        text = <"Reference range">
+        description = <"The range for the measurement.">
+      >
+      ["id0.0.8"] = <
+        text = <"Interpretation">
+        description = <"A clinical judgment about the significance of an evaluation result. Interpretation is used to clarify data from measurements and other evaluations. For example, if a measured analyte is greater than a predetermined threshold the interpretation could be Positive, or if a measurement is lower than a normal physiological range the interpretation could be low or critical low. Some values include normal, abnormal, panic high, panic low, ...">
+      >
+      ["id0.0.9"] = <
+        text = <"Multimedia">
+        description = <"Associated media produced during the evaluation such as an X-ray.">
       >
     >
   >
@@ -50,7 +114,12 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id1.1.1"] = <http://snomed.info/id/TBD>
+        ["id0.0.2"] = <http://snomed.info/id/TBD>
+        ["id0.0.3"] = <http://snomed.info/id/TBD>
+        ["id0.0.4"] = <http://snomed.info/id/TBD>
+        ["id0.0.5"] = <http://snomed.info/id/TBD>
+        ["id0.0.6"] = <http://snomed.info/id/TBD>
+        ["id0.0.8"] = <http://snomed.info/id/TBD>
       >
     >
   >

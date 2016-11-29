@@ -40,10 +40,10 @@ definition
       IDENTIFIER[id3] occurrences matches {0..*}
     } 
     topic existence matches {0..1} matches {
-      StatementTopic[id4]
+      use_archetype StatementTopic [id4, CIMI-CORE-StatementTopic.statement_topic.v1]
     }
     context existence matches {0..1} matches {
-      StatementContext[id5]
+      use_archetype StatementContext [id5, CIMI-CORE-StatementContext.statement_context_struct.v1]
     }
     contextAttribution existence matches {0..1} matches {
       Attribution[id6]
@@ -91,6 +91,15 @@ terminology
       ["id12"] = <text = <"Cosigned">>
       ["id13"] = <text = <"Additional text">>
       ["id14"] = <text = <"Record status">>
+    >
+  >
+
+  term_bindings = <
+    ["cimi"] = <
+      items = <
+        ["id4"] = <http://example.com/valueset/statement_topic_vs.v0.0.1>
+        ["id5"] = <http://example.com/valueset/statement_context_vs.v0.0.1>
+      >
     >
   >
 

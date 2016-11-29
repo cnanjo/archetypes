@@ -35,14 +35,106 @@ description
   >
 
 definition
-  Procedure[id1.1.1]
+  Procedure[id1.1.1] matches {
+    name matches {
+      CODED_TEXT[id0.0.1]
+    }
+    description matches {
+      PLAIN_TEXT[id0.0.2]
+    }
+    priority matches {
+      CODED_TEXT[id0.0.3]
+    }
+    site matches {
+      AnatomicalLocation[id0.0.4]
+    }
+    surgicalApproach matches {
+      CODED_TEXT[id0.0.5]
+    }
+    method matches {
+      CODED_TEXT[id0.0.6]
+    }
+    device matches {
+      Device[id0.0.7]
+    }
+    deviceCode matches {
+      CODED_TEXT[id0.0.8]
+    }
+    access matches {
+      CODED_TEXT[id0.0.9]
+    }
+    implant matches {
+      Device[id0.0.10]
+    }
+    implantCode matches {
+      CODED_TEXT[id0.0.11]
+    }
+    usingEnergy matches {
+      CODED_TEXT[id0.0.12]
+    }
+    usingSubstance matches {
+      Substance[id0.0.13]
+    }
+  }
 
 terminology
   term_definitions = <
     ["en"] = <
       ["id1.1.1"] = <
         text = <"Procedure">
-        description = <"">
+        description = <"An action intended to treat, cure, or restore function or structure such as surgical and physical rehabilitation procedures.">
+      >
+      ["id0.0.1"] = <
+        text = <"Name">
+        description = <"Concept representing the type of procedure performed.">
+      >
+      ["id0.0.2"] = <
+        text = <"Description">
+        description = <"An account of the procedure in narrative form.">
+      >
+      ["id0.0.3"] = <
+        text = <"Priority">
+        description = <"Priority assigned to a procedure.">
+      >
+      ["id0.0.4"] = <
+        text = <"Site">
+        description = <"Anatomical location of the procedure.">
+      >
+      ["id0.0.5"] = <
+        text = <"Surgical approach">
+        description = <"The technique used to reach the site of the procedure. Approaches may be through the skin or mucous membrane, through an orifice or external.">
+      >
+      ["id0.0.6"] = <
+        text = <"Method">
+        description = <"Technique or way of accomplishing the procedure. E.g., endoscopic, arthroscopic, etc...">
+      >
+      ["id0.0.7"] = <
+        text = <"Device">
+        description = <"Instrument, apparatus, appliance, software, material, or other article - whether used alone or in combination, associated with the performance of the procedure. For instance,  an endoscope. Note that this differs from an implant which remains in the body after the procedure is performed.">
+      >
+      ["id0.0.8"] = <
+        text = <"Device code">
+        description = <"Instrument, apparatus, appliance, software, material, or other article - whether used alone or in combination, associated with the performance of the procedure. For instance,  an endoscope. Note that this differs from an implant which remains in the body after the procedure is performed.">
+      >
+      ["id0.0.9"] = <
+        text = <"Access">
+        description = <"The route used to access the site of a procedure. It is used to distinguish open, closed, and percutaneous procedures.">
+      >
+      ["id0.0.10"] = <
+        text = <"Implant">
+        description = <"Something placed in a person's body or on its surface during the procedure and remains postoperatively. E.g., stents, tubes, artificial joints, and drains.">
+      >
+      ["id0.0.11"] = <
+        text = <"Implant code">
+        description = <"Concept representing something placed in a person's body or on its surface during the procedure and remains postoperatively. E.g., stents, tubes, artificial joints, and drains.">
+      >
+      ["id0.0.12"] = <
+        text = <"Using energy">
+        description = <"The energy used to execute the procedure. E.g., gamma rays.">
+      >
+      ["id0.0.13"] = <
+        text = <"Using substance">
+        description = <"Substance used to execute the action of a procedure. E.g., radiographic contrast media.">
       >
     >
   >

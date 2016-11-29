@@ -35,14 +35,22 @@ description
   >
 
 definition
-  LaboratoryProcedure[id1.1.1.1]
+  LaboratoryProcedure[id1.1.1.1] matches {
+    specimen matches {
+     Specimen[id0.0.0.1]
+    }
+  }
 
 terminology
   term_definitions = <
     ["en"] = <
       ["id1.1.1.1"] = <
         text = <"Laboratory procedure">
-        description = <"">
+        description = <"Specialization of Procedure that represents a procedure performed on a collected specimen such as a blood panel or a biopsy.">
+      >
+      ["id0.0.0.1"] = <
+        text = <"Specimen">
+        description = <"Tissues, objects, or samples taken from the patient during the procedure including biopsies, aspiration fluid, or other samples sent for pathological analysis.">
       >
     >
   >

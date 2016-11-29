@@ -42,7 +42,7 @@ terminology
     ["en"] = <
       ["id1.1.1.1"] = <
         text = <"Physical Evaluation Result">
-        description = <"">
+        description = <"Measurement resulting from a physical assessment procedure.">
       >
     >
   >

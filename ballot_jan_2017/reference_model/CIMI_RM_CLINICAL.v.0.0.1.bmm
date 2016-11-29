@@ -12,7 +12,7 @@ rm_release = <"0.0.1">
 ------------------------------------
 -- schema documentation
 ------------------------------------
-schema_revision = <"Thu Nov 24 15:46:48 PST 2016">
+schema_revision = <"Sun Nov 27 23:08:42 PST 2016">
 schema_lifecycle_state = <"dstu">
 schema_description = <"CIMI_RM_CLINICAL.v0.0.1.mdzip - Schema generated from UML">
 
@@ -59,11 +59,11 @@ packages = <
 			>
 			["Data_Structure"] = <
 				name = <"Data_Structure">
-				classes = <"BiometricData", "Provenance", "Address", "ProductBatch", "PartyName", "QualitativeReferenceRange", "StatementContext", "Industry", "Specimen", "Goal", "DeathData", "ElectronicContact", "ReferenceRange", "Registration", "Medication", "Street", "StreetNumber", "Procedure", "Justification", "Accreditation", "FindingContext", "ActorName", "Order", "AddressLine", "Device", "Assertion", "Citizenship", "Interpretation", "Attribution", "EvaluationResult", "PresenceAbsenceContext", "Qualification", "PersonNameDetailed", "Part", "Finding", "BirthData", "Performance", "NotCompleted", "Person", "LaboratoryProcedure", "Proposal", "SubstanceContainer", "SpecimenTreatment", "OrganizationName", "MedicationProduct", "Risk", "SpecimenCollection", "LocationName", "MedicationPackage", "ClinicalStatementAssociation", "Language", "UnitOfDistribution", "Substance", "MaterialEntity", "QuantitativeReferenceRange", "Absent", "Age", "PersonName", "Use", "PhysicalEvaluationResult", "ActionContext", "Plan", "ContactInformation", "SpecimenContainer", "AnatomicalLocation", "Occupation", "Act", "NotPerformance", "Ingredient", "BirthOrDeathDateTime", "Residency", "Signature", "LaboratoryTestResult", "AdvanceDirective", "Entitlement", "KnownOrSuspectedPresent", "ProposalAgainst", "Location", "StatementTopic">
+				classes = <"BiometricData", "Provenance", "Address", "ProductBatch", "PartyName", "QualitativeReferenceRange", "StatementContext", "Industry", "Specimen", "Goal", "DeathData", "ElectronicContact", "ReferenceRange", "Registration", "Medication", "Street", "StreetNumber", "Procedure", "Justification", "Accreditation", "FindingContext", "ActorName", "Order", "AddressLine", "NonPerformance", "Device", "Assertion", "Citizenship", "Interpretation", "Attribution", "EvaluationResult", "NonCompletion", "PresenceAbsenceContext", "Qualification", "PersonNameDetailed", "Part", "Finding", "BirthData", "Performance", "Person", "LaboratoryProcedure", "Proposal", "SubstanceContainer", "SpecimenTreatment", "OrganizationName", "MedicationProduct", "LanguageCapability", "Risk", "SpecimenCollection", "LocationName", "MedicationPackage", "ClinicalStatementAssociation", "UnitOfDistribution", "Substance", "MaterialEntity", "QuantitativeReferenceRange", "Absent", "Age", "PersonName", "Use", "PhysicalEvaluationResult", "ActionContext", "Plan", "ContactInformation", "SpecimenContainer", "AnatomicalLocation", "Occupation", "Act", "Ingredient", "BirthOrDeathDateTime", "Residency", "Signature", "LaboratoryTestResult", "AdvanceDirective", "Entitlement", "KnownOrSuspectedPresent", "ProposalAgainst", "Location", "StatementTopic">
 			>
 			["Redefined_Datatypes"] = <
 				name = <"Redefined_Datatypes">
-				classes = <"DateTimeInterval", "DateInterval">
+				classes = <"DateTimeInterval", "DateInterval", "QuantityInterval">
 			>
 		>
 	>
@@ -110,10 +110,6 @@ class_definitions = <
 					root_type = <"INTERVAL_VALUE">
 					generic_parameters = <"DATE">
 				>
-			>
-			["accreditationOrganization"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"accreditationOrganization">
-				type = <"HealthCareProviderRelationship">
 			>
 			["industry"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"industry">
@@ -531,13 +527,9 @@ class_definitions = <
 				>
 				cardinality = <|>=0|>
 			>
-			["contextAttribution"] = (P_BMM_CONTAINER_PROPERTY) <
+			["contextAttribution"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"contextAttribution">
-				type_def = <
-					container_type = <"List">
-					type = <"Attribution">
-				>
-				cardinality = <|>=0|>
+				type = <"Attribution">
 			>
 			["context"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"context">
@@ -820,17 +812,9 @@ class_definitions = <
 		name = <"DeathData">
 		ancestors = <"CLUSTER", ...>
 		properties = <
-			["deathNotificationSource"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"deathNotificationSource">
-				type = <"TEXT">
-			>
 			["deathCertificateNumber"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"deathCertificateNumber">
 				type = <"PLAIN_TEXT">
-			>
-			["deathInformationProvider"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"deathInformationProvider">
-				type = <"IDENTIFIER">
 			>
 			["deceasedIndicator"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"deceasedIndicator">
@@ -843,6 +827,10 @@ class_definitions = <
 			["deathDatetime"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"deathDatetime">
 				type = <"BirthOrDeathDateTime">
+			>
+			["recorded"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"recorded">
+				type = <"Attribution">
 			>
 			["deathAddress"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"deathAddress">
@@ -1135,16 +1123,20 @@ class_definitions = <
 		name = <"Accreditation">
 		ancestors = <"CLUSTER", ...>
 		properties = <
-			["identifier"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"identifier">
-				type = <"IDENTIFIER">
-			>
-			["dateRange"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"dateRange">
+			["validityPeriod"] = (P_BMM_GENERIC_PROPERTY) <
+				name = <"validityPeriod">
 				type_def = <
 					root_type = <"INTERVAL_VALUE">
 					generic_parameters = <"DATE">
 				>
+			>
+			["identifier"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"identifier">
+				type = <"IDENTIFIER">
+			>
+			["accreditationOrganization"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"accreditationOrganization">
+				type = <"HealthCareProviderRelationship">
 			>
 			["type"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"type">
@@ -1205,10 +1197,6 @@ class_definitions = <
 					type = <"Justification">
 				>
 				cardinality = <|>=0|>
-			>
-			["isPRN"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"isPRN">
-				type = <"Boolean">
 			>
 		>
 	>
@@ -1344,6 +1332,20 @@ class_definitions = <
 		>
 	>
 
+	["NonPerformance"] = <
+		name = <"NonPerformance">
+		ancestors = <"ActionContext", ...>
+		properties = <
+			["nonPerformanceTime"] = (P_BMM_GENERIC_PROPERTY) <
+				name = <"nonPerformanceTime">
+				type_def = <
+					root_type = <"INTERVAL_VALUE">
+					generic_parameters = <"DATE_TIME">
+				>
+			>
+		>
+	>
+
 	["Device"] = <
 		name = <"Device">
 		ancestors = <"MaterialEntity", ...>
@@ -1373,8 +1375,8 @@ class_definitions = <
 				name = <"version">
 				type = <"TEXT">
 			>
-			["uri"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"uri">
+			["url"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"url">
 				type = <"URI">
 			>
 			["manufacturer"] = (P_BMM_SINGLE_PROPERTY) <
@@ -1384,10 +1386,6 @@ class_definitions = <
 			["udiCarrier"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"udiCarrier">
 				type = <"IDENTIFIER">
-			>
-			["patient"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"patient">
-				type = <"PARTICIPATION">
 			>
 			["contact"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"contact">
@@ -1404,10 +1402,6 @@ class_definitions = <
 			["model"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"model">
 				type = <"TEXT">
-			>
-			["location"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"location">
-				type = <"Location">
 			>
 			["status"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"status">
@@ -1553,20 +1547,12 @@ class_definitions = <
 				name = <"causativeAgent">
 				type_def = <
 					container_type = <"List">
-					type = <"ClinicalStatement">
+					type = <"CODED_TEXT">
 				>
 				cardinality = <|>=0|>
 			>
 			["exacerbatingFactor"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"exacerbatingFactor">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-			["causativeAgentCode"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"causativeAgentCode">
 				type_def = <
 					container_type = <"List">
 					type = <"CODED_TEXT">
@@ -1643,6 +1629,14 @@ class_definitions = <
 				name = <"activity">
 				type = <"CODED_TEXT">
 				is_mandatory = <True>
+			>
+			["method"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"method">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
 			>
 			["signature"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"signature">
@@ -1731,14 +1725,6 @@ class_definitions = <
 				name = <"interpretation">
 				type = <"CODED_TEXT">
 			>
-			["conclusions"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"conclusions">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
 			["deltaFlag"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"deltaFlag">
 				type = <"CODED_TEXT">
@@ -1759,6 +1745,20 @@ class_definitions = <
 					type = <"CODED_TEXT">
 				>
 				cardinality = <|>=0|>
+			>
+		>
+	>
+
+	["NonCompletion"] = <
+		name = <"NonCompletion">
+		ancestors = <"Performance", ...>
+		properties = <
+			["nonCompletionTimeframe"] = (P_BMM_GENERIC_PROPERTY) <
+				name = <"nonCompletionTimeframe">
+				type_def = <
+					root_type = <"INTERVAL_VALUE">
+					generic_parameters = <"DATE_TIME">
+				>
 			>
 		>
 	>
@@ -1959,20 +1959,6 @@ class_definitions = <
 		>
 	>
 
-	["NotCompleted"] = <
-		name = <"NotCompleted">
-		ancestors = <"Performance", ...>
-		properties = <
-			["nonCompletionTimeframe"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"nonCompletionTimeframe">
-				type_def = <
-					root_type = <"INTERVAL_VALUE">
-					generic_parameters = <"DATE_TIME">
-				>
-			>
-		>
-	>
-
 	["Person"] = <
 		name = <"Person">
 		ancestors = <"BaseActor", ...>
@@ -2056,7 +2042,7 @@ class_definitions = <
 				name = <"language">
 				type_def = <
 					container_type = <"List">
-					type = <"Language">
+					type = <"LanguageCapability">
 				>
 				cardinality = <|>=0|>
 			>
@@ -2202,10 +2188,6 @@ class_definitions = <
 				>
 				cardinality = <|>=0|>
 			>
-			["isPrn"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"isPrn">
-				type = <"Boolean">
-			>
 		>
 	>
 
@@ -2301,6 +2283,34 @@ class_definitions = <
 		>
 	>
 
+	["LanguageCapability"] = <
+		name = <"LanguageCapability">
+		ancestors = <"CLUSTER", ...>
+		properties = <
+			["mode"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"mode">
+				type = <"CODED_TEXT">
+			>
+			["preferenceIndicator"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"preferenceIndicator">
+				type = <"CODED_TEXT">
+			>
+			["translatorRequired"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"translatorRequired">
+				type = <"CODED_TEXT">
+			>
+			["languageCode"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"languageCode">
+				type = <"CODED_TEXT">
+				is_mandatory = <True>
+			>
+			["proficiency"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"proficiency">
+				type = <"TEXT">
+			>
+		>
+	>
+
 	["Risk"] = <
 		name = <"Risk">
 		ancestors = <"FindingContext", ...>
@@ -2317,14 +2327,6 @@ class_definitions = <
 			["amount"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"amount">
 				type = <"QUANTITY">
-			>
-			["method"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"method">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
 			>
 			["size"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"size">
@@ -2408,11 +2410,6 @@ class_definitions = <
 		ancestors = <"ASSOCIATION_CLASS", ...>
 		is_abstract = <True>
 		properties = <
-			["relationshipCode"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"relationshipCode">
-				type = <"TEXT">
-				is_mandatory = <True>
-			>
 			["target"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"target">
 				type_def = <
@@ -2420,34 +2417,6 @@ class_definitions = <
 					type = <"ClinicalStatement">
 				>
 				cardinality = <|>=1|>
-			>
-		>
-	>
-
-	["Language"] = <
-		name = <"Language">
-		ancestors = <"CLUSTER", ...>
-		properties = <
-			["mode"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"mode">
-				type = <"CODED_TEXT">
-			>
-			["preferenceIndicator"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"preferenceIndicator">
-				type = <"CODED_TEXT">
-			>
-			["translatorRequired"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"translatorRequired">
-				type = <"CODED_TEXT">
-			>
-			["languageCode"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"languageCode">
-				type = <"CODED_TEXT">
-				is_mandatory = <True>
-			>
-			["proficiency"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"proficiency">
-				type = <"TEXT">
 			>
 		>
 	>
@@ -2516,13 +2485,13 @@ class_definitions = <
 		name = <"QuantitativeReferenceRange">
 		ancestors = <"ReferenceRange", ...>
 		properties = <
-			["upperBound"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"upperBound">
-				type = <"QUANTITY">
-			>
-			["lowerBound"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"lowerBound">
-				type = <"QUANTITY">
+			["range"] = (P_BMM_GENERIC_PROPERTY) <
+				name = <"range">
+				type_def = <
+					root_type = <"INTERVAL_VALUE">
+					generic_parameters = <"QUANTITY">
+				>
+				is_mandatory = <True>
 			>
 		>
 	>
@@ -2530,6 +2499,16 @@ class_definitions = <
 	["Absent"] = <
 		name = <"Absent">
 		ancestors = <"PresenceAbsenceContext", ...>
+		properties = <
+			["informationAbsentReason"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"informationAbsentReason">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
+			>
+		>
 	>
 
 	["Age"] = <
@@ -2790,13 +2769,13 @@ class_definitions = <
 		name = <"AnatomicalLocation">
 		ancestors = <"MaterialEntity", ...>
 		properties = <
-			["bodySide"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"bodySide">
-				type = <"TEXT">
+			["anatomicalDirection"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"anatomicalDirection">
+				type = <"CODED_TEXT">
 			>
 			["laterality"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"laterality">
-				type = <"CODED_TEXT">
+				type = <"TEXT">
 			>
 		>
 	>
@@ -2829,20 +2808,6 @@ class_definitions = <
 		name = <"Act">
 		ancestors = <"StatementTopic", ...>
 		is_abstract = <True>
-	>
-
-	["NotPerformance"] = <
-		name = <"NotPerformance">
-		ancestors = <"ActionContext", ...>
-		properties = <
-			["nonPerformanceTime"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"nonPerformanceTime">
-				type_def = <
-					root_type = <"INTERVAL_VALUE">
-					generic_parameters = <"DATE_TIME">
-				>
-			>
-		>
 	>
 
 	["Ingredient"] = <
@@ -2983,10 +2948,6 @@ class_definitions = <
 		name = <"AdvanceDirective">
 		ancestors = <"CLUSTER", ...>
 		properties = <
-			["image"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"image">
-				type = <"MULTIMEDIA">
-			>
 			["comments"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"comments">
 				type_def = <
@@ -3001,6 +2962,10 @@ class_definitions = <
 					root_type = <"INTERVAL_VALUE">
 					generic_parameters = <"DATE">
 				>
+			>
+			["directiveDocument"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"directiveDocument">
+				type = <"MULTIMEDIA">
 			>
 			["category"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"category">
@@ -3054,6 +3019,12 @@ class_definitions = <
 	["KnownOrSuspectedPresent"] = <
 		name = <"KnownOrSuspectedPresent">
 		ancestors = <"PresenceAbsenceContext", ...>
+		properties = <
+			["certainty"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"certainty">
+				type = <"CODED_TEXT">
+			>
+		>
 	>
 
 	["ProposalAgainst"] = <
@@ -3185,6 +3156,10 @@ class_definitions = <
 
 	["DateInterval"] = <
 		name = <"DateInterval">
+	>
+
+	["QuantityInterval"] = <
+		name = <"QuantityInterval">
 	>
 
 >

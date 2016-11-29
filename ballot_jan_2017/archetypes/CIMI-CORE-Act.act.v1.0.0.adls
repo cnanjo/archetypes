@@ -42,7 +42,7 @@ terminology
 		["en"] = <
 			["id1.1"] = <
 				text = <"Act">
-				description = <"-">
+				description = <"Description of a healthcare action, independent of action context.">
 			>
 		>
 	>
