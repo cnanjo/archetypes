@@ -114,12 +114,7 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["id0.0.2"] = <http://snomed.info/id/TBD>
-        ["id0.0.3"] = <http://snomed.info/id/TBD>
-        ["id0.0.4"] = <http://snomed.info/id/TBD>
-        ["id0.0.5"] = <http://snomed.info/id/TBD>
-        ["id0.0.6"] = <http://snomed.info/id/TBD>
-        ["id0.0.8"] = <http://snomed.info/id/TBD>
+        ["id0.0.2"] = <http://snomed.info/id/246501002> -- |Technique (attribute)|
       >
     >
   >

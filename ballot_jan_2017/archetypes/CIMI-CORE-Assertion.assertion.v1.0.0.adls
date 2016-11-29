@@ -36,8 +36,6 @@ description
 
 definition
   Assertion[id1.1.1] matches {
-    /key matches {[ac0.1.1]}
-    --/precondition[id0.2.1] matches {[ac0.0.2]}
     name matches {
       CODED_TEXT[id0.0.1]
     }
@@ -202,22 +200,21 @@ terminology
         text = <"Periodicity">
         description = <"The length of time from one occurrence to the next (e.g., intermittent, weekly, continuous).">
       >
-      ["ac0.1.1"] = <
-        text = <"Key intentional value set">
-        description = <"Value set encompassing clinical finding and observable hierarchies in SNOMED-CT">
-      >
-      ["ac0.0.2"] = <
-        text = <"Precondition intentional value set">
-        description = <"Value set encompassing precondition codes in SNOMED-CT">
-      >
     >
   >
 
   term_bindings = <
-    ["to-be-defined-in-future"] = <
+    ["snomed-ct"] = <
       items = <
-        ["ac0.1.1"] = <http://example.com/value_set/not_yet_defined>
-        ["ac0.0.2"] = <http://example.com/value_set/not_yet_defined>
+        ["id0.0.2"] = <http://snomed.info/id/363698007> -- |Finding site (attribute)|
+        ["id0.0.3"] = <http://snomed.info/id/363698007> -- |Finding site (attribute)|
+        ["id0.0.4"] = <http://snomed.info/id/246075003> -- |Causative agent (attribute)|
+        ["id0.0.5"] = <http://snomed.info/id/42752001> -- |Due to (attribute)|
+        ["id0.0.6"] = <http://snomed.info/id/42752001> -- |Due to (attribute)|
+        ["id0.0.7"] = <http://snomed.info/id/246112005> -- |Severity (attribute)|
+        ["id0.0.8"] = <http://snomed.info/id/263502005> -- |Clinical course (attribute)|
+        ["id0.0.9"] = <http://snomed.info/id/363714003> -- |Interprets (attribute)|
+        ["id0.0.11"] = <http://snomed.info/id/418775008> -- |Finding method (attribute)|
       >
     >
   >

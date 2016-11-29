@@ -36,7 +36,9 @@ description
 
 definition
 	Finding[id1.1] matches { -- Finding
-		key matches {[ac0.1]}
+		key matches {
+			CODED_TEXT[id0.1]
+		}
 		precondition matches {
 			CODED_TEXT[id0.2]
 		}
@@ -64,23 +66,13 @@ terminology
 				text = <"Date of onset">
 				description = <"Date or time when the characteristic was first observed. When the asserted condition began manifesting. This property may have a broad precision (e.g., a year rather than a date).">
 			>
-			["ac0.1"] = <
-				text = <"Key">
-				description = <"The conceptual classification of the thing being observed.">
-			>
-	        ["ac0.2"] = <
-				text = <"Key">
-				description = <"The conceptual classification of the thing being observed.">
-			>
 		>
 	>
 
 	term_bindings = <
-	    ["to-be-defined-in-future"] = <
+	    ["snomed-ct"] = <
 	      items = <
-	      	["/key"] = <http://example.com/value_set/not_yet_defined>
-	        ["ac0.1"] = <http://example.com/value_set/not_yet_defined>
-	        ["ac0.2"] = <http://example.com/value_set/not_yet_defined>
-	    >
-	>
-  >
+	      	["id0.2"] = <http://snomed.info/id/704326004> -- |Precondition (attribute)|
+	    	>
+		>
+  	>

@@ -1,0 +1,36 @@
+archetype (adl_version=2.0.6; rm_release=0.0.1)
+	CIMI-CORE-Assertion.wound_assertion.v1.0.0
+
+specialize
+	CIMI-CORE-Assertion.assertion.v1
+
+language
+	original_language = <[ISO_639-1::en]>
+
+description
+	lifecycle_state = <"unmanaged">
+	original_author = <
+		["name"] = <"My Name <my_email_id@my_org.org>">
+		["organisation"] = <"Org name <http://www.my_org.org>">
+	>
+	copyright = <"Copyright (c) 2016 My Name OR Some Org">
+	licence = <"Creative Commons CC-BY 4.0 unported <http://creativecommons.org/>">
+	details = <
+		["en"] = <
+			language = <[ISO_639-1::en]>
+			purpose = <"???">
+		>
+	>
+
+definition
+	Assertion[id1.1.1.1] 	-- -
+
+terminology
+	term_definitions = <
+		["en"] = <
+			["id1.1.1.1"] = <
+				text = <"-">
+				description = <"-">
+			>
+		>
+	>

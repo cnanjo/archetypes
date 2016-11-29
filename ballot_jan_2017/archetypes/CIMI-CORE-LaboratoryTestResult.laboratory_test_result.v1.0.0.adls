@@ -35,7 +35,20 @@ description
   >
 
 definition
-  LaboratoryTestResult[id1.1.1.1]
+  LaboratoryTestResult[id1.1.1.1] matches {
+    diagnosticService matches {
+      TEXT[id0.0.0.1]
+    }
+    specimen matches {
+      Specimen[id0.0.0.2]
+    }
+    poctIndicator matches {
+      CODED_TEXT[id0.0.0.3]
+    }
+    diagnosis matches {
+      CODED_TEXT[id0.0.0.4]
+    }
+  }
 
 terminology
   term_definitions = <
@@ -43,6 +56,22 @@ terminology
       ["id1.1.1.1"] = <
         text = <"Laboratory test Result">
         description = <"">
+      >
+      ["id0.0.0.1"] = <
+        text = <"Diagnostic service">
+        description = <"The service completing the observations, e.g. biochemistry,  microbiology, blood bank, etc.">
+      >
+      ["id0.0.0.2"] = <
+        text = <"Specimen">
+        description = <"The specimen used for the analysis.">
+      >
+      ["id0.0.0.3"] = <
+        text = <"Poct Indicator">
+        description = <"">
+      >
+      ["id0.0.0.4"] = <
+        text = <"Diagnosis">
+        description = <"A condition for which the lab result  is pathoneumonic. The lab result is sufficient to assert the diagnosis.">
       >
     >
   >
