@@ -1,5 +1,5 @@
 archetype (adl_version=2.0.6; rm_release=0.0.1)
-	CIMI-CORE-CompoundClinicalStatement.wound_drainage_fluid_panel.v1.0.0
+	CIMI-CORE-CompoundClinicalStatement.wound_exudate_panel.v1.0.0
 
 specialize
 	CIMI-CORE-CompoundClinicalStatement.panel.v1
@@ -40,9 +40,8 @@ definition
 			use_archetype IndivisibleClinicalStatement [id0.1.0.1, CIMI-CORE-IndivisibleClinicalStatement.wound_drainage_fluid_amount_description_stmt.v1] occurrences matches {1..1}
 			use_archetype IndivisibleClinicalStatement [id0.1.0.2, CIMI-CORE-IndivisibleClinicalStatement.wound_drainage_fluid_description_stmt.v1] occurrences matches {1..1}
 			use_archetype IndivisibleClinicalStatement [id0.1.0.3, CIMI-CORE-IndivisibleClinicalStatement.wound_drainage_fluid_amount_rate_stmt.v1] occurrences matches {1..1}
-		}
-		context matches {
-			use_archetype KnownOrSuspectedPresent [id5.0.0.1, CIMI-CORE-KnownOrSuspectedPresent.known_present.v1]
+			use_archetype IndivisibleClinicalStatement [id0.1.0.4, CIMI-CORE-IndivisibleClinicalStatement.wound_exudate_odor_stmt.v1] occurrences matches {1..1}
+			use_archetype IndivisibleClinicalStatement [id0.1.0.5, CIMI-CORE-IndivisibleClinicalStatement.wound_exudate_color_stmt.v1] occurrences matches {1..1}
 		}
 	}
 
@@ -50,20 +49,39 @@ terminology
 	term_definitions = <
 		["en"] = <
 			["id1.1.1.1"] = <
-				text = <"Wound drainage fluid panel">
+				text = <"Wound exudate panel">
 				description = <"-">
 			>
 			["id0.1.0.1"] = <
 				text = <"Wound drainage fluid amount description">
-				description = <"-">
+				description = <"A description of the rate of drainage.">
 			>
 			["id0.1.0.2"] = <
 				text = <"Wound drainage fluid description">
-				description = <"-">
+				description = <"a characterization of fluid secreted by the wound.">
 			>
 			["id0.1.0.3"] = <
 				text = <"Wound drainage fluid amount rate">
-				description = <"-">
+				description = <"A quantification of the rate of drainage.">
+			>
+			["id0.1.0.4"] = <
+				text = <"Wound exudate odor">
+				description = <"Odor of Exudate from wound.">
+			>
+			["id0.1.0.5"] = <
+				text = <"wound exudate color">
+				description = <"Color of Exudate from wound.">
 			>
 		>
 	>
+
+	["loinc"] = <
+      items = <
+        ["id1.1.1.1"] = <http://loinc.org/id/72292-6 > --  Wound exudate panel
+        ["id0.1.0.1"] = <http://loinc.org/id/39116-9> --  Drainage amount of Wound
+        ["id0.1.0.2"] = <http://loinc.org/id/39115-1 > --  Drainage description of Wound Narrative
+        ["id0.1.0.4"] = <http://loinc.org/id/72288-4 > --   Odor of Exudate from wound 
+        ["id0.1.0.5"] = <http://loinc.org/id/72289-2 > --   Color of Exudate from wound 
+      >
+    >
+  >

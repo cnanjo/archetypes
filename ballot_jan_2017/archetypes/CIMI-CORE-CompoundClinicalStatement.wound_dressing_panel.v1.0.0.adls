@@ -40,9 +40,6 @@ definition
 			use_archetype IndivisibleClinicalStatement [id0.1.0.1, CIMI-CORE-IndivisibleClinicalStatement.wound_dressing_stmt.v1] occurrences matches {1..1}
 			use_archetype IndivisibleClinicalStatement [id0.1.0.2, CIMI-CORE-IndivisibleClinicalStatement.wound_dressing_purpose_stmt.v1] occurrences matches {1..1}
 		}
-		context matches {
-			use_archetype KnownOrSuspectedPresent [id5.0.0.1, CIMI-CORE-KnownOrSuspectedPresent.known_present.v1]
-		}
 	}
 
 terminology
@@ -62,3 +59,13 @@ terminology
 			>
 		>
 	>
+
+	term_bindings = <
+		["loinc"] = <
+      		items = <
+		        ["id1.1.1.1"] = <http://loinc.org/id/72286-8> --  Wound dressing panel
+		        ["id0.1.0.1"] = <http://loinc.org/id/39121-9> --  Dressing for Wound
+		        ["id0.1.0.2"] = <http://loinc.org/id/72285-0 > --  Dressing purpose for wound
+      		>
+    	>
+  	>

@@ -35,14 +35,22 @@ description
   >
 
 definition
-	CompoundClinicalStatement[id1.1.1] 	-- -
+	CompoundClinicalStatement[id1.1.1] matches {
+    context matches {
+      use_archetype KnownOrSuspectedPresent [id5.0.1, CIMI-CORE-KnownOrSuspectedPresent.known_present.v1]
+    }
+  }
 
 terminology
 	term_definitions = <
 		["en"] = <
 			["id1.1.1"] = <
-				text = <"-">
-				description = <"-">
+				text = <"Panel">
+				description = <"Parent class for all panels">
 			>
+      ["id5.0.1"] = <
+        text = <"Known present context">
+        description = <"-">
+      >
 		>
 	>
