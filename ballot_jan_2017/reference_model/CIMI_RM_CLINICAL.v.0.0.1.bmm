@@ -12,7 +12,7 @@ rm_release = <"0.0.1">
 ------------------------------------
 -- schema documentation
 ------------------------------------
-schema_revision = <"Sun Nov 27 23:08:42 PST 2016">
+schema_revision = <"Tue Nov 29 21:02:12 PST 2016">
 schema_lifecycle_state = <"dstu">
 schema_description = <"CIMI_RM_CLINICAL.v0.0.1.mdzip - Schema generated from UML">
 
@@ -31,7 +31,7 @@ includes = <
 ------------------------------------
 -- archetyping
 ------------------------------------
-archetype_rm_closure_packages = <"CIMI_Clinical.ClinicalStatement", "CIMI_Clinical.Data_Structure", "CIMI_Clinical.Redefined_Datatypes", "CIMI_Clinical.Party", "CIMI_Clinical.Relationship", "CIMI_Clinical.Participation", ...>
+archetype_rm_closure_packages = <"CIMI_Clinical.ClinicalStatement", "CIMI_Clinical.Data_Structure", "CIMI_Clinical.Party", "CIMI_Clinical.Relationship", "CIMI_Clinical.Participation", ...>
 
 ------------------------------------
 -- packages
@@ -59,11 +59,7 @@ packages = <
 			>
 			["Data_Structure"] = <
 				name = <"Data_Structure">
-				classes = <"BiometricData", "Provenance", "Address", "ProductBatch", "PartyName", "QualitativeReferenceRange", "StatementContext", "Industry", "Specimen", "Goal", "DeathData", "ElectronicContact", "ReferenceRange", "Registration", "Medication", "Street", "StreetNumber", "Procedure", "Justification", "Accreditation", "FindingContext", "ActorName", "Order", "AddressLine", "NonPerformance", "Device", "Assertion", "Citizenship", "Interpretation", "Attribution", "EvaluationResult", "NonCompletion", "PresenceAbsenceContext", "Qualification", "PersonNameDetailed", "Part", "Finding", "BirthData", "Performance", "Person", "LaboratoryProcedure", "Proposal", "SubstanceContainer", "SpecimenTreatment", "OrganizationName", "MedicationProduct", "LanguageCapability", "Risk", "SpecimenCollection", "LocationName", "MedicationPackage", "ClinicalStatementAssociation", "UnitOfDistribution", "Substance", "MaterialEntity", "QuantitativeReferenceRange", "Absent", "Age", "PersonName", "Use", "PhysicalEvaluationResult", "ActionContext", "Plan", "ContactInformation", "SpecimenContainer", "AnatomicalLocation", "Occupation", "Act", "Ingredient", "BirthOrDeathDateTime", "Residency", "Signature", "LaboratoryTestResult", "AdvanceDirective", "Entitlement", "KnownOrSuspectedPresent", "ProposalAgainst", "Location", "StatementTopic">
-			>
-			["Redefined_Datatypes"] = <
-				name = <"Redefined_Datatypes">
-				classes = <"DateTimeInterval", "DateInterval", "QuantityInterval">
+				classes = <"BiometricData", "Provenance", "Address", "ProductBatch", "PartyName", "QualitativeReferenceRange", "StatementContext", "Industry", "Specimen", "Goal", "DeathData", "ElectronicContact", "ReferenceRange", "Registration", "Medication", "Street", "StreetNumber", "Procedure", "Justification", "Accreditation", "FindingContext", "ActorName", "Order", "AddressLine", "NonPerformance", "Device", "Assertion", "Citizenship", "Interpretation", "Attribution", "EvaluationResult", "NonCompletion", "PresenceAbsenceContext", "Qualification", "PersonNameDetailed", "Part", "Finding", "BirthData", "Performance", "Person", "LaboratoryProcedure", "Proposal", "SubstanceContainer", "SpecimenTreatment", "OrganizationName", "MedicationProduct", "LanguageCapability", "Risk", "SpecimenCollection", "LocationName", "MedicationPackage", "ClinicalStatementAssociation", "UnitOfDistribution", "Substance", "MaterialEntity", "QuantitativeReferenceRange", "Absent", "Age", "PersonName", "Use", "PhysicalEvaluationResult", "ActionContext", "Plan", "ContactInformation", "SpecimenContainer", "AnatomicalLocation", "Occupation", "Act", "Ingredient", "Residency", "Signature", "LaboratoryTestResult", "AdvanceDirective", "Entitlement", "KnownOrSuspectedPresent", "ProposalAgainst", "Location", "StatementTopic">
 			>
 		>
 	>
@@ -635,9 +631,12 @@ class_definitions = <
 				name = <"preferenceIndicator">
 				type = <"CODED_TEXT">
 			>
-			["dateTimeRange"] = (P_BMM_SINGLE_PROPERTY) <
+			["dateTimeRange"] = (P_BMM_GENERIC_PROPERTY) <
 				name = <"dateTimeRange">
-				type = <"INTERVAL_VALUE">
+				type_def = <
+					root_type = <"INTERVAL_VALUE">
+					generic_parameters = <"DATE_TIME">
+				>
 			>
 			["addressLine"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"addressLine">
@@ -826,7 +825,7 @@ class_definitions = <
 			>
 			["deathDatetime"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"deathDatetime">
-				type = <"BirthOrDeathDateTime">
+				type = <"DATE_TIME">
 			>
 			["recorded"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"recorded">
@@ -1925,13 +1924,9 @@ class_definitions = <
 				name = <"birthAddress">
 				type = <"Address">
 			>
-			["age"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"age">
-				type = <"Age">
-			>
 			["birthDatetime"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"birthDatetime">
-				type = <"BirthOrDeathDateTime">
+				type = <"DATE_TIME">
 			>
 			["birthPlurality"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"birthPlurality">
@@ -2515,14 +2510,6 @@ class_definitions = <
 		name = <"Age">
 		ancestors = <"CLUSTER", ...>
 		properties = <
-			["accuracy"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"accuracy">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
 			["ageGroup"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"ageGroup">
 				type = <"CODED_TEXT">
@@ -2547,13 +2534,9 @@ class_definitions = <
 				>
 				cardinality = <|>=0|>
 			>
-			["usageConditions"] = (P_BMM_CONTAINER_PROPERTY) <
+			["usageConditions"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"usageConditions">
-				type_def = <
-					container_type = <"List">
-					type = <"TEXT">
-				>
-				cardinality = <|>=0|>
+				type = <"TEXT">
 			>
 			["use"] = (P_BMM_CONTAINER_PROPERTY) <
 				name = <"use">
@@ -2571,29 +2554,21 @@ class_definitions = <
 				>
 				cardinality = <|>=0|>
 			>
-			["dateTimeRange"] = (P_BMM_CONTAINER_PROPERTY) <
+			["dateTimeRange"] = (P_BMM_GENERIC_PROPERTY) <
 				name = <"dateTimeRange">
 				type_def = <
-					container_type = <"List">
-					type = <"DateTimeInterval">
+					root_type = <"INTERVAL_VALUE">
+					generic_parameters = <"DATE_TIME">
 				>
-				cardinality = <|>=0|>
 			>
-			["preferredFlag"] = (P_BMM_CONTAINER_PROPERTY) <
+			["preferredFlag"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"preferredFlag">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
+				type = <"CODED_TEXT">
 			>
-			["status"] = (P_BMM_CONTAINER_PROPERTY) <
+			["status"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"status">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
+				type = <"CODED_TEXT">
+				is_mandatory = <True>
 			>
 		>
 	>
@@ -2610,13 +2585,12 @@ class_definitions = <
 				>
 				cardinality = <|>=0|>
 			>
-			["dateTimeRange"] = (P_BMM_CONTAINER_PROPERTY) <
+			["dateTimeRange"] = (P_BMM_GENERIC_PROPERTY) <
 				name = <"dateTimeRange">
 				type_def = <
-					container_type = <"List">
-					type = <"DateTimeInterval">
+					root_type = <"INTERVAL_VALUE">
+					generic_parameters = <"DATE_TIME">
 				>
-				cardinality = <|>=0|>
 			>
 			["value"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"value">
@@ -2825,30 +2799,6 @@ class_definitions = <
 			["substanceCode"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"substanceCode">
 				type = <"CODED_TEXT">
-			>
-		>
-	>
-
-	["BirthOrDeathDateTime"] = <
-		name = <"BirthOrDeathDateTime">
-		ancestors = <"CLUSTER", ...>
-		properties = <
-			["followUpRequired"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"followUpRequired">
-				type = <"CODED_TEXT">
-			>
-			["accuracy"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"accuracy">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-			["value"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"value">
-				type = <"DATE_TIME">
-				is_mandatory = <True>
 			>
 		>
 	>
@@ -3143,23 +3093,6 @@ class_definitions = <
 		name = <"StatementTopic">
 		ancestors = <"VIRTUAL_CLUSTER", ...>
 		is_abstract = <True>
-	>
-
-	
-	------------------------------------
-	-- Redefined_Datatypes
-	------------------------------------
-
-	["DateTimeInterval"] = <
-		name = <"DateTimeInterval">
-	>
-
-	["DateInterval"] = <
-		name = <"DateInterval">
-	>
-
-	["QuantityInterval"] = <
-		name = <"QuantityInterval">
 	>
 
 >
