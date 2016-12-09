@@ -44,8 +44,14 @@ definition
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1"] = <text = <"Compound Clinical Statement">>
-      ["id0.1"] = <text = <"Entry">>
+      ["id1.1"] = <
+        text = <"Compound Clinical Statement">
+        description = <"Clinical statement representing information whose components may have an independent existence outside of the composition. For instance, a laboratory panel. A composite clinical statement may be composed of both indivisible clinical statements or composite clinical statements with arbitrary nesting. Nesting rules can be specified as constraints at the archetype level.">
+      >
+      ["id0.1"] = <
+        text = <"Entry">
+        description = <"A contained clinical statement - May be indivisible or compound.">
+      >
     >
   >
 

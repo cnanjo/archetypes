@@ -40,19 +40,12 @@ definition
 			use_archetype IndivisibleClinicalStatement [id0.1.0.1, CIMI-CORE-IndivisibleClinicalStatement.wound_area_stmt.v1] occurrences matches {1..1}
 			use_archetype IndivisibleClinicalStatement [id0.1.0.2, CIMI-CORE-IndivisibleClinicalStatement.wound_circumference_stmt.v1] occurrences matches {1..1}
 			use_archetype IndivisibleClinicalStatement [id0.1.0.3, CIMI-CORE-IndivisibleClinicalStatement.wound_volume_stmt.v1] occurrences matches {1..1}
-			use_archetype IndivisibleClinicalStatement [id0.1.0.4, CIMI-CORE-IndivisibleClinicalStatement.wound_depth_stmt.v1] occurrences matches {1..1}
-			use_archetype IndivisibleClinicalStatement [id0.1.0.5, CIMI-CORE-IndivisibleClinicalStatement.wound_length_stmt.v1] occurrences matches {1..1}
-			use_archetype IndivisibleClinicalStatement [id0.1.0.6, CIMI-CORE-IndivisibleClinicalStatement.wound_width_stmt.v1] occurrences matches {1..1}
-			use_archetype IndivisibleClinicalStatement [id0.1.0.7, CIMI-CORE-IndivisibleClinicalStatement.periwound_condition_stmt.v1] occurrences matches {1..1}
-			use_archetype CompoundClinicalStatement [id0.1.0.8, CIMI-CORE-CompoundClinicalStatement.wound_tunneling_undermining_panel.v1] occurrences matches {1..1}
-			use_archetype IndivisibleClinicalStatement [id0.1.0.9, CIMI-CORE-IndivisibleClinicalStatement.wound_base_appearance_stmt.v1] occurrences matches {1..1}
-			use_archetype IndivisibleClinicalStatement [id0.1.0.10, CIMI-CORE-IndivisibleClinicalStatement.wound_area_appearance_to_bed_ratio_stmt.v1] occurrences matches {1..1}
-			use_archetype IndivisibleClinicalStatement [id0.1.0.11, CIMI-CORE-IndivisibleClinicalStatement.wound_base_color_stmt.v1] occurrences matches {1..1}
-			use_archetype IndivisibleClinicalStatement [id0.1.0.12, CIMI-CORE-IndivisibleClinicalStatement.wound_edge_appearance_stmt.v1] occurrences matches {1..1}
-			use_archetype IndivisibleClinicalStatement [id0.1.0.13, CIMI-CORE-IndivisibleClinicalStatement.wound_edge_color_stmt.v1] occurrences matches {1..1}
-			use_archetype IndivisibleClinicalStatement [id0.1.0.14, CIMI-CORE-IndivisibleClinicalStatement.wound_closure_type_stmt.v1] occurrences matches {1..1}
-			use_archetype CompoundClinicalStatement [id0.1.0.15, CIMI-CORE-CompoundClinicalStatement.wound_exudate_panel.v1] occurrences matches {1..1}
-			use_archetype CompoundClinicalStatement [id0.1.0.16, CIMI-CORE-CompoundClinicalStatement.wound_dressing_panel.v1] occurrences matches {1..1}
+			use_archetype IndivisibleClinicalStatement [id0.1.0.4, CIMI-CORE-IndivisibleClinicalStatement.periwound_condition_stmt.v1] occurrences matches {1..1}
+			use_archetype CompoundClinicalStatement [id0.1.0.5, CIMI-CORE-CompoundClinicalStatement.wound_bed_and_edge_panel.v1] occurrences matches {1..1}
+			use_archetype CompoundClinicalStatement [id0.1.0.6, CIMI-CORE-CompoundClinicalStatement.wound_tunneling_undermining_panel.v1] occurrences matches {1..1}
+			use_archetype CompoundClinicalStatement [id0.1.0.7, CIMI-CORE-CompoundClinicalStatement.wound_exudate_panel.v1] occurrences matches {1..1}
+			use_archetype CompoundClinicalStatement [id0.1.0.8, CIMI-CORE-CompoundClinicalStatement.wound_size_panel.v1] occurrences matches {1..1}
+			use_archetype CompoundClinicalStatement [id0.1.0.9, CIMI-CORE-CompoundClinicalStatement.wound_dressing_panel.v1] occurrences matches {1..1}
 		}
 	}
 
@@ -60,7 +53,7 @@ terminology
 	term_definitions = <
 		["en"] = <
 			["id1.1.1.1"] = <
-				text = <"Skin lesion panel">
+				text = <"Wound assessment panel">
 				description = <"-">
 			>
 			["id0.1.0.1"] = <
@@ -76,56 +69,28 @@ terminology
 				description = <"The volume of missing tissue or the volume of missing and morbid tissue.">
 			>
 			["id0.1.0.4"] = <
-				text = <"Wound depth">
-				description = <"The longest distance from the superficial plane to the bottom of the wound.">
-			>
-			["id0.1.0.5"] = <
-				text = <"Wound length">
-				description = <"The longest distance across the surface of the wound.">
-			>
-			["id0.1.0.6"] = <
-				text = <"Wound width">
-				description = <"The distance across the surface of the wound perpendicular to the wound length.">
-			>
-			["id0.1.0.7"] = <
 				text = <"Periwound condition">
 				description = <"A description of the skin around the wound (periwound). (LOINC).">
 			>
-			["id0.1.0.8"] = <
+			["id0.1.0.5"] = <
+				text = <"Wound bed and edge panel">
+				description = <"Wound bed and edge panel.">
+			>
+			["id0.1.0.6"] = <
 				text = <"Wound tunneling and undermining panel">
-				description = <"-">
+				description = <"Wound tunneling and undermining panel">
+			>
+			["id0.1.0.7"] = <
+				text = <"wound exudate panel">
+				description = <"Wound exudate panel.">
+			>
+			["id0.1.0.8"] = <
+				text = <"wound size panel">
+				description = <"Wound size panel.">
 			>
 			["id0.1.0.9"] = <
-				text = <"Wound base appearance">
-				description = <"Physiological state of wound surface tissue as evaluated by visual inspection.">
-			>
-			["id0.1.0.10"] = <
-				text = <"Wound area appearance to bed ratio">
-				description = <"The area of identified wound bed appearance (necrotic, sloughing, etc.; see LOINC 72371-8) compared to the total area of the wound bed. For example, 40% of the wound bed is necrotic. Results can either be subjective or measured.">
-			>
-			["id0.1.0.11"] = <
-				text = <"Wound base color">
-				description = <"Color of base of wound.">
-			>
-			["id0.1.0.12"] = <
-				text = <"Wound edge appearance">
-				description = <"The appearance of the edge of a wound.">
-			>
-			["id0.1.0.13"] = <
-				text = <"Wound edge color">
-				description = <"The color of the wound's edge.">
-			>
-			["id0.1.0.14"] = <
-				text = <"Wound closure type">
-				description = <"Description of the wound's closure.">
-			>
-			["id0.1.0.15"] = <
-				text = <"wound exudate panel">
-				description = <"-">
-			>
-			["id0.1.0.16"] = <
 				text = <"Wound dressing panel">
-				description = <"">
+				description = <"Wound dressing panel">
 			>
 
 		>
@@ -135,19 +100,12 @@ terminology
 		["loinc"] = <
       		items = <
 		        ["id1.1.1.1"] = <http://loinc.org/id/39135-9> --  Wound assessment panel
-		        ["id0.1.0.4"] = <http://loinc.org/id/39127-6> --  Depth of Wound
-		        ["id0.1.0.5"] = <http://loinc.org/id/39126-8> --  Length of Wound
-		        ["id0.1.0.6"] = <http://loinc.org/id/39125-0> --  Width of Wound
-		        ["id0.1.0.7"] = <http://loinc.org/id/72301-5> --  Description of Periwound
-		        ["id0.1.0.8"] = <http://loinc.org/id/72299-1> --  Wound tunneling and undermining panel
-		        ["id0.1.0.9"] = <http://loinc.org/id/72371-8> -- Appearance of Wound base
-		        ["id0.1.0.10"] = <http://loinc.org/id/72370-0> -- Area of identified wound bed appearance/​Area of wound bed of Wound base
-		        ["id0.1.0.11"] = <http://loinc.org/id/39132-6> -- Color of Wound base
-		        ["id0.1.0.12"] = <http://loinc.org/id/72304-9> -- Edge of wound description
-		        ["id0.1.0.13"] = <http://loinc.org/id/39133-4> -- Color of Wound edge
-		        ["id0.1.0.14"] = <http://loinc.org/id/72305-6> -- Wound closure type
-		        ["id0.1.0.15"] = <http://loinc.org/id/72292-6> -- Wound exudate panel
-		        ["id0.1.0.16"] = <http://loinc.org/id/72286-8> -- Wound dressing panel
+		        ["id0.1.0.4"] = <http://loinc.org/id/72301-5> --  Description of Periwound
+		        ["id0.1.0.5"] = <http://loinc.org/id/72372-6 > --  Wound bed and edge panel
+		        ["id0.1.0.6"] = <http://loinc.org/id/72299-1> --  Wound tunneling and undermining panel
+		        ["id0.1.0.7"] = <http://loinc.org/id/72292-6> -- Wound exudate panel
+		        ["id0.1.0.8"] = <http://loinc.org/id/72287-6> -- Wound size panel
+		        ["id0.1.0.9"] = <http://loinc.org/id/72286-8> -- Wound dressing panel
 
       		>
     	>

@@ -1,5 +1,5 @@
 archetype (adl_version=2.0.6; rm_release=0.0.1)
-	CIMI-CORE-Plan.Plan.v1.0.0
+	CIMI-CORE-Plan.plan.v1.0.0
 
 specialize
 	CIMI-CORE-ActionContext.action_context.v1

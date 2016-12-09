@@ -46,7 +46,7 @@ terminology
 		["en"] = <
 			["id1.1.1"] = <
 				text = <"Panel">
-				description = <"Parent class for all panels">
+				description = <"Parent class for all panels. Collection of clinical statements that can be interpreted independently of other findings in the panel.">
 			>
       ["id5.0.1"] = <
         text = <"Known present context">

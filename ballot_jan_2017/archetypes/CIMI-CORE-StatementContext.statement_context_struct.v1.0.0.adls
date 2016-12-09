@@ -34,7 +34,7 @@ description
 definition
   StatementContext[id1] matches {
     context matches {
-      CODED_TEXT[id2]
+      CODED_TEXT[id2] 
     }
     subjectOfInformation matches {
       PARTICIPATION[id3]

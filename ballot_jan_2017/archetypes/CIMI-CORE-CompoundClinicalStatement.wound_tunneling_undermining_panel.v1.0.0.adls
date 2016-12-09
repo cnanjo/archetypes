@@ -74,10 +74,10 @@ terminology
 		["loinc"] = <
       		items = <
 		        ["id1.1.1.1"] = <http://loinc.org/id/72299-1> --  Wound tunneling and undermining panel
-		        ["id0.1.0.1"] = <http://loinc.org/id/39121-9> --  Dressing for Wound
-		        ["id0.1.0.2"] = <http://loinc.org/id/72285-0> --  Dressing purpose for wound
-		        ["id0.1.0.3"] = <http://loinc.org/id/ 72294-2> --  Undermining clock position of Wound
-		        ["id0.1.0.4"] = <http://loinc.org/id/72293-4> --  Undermining [Length] of Wound
+		        ["id0.1.0.1"] = <http://loinc.org/id/72297-5> --  Tunneling direction
+		        ["id0.1.0.2"] = <http://loinc.org/id/72296-7> --  Tunneling length
+		        ["id0.1.0.3"] = <http://loinc.org/id/72294-2 > --  Undermining direction
+		        ["id0.1.0.4"] = <http://loinc.org/id/72293-4> --  Undermining length
       		>
     	>
   	>

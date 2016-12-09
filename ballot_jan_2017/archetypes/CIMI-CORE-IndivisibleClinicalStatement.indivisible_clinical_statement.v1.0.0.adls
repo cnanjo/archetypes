@@ -40,7 +40,10 @@ definition
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1"] = <text = <"Indivisible Clinical Statement">>
+      ["id1.1"] = <
+        text = <"Indivisible Clinical Statement">
+        description = <"An ENTRY representing an atomic unit of information that is identifiable and can be referenced independently of a parent context such as a specific hematocrit measurement viewed in isolation of its parent panel.">
+      >
     >
   >
 

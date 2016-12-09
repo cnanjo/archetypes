@@ -2,7 +2,7 @@ archetype (adl_version=2.0.6; rm_release=0.0.1)
 	CIMI-CORE-IndivisibleClinicalStatement.wound_circumference_stmt.v1.0.0
 
 specialize
-	CIMI-CORE-IndivisibleClinicalStatement.finding_known_present.v1
+	CIMI-CORE-IndivisibleClinicalStatement.evaluation_result_known_present_stmt.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -35,16 +35,16 @@ description
   >
 
 definition
-	IndivisibleClinicalStatement[id1.1.1.1.1.1] matches {
+	IndivisibleClinicalStatement[id1.1.1.1.1.1.1] matches {
 		topic matches {
-			use_archetype Finding [id4.0.1, CIMI-CORE-PhysicalEvaluationResult.wound_circumference.v1]
+			use_archetype PhysicalEvaluationResult [id4.0.1.0.0.1.1, CIMI-CORE-PhysicalEvaluationResult.wound_circumference.v1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1.1"] = <
+			["id1.1.1.1.1.1.1"] = <
 				text = <"Wound circumference">
 				description = <"The distance around the outside edge of the wound.">
 			>

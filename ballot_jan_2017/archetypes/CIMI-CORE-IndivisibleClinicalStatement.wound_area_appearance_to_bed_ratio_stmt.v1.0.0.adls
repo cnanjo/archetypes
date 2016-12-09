@@ -2,7 +2,7 @@ archetype (adl_version=2.0.6; rm_release=0.0.1)
 	CIMI-CORE-IndivisibleClinicalStatement.wound_area_appearance_to_bed_ratio_stmt.v1.0.0
 
 specialize
-	CIMI-CORE-IndivisibleClinicalStatement.finding_known_present.v1
+	CIMI-CORE-IndivisibleClinicalStatement.evaluation_result_known_present_stmt.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -35,16 +35,16 @@ description
   >
 
 definition
-	IndivisibleClinicalStatement[id1.1.1.1.1.1] matches {
+	IndivisibleClinicalStatement[id1.1.1.1.1.1.1] matches {
 		topic matches {
-			use_archetype Finding [id4.0.1, CIMI-CORE-PhysicalEvaluationResult.wound_area_appearance_to_bed_ratio.v1]
+			use_archetype PhysicalEvaluationResult [id4.0.1.0.0.1.1, CIMI-CORE-PhysicalEvaluationResult.wound_area_appearance_to_bed_ratio.v1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1.1"] = <
+			["id1.1.1.1.1.1.1"] = <
 				text = <"Wound-area-appearance-to-bed-area ratio statement">
 				description = <"The area of identified wound bed appearance (necrotic, sloughing, etc.; see LOINC 72371-8) compared to the total area of the wound bed. For example, 40% of the wound bed is necrotic. Results can either be subjective or measured.">
 			>

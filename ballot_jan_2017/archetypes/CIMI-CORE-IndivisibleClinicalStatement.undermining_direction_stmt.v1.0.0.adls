@@ -2,7 +2,7 @@ archetype (adl_version=2.0.6; rm_release=0.0.1)
 	CIMI-CORE-IndivisibleClinicalStatement.undermining_direction_stmt.v1.0.0
 
 specialize
-	CIMI-CORE-IndivisibleClinicalStatement.finding_known_present.v1
+	CIMI-CORE-IndivisibleClinicalStatement.evaluation_result_known_present_stmt.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -35,14 +35,18 @@ description
   >
 
 definition
-	IndivisibleClinicalStatement[id1.1.1.1.1.1] 	-- -
+	IndivisibleClinicalStatement[id1.1.1.1.1.1.1] matches {
+    topic matches {
+      use_archetype PhysicalEvaluationResult [id4.0.1.0.0.1.1, CIMI-CORE-PhysicalEvaluationResult.undermining_direction.v1]
+    }
+  }
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1.1"] = <
-				text = <"-">
-				description = <"-">
+			["id1.1.1.1.1.1.1"] = <
+				text = <"Undermining direction">
+				description = <"Direction from center of wound to undermining, expressed as the clock number if the 12 position were at the cranial, superior, or proximal position of the wound">
 			>
 		>
 	>

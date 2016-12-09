@@ -12,7 +12,7 @@ rm_release = <"0.0.1">
 ------------------------------------
 -- schema documentation
 ------------------------------------
-schema_revision = <"Tue Nov 29 21:02:12 PST 2016">
+schema_revision = <"Wed Nov 30 23:52:38 PST 2016">
 schema_lifecycle_state = <"dstu">
 schema_description = <"CIMI_RM_CLINICAL.v0.0.1.mdzip - Schema generated from UML">
 
@@ -59,7 +59,7 @@ packages = <
 			>
 			["Data_Structure"] = <
 				name = <"Data_Structure">
-				classes = <"BiometricData", "Provenance", "Address", "ProductBatch", "PartyName", "QualitativeReferenceRange", "StatementContext", "Industry", "Specimen", "Goal", "DeathData", "ElectronicContact", "ReferenceRange", "Registration", "Medication", "Street", "StreetNumber", "Procedure", "Justification", "Accreditation", "FindingContext", "ActorName", "Order", "AddressLine", "NonPerformance", "Device", "Assertion", "Citizenship", "Interpretation", "Attribution", "EvaluationResult", "NonCompletion", "PresenceAbsenceContext", "Qualification", "PersonNameDetailed", "Part", "Finding", "BirthData", "Performance", "Person", "LaboratoryProcedure", "Proposal", "SubstanceContainer", "SpecimenTreatment", "OrganizationName", "MedicationProduct", "LanguageCapability", "Risk", "SpecimenCollection", "LocationName", "MedicationPackage", "ClinicalStatementAssociation", "UnitOfDistribution", "Substance", "MaterialEntity", "QuantitativeReferenceRange", "Absent", "Age", "PersonName", "Use", "PhysicalEvaluationResult", "ActionContext", "Plan", "ContactInformation", "SpecimenContainer", "AnatomicalLocation", "Occupation", "Act", "Ingredient", "Residency", "Signature", "LaboratoryTestResult", "AdvanceDirective", "Entitlement", "KnownOrSuspectedPresent", "ProposalAgainst", "Location", "StatementTopic">
+				classes = <"BiometricData", "Provenance", "Address", "ProductBatch", "PartyName", "QualitativeReferenceRange", "StatementContext", "Industry", "Specimen", "Goal", "DeathData", "ElectronicContact", "ReferenceRange", "Registration", "Medication", "Tunneling", "Street", "StreetNumber", "Procedure", "Undermining", "Justification", "Accreditation", "FindingContext", "ActorName", "Order", "AddressLine", "NonPerformance", "Device", "Assertion", "Citizenship", "Interpretation", "Attribution", "EvaluationResult", "NonCompletion", "PresenceAbsenceContext", "Qualification", "PersonNameDetailed", "WoundExudate", "Part", "Finding", "BirthData", "Performance", "Person", "LaboratoryProcedure", "Proposal", "SubstanceContainer", "SpecimenTreatment", "WoundBedAndEdge", "OrganizationName", "MedicationProduct", "LanguageCapability", "Risk", "WoundDressing", "SpecimenCollection", "LocationName", "MedicationPackage", "WoundAssertion", "ClinicalStatementAssociation", "UnitOfDistribution", "Substance", "MaterialEntity", "QuantitativeReferenceRange", "DimensionalFeature", "Absent", "Age", "PersonName", "Use", "PhysicalEvaluationResult", "ActionContext", "Plan", "ContactInformation", "SpecimenContainer", "AnatomicalLocation", "Occupation", "Act", "Ingredient", "Residency", "Signature", "LaboratoryTestResult", "AdvanceDirective", "Entitlement", "KnownOrSuspectedPresent", "ProposalAgainst", "Location", "StatementTopic">
 			>
 		>
 	>
@@ -953,6 +953,21 @@ class_definitions = <
 		>
 	>
 
+	["Tunneling"] = <
+		name = <"Tunneling">
+		ancestors = <"CLUSTER", ...>
+		properties = <
+			["length"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"length">
+				type = <"QUANTITY">
+			>
+			["direction"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"direction">
+				type = <"CODED_TEXT">
+			>
+		>
+	>
+
 	["Street"] = <
 		name = <"Street">
 		ancestors = <"CLUSTER", ...>
@@ -1103,6 +1118,21 @@ class_definitions = <
 					type = <"Substance">
 				>
 				cardinality = <|>=0|>
+			>
+		>
+	>
+
+	["Undermining"] = <
+		name = <"Undermining">
+		ancestors = <"CLUSTER", ...>
+		properties = <
+			["length"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"length">
+				type = <"QUANTITY">
+			>
+			["direction"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"direction">
+				type = <"CODED_TEXT">
 			>
 		>
 	>
@@ -1860,6 +1890,29 @@ class_definitions = <
 		>
 	>
 
+	["WoundExudate"] = <
+		name = <"WoundExudate">
+		ancestors = <"CLUSTER", ...>
+		properties = <
+			["appearance"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"appearance">
+				type = <"CODED_TEXT">
+			>
+			["color"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"color">
+				type = <"CODED_TEXT">
+			>
+			["odor"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"odor">
+				type = <"CODED_TEXT">
+			>
+			["drainageAmount"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"drainageAmount">
+				type = <"QUANTITY">
+			>
+		>
+	>
+
 	["Part"] = <
 		name = <"Part">
 		ancestors = <"CLUSTER", ...>
@@ -2232,6 +2285,37 @@ class_definitions = <
 		>
 	>
 
+	["WoundBedAndEdge"] = <
+		name = <"WoundBedAndEdge">
+		ancestors = <"CLUSTER", ...>
+		properties = <
+			["woundBaseColor"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"woundBaseColor">
+				type = <"CODED_TEXT">
+			>
+			["woundClosureType"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"woundClosureType">
+				type = <"CODED_TEXT">
+			>
+			["woundBedAppearanceToWoundBaseBedRatio"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"woundBedAppearanceToWoundBaseBedRatio">
+				type = <"PROPORTION">
+			>
+			["woundBaseAppearance"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"woundBaseAppearance">
+				type = <"CODED_TEXT">
+			>
+			["woundEdgeColor"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"woundEdgeColor">
+				type = <"CODED_TEXT">
+			>
+			["woundEdgeAppearance"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"woundEdgeAppearance">
+				type = <"CODED_TEXT">
+			>
+		>
+	>
+
 	["OrganizationName"] = <
 		name = <"OrganizationName">
 		ancestors = <"ActorName", ...>
@@ -2309,6 +2393,21 @@ class_definitions = <
 	["Risk"] = <
 		name = <"Risk">
 		ancestors = <"FindingContext", ...>
+	>
+
+	["WoundDressing"] = <
+		name = <"WoundDressing">
+		ancestors = <"CLUSTER", ...>
+		properties = <
+			["dressing"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"dressing">
+				type = <"CODED_TEXT">
+			>
+			["purpose"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"purpose">
+				type = <"CODED_TEXT">
+			>
+		>
 	>
 
 	["SpecimenCollection"] = <
@@ -2400,6 +2499,49 @@ class_definitions = <
 		>
 	>
 
+	["WoundAssertion"] = <
+		name = <"WoundAssertion">
+		ancestors = <"Assertion", ...>
+		properties = <
+			["undermining"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"undermining">
+				type_def = <
+					container_type = <"List">
+					type = <"Undermining">
+				>
+				cardinality = <|>=0|>
+			>
+			["woundBedAndEdge"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"woundBedAndEdge">
+				type = <"WoundBedAndEdge">
+			>
+			["dressing"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"dressing">
+				type = <"WoundDressing">
+			>
+			["descriptionOfPeriwound"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"descriptionOfPeriwound">
+				type = <"CODED_TEXT">
+			>
+			["tunneling"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"tunneling">
+				type_def = <
+					container_type = <"List">
+					type = <"Tunneling">
+				>
+				cardinality = <|>=0|>
+			>
+			["exudate"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"exudate">
+				type = <"WoundExudate">
+			>
+			["woundSize"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"woundSize">
+				type = <"DimensionalFeature">
+			>
+		>
+	>
+
 	["ClinicalStatementAssociation"] = <
 		name = <"ClinicalStatementAssociation">
 		ancestors = <"ASSOCIATION_CLASS", ...>
@@ -2487,6 +2629,37 @@ class_definitions = <
 					generic_parameters = <"QUANTITY">
 				>
 				is_mandatory = <True>
+			>
+		>
+	>
+
+	["DimensionalFeature"] = <
+		name = <"DimensionalFeature">
+		ancestors = <"CLUSTER", ...>
+		properties = <
+			["area"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"area">
+				type = <"QUANTITY">
+			>
+			["volume"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"volume">
+				type = <"QUANTITY">
+			>
+			["depth"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"depth">
+				type = <"QUANTITY">
+			>
+			["circumference"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"circumference">
+				type = <"QUANTITY">
+			>
+			["width"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"width">
+				type = <"QUANTITY">
+			>
+			["length"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"length">
+				type = <"QUANTITY">
 			>
 		>
 	>
