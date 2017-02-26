@@ -1,0 +1,165 @@
+-- Basic Metamodel Syntax Version
+bmm_version = <"2.1">
+
+-- ----------------------------------
+-- schema identification
+-- (schema_id computed as <rm_publisher>_<schema_name>_<rm_release>)
+-- ----------------------------------
+rm_publisher = <"CIMI">
+schema_name = <"RM_FOUNDATION">
+rm_release = <"0.0.2">
+
+-- ----------------------------------
+-- schema documentation
+-- ----------------------------------
+schema_revision = <"Sun Feb 26 15:36:46 PST 2017">
+schema_lifecycle_state = <"dstu">
+schema_description = <"CIMI_RM_FOUNDATION.v0.0.2.mdzip - Schema generated from UML">
+
+
+-- ----------------------------------
+-- archetyping
+-- ----------------------------------
+archetype_rm_closure_packages = <"CIMI_Foundation_RM.Foundation", "CIMI_Foundation_RM.Party">
+includes = <
+	["1"] = <
+		id = <"cimi_rm_core_0.0.2">
+	>
+>
+packages = <
+	["CIMI_Foundation_RM"] = <
+		name = <"CIMI_Foundation_RM">
+		packages = <
+			["Foundation"] = <
+				name = <"Foundation">
+				classes = <"COMPOSITION", "CONTENT", "SECTION", "ENTRY", "COMPOSITE_ENTRY", "SIMPLE_ENTRY", "CLUSTER", "VIRTUAL_CLUSTER">
+			>
+			["Party"] = <
+				name = <"Party">
+				classes = <"PARTY", "PARTY_RELATIONSHIP", "PARTICIPATION", "ROLE", "ACTOR">
+			>
+		>
+	>
+>
+class_definitions = <
+	["COMPOSITION"] = <
+		name = <"COMPOSITION">
+		ancestors = <"LOCATABLE",...>
+		properties = <
+			["content"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"content">
+				type_def = <
+					container_type = <"List">
+					type = <"CONTENT">
+				>
+				cardinality = <|>=0|>
+			>
+		>
+	>
+	["CONTENT"] = <
+		name = <"CONTENT">
+		ancestors = <"LOCATABLE",...>
+	>
+	["SECTION"] = <
+		name = <"SECTION">
+		ancestors = <"CONTENT",...>
+		properties = <
+			["content"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"content">
+				type_def = <
+					container_type = <"List">
+					type = <"CONTENT">
+				>
+				cardinality = <|>=0|>
+			>
+		>
+	>
+	["ENTRY"] = <
+		name = <"ENTRY">
+		ancestors = <"CONTENT",...>
+	>
+	["COMPOSITE_ENTRY"] = <
+		name = <"COMPOSITE_ENTRY">
+		ancestors = <"ENTRY",...>
+		properties = <
+			["entry"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"entry">
+				type_def = <
+					container_type = <"List">
+					type = <"ENTRY">
+				>
+				cardinality = <|>=0|>
+			>
+		>
+	>
+	["SIMPLE_ENTRY"] = <
+		name = <"SIMPLE_ENTRY">
+		ancestors = <"ENTRY",...>
+	>
+	["CLUSTER"] = <
+		name = <"CLUSTER">
+		ancestors = <"LOCATABLE",...>
+	>
+	["VIRTUAL_CLUSTER"] = <
+		name = <"VIRTUAL_CLUSTER">
+		ancestors = <"CLUSTER",...>
+	>
+	["PARTY"] = <
+		name = <"PARTY">
+		ancestors = <"LOCATABLE",...>
+		properties = <
+			["type"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"type">
+				type = <"CODED_TEXT">
+				is_mandatory = <True>
+			>
+			["relationship"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"relationship">
+				type_def = <
+					container_type = <"List">
+					type = <"PARTY_RELATIONSHIP">
+				>
+				cardinality = <|>=0|>
+			>
+			["identifier"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"identifier">
+				type_def = <
+					container_type = <"List">
+					type = <"IDENTIFIER">
+				>
+				cardinality = <|>=0|>
+			>
+		>
+	>
+	["PARTY_RELATIONSHIP"] = <
+		name = <"PARTY_RELATIONSHIP">
+		ancestors = <"ASSOCIATION_CLASS",...>
+		properties = <
+			["party"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"party">
+				type = <"PARTY">
+				is_mandatory = <True>
+			>
+		>
+	>
+	["PARTICIPATION"] = <
+		name = <"PARTICIPATION">
+		ancestors = <"ASSOCIATION_CLASS",...>
+		properties = <
+			["party"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"party">
+				type = <"PARTY">
+				is_mandatory = <True>
+			>
+		>
+	>
+	["ROLE"] = <
+		name = <"ROLE">
+		ancestors = <"PARTY",...>
+	>
+	["ACTOR"] = <
+		name = <"ACTOR">
+		ancestors = <"PARTY",...>
+	>
+>
+
