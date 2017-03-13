@@ -61,8 +61,8 @@ terminology
 	term_bindings = <
 	    ["loinc"] = <
 	      items = <
-	      	["ac0.0.0.0.0.0.1"] = <http://example.com/valueset/skin_integrity_vs.v0.0.1>
-	      	["ac0.0.0.0.0.0.2"] = <http://example.com/valueset/skin_integrity_range_vs.v0.0.1>
+	      	["ac0.0.0.0.0.0.1"] = <http://example.com/valueset/skin_integrity_key_range_vs.v0.0.1>
+	      	["ac0.0.0.0.0.0.2"] = <http://example.com/valueset/skin_integrity_result_range_vs.v0.0.1>
 	    	>
 	    >
 	>

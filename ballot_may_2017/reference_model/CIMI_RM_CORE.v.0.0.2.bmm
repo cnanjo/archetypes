@@ -12,7 +12,7 @@ rm_release = <"0.0.2">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Tue Mar 07 00:47:54 PST 2017">
+schema_revision = <"Fri Mar 10 16:46:00 PST 2017">
 schema_lifecycle_state = <"dstu">
 schema_description = <"CIMI_RM_CORE.v0.0.2.mdzip - Schema generated from UML">
 
@@ -605,9 +605,11 @@ Misuse: The DV_BOOLEAN class should not be used as a replacement for naively mod
 >
 primitive_types = <
 	["Any"] = <
+		documentation = <"Abstract supertype. Usually maps to a type like “Any” or “Object” in an object system. Defined here to provide the value and reference equality semantics.">
 		name = <"Any">
 	>
 	["Array"] = <
+		documentation = <"physical container of items indexed by number">
 		name = <"Array">
 		generic_parameter_defs = <
 			["T"] = <
@@ -617,6 +619,7 @@ primitive_types = <
 		>
 	>
 	["List"] = <
+		documentation = <"container of items, implied order, non-unique membership">
 		name = <"List">
 		generic_parameter_defs = <
 			["T"] = <

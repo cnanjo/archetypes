@@ -55,4 +55,11 @@ terminology
       >
     >
   >
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+        ["id0.0.1"] = <http://snomed.info/id/TBD> -- Attribute binding for assertion name.
+      >
+    >
+  >
 

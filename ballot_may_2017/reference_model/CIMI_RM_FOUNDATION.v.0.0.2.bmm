@@ -12,7 +12,7 @@ rm_release = <"0.0.2">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Tue Mar 07 00:47:54 PST 2017">
+schema_revision = <"Fri Mar 10 16:46:00 PST 2017">
 schema_lifecycle_state = <"dstu">
 schema_description = <"CIMI_RM_FOUNDATION.v0.0.2.mdzip - Schema generated from UML">
 
@@ -118,6 +118,7 @@ An ENTRY is also the minimal unit of information any query should return, since 
 		ancestors = <"CLUSTER",...>
 	>
 	["BASE_ENTITY"] = <
+		documentation = <"Parent class for all entities.">
 		name = <"BASE_ENTITY">
 		ancestors = <"CLUSTER",...>
 	>

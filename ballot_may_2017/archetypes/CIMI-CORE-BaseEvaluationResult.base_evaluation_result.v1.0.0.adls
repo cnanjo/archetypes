@@ -65,7 +65,8 @@ terminology
 	term_bindings = <
 	    ["snomed-ct"] = <
 	      items = <
-	      	["id0.0.2"] = <http://example.com/TBD> 
+	      	["id0.0.1"] = <http://snomed.info/id/TBD> -- Attribute binding for result.
+	      	["id0.0.2"] = <http://snomed.info/id/TBD> -- Attribute binding for exception value.
 	    	>
 		>
   	>

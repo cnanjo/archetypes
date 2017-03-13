@@ -68,3 +68,11 @@ terminology
 			>
 		>
 	>
+
+	term_bindings = <
+    	["snomed-ct"] = <
+			items = <
+				["id0.1"] = <http://snomed.info/id/TBD> -- Attribute binding for key.
+			>
+	    >
+	>
