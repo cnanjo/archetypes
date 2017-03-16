@@ -12,7 +12,7 @@ rm_release = <"0.0.2">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Fri Mar 10 16:46:00 PST 2017">
+schema_revision = <"Wed Mar 15 21:08:40 PDT 2017">
 schema_lifecycle_state = <"dstu">
 schema_description = <"CIMI_RM_CORE.v0.0.2.mdzip - Schema generated from UML">
 
@@ -160,6 +160,7 @@ Misuse: Not to be used for amounts of physical entities (which all have units)."
 		ancestors = <"AMOUNT",...>
 		properties = <
 			["value"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The integer count value.">
 				name = <"value">
 				type = <"Integer">
 				is_mandatory = <True>
@@ -226,6 +227,7 @@ Used to reference items in an EHR, which may be the same as the current EHR (con
 		ancestors = <"DATA_VALUE",...>
 		properties = <
 			["use"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The purpose of this identifier. Use is considered a modifying attribute because applications should not mistake a temporary id for a permanent one. Applications can assume that an identifier is permanent unless it explicitly says that it is temporary.">
 				name = <"use">
 				type = <"CODED_TEXT">
 			>
@@ -389,6 +391,7 @@ This class is used for recording any clinical datum which is customarily recorde
 		ancestors = <"TEXT",...>
 		properties = <
 			["language"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The text's language.">
 				name = <"language">
 				type = <"CODED_TEXT">
 			>
@@ -493,10 +496,12 @@ The first three values are taken from the ISO standards 2788 ( Guide to Establis
 				is_mandatory = <True>
 			>
 			["purpose"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Purpose of the mapping e.g. automated data mining , billing , interoperability">
 				name = <"purpose">
 				type = <"CODED_TEXT">
 			>
 			["target"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The target term of the mapping.">
 				name = <"target">
 				type = <"CODED_TEXT">
 				is_mandatory = <True>
@@ -515,6 +520,7 @@ The first three values are taken from the ISO standards 2788 ( Guide to Establis
 				is_mandatory = <True>
 			>
 			["mapping"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Terms from other terminologies most closely matching this term, typically used where the originator (e.g. pathology lab) of information uses a local terminology but also supplies one or more equivalents from well known terminologies (e.g. LOINC).">
 				name = <"mapping">
 				type_def = <
 					container_type = <"List">
@@ -629,24 +635,31 @@ primitive_types = <
 		>
 	>
 	["Boolean"] = <
+		documentation = <"logical True&#47;False values; usually physically represented as an integer, but need not be">
 		name = <"Boolean">
 	>
 	["Byte"] = <
+		documentation = <"a type whose value is an 8-bit value.">
 		name = <"Byte">
 	>
 	["Character"] = <
+		documentation = <"a type whose value is a member of an 8-bit character-set (ISO: 'repertoire').">
 		name = <"Character">
 	>
 	["Integer"] = <
+		documentation = <"An integer type">
 		name = <"Integer">
 	>
 	["Real"] = <
+		documentation = <"32-bit real numbers in any interoperable representation, including single-width IEEE floating point">
 		name = <"Real">
 	>
 	["String"] = <
+		documentation = <"represents unicode-enabled strings">
 		name = <"String">
 	>
 	["URI"] = <
+		documentation = <"A URI">
 		name = <"URI">
 	>
 >

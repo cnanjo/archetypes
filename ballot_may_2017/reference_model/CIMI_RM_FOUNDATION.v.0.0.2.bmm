@@ -12,7 +12,7 @@ rm_release = <"0.0.2">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Fri Mar 10 16:46:00 PST 2017">
+schema_revision = <"Wed Mar 15 21:08:40 PDT 2017">
 schema_lifecycle_state = <"dstu">
 schema_description = <"CIMI_RM_FOUNDATION.v0.0.2.mdzip - Schema generated from UML">
 
@@ -48,6 +48,7 @@ class_definitions = <
 		ancestors = <"LOCATABLE",...>
 		properties = <
 			["content"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The content that makes up a composition.">
 				name = <"content">
 				type_def = <
 					container_type = <"List">
@@ -68,6 +69,7 @@ class_definitions = <
 		ancestors = <"CONTENT",...>
 		properties = <
 			["content"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The content that makes up a section in a composition.">
 				name = <"content">
 				type_def = <
 					container_type = <"List">
@@ -93,6 +95,7 @@ An ENTRY is also the minimal unit of information any query should return, since 
 		ancestors = <"ENTRY",...>
 		properties = <
 			["entry"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The children entry in a composite entry. These may be either composite or simple.">
 				name = <"entry">
 				type_def = <
 					container_type = <"List">
@@ -172,6 +175,7 @@ An ENTRY is also the minimal unit of information any query should return, since 
 		ancestors = <"ASSOCIATION_CLASS",...>
 		properties = <
 			["party"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"A party involved in an activity. PARTY has two specializations: ACTOR and ROLE.">
 				name = <"party">
 				type = <"PARTY">
 				is_mandatory = <True>
@@ -184,11 +188,12 @@ An ENTRY is also the minimal unit of information any query should return, since 
 		ancestors = <"PARTY",...>
 	>
 	["BASE_ACTOR"] = <
-		documentation = <"Entity involved in an activity. Typically a specific person or  organization.">
+		documentation = <"An entity acting as an actor assuming a role in a participation. For instance, a person may act as a provider in an encounter with a patient.">
 		name = <"BASE_ACTOR">
 		ancestors = <"PARTY",...>
 		properties = <
 			["actor"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Entity involved in an activity. Typically a specific person or  organization.">
 				name = <"actor">
 				type = <"BASE_ENTITY">
 				is_mandatory = <True>

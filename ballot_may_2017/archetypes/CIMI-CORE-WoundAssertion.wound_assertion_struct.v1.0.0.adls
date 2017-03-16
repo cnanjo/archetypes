@@ -122,16 +122,6 @@ definition
 				}
 			}
 		}
-		dressing matches {
-			WoundDressing[id0.0.0.0.0.0.500] matches {
-				dressing matches {
-					CODED_TEXT[id0.0.0.0.0.0.501]
-				}
-				purpose matches {
-					CODED_TEXT[id0.0.0.0.0.0.502]
-				}
-			}
-		}
 	}
 
 terminology
@@ -249,18 +239,6 @@ terminology
 				text = <"Exudate appearance">
 				description = <"The appearance of the exudate coming out of the wound.">
 			>
-			["id0.0.0.0.0.0.500"] = <
-				text = <"Dressing">
-				description = <"Dressing placed on the wound.">
-			>
-			["id0.0.0.0.0.0.501"] = <
-				text = <"Dressing type">
-				description = <"The type of dressing used on the wound.">
-			>
-			["id0.0.0.0.0.0.502"] = <
-				text = <"Dressing purpose">
-				description = <"The intent of the dressing.">
-			>
 		>
 	>
 
@@ -287,9 +265,6 @@ terminology
 		        ["id0.0.0.0.0.0.402"] = <http://loinc.org/id/39115-1 > --  Drainage description of Wound Narrative
 		        ["id0.0.0.0.0.0.403"] = <http://loinc.org/id/72288-4 > --   Odor of Exudate from wound 
 		        ["id0.0.0.0.0.0.404"] = <http://loinc.org/id/72289-2 > --   Color of Exudate from wound 
-		        ["id0.0.0.0.0.0.500"] = <http://loinc.org/id/72286-8> --  Wound dressing
-		        ["id0.0.0.0.0.0.501"] = <http://loinc.org/id/39121-9> --  Dressing for Wound
-		        ["id0.0.0.0.0.0.502"] = <http://loinc.org/id/72285-0 > --  Dressing purpose for wound
       		>
     	>
   	>

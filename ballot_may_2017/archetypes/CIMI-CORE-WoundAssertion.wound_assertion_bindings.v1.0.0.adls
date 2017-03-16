@@ -47,8 +47,6 @@ definition
 		/exudate/odor matches {[ac0.0.0.0.0.0.0.9]}
 		/exudate/color matches {[ac0.0.0.0.0.0.0.10]}
 		/exudate/appearance matches {[ac0.0.0.0.0.0.0.11]}
-		/dressing/dressing matches {[ac0.0.0.0.0.0.0.12]}
-		/dressing/purpose matches {[ac0.0.0.0.0.0.0.13]}
 	}
 
 terminology
@@ -102,14 +100,6 @@ terminology
 				text = <"Exudate Appearance">
 				description = <"-">
 			>
-			["ac0.0.0.0.0.0.0.12"] = <
-				text = <"Dressing">
-				description = <"-">
-			>
-			["ac0.0.0.0.0.0.0.13"] = <
-				text = <"Dressing Purpose">
-				description = <"-">
-			>
 		>
 	>
 
@@ -127,8 +117,6 @@ terminology
 		        ["ac0.0.0.0.0.0.0.9"] = <http://example.com/valueset/wound_exudate_odor_range_vs.v0.0.1>
 		        ["ac0.0.0.0.0.0.0.10"] = <http://example.com/valueset/wound_exudate_color_range_vs.v0.0.1>
 		        ["ac0.0.0.0.0.0.0.11"] = <http://example.com/valueset/wound_exudate_appearance_range_vs.v0.0.1>
-		        ["ac0.0.0.0.0.0.0.12"] = <http://example.com/valueset/wound_exudate_dressing_range_vs.v0.0.1>
-		        ["ac0.0.0.0.0.0.0.13"] = <http://example.com/valueset/wound_exudate_dressing_purpose_range_vs.v0.0.1>
 		    >
 		>
   	>

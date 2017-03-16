@@ -49,12 +49,6 @@ definition
 		urgency matches {
 	      CODED_TEXT[id0.0.0.4]
 	    }
-	    frequency matches {
-	      INTERVAL_VALUE<DATE_TIME>[id0.0.0.5]
-	    }
-	    frequencyCode matches {
-	      CODED_TEXT[id0.0.0.6]
-	    }
 	    duration matches {
 	      INTERVAL_VALUE<DATE_TIME>[id0.0.0.7]
 	    }

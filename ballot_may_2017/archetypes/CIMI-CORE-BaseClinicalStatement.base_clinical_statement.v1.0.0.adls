@@ -67,7 +67,7 @@ definition
       use_archetype Attribution [id12, CIMI-CORE-Attribution.sign_action.v1]
     }
     additionalText matches {
-      PLAIN_TEXT[id13]
+      Annotation[id13]
     }
     recordStatus matches {
       CODED_TEXT[id14]

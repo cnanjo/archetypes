@@ -36,12 +36,6 @@ definition
     context matches {
       CODED_TEXT[id2] 
     }
-    subjectOfInformation matches {
-      PARTICIPATION[id3]
-    }
-    relationshipToSubjectOfRecord matches {
-      CODED_TEXT[id4]
-    }
     temporalContext matches {
       CODED_TEXT[id5]
     }
@@ -58,14 +52,6 @@ terminology
         text = <"Context">
         description = <"The ontological status of the statement, e.g., whether it exists, does not exist, is planned, etc. Attribute aligns with the SNOMED CT Situation with Explicit Context (SWEC) Concept Model context attributes: 'Finding context (attribute)' (SCTID: 408729009) and 'Procedure context (attribute)' (SCTID: 408730004). The range allowed for this attribute shall be consistent with the SNOMED CT concept model specification for SWEC.">
       >
-      ["id3"] = <
-        text = <"Subject of information">
-        description = <"The entity being described by this statement. The entity may be animate (a patient, a relative of the patient, a veterinary patient, a cohort) or inanimate (a well, a geographical location). The subject of information is constrained in archetypes. This attribute aligns with the SNOMED CT Situation with Explicit Context (SWEC) and is bound to the SNOMED attribute: 'Subject relationship context (attribute)' (SCTID: 408732007).">
-      >
-      ["id4"] = <
-        text = <"Relationship to subject">
-        description = <"Indicates the statement's subject relationship to the subject of record. For instance, the statement maybe about the subject of record in which case the relationship is self or the subject of the statement may be a relative to the subject of record such as is the case with family history statements.">
-      >
       ["id5"] = <
         text = <"Temporal context">
         description = <"Whether the topic is prospective or retrospective. E.g., action occurred in the past. This attribute is aligned with the SNOMED Situation With Explicit Context temporal context attribute.">
@@ -77,7 +63,6 @@ term_bindings = <
   ["cimi"] = <
       items = <
         ["id2"] = <http://example.com/valueset/statement_context_vs.v0.0.1>
-        ["id4"] = <http://example.com/valueset/relationship_to_subject_vs.v0.0.1>
         ["id5"] = <http://example.com/valueset/temporal_context_vs.v0.0.1>
       >
     >
