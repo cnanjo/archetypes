@@ -52,9 +52,6 @@ definition
     basedOn matches {
       BaseClinicalStatement[id0.0.0.5]
     }
-    isDiscontinued matches {
-      YESNO[id0.0.0.6]
-    }
     duration matches {
       QUANTITY[id0.0.0.7]
     }
@@ -86,10 +83,6 @@ terminology
       ["id0.0.0.5"] = <
         text = <"Based On">
         description = <"Request that is partly or wholly fulfilled  by the performance of this act.">
-      >
-      ["id0.0.0.6"] = <
-        text = <"Is Discontinued">
-        description = <"Was the performance of the action discontinued.">
       >
       ["id0.0.0.7"] = <
         text = <"Duration">

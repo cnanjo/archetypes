@@ -37,9 +37,6 @@ description
 definition
 	KnownOrSuspectedPresent[id1.1.1.1.1] matches {
     /context matches {[ac0.1.1.1.1]}
-		certainty matches {
-			CODED_TEXT[id0.0.0.0.1]
-		}
 	}
 
 terminology
@@ -48,10 +45,6 @@ terminology
 			["id1.1.1.1.1"] = <
 				text = <"Known or suspected present">
 				description = <"Context indicating that finding is known present or suspected present.">
-			>
-			["id0.0.0.0.1"] = <
-				text = <"Certainty">
-				description = <"The degree of certainty in the presence of the finding.">
 			>
       ["ac0.1.1.1.1"] = <
         text = <"Known or suspected present context range">

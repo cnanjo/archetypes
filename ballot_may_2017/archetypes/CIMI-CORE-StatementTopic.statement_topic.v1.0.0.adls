@@ -32,7 +32,11 @@ description
   >
 
 definition
-	StatementTopic[id1] 	-- Statement topic
+	StatementTopic[id1] matches {
+    key matches {
+      CODED_TEXT[id2]
+    }
+  }
 
 terminology
 	term_definitions = <
@@ -41,5 +45,17 @@ terminology
 				text = <"Statement topic">
 				description = <"Compositional and reusable grouping of clinical statement attributes that make up the clinical focus of the statement. StatementTopic class attributes are aligned with SNOMED CT Concept Model attributes when such an overlap exists. Note that this class does not include contextual attributes such as the nature of the action (ordered, proposed, planned, etc...), the nature of the patient state being described (e.g., present, suspected present, absent), and the provenance of this information (the who, when, where, how, why of the information recorded).">
 			>
+      ["id2"] = <
+        text = <"Key">
+        description = <"The conceptual classification of the thing being observed or the action/event being described.">
+      >
 		>
 	>
+
+  term_bindings = <
+    ["cimi"] = <
+      items = <
+        ["id2"] = <http://example.com/valueset/statement_topic_vs.v0.0.1>
+      >
+    >
+  >

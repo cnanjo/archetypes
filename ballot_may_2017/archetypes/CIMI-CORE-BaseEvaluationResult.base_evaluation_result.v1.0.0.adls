@@ -36,6 +36,7 @@ description
 
 definition
 	BaseEvaluationResult[id1.1.1] matches {
+		/key[id2.1.1] matches {[ac0.1.1]}
 	    result matches {
 	      	DATA_VALUE[id0.0.1]
 	    }
@@ -59,6 +60,13 @@ terminology
 				text = <"Exception Value">
 				description = <"A coded value representing the result when the result cannot be properly quantified.">
 			>
+			["id2.1.1"] = <
+		        text = <"Key">
+		    >
+		    ["ac0.1.1"] = <
+		        text = <"Evaluation result statement topic range value set">
+		        description = <"Range for the associated finding SWEC attribute">
+		    >
 		>
 	>
 
@@ -67,6 +75,8 @@ terminology
 	      items = <
 	      	["id0.0.1"] = <http://snomed.info/id/TBD> -- Attribute binding for result.
 	      	["id0.0.2"] = <http://snomed.info/id/TBD> -- Attribute binding for exception value.
+	      	["id2.1.1"] = <http://example.com/valuesets/evaluationresult_statement_topic_vs.v0.0.1>
+        	["ac0.1.1"] = <http://example.com/valuesets/evaluationresult_statement_topic_range_vs.v0.0.1>
 	    	>
 		>
   	>

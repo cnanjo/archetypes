@@ -12,7 +12,7 @@ rm_release = <"0.0.2">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Wed Mar 15 21:08:41 PDT 2017">
+schema_revision = <"Wed Mar 22 12:50:29 PDT 2017">
 schema_lifecycle_state = <"dstu">
 schema_description = <"CIMI_RM_CLINICAL.v0.0.2.mdzip - Schema generated from UML">
 
@@ -20,7 +20,7 @@ schema_description = <"CIMI_RM_CLINICAL.v0.0.2.mdzip - Schema generated from UML
 -- ----------------------------------
 -- archetyping
 -- ----------------------------------
-archetype_rm_closure_packages = <"CIMI_Clinical.ClinicalStatement", "CIMI_Clinical.CommonDataStructures", "CIMI_Clinical.Party", "CIMI_Clinical.Relationship", "CIMI_Clinical.Participation", "CIMI_Clinical.Pharmacy", "CIMI_Clinical.Encounter", "CIMI_Clinical.Assertion", "CIMI_Clinical.EvaluationResult", "CIMI_Clinical.PatientEducation", "CIMI_Clinical.Procedure", "CIMI_Clinical.ContextCore", "CIMI_Clinical.TopicCore", "CIMI_Clinical.Entity", "CIMI_Clinical.Association", "CIMI_Clinical.Provenance">
+archetype_rm_closure_packages = <"CIMI_Clinical.ClinicalStatement", "CIMI_Clinical.CommonDataStructures", "CIMI_Clinical.Party", "CIMI_Clinical.Relationship", "CIMI_Clinical.Participation", "CIMI_Clinical.Pharmacy", "CIMI_Clinical.Encounter", "CIMI_Clinical.Assertion", "CIMI_Clinical.EvaluationResult", "CIMI_Clinical.Procedure", "CIMI_Clinical.ContextCore", "CIMI_Clinical.TopicCore", "CIMI_Clinical.Entity", "CIMI_Clinical.Association", "CIMI_Clinical.Provenance", "CIMI_Clinical.PatientEducation">
 includes = <
 	["1"] = <
 		id = <"cimi_rm_core_0.0.2">
@@ -69,10 +69,6 @@ packages = <
 				name = <"EvaluationResult">
 				classes = <"BaseEvaluationResult", "EvaluationResult", "LaboratoryTestResult", "PhysicalEvaluationResult">
 			>
-			["PatientEducation"] = <
-				name = <"PatientEducation">
-				classes = <"PatientEducationPerformed", "PatientRelatedEducation">
-			>
 			["Procedure"] = <
 				name = <"Procedure">
 				classes = <"LaboratoryProcedure", "Procedure", "SpecimenCollection", "SurgicalProcedure">
@@ -96,6 +92,10 @@ packages = <
 			["Provenance"] = <
 				name = <"Provenance">
 				classes = <"Signature", "Attribution", "Provenance">
+			>
+			["PatientEducation"] = <
+				name = <"PatientEducation">
+				classes = <"PatientEducationPerformed", "PatientRelatedEducation">
 			>
 		>
 	>
@@ -196,14 +196,10 @@ The use of Attribution rather than a simple code for status supports the consist
 				name = <"verified">
 				type = <"Attribution">
 			>
-			["signed"] = (P_BMM_CONTAINER_PROPERTY) <
+			["signed"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Provenance information specific to the signing of the clinical statement.">
 				name = <"signed">
-				type_def = <
-					container_type = <"List">
-					type = <"Attribution">
-				>
-				cardinality = <|>=0|>
+				type = <"Attribution">
 			>
 			["cosigned"] = (P_BMM_CONTAINER_PROPERTY) <
 				documentation = <"Provenance information specific to the cosigning of the clinical statement.">
@@ -3575,6 +3571,9 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 				cardinality = <|>=0|>
 			>
 			["poctIndicator"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"'Point of Care Testing (POCT)'
+
+Indicates whether this result was from point-of-care testing where POC testing.">
 				name = <"poctIndicator">
 				type = <"CODED_TEXT">
 			>
@@ -3616,79 +3615,6 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 				documentation = <"Captures the position of the body when an observation is done. E.g., supine, prone, etc...">
 				name = <"bodyPosition">
 				type = <"CODED_TEXT">
-			>
-		>
-	>
-	["PatientEducationPerformed"] = <
-		documentation = <"Context associated with the performance of an educational intervention.">
-		name = <"PatientEducationPerformed">
-		ancestors = <"Performance",...>
-		properties = <
-			["oralCommunicationSummary"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"This property may be used to summarize an oral communication with the Patient.">
-				name = <"oralCommunicationSummary">
-				type = <"TEXT">
-			>
-			["percentComplete"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The percent of the course or session that was performed.">
-				name = <"percentComplete">
-				type = <"QUANTITY">
-			>
-			["levelOfUnderstanding"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"A qualitative assessment of how well the Patient (or Patient's representative) understood the material presented. Example values include: Poor, Fair, Good, Group - no assessment, Refused, etc.">
-				name = <"levelOfUnderstanding">
-				type = <"CODED_TEXT">
-			>
-			["professionalTime"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Public «PQ» TimeQuantity professionalTime">
-				name = <"professionalTime">
-				type = <"QUANTITY">
-			>
-			["textProvided"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"This property contains the contents of any written materials (usually personalized materials) provided to the Patient. This property may also be used to summarize an oral communication with the Patient. Note that the identification of pre-defined materials should be accomplished using the educationalMaterialsProvided property rather than reproducing the content of such materials here.">
-				name = <"textProvided">
-				type = <"TEXT">
-			>
-		>
-	>
-	["PatientRelatedEducation"] = <
-		documentation = <"This class captures information about counselling or education provided to (or an attempt to provide to) the Patient or to the Patient's representative and provides a means to note how well the Patient understood the information provided. Patient Education may be in the form of written instructions – either pre-defined materials, or personalized instructions – as well as oral counseling. In the case of pre-defined written materials, the educationalMaterialsProvided property may be used to identify the kind of material provided rather than reproducing the text of that material in this class. When personalized written instructions are provided, the text of such instructions can be placed in the textProvided property. The textProvided property may also be used to store a summary of an oral conversation with the Patient.">
-		name = <"PatientRelatedEducation">
-		ancestors = <"Act",...>
-		properties = <
-			["educationBarrier"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Cognitive or sensory barriers to receiving counseling.">
-				name = <"educationBarrier">
-				type = <"CODED_TEXT">
-			>
-			["educationMethod"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The communication method used to provide the patient counseling.">
-				name = <"educationMethod">
-				type = <"CODED_TEXT">
-			>
-			["predefinedEducationalMaterial"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"This property identifies any pre-defined written materials provided to the Patient. In many cases, Patient Education is accomplished by the provision of standardized materials produced based on the Patient's condition or based on a Procedure that the Patient has undergone. For example, there is a standardized Discharge Instructions for Diverticulitis. Use this property to identify any pre-printed materials provided to the patient. Use the textProvided property to identify any other personalized instructions.">
-				name = <"predefinedEducationalMaterial">
-				type = <"CODED_TEXT">
-			>
-			["personalizedEducationMaterial"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"This property contains the contents of any written materials (usually personalized materials) provided to the Patient. ">
-				name = <"personalizedEducationMaterial">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-			["location"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Pointer to the location at which the patient education or counseling was provided or is to be provided.">
-				name = <"location">
-				type = <"Location">
-			>
-			["visit"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Pointer to the Visit during which the education or counseling was provided, if applicable.">
-				name = <"visit">
-				type = <"BaseClinicalStatement">
 			>
 		>
 	>
@@ -3923,12 +3849,6 @@ The status code must coincide with the activity code of one of the attribution e
 		documentation = <"Context indicating that finding is known present or suspected present.">
 		name = <"KnownOrSuspectedPresent">
 		ancestors = <"PresenceAbsenceContext",...>
-		properties = <
-			["certainty"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"certainty">
-				type = <"CODED_TEXT">
-			>
-		>
 	>
 	["NonCompletion"] = <
 		documentation = <"A record that a clinical act was initiated by not completed. ">
@@ -4045,11 +3965,6 @@ The status code must coincide with the activity code of one of the attribution e
 					type = <"BaseClinicalStatement">
 				>
 				cardinality = <|>=0|>
-			>
-			["isDiscontinued"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Was the performance of the action discontinued.">
-				name = <"isDiscontinued">
-				type = <"YESNO">
 			>
 			["duration"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The duration of time the action was performed.">
@@ -4237,11 +4152,6 @@ The range allowed for this attribute shall be consistent with the SNOMED CT conc
 		name = <"Act">
 		ancestors = <"StatementTopic",...>
 		properties = <
-			["type"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Concept representing the type of act">
-				name = <"type">
-				type = <"CODED_TEXT">
-			>
 			["description"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"An account of the act in narrative form.">
 				name = <"description">
@@ -4273,14 +4183,6 @@ The range allowed for this attribute shall be consistent with the SNOMED CT conc
 		documentation = <"An non-clinical event such as a natural disaster. Topic allows the capture of information related to such events when they pertain to the clinical context associated with a given patient.">
 		name = <"Event">
 		ancestors = <"StatementTopic",...>
-		properties = <
-			["type"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"A code representing the kind of event being described.">
-				name = <"type">
-				type = <"CODED_TEXT">
-				is_mandatory = <True>
-			>
-		>
 	>
 	["Finding"] = <
 		documentation = <"The characteristics looked for in medical investigations or diagnostics and the outcome.
@@ -4288,12 +4190,6 @@ The range allowed for this attribute shall be consistent with the SNOMED CT conc
 		name = <"Finding">
 		ancestors = <"StatementTopic",...>
 		properties = <
-			["key"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The conceptual classification of the thing being observed.">
-				name = <"key">
-				type = <"CODED_TEXT">
-				is_mandatory = <True>
-			>
 			["description"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Description of the finding.">
 				name = <"description">
@@ -4314,6 +4210,14 @@ The range allowed for this attribute shall be consistent with the SNOMED CT conc
 		documentation = <"Compositional and reusable grouping of clinical statement attributes that make up the clinical focus of the statement. StatementTopic class attributes are aligned with SNOMED CT Concept Model attributes when such an overlap exists. Note that this class does not include contextual attributes such as the nature of the action (ordered, proposed, planned, etc...), the nature of the patient state being described (e.g., present, suspected present, absent), and the provenance of this information (the who, when, where, how, why of the information recorded).">
 		name = <"StatementTopic">
 		ancestors = <"VIRTUAL_CLUSTER",...>
+		properties = <
+			["key"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The conceptual classification of the thing being observed or the action&#47;event being described.">
+				name = <"key">
+				type = <"CODED_TEXT">
+				is_mandatory = <True>
+			>
+		>
 	>
 	["AnatomicalLocation"] = <
 		documentation = <"A part of the body.">
@@ -4902,13 +4806,6 @@ The range allowed for this attribute shall be consistent with the SNOMED CT conc
 				>
 				cardinality = <|>=0|>
 			>
-			["dateRange"] = (P_BMM_GENERIC_PROPERTY) <
-				name = <"dateRange">
-				type_def = <
-					root_type = <"INTERVAL_VALUE">
-					generic_parameters = <"DATE",...>
-				>
-			>
 			["citizenship"] = (P_BMM_CONTAINER_PROPERTY) <
 				documentation = <"The person's citizenship.">
 				name = <"citizenship">
@@ -5272,6 +5169,74 @@ The attachment of provenance information to a clinical statement in this manner 
 				>
 				cardinality = <|>=1|>
 				is_mandatory = <True>
+			>
+		>
+	>
+	["PatientEducationPerformed"] = <
+		documentation = <"Context associated with the performance of an educational intervention.">
+		name = <"PatientEducationPerformed">
+		ancestors = <"Performance",...>
+		properties = <
+			["oralCommunicationSummary"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"This property may be used to summarize an oral communication with the Patient.">
+				name = <"oralCommunicationSummary">
+				type = <"TEXT">
+			>
+			["percentComplete"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The percent of the course or session that was performed.">
+				name = <"percentComplete">
+				type = <"QUANTITY">
+			>
+			["levelOfUnderstanding"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"A qualitative assessment of how well the Patient (or Patient's representative) understood the material presented. Example values include: Poor, Fair, Good, Group - no assessment, Refused, etc.">
+				name = <"levelOfUnderstanding">
+				type = <"CODED_TEXT">
+			>
+			["professionalTime"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Public «PQ» TimeQuantity professionalTime">
+				name = <"professionalTime">
+				type = <"QUANTITY">
+			>
+			["textProvided"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"This property contains the contents of any written materials (usually personalized materials) provided to the Patient. This property may also be used to summarize an oral communication with the Patient. Note that the identification of pre-defined materials should be accomplished using the educationalMaterialsProvided property rather than reproducing the content of such materials here.">
+				name = <"textProvided">
+				type = <"TEXT">
+			>
+		>
+	>
+	["PatientRelatedEducation"] = <
+		documentation = <"This class captures information about counselling or education provided to (or an attempt to provide to) the Patient or to the Patient's representative and provides a means to note how well the Patient understood the information provided. Patient Education may be in the form of written instructions – either pre-defined materials, or personalized instructions – as well as oral counseling. In the case of pre-defined written materials, the educationalMaterialsProvided property may be used to identify the kind of material provided rather than reproducing the text of that material in this class. When personalized written instructions are provided, the text of such instructions can be placed in the textProvided property. The textProvided property may also be used to store a summary of an oral conversation with the Patient.">
+		name = <"PatientRelatedEducation">
+		ancestors = <"Act",...>
+		properties = <
+			["educationBarrier"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Cognitive or sensory barriers to receiving counseling.">
+				name = <"educationBarrier">
+				type = <"CODED_TEXT">
+			>
+			["educationMethod"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The communication method used to provide the patient counseling.">
+				name = <"educationMethod">
+				type = <"CODED_TEXT">
+			>
+			["predefinedEducationalMaterial"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"This property identifies any pre-defined written materials provided to the Patient. In many cases, Patient Education is accomplished by the provision of standardized materials produced based on the Patient's condition or based on a Procedure that the Patient has undergone. For example, there is a standardized Discharge Instructions for Diverticulitis. Use this property to identify any pre-printed materials provided to the patient. Use the textProvided property to identify any other personalized instructions.">
+				name = <"predefinedEducationalMaterial">
+				type = <"CODED_TEXT">
+			>
+			["personalizedEducationMaterial"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"This property contains the contents of any written materials (usually personalized materials) provided to the Patient. ">
+				name = <"personalizedEducationMaterial">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
+			>
+			["location"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Pointer to the location at which the patient education or counseling was provided or is to be provided.">
+				name = <"location">
+				type = <"Location">
 			>
 		>
 	>

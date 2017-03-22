@@ -51,5 +51,22 @@ terminology
 				text = <"Act statement">
 				description = <"Parent archetype for all act statements">
 			>
+      ["id4.0.1"] = <
+        text = <"Associated procedure">
+        description = <"The associated act topic for this clinical statement">
+      >
+      ["id5.0.1"] = <
+        text = <"Procedure context">
+        description = <"The associated act context for this clinical statement">
+      >
 		>
 	>
+
+  term_bindings = <
+    ["cimi"] = <
+      items = <
+        ["id4.0.1"] = <http://example.com/valueset/act_statement_topic_vs.v0.0.1>
+        ["id5.0.1"] = <http://example.com/valueset/act_statement_context_vs.v0.0.1>
+      >
+    >
+  >

@@ -36,9 +36,7 @@ description
 
 definition
 	Finding[id1.1] matches {
-		key matches {
-			CODED_TEXT[id0.1]
-		}
+		/key[id2.1] matches {[ac0.1]}
 		description matches {
 			PLAIN_TEXT[id0.2]
 		}
@@ -54,10 +52,6 @@ terminology
 				text = <"Finding">
 				description = <"The characteristics looked for in medical investigations or diagnostics and the outcome.">
 			>
-			["id0.1"] = <
-				text = <"Key">
-				description = <"The conceptual classification of the thing being observed.">
-			>
 			["id0.2"] = <
 				text = <"Description">
 				description = <"Description of the finding.">
@@ -66,13 +60,19 @@ terminology
 				text = <"Multimedia">
 				description = <"Associated media produced during the evaluation such as an X-ray.">
 			>
+			["ac0.1"] = <
+		        text = <"Finding statement topic range value set">
+		        description = <"Range for the associated finding SWEC attribute">
+		      >
 		>
 	>
 
 	term_bindings = <
     	["snomed-ct"] = <
 			items = <
-				["id0.1"] = <http://snomed.info/id/TBD> -- Attribute binding for key.
+				["id1.1"] = <http://example.com/valuesets/finding_statement_topic_vs.v0.0.1>
+        		["ac0.1"] = <http://example.com/valuesets/finding_statement_topic_range_vs.v0.0.1>
 			>
 	    >
 	>
+

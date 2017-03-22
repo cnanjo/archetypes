@@ -267,4 +267,10 @@ terminology
 		        ["id0.0.0.0.0.0.404"] = <http://loinc.org/id/72289-2 > --   Color of Exudate from wound 
       		>
     	>
+    	["cimi"] = <
+	      items = <
+	        ["id2.1.1.0.0.1"] = <http://example.com/valuesets/wound_assertion_statement_topic_vs.v0.0.1> 
+	        ["ac0.1.1.0.0.1"] = <http://example.com/valuesets/wound_assertion_statement_topic_range_vs.v0.0.1>
+	      >
+	    >
   	>

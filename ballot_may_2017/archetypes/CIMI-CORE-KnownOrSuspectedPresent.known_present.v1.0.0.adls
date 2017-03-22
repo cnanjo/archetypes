@@ -37,9 +37,6 @@ description
 definition
 	KnownOrSuspectedPresent[id1.1.1.1.1.1] matches {
     /context matches {[ac0.1.1.1.1.1]}
-		certainty matches {
-			CODED_TEXT[id0.0.0.0.0.1]
-		}
 	}
 
 terminology

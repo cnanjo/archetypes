@@ -51,5 +51,22 @@ terminology
 				text = <"Finding statement">
 				description = <"Parent archetype for all finding statements">
 			>
+      ["id4.0.1"] = <
+        text = <"Associated finding">
+        description = <"The associated finding topic for this clinical statement">
+      >
+      ["id5.0.1"] = <
+        text = <"Finding context">
+        description = <"The associated finding context for this clinical statement">
+      >
 		>
 	>
+
+  term_bindings = <
+    ["cimi"] = <
+      items = <
+        ["id4.0.1"] = <http://example.com/valueset/finding_statement_topic_vs.v0.0.1>
+        ["id5.0.1"] = <http://example.com/valueset/finding_statement_context_vs.v0.0.1>
+      >
+    >
+  >

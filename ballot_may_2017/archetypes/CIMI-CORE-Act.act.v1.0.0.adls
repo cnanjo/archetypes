@@ -36,9 +36,7 @@ description
 
 definition
 	Act[id1.1] matches {
-    type matches {
-      CODED_TEXT[id0.1]
-    }
+    /key[id2.1] matches {[ac0.1]}
     description matches {
       PLAIN_TEXT[id0.2]
     }
@@ -87,12 +85,18 @@ terminology
         text = <"Method">
         description = <"Technique or way of accomplishing the act. E.g., endoscopic, arthroscopic, etc...">
       >
+      ["ac0.1"] = <
+        text = <"Act statement topic range value set">
+        description = <"Range for the associated procedure SWEC attribute">
+      >
 		>
 	>
 
   term_bindings = <
     ["snomed-ct"] = <
       items = <
+        ["id1.1"] = <http://example.com/valuesets/act_statement_topic_vs.v0.0.1>
+        ["ac0.1"] = <http://example.com/valuesets/act_statement_topic_range_vs.v0.0.1>
         ["id0.3"] = <http://snomed.info/id/260870009> -- |Priority (attribute)|
         ["id0.6"] = <http://snomed.info/id/260686004> -- |Method (attribute)|
       >
