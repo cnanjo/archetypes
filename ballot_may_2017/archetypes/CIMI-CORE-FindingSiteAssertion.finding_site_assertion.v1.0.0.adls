@@ -37,6 +37,7 @@ description
 definition
   FindingSiteAssertion[id1.1.1.1.1.1] matches {
     /key[id2.1.1.0.0.1] matches {[ac0.1.1.0.0.1]}
+    /code[id3.1.1.0.0.1] matches {[ac0.2.1.0.0.1]}
     findingSite matches {
       AnatomicalLocation[id0.0.0.0.0.1]
     }
@@ -61,11 +62,18 @@ terminology
         description = <"Captures the pre-coordinated body location information, for example pre-coordinating body side left with body location hand to make left hand.">
       >
       ["id2.1.1.0.0.1"] = <
-        text = <"key">
+        text = <"Key">
+      >
+      ["id3.1.1.0.0.1"] = <
+        text = <"Code">
       >
       ["ac0.1.1.0.0.1"] = <
-        text = <"Finding Site Assertion Range">
-        description = <"Finding site assertion range.">
+        text = <"Finding Site Assertion Key Range">
+        description = <"Finding site assertion key range.">
+      >
+      ["ac0.2.1.0.0.1"] = <
+        text = <"Finding Site Assertion Code Range">
+        description = <"Finding site assertion code range.">
       >
     >
   >
@@ -79,8 +87,10 @@ terminology
     >
     ["cimi"] = <
       items = <
-        ["id2.1.1.0.0.1"] = <http://example.com/valuesets/finding_site_assertion_statement_topic_vs.v0.0.1> 
-        ["ac0.1.1.0.0.1"] = <http://example.com/valuesets/finding_site_assertion_statement_topic_range_vs.v0.0.1>
+        ["id2.1.1.0.0.1"] = <http://example.com/valuesets/finding_site_assertion_statement_topic_key_vs.v0.0.1> 
+        ["id3.1.1.0.0.1"] = <http://example.com/valuesets/finding_site_assertion_statement_topic_code_vs.v0.0.1> 
+        ["ac0.1.1.0.0.1"] = <http://example.com/valuesets/finding_site_assertion_statement_topic_key_range_vs.v0.0.1>
+        ["ac0.2.1.0.0.1"] = <http://example.com/valuesets/finding_site_assertion_statement_topic_code_range_vs.v0.0.1>
       >
     >
   >

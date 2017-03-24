@@ -36,7 +36,7 @@ description
 
 definition
   BradenAssessment[id1.1.1.1.1.1] matches {
-    /key[id2.1.1.0.0.1] matches {[ac0.1.1.0.0.1]}
+    /code[id3.1.1.0.0.1] matches {[ac0.2.1.0.0.1]}
     moistureExposure matches {
       CODED_TEXT[id0.0.0.0.0.1]
     }
@@ -102,9 +102,9 @@ terminology
         text = <"Risk Level">
         description = <"The overall, qualitative risk to the patient based on the Braden Total Score and the answers are No Risk: Total score 19-23 , Mild risk: total score 15-18 , Moderate risk: total score 13-14 , High risk: total score 10-12 , and Very high risk: total score 9 or lower . modeler: N Davis version: 1.0 status: draft.">
       >
-      ["ac0.1.1.0.0.1"] = <
-        text = <"Braden assessment topic value set.">
-        description = <"Braden Assessment topic value set.">
+      ["ac0.2.1.0.0.1"] = <
+        text = <"Braden assessment topic code range value set.">
+        description = <"Braden Assessment topic code range value set.">
       >
     >
   >
@@ -121,7 +121,11 @@ term_bindings = <
             ["id0.0.0.0.0.6"] = <http://loinc.org/id/38226-7> --  Friction and sheer Braden scale - TODO is 'sheer' really spelled like this? 
             ["id0.0.0.0.0.7"] = <http://loinc.org/id/38227-5> --  Braden scale total score
             ["id0.0.0.0.0.8"] = <http://loinc.org/id/81636-3> -- Braden scale risk level
-            ["ac0.1.1.0.0.1"] = <http://example.com/valuesets/braden_assessment_statement_topic_range_vs.v0.0.1>
+          >
+      >
+      ["cimi"] = <
+          items = <
+            ["ac0.2.1.0.0.1"] = <http://example.com/valuesets/braden_assessment_statement_topic_code_range_vs.v0.0.1>
           >
       >
   >

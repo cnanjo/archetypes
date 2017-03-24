@@ -37,6 +37,7 @@ description
 definition
 	Finding[id1.1] matches {
 		/key[id2.1] matches {[ac0.1]}
+    	/code[id3.1] matches {[ac0.2]}
 		description matches {
 			PLAIN_TEXT[id0.2]
 		}
@@ -52,6 +53,12 @@ terminology
 				text = <"Finding">
 				description = <"The characteristics looked for in medical investigations or diagnostics and the outcome.">
 			>
+			["id2.1"] = <
+				text = <"Key">
+			>
+			["id3.1"] = <
+				text = <"Code">
+			>
 			["id0.2"] = <
 				text = <"Description">
 				description = <"Description of the finding.">
@@ -61,17 +68,23 @@ terminology
 				description = <"Associated media produced during the evaluation such as an X-ray.">
 			>
 			["ac0.1"] = <
-		        text = <"Finding statement topic range value set">
-		        description = <"Range for the associated finding SWEC attribute">
-		      >
+				text = <"Finding statement topic key range value set">
+				description = <"Value set containing concept representing an Finding Statement Topic">
+			>
+			["ac0.2"] = <
+				text = <"Finding statement topic code range value set">
+				description = <"Range for the associated finding SWEC attribute restricted to findings and observable entities subhierarchy">
+			>
 		>
 	>
 
 	term_bindings = <
     	["snomed-ct"] = <
 			items = <
-				["id1.1"] = <http://example.com/valuesets/finding_statement_topic_vs.v0.0.1>
-        		["ac0.1"] = <http://example.com/valuesets/finding_statement_topic_range_vs.v0.0.1>
+				["id2.1"] = <http://example.com/valuesets/finding_statement_topic_key_vs.v0.0.1>
+		        ["id3.1"] = <http://example.com/valuesets/finding_statement_topic_code_vs.v0.0.1>
+		        ["ac0.1"] = <http://example.com/valuesets/finding_statement_topic_key_range_vs.v0.0.1>
+		        ["ac0.2"] = <http://example.com/valuesets/finding_statement_topic_code_range_vs.v0.0.1>
 			>
 	    >
 	>

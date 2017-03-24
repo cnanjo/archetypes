@@ -12,7 +12,7 @@ rm_release = <"0.0.2">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Wed Mar 22 12:50:29 PDT 2017">
+schema_revision = <"Thu Mar 23 19:25:39 PDT 2017">
 schema_lifecycle_state = <"dstu">
 schema_description = <"CIMI_RM_CLINICAL.v0.0.2.mdzip - Schema generated from UML">
 
@@ -3129,12 +3129,6 @@ When the asserted condition began manifesting. This property may have a broad pr
 		name = <"BaseAssertion">
 		ancestors = <"Finding",...>
 		properties = <
-			["name"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Concept representing a clinical finding.">
-				name = <"name">
-				type = <"CODED_TEXT">
-				is_mandatory = <True>
-			>
 			["diagnosisDate"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Date and time the health problem was diagnosed. Added for Public Health Reporting Initiative, 10&#47;5&#47;2012.">
 				name = <"diagnosisDate">
@@ -4212,8 +4206,14 @@ The range allowed for this attribute shall be consistent with the SNOMED CT conc
 		ancestors = <"VIRTUAL_CLUSTER",...>
 		properties = <
 			["key"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The conceptual classification of the thing being observed or the action&#47;event being described.">
+				documentation = <"Concept representing the statement topic category.">
 				name = <"key">
+				type = <"CODED_TEXT">
+				is_mandatory = <True>
+			>
+			["code"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The concept representing the thing being observed or the action&#47;event being described. The code is equivalent to either associatedFinding or associatedProcedure in the SNOMED CT Situation with Explicit Context Concept Model.">
+				name = <"code">
 				type = <"CODED_TEXT">
 				is_mandatory = <True>
 			>

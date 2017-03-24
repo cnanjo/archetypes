@@ -36,7 +36,7 @@ description
 
 definition
 	BaseAssertion[id1.1.1.1.1] matches {
-    /key[id2.1.1.0.1] matches {[ac0.1.1.0.1]}
+    /code[id3.1.1.0.1] matches {[ac0.2.1.0.1]}
   }
 
 terminology
@@ -46,11 +46,11 @@ terminology
 				text = <"Assertion of Wound Absence">
 				description = <"Known absense of a wound.">
 			>
-      ["id2.1.1.0.1"] = <
-        text = <"Key">
+      ["id3.1.1.0.1"] = <
+        text = <"Code">
 		  >
-      ["ac0.1.1.0.1"] = <
-        text = <"Wound absent assertion topic range binding">
+      ["ac0.2.1.0.1"] = <
+        text = <"Wound absent assertion topic code range binding">
       >
     >
 	>
@@ -63,7 +63,7 @@ terminology
   	>
     ["cimi"] = <
         items = <
-          ["ac0.1.1.0.1"] = <http://example.com/valuesets/wound_assertion_statement_topic_range_vs.v0.0.1> --  Wound assessment panel: not sure about this binding
+          ["ac0.2.1.0.1"] = <http://example.com/valuesets/wound_assertion_statement_topic_code_range_vs.v0.0.1> --  Wound assessment panel: not sure about this binding
         >
     >
   >
