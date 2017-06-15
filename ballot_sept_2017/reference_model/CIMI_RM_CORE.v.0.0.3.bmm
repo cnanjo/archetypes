@@ -7,14 +7,14 @@ bmm_version = <"2.1">
 -- ----------------------------------
 rm_publisher = <"CIMI">
 schema_name = <"RM_CORE">
-rm_release = <"0.0.2">
+rm_release = <"0.0.3">
 
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Fri Mar 24 12:03:32 PDT 2017">
+schema_revision = <"Wed Jun 14 23:57:12 PDT 2017">
 schema_lifecycle_state = <"dstu">
-schema_description = <"CIMI_RM_CORE.v0.0.2.mdzip - Schema generated from UML">
+schema_description = <"CIMI_RM_CORE.v0.0.3.mdzip - Schema generated from UML">
 
 
 -- ----------------------------------

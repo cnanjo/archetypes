@@ -7,14 +7,14 @@ bmm_version = <"2.1">
 -- ----------------------------------
 rm_publisher = <"CIMI">
 schema_name = <"RM_FOUNDATION">
-rm_release = <"0.0.2">
+rm_release = <"0.0.3">
 
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Fri Mar 24 12:03:32 PDT 2017">
+schema_revision = <"Wed Jun 14 23:57:12 PDT 2017">
 schema_lifecycle_state = <"dstu">
-schema_description = <"CIMI_RM_FOUNDATION.v0.0.2.mdzip - Schema generated from UML">
+schema_description = <"CIMI_RM_FOUNDATION.v0.0.3.mdzip - Schema generated from UML">
 
 
 -- ----------------------------------
@@ -23,7 +23,7 @@ schema_description = <"CIMI_RM_FOUNDATION.v0.0.2.mdzip - Schema generated from U
 archetype_rm_closure_packages = <"CIMI_Foundation_RM.Foundation", "CIMI_Foundation_RM.Party">
 includes = <
 	["1"] = <
-		id = <"cimi_rm_core_0.0.2">
+		id = <"cimi_rm_core_0.0.3">
 	>
 >
 packages = <
@@ -32,7 +32,7 @@ packages = <
 		packages = <
 			["Foundation"] = <
 				name = <"Foundation">
-				classes = <"COMPOSITION", "CONTENT", "SECTION", "ENTRY", "COMPOSITE_ENTRY", "SIMPLE_ENTRY", "CLUSTER", "VIRTUAL_CLUSTER", "BASE_ENTITY">
+				classes = <"COMPOSITION", "CONTENT", "SECTION", "ENTRY", "CLUSTER", "VIRTUAL_CLUSTER", "BASE_ENTITY">
 			>
 			["Party"] = <
 				name = <"Party">
@@ -88,27 +88,6 @@ An ENTRY is also the minimal unit of information any query should return, since 
 ">
 		name = <"ENTRY">
 		ancestors = <"CONTENT",...>
-	>
-	["COMPOSITE_ENTRY"] = <
-		documentation = <"An composite entry composed of other ENTRY components. COMPOUND_ENTRYs can be arbitrarily nested and can be treated as a unit (e.g., a complex medication orderable).">
-		name = <"COMPOSITE_ENTRY">
-		ancestors = <"ENTRY",...>
-		properties = <
-			["entry"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The children entry in a composite entry. These may be either composite or simple.">
-				name = <"entry">
-				type_def = <
-					container_type = <"List">
-					type = <"ENTRY">
-				>
-				cardinality = <|>=0|>
-			>
-		>
-	>
-	["SIMPLE_ENTRY"] = <
-		documentation = <"An ENTRY representing an atomic unit of information that is identifiable and can be referenced independently of a parent context such as a specific hematocrit measurement viewed in isolation of its parent panel.">
-		name = <"SIMPLE_ENTRY">
-		ancestors = <"ENTRY",...>
 	>
 	["CLUSTER"] = <
 		documentation = <"Abstract class representing a reusable structure in a model such as an address or an entity such as a device.">
