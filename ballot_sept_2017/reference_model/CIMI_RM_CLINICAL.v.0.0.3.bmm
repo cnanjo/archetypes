@@ -12,7 +12,7 @@ rm_release = <"0.0.3">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Fri Jun 16 08:44:19 PDT 2017">
+schema_revision = <"Fri Jun 16 11:49:45 PDT 2017">
 schema_lifecycle_state = <"dstu">
 schema_description = <"CIMI_RM_CLINICAL.v0.0.3.mdzip - Schema generated from UML">
 
@@ -63,11 +63,11 @@ packages = <
 			>
 			["Assertion"] = <
 				name = <"Assertion">
-				classes = <"Assertion", "BaseAssertion", "BradenAssessment", "DeviceAssertion", "FindingSiteAssertion", "RiskAssertion", "Tunneling", "WoundAssertion", "WoundBedAndEdge", "WoundDressing", "WoundExudate", "Undermining", "DimensionalFeature">
+				classes = <"BaseAssertion", "BradenAssessment", "DeviceAssertion", "FindingSiteAssertion", "RiskAssertion", "Tunneling", "WoundAssertion", "WoundBedAndEdge", "WoundDressing", "WoundExudate", "Undermining", "DimensionalFeature">
 			>
 			["EvaluationResult"] = <
 				name = <"EvaluationResult">
-				classes = <"BaseEvaluationResult", "EvaluationResult", "LaboratoryTestResult", "PhysicalEvaluationResult">
+				classes = <"LaboratoryTestResult", "PhysicalEvaluationResult", "Assertion">
 			>
 			["Procedure"] = <
 				name = <"Procedure">
@@ -75,7 +75,7 @@ packages = <
 			>
 			["ContextCore"] = <
 				name = <"ContextCore">
-				classes = <"Absent", "ActionContext", "FindingContext", "KnownOrSuspectedPresent", "NonCompletion", "NonPerformance", "Order", "Performance", "Plan", "Promise", "Proposal", "ProposalAgainst", "StatementContext", "Request", "EventContext", "PresenceAbsenceContext", "GoalContext", "AssertionPresent">
+				classes = <"Absent", "ActionContext", "FindingContext", "KnownOrSuspectedPresent", "NonCompletion", "NonPerformance", "Order", "Performance", "Plan", "Promise", "Proposal", "ProposalAgainst", "StatementContext", "Request", "EventContext", "PresenceAbsenceContext", "GoalContext", "EvaluationResult">
 			>
 			["TopicCore"] = <
 				name = <"TopicCore">
@@ -2997,87 +2997,6 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 			>
 		>
 	>
-	["Assertion"] = <
-		documentation = <"Clinical Assertions assert the existence of clinical conditions, diseases, symptoms, etc. in the patient.">
-		name = <"Assertion">
-		ancestors = <"BaseAssertion",...>
-		properties = <
-			["dueTo"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"This attribute is used to relate a |Clinical finding| directly to its cause. If a clinical finding merely predisposes to or worsens another disorder, rather than causing it directly, then the more general attribute | ASSOCIATED WITH | is used instead.">
-				name = <"dueTo">
-				type_def = <
-					container_type = <"List">
-					type = <"ClinicalStatement">
-				>
-				cardinality = <|>=0|>
-			>
-			["dueToCode"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The cause of the Clinical finding. This includes such causes as disease vectors and endogenous states (e.g., macular degeneration due to diabetes). Exogenous substances and forces should be captured as causative agent. ">
-				name = <"dueToCode">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-			["severity"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Intensity of a symptom or condition. The criteria for this value differ by condition.">
-				name = <"severity">
-				type = <"CODED_TEXT">
-			>
-			["clinicalCourse"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Both the course and onset of a disease. Many conditions with an acute (sudden) onset also have an acute (short duration) course. Few diseases with a chronic (long - term) course would need to have their onset sub-divided into rapid or gradual subtypes, and thus there is no clear need for separating the rapidity of onset from the duration of a disease; based on testing by implementers and modelers, a single attribute with values that combine these meanings has clearly been more reproducible
-and useful than two attributes that attempt to separate the meanings.">
-				name = <"clinicalCourse">
-				type = <"CODED_TEXT">
-			>
-			["episodicity"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"TO DISCUSS: Do we need this? (STAN)
-
-|EPISODICITY| is used to represent episodes of care provided by a physician or other care provider, typically a general practitioner, not episodes of disease experienced by the patient. See EPISODICITY no longer modeled in active content (7.1), regarding the origin of the attribute. For example, asthma with |EPISODICITY|=|
-first episode | represents the first time the patient presents to their health care provider with asthma. EPISODICITY is not used to model any concepts pre-coordinated in the International Release but it can still be used in post-coordination as a qualifier.">
-				name = <"episodicity">
-				type = <"CODED_TEXT">
-			>
-			["clinicalStatus"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The physiological state of the condition with respect to whether it is actually of concern. Values may typicall include: Active, Relapse, Remission, Resolved, Confirmed, Ruled out, Unknown.">
-				name = <"clinicalStatus">
-				type = <"CODED_TEXT">
-			>
-			["diseasePhase"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The physiological state of a condition that develops over time. For instance, Incubation period (exposed, asymptomatic), Prodromal (symptoms but not full disease breakout), Acute (full manifestation of disease), Convalescent.">
-				name = <"diseasePhase">
-				type = <"CODED_TEXT">
-			>
-			["associatedPrecondition"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Previously existing conditions or states that could affect a measurement or assesment. For example; a patients weight taken while clothed, a patients height with or without shoes, a patients blood pressure taken while standing or lying down.">
-				name = <"associatedPrecondition">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-			["associatedSignAndSymptom"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Physical observations captured by a clinician or subjective conditions experienced by a patient that are related to a medical condition.">
-				name = <"associatedSignAndSymptom">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-			["periodicity"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The length of time from one occurrence to the next (e.g., intermittent, weekly, continuous).">
-				name = <"periodicity">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-		>
-	>
 	["BaseAssertion"] = <
 		documentation = <"Base assertion class required for specialization hierarchies. Associates with a key='Assertion', a name with the specific assertion being made.">
 		name = <"BaseAssertion">
@@ -3399,102 +3318,6 @@ first episode | represents the first time the patient presents to their health c
 			>
 		>
 	>
-	["BaseEvaluationResult"] = <
-		documentation = <"Base class for evaluation results to support model hierarchies and negation. Associates with a clinical question (key) a value (result).">
-		name = <"BaseEvaluationResult">
-		ancestors = <"Finding",...>
-		properties = <
-			["result"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The unqualified value of the evaluation.">
-				name = <"result">
-				type = <"DATA_VALUE">
-			>
-			["exceptionValue"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"A code if the result cannot be provided.">
-				name = <"exceptionValue">
-				type = <"CODED_TEXT">
-			>
-		>
-	>
-	["EvaluationResult"] = <
-		documentation = <"The outcome of an evaluation of a characteristic. This model holds a 'question' in the key and holds a value in the result. This value is further qualified through the model's properties.
-">
-		name = <"EvaluationResult">
-		ancestors = <"BaseEvaluationResult",...>
-		properties = <
-			["method"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The means by which a measurement, evaluation, or assessment was made.">
-				name = <"method">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-			["device"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The device used to evaluate the characteristic such as the type of blood pressure cuff used on a patient.">
-				name = <"device">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-			["priority"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The urgency of the evaluation result. 
-
-To reviewers: should we retain this attribute in the model.">
-				name = <"priority">
-				type = <"CODED_TEXT">
-			>
-			["sequence"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Sequence is a number placed onto the data which refers to the order it occurred in or needs to be retrieved by.">
-				name = <"sequence">
-				type = <"CODED_TEXT">
-			>
-			["deltaFlag"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Flag indicating whether there was a significant change from previous results.">
-				name = <"deltaFlag">
-				type = <"CODED_TEXT">
-			>
-			["referenceRange"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The range for the measurement.">
-				name = <"referenceRange">
-				type_def = <
-					container_type = <"List">
-					type = <"ReferenceRange">
-				>
-				cardinality = <|>=0|>
-			>
-			["evaluationProcedure"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The evaluation procedure that is the source of the evaluation result.">
-				name = <"evaluationProcedure">
-				type = <"ClinicalStatement">
-				is_mandatory = <True>
-			>
-			["interpretation"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"A clinical judgment about the significance of an evaluation result.
-
-Interpretation is used to clarify data from measurements and other evaluations. For example, if a measured analyte is greater than a predetermined threshold the interpretation could be Positive, or if a measurement is lower than a normal physiological range the interpretation could be low or critical low. Some values include normal, abnormal, panic high, panic low, ...
-
-Interpretation may also be used to indicate whether or not the result is outside the range for the patient.">
-				name = <"interpretation">
-				type = <"CODED_TEXT">
-			>
-			["precondition"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Describes the previously existing conditions or states that could effect a measurement or assesment. For example; a patients weight taken while clothed, a patients height with or without shoes, a patients blood pressure taken while standing or lying down.
-
-Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Precondition (attribute)|
-">
-				name = <"precondition">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-		>
-	>
 	["LaboratoryTestResult"] = <
 		documentation = <"Measurement resulted from a laboratory.">
 		name = <"LaboratoryTestResult">
@@ -3563,6 +3386,108 @@ Indicates whether this result was from point-of-care testing where POC testing."
 				documentation = <"Captures the position of the body when an observation is done. E.g., supine, prone, etc...">
 				name = <"bodyPosition">
 				type = <"CODED_TEXT">
+			>
+		>
+	>
+	["Assertion"] = <
+		documentation = <"Clinical Assertions assert the existence of clinical conditions, diseases, symptoms, etc. in the patient.">
+		name = <"Assertion">
+		ancestors = <"BaseAssertion",...>
+		properties = <
+			["dueTo"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"This attribute is used to relate a |Clinical finding| directly to its cause. If a clinical finding merely predisposes to or worsens another disorder, rather than causing it directly, then the more general attribute | ASSOCIATED WITH | is used instead.">
+				name = <"dueTo">
+				type_def = <
+					container_type = <"List">
+					type = <"ClinicalStatement">
+				>
+				cardinality = <|>=0|>
+			>
+			["dueToCode"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The cause of the Clinical finding. This includes such causes as disease vectors and endogenous states (e.g., macular degeneration due to diabetes). Exogenous substances and forces should be captured as causative agent. ">
+				name = <"dueToCode">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
+			>
+			["severity"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Intensity of a symptom or condition. The criteria for this value differ by condition.">
+				name = <"severity">
+				type = <"CODED_TEXT">
+			>
+			["clinicalCourse"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Both the course and onset of a disease. Many conditions with an acute (sudden) onset also have an acute (short duration) course. Few diseases with a chronic (long - term) course would need to have their onset sub-divided into rapid or gradual subtypes, and thus there is no clear need for separating the rapidity of onset from the duration of a disease; based on testing by implementers and modelers, a single attribute with values that combine these meanings has clearly been more reproducible
+and useful than two attributes that attempt to separate the meanings.">
+				name = <"clinicalCourse">
+				type = <"CODED_TEXT">
+			>
+			["episodicity"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"TO DISCUSS: Do we need this? (STAN)
+
+|EPISODICITY| is used to represent episodes of care provided by a physician or other care provider, typically a general practitioner, not episodes of disease experienced by the patient. See EPISODICITY no longer modeled in active content (7.1), regarding the origin of the attribute. For example, asthma with |EPISODICITY|=|
+first episode | represents the first time the patient presents to their health care provider with asthma. EPISODICITY is not used to model any concepts pre-coordinated in the International Release but it can still be used in post-coordination as a qualifier.">
+				name = <"episodicity">
+				type = <"CODED_TEXT">
+			>
+			["clinicalStatus"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The physiological state of the condition with respect to whether it is actually of concern. Values may typicall include: Active, Relapse, Remission, Resolved, Confirmed, Ruled out, Unknown.">
+				name = <"clinicalStatus">
+				type = <"CODED_TEXT">
+			>
+			["diseasePhase"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The physiological state of a condition that develops over time. For instance, Incubation period (exposed, asymptomatic), Prodromal (symptoms but not full disease breakout), Acute (full manifestation of disease), Convalescent.">
+				name = <"diseasePhase">
+				type = <"CODED_TEXT">
+			>
+			["associatedPrecondition"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Previously existing conditions or states that could affect a measurement or assesment. For example; a patients weight taken while clothed, a patients height with or without shoes, a patients blood pressure taken while standing or lying down.">
+				name = <"associatedPrecondition">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
+			>
+			["associatedSignAndSymptom"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Physical observations captured by a clinician or subjective conditions experienced by a patient that are related to a medical condition.">
+				name = <"associatedSignAndSymptom">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
+			>
+			["periodicity"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The length of time from one occurrence to the next (e.g., intermittent, weekly, continuous).">
+				name = <"periodicity">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
+			>
+			["alleviatingFactor"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"An action or intervention which makes a symptom less severe. Examples of data from the value set may include: rest, heat, ice, etc. 
+
+[TO ADDRESS: we may need a semantic scope: are these substances or procedures? Procedures, with the assumption that if you put in a substance it means “application (procedure)”?
+">
+				name = <"alleviatingFactor">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
+			>
+			["exacerbatingFactor"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"An action or intervention which makes a symptom more severe.">
+				name = <"exacerbatingFactor">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
 			>
 		>
 	>
@@ -3902,22 +3827,27 @@ The status code must coincide with the activity code of one of the attribution e
 		name = <"KnownOrSuspectedPresent">
 		ancestors = <"PresenceAbsenceContext",...>
 		properties = <
-			["interpretation"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"A clinical judgment concerning the significance of an observation. This attribute refers to the entity being evaluated or interpreted, when an evaluation, interpretation or “judgment” is intrinsic to the meaning of a concept. This attribute is usually grouped with the | HAS INTERPRETATION | attribute.">
-				name = <"interpretation">
-				type_def = <
-					container_type = <"List">
-					type = <"Interpretation">
-				>
-				cardinality = <|>=0|>
+			["dateOfOnset"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Date or time when the characteristic was first observed.
+
+When the asserted condition began manifesting. This property may have a broad precision (e.g., a year rather than a date).">
+				name = <"dateOfOnset">
+				type = <"DATE_TIME">
 			>
-			["hasInterpretationCode"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"hasInterpretationCode">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
+			["ageAtOnset"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The age of the patient or subject at onset of the Condition. Note that this property could potentially be derived.">
+				name = <"ageAtOnset">
+				type = <"QUANTITY">
+			>
+			["dateAbated"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Date, if known, when clinical finding abated.">
+				name = <"dateAbated">
+				type = <"DATE_TIME">
+			>
+			["hasAbated"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Flag indicating whether a condition has abated when a specific date of, time period, or age at abatement is not known.">
+				name = <"hasAbated">
+				type = <"YESNO">
 			>
 		>
 	>
@@ -4309,47 +4239,102 @@ Discontinue">
 			>
 		>
 	>
-	["AssertionPresent"] = <
-		name = <"AssertionPresent">
-		ancestors = <"KnownOrSuspectedPresent",...>
-		properties = <
-			["dateOfOnset"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Date or time when the characteristic was first observed.
-
-When the asserted condition began manifesting. This property may have a broad precision (e.g., a year rather than a date).">
-				name = <"dateOfOnset">
-				type = <"DATE_TIME">
-			>
-			["ageAtOnset"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The age of the patient or subject at onset of the Condition. Note that this property could potentially be derived.">
-				name = <"ageAtOnset">
-				type = <"QUANTITY">
-			>
-			["dateAbated"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Date, if known, when clinical finding abated.">
-				name = <"dateAbated">
-				type = <"DATE_TIME">
-			>
-			["hasAbated"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Flag indicating whether a condition has abated when a specific date of, time period, or age at abatement is not known.">
-				name = <"hasAbated">
-				type = <"YESNO">
-			>
-			["alleviatingFactor"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"An action or intervention which makes a symptom less severe. Examples of data from the value set may include: rest, heat, ice, etc. 
-
-[TO ADDRESS: we may need a semantic scope: are these substances or procedures? Procedures, with the assumption that if you put in a substance it means “application (procedure)”?
+	["EvaluationResult"] = <
+		documentation = <"The outcome of an evaluation of a characteristic. This model holds a 'question' in the key and holds a value in the result. This value is further qualified through the model's properties.
 ">
-				name = <"alleviatingFactor">
+		name = <"EvaluationResult">
+		ancestors = <"Finding",...>
+		properties = <
+			["exceptionValue"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"A code if the result cannot be provided.">
+				name = <"exceptionValue">
+				type = <"CODED_TEXT">
+			>
+			["method"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The means by which a measurement, evaluation, or assessment was made.">
+				name = <"method">
 				type_def = <
 					container_type = <"List">
 					type = <"CODED_TEXT">
 				>
 				cardinality = <|>=0|>
 			>
-			["exacerbatingFactor"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"An action or intervention which makes a symptom more severe.">
-				name = <"exacerbatingFactor">
+			["deviceCode"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The device used to evaluate the characteristic such as the type of blood pressure cuff used on a patient.">
+				name = <"deviceCode">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
+			>
+			["device"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"device">
+				type_def = <
+					container_type = <"List">
+					type = <"Device">
+				>
+				cardinality = <|>=0|>
+			>
+			["priority"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The urgency of the evaluation result. 
+
+To reviewers: should we retain this attribute in the model.">
+				name = <"priority">
+				type = <"CODED_TEXT">
+			>
+			["sequence"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Sequence is a number placed onto the data which refers to the order it occurred in or needs to be retrieved by.">
+				name = <"sequence">
+				type = <"CODED_TEXT">
+			>
+			["deltaFlag"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Flag indicating whether there was a significant change from previous results.">
+				name = <"deltaFlag">
+				type = <"CODED_TEXT">
+			>
+			["referenceRange"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The range for the measurement.">
+				name = <"referenceRange">
+				type_def = <
+					container_type = <"List">
+					type = <"ReferenceRange">
+				>
+				cardinality = <|>=0|>
+			>
+			["evaluationProcedureCode"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"evaluationProcedureCode">
+				type = <"CODED_TEXT">
+			>
+			["evaluationProcedure"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The evaluation procedure that is the source of the evaluation result.">
+				name = <"evaluationProcedure">
+				type = <"ClinicalStatement">
+			>
+			["interpretation"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"A clinical judgment concerning the significance of an observation. This attribute refers to the entity being evaluated or interpreted, when an evaluation, interpretation or “judgment” is intrinsic to the meaning of a concept. This attribute is usually grouped with the | HAS INTERPRETATION | attribute.">
+				name = <"interpretation">
+				type_def = <
+					container_type = <"List">
+					type = <"Interpretation">
+				>
+				cardinality = <|>=0|>
+			>
+			["interpretationCode"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"A clinical judgment about the significance of an evaluation result.
+
+Interpretation is used to clarify data from measurements and other evaluations. For example, if a measured analyte is greater than a predetermined threshold the interpretation could be Positive, or if a measurement is lower than a normal physiological range the interpretation could be low or critical low. Some values include normal, abnormal, panic high, panic low, ...
+
+Interpretation may also be used to indicate whether or not the result is outside the range for the patient.">
+				name = <"interpretationCode">
+				type = <"CODED_TEXT">
+			>
+			["precondition"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Describes the previously existing conditions or states that could effect a measurement or assesment. For example; a patients weight taken while clothed, a patients height with or without shoes, a patients blood pressure taken while standing or lying down.
+
+Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Precondition (attribute)|
+">
+				name = <"precondition">
 				type_def = <
 					container_type = <"List">
 					type = <"CODED_TEXT">
@@ -4392,6 +4377,11 @@ When the asserted condition began manifesting. This property may have a broad pr
 		name = <"Finding">
 		ancestors = <"StatementTopic",...>
 		properties = <
+			["result"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The unqualified value of the evaluation or assertion.">
+				name = <"result">
+				type = <"DATA_VALUE">
+			>
 			["description"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Description of the finding.">
 				name = <"description">
@@ -4414,14 +4404,14 @@ When the asserted condition began manifesting. This property may have a broad pr
 		ancestors = <"VIRTUAL_CLUSTER",...>
 		properties = <
 			["key"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Concept or terminology expression representing the statement topic pattern.">
+				documentation = <"The concept representing the finding&#47;event being observed or the action being described. The code attribute's semantics is aligned to either associatedFinding or associatedProcedure in the SNOMED CT Situation with Explicit Context Concept Model.
+
+For findings, the key contains a concept for an observable entity.
+
+For assertions, the key contains a concept specifying that an assertion is made.
+
+For acts, the key contains a concept specifying the procedure described.">
 				name = <"key">
-				type = <"CODED_TEXT">
-				is_mandatory = <True>
-			>
-			["code"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The concept representing the finding&#47;event being observed or the action being described. The code attribute's semantics is aligned to either associatedFinding or associatedProcedure in the SNOMED CT Situation with Explicit Context Concept Model.">
-				name = <"code">
 				type = <"CODED_TEXT">
 				is_mandatory = <True>
 			>
