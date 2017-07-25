@@ -12,7 +12,7 @@ rm_release = <"0.0.3">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Fri Jul 21 10:49:40 PDT 2017">
+schema_revision = <"Mon Jul 24 23:08:46 PDT 2017">
 schema_lifecycle_state = <"dstu">
 schema_description = <"CIMI_RM_CLINICAL.v0.0.3.mdzip - Schema generated from UML">
 
@@ -20,7 +20,7 @@ schema_description = <"CIMI_RM_CLINICAL.v0.0.3.mdzip - Schema generated from UML
 -- ----------------------------------
 -- archetyping
 -- ----------------------------------
-archetype_rm_closure_packages = <"CIMI_Clinical.ClinicalStatement", "CIMI_Clinical.CommonDataStructures", "CIMI_Clinical.Party", "CIMI_Clinical.Relationship", "CIMI_Clinical.Participation", "CIMI_Clinical.Pharmacy", "CIMI_Clinical.Encounter", "CIMI_Clinical.Assertion", "CIMI_Clinical.EvaluationResult", "CIMI_Clinical.Procedure", "CIMI_Clinical.ContextCore", "CIMI_Clinical.TopicCore", "CIMI_Clinical.Entity", "CIMI_Clinical.Association", "CIMI_Clinical.Provenance", "CIMI_Clinical.PatientEducation", "CIMI_Clinical.AdverseEvent", "CIMI_Clinical.AdverseReaction">
+archetype_rm_closure_packages = <"CIMI_Clinical.ClinicalStatement", "CIMI_Clinical.CommonDataStructures", "CIMI_Clinical.Party", "CIMI_Clinical.Relationship", "CIMI_Clinical.Participation", "CIMI_Clinical.Pharmacy", "CIMI_Clinical.Encounter", "CIMI_Clinical.Assertion", "CIMI_Clinical.EvaluationResult", "CIMI_Clinical.Procedure", "CIMI_Clinical.ContextCore", "CIMI_Clinical.TopicCore", "CIMI_Clinical.Entity", "CIMI_Clinical.Association", "CIMI_Clinical.Provenance", "CIMI_Clinical.PatientEducation", "CIMI_Clinical.AdverseEventReporting", "CIMI_Clinical.AdverseReaction", "CIMI_Clinical.InformationEntry", "CIMI_Clinical.AdverseSensitivityToSubstance">
 includes = <
 	["1"] = <
 		id = <"cimi_rm_core_0.0.3">
@@ -63,27 +63,27 @@ packages = <
 			>
 			["Assertion"] = <
 				name = <"Assertion">
-				classes = <"BaseAssertion", "BradenAssessment", "DeviceAssertion", "FindingSiteAssertion", "RiskAssertion", "Tunneling", "WoundAssertion", "WoundBedAndEdge", "WoundDressing", "WoundExudate", "Undermining", "DimensionalFeature", "AllergyIntolerance">
+				classes = <"BaseAssertion", "BradenAssessment", "DeviceAssertion", "FindingSiteAssertion", "RiskAssertion", "Tunneling", "WoundAssertion", "WoundBedAndEdge", "WoundDressing", "WoundExudate", "Undermining", "DimensionalFeature", "Assertion">
 			>
 			["EvaluationResult"] = <
 				name = <"EvaluationResult">
-				classes = <"LaboratoryTestResult", "PhysicalEvaluationResult", "Assertion">
+				classes = <"LaboratoryTestResult", "PhysicalEvaluationResult", "EvaluationResult">
 			>
 			["Procedure"] = <
 				name = <"Procedure">
-				classes = <"LaboratoryProcedure", "Procedure", "SpecimenCollection", "SurgicalProcedure", "SurgicalProcedureOnDevice", "ImagingProcedure">
+				classes = <"LaboratoryProcedure", "Procedure", "SpecimenCollection", "SurgicalProcedure", "SurgicalProcedureOnDevice", "ImagingProcedure", "ModifyTargetAction">
 			>
 			["ContextCore"] = <
 				name = <"ContextCore">
-				classes = <"Absent", "ActionContext", "FindingContext", "KnownOrSuspectedPresent", "NonCompletion", "NonPerformance", "Order", "Performance", "Plan", "Promise", "Proposal", "ProposalAgainst", "StatementContext", "Request", "EventContext", "PresenceAbsenceContext", "GoalContext", "EvaluationResult", "NoKnown">
+				classes = <"Absent", "ActionContext", "FindingContext", "KnownOrSuspectedPresent", "NonCompletion", "NonPerformance", "Order", "Performance", "Plan", "Promise", "Proposal", "ProposalAgainst", "StatementContext", "Request", "EventContext", "PresenceAbsenceContext", "GoalContext", "NoKnown">
 			>
 			["TopicCore"] = <
 				name = <"TopicCore">
-				classes = <"BaseProcedureTopic", "EventTopic", "FindingTopic", "StatementTopic", "OrderAction">
+				classes = <"BaseProcedureTopic", "EventTopic", "FindingTopic", "StatementTopic">
 			>
 			["Entity"] = <
 				name = <"Entity">
-				classes = <"AnatomicalLocation", "Device", "Entity", "Medication", "MedicationPackage", "Organization", "Specimen", "Substance", "SpecimenContainer", "SubstanceInstance", "Ingredient", "PackageBatch", "UnitOfDistribution", "SpecimenTreatment", "Person", "PackageContent">
+				classes = <"AnatomicalLocation", "Device", "Entity", "Medication", "MedicationPackage", "Organization", "Specimen", "Substance", "SpecimenContainer", "SubstanceInstance", "Ingredient", "PackageBatch", "UnitOfDistribution", "SpecimenTreatment", "DetailedPerson", "PackageContent", "Person">
 			>
 			["Association"] = <
 				name = <"Association">
@@ -97,13 +97,21 @@ packages = <
 				name = <"PatientEducation">
 				classes = <"PatientEducationPerformed", "PatientRelatedEducation">
 			>
-			["AdverseEvent"] = <
-				name = <"AdverseEvent">
-				classes = <"ReportableEvent", "AdverseFindingReport", "ProtocolBreachReport">
+			["AdverseEventReporting"] = <
+				name = <"AdverseEventReporting">
+				classes = <"ReportableEventEntry", "AdverseFindingReportEntry", "ProtocolBreachReportEntry", "ClinicalStudyAdverseFinding">
 			>
 			["AdverseReaction"] = <
 				name = <"AdverseReaction">
 				classes = <"AdverseReaction", "SuspectEntity", "Causality">
+			>
+			["InformationEntry"] = <
+				name = <"InformationEntry">
+				classes = <"InformationEntry",...>
+			>
+			["AdverseSensitivityToSubstance"] = <
+				name = <"AdverseSensitivityToSubstance">
+				classes = <"AdverseSensitivityToSubstance",...>
 			>
 		>
 	>
@@ -120,7 +128,7 @@ A clinical statement is composed of the StatementTopic class (grouping of attrib
 		ancestors = <"ClinicalStatement",...>
 		properties = <
 			["component"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The components that make up this complex clinical statement.">
+				documentation = <"The components that make up this complex clinical statement. Components cannot stand alone and apart of the clinical statement that contains them. For instance, in a wound assertion, the size of a wound only makes sense in the context of the specific wound it qualifies. This is unlike a systolic blood pressure measurement which may exist outside the context of a blood pressure panel. Each component has a topic and a context allowing one to state, for instance, that a wound does not have tunneling. Components may be composite or simple. Composite components such as tunneling above may support children components such as tunneling depth and direction.">
 				name = <"component">
 				type_def = <
 					container_type = <"List">
@@ -138,6 +146,7 @@ Note that complex medications are indivisible clinical statements even though th
 		ancestors = <"ClinicalStatement",...>
 		properties = <
 			["content"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Clinical statements that make up the composite statement. For instance, panel entries in a panel. Each content item of a compositie clinical statement must be capable of standing alone, independent of its container compound clinical statement.">
 				name = <"content">
 				type_def = <
 					container_type = <"List">
@@ -155,102 +164,37 @@ The ClinicalStatement pattern defines the core attributes common to most clinica
 A clinical statement is composed of the StatementTopic class (grouping of attributes for capturing information about a procedure or a clinical finding) and the StatementContext class (grouping of attributes providing the context for the statement topic such as whether a procedure was performed, requested, not performed or whether a finding is suspected present or absent in the patient). At the archetype level, the topic and context components are coordinated to form the clinical statement. For instance, the composition of the ProcedureTopic with the NotPerformed context indicates that the given procedure was not performed. 
 ">
 		name = <"ClinicalStatement">
-		ancestors = <"ENTRY",...>
+		ancestors = <"InformationEntry",...>
 		generic_parameter_defs = <
 			["T"] = <
 				name = <"T">
 				conforms_to_type = <"StatementTopic">
 			>
-			["S"] = <
-				name = <"S">
+			["C"] = <
+				name = <"C">
 				conforms_to_type = <"StatementContext">
 			>
 		>
 		properties = <
-			["key"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The 'key' attribute is an optional attribute allowing the coding of some of the information represented by the clinical statement. The range of this attribute (i.e., allowable codes assigned as a value for this attribute) must derive from and conform with the SNOMED CT Situation with Explicit Context (SWEC) concept hierarchies defined in SNOMED CT. Note that this attribute may consist of precoordinated codes (not recommended) or SNOMED CT expressions.">
-				name = <"key">
-				type = <"CODED_TEXT">
-			>
 			["topic"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
+				documentation = <"What the statement is about, e.g., the kind of finding or procedure asserted. Attribute aligns with the SNOMED CT Situation with Explicit Context (SWEC) Concept Model attributes 'Associated finding (attribute)' (SCTID: 246090004) and 'Associated procedure (attribute)' (SCTID: 363589002). The range of this attribute is a structure (StatementTopic) rather than a value set. The topic of the clinical statement must align with the range specified by the SWEC Concept Model. For instance, if the 'topic' attribute's meaning is bound to 'Associated finding', then the topic may not be a specialization of the Act statement topic.">
 				name = <"topic">
 				type = <"T">
 			>
 			["context"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
+				documentation = <"The ontological status of the statement, e.g., whether it exists, does not exist, is planned, etc. Attribute aligns with the SNOMED CT Situation with Explicit Context Concept Model context attributes 'Finding context (attribute)' (SCTID: 408729009) and 'Procedure context (attribute)' (SCTID: 408730004). The range of this attribute is a structure (StatementContext) rather than a value set. The context of the clinical statement must align with the range specified by the SWEC Concept Model. For instance, if the 'context' attribute's meaning is bound to 'Finding context', then the context may not be a specialization of the ActionContext statement context. Instead, it should be a specialization of the FindingContext statement context.">
 				name = <"context">
 				type = <"T">
-			>
-			["identifier"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The unique identifier(s) of this clinical statement. It must be entered if user wants it returned as part of any output (e.g.,  a wound number), otherwise it will be auto-generated, if needed, by the system serving the record. An identifier does not need to be the actual identifier of the source system. 
-">
-				name = <"identifier">
-				type_def = <
-					container_type = <"List">
-					type = <"IDENTIFIER">
-				>
-				cardinality = <|>=0|>
-			>
-			["subjectOfInformation"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The entity being described by this statement. The entity may be animate (a patient, a relative of the patient, a veterinary patient, a cohort) or inanimate (a well, a geographical location). The subject of information is constrained in archetypes. 
-
-This attribute aligns with the SNOMED CT Situation with Explicit Context (SWEC) and is bound to the SNOMED attribute: 'Subject relationship context (attribute)' (SCTID: 408732007).
-
-">
-				name = <"subjectOfInformation">
-				type = <"SubjectOfInformation">
-			>
-			["authored"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Provenance information specific to the assertion being made (e.g., the author(s), when authored, the location where the assertion was made, etc...).">
-				name = <"authored">
-				type = <"Attribution">
-			>
-			["recorded"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Provenance information specific to the recording of the clinical statement (e.g., when recorded, where recorded, etc...).">
-				name = <"recorded">
-				type = <"Attribution">
-			>
-			["verified"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Provenance information specific to the verification process associated with this statement (e.g., verifier, verification method, when verified, etc...).">
-				name = <"verified">
-				type = <"Attribution">
-			>
-			["signed"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Provenance information specific to the signing of the clinical statement.">
-				name = <"signed">
-				type = <"Attribution">
-			>
-			["cosigned"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Provenance information specific to the cosigning of the clinical statement.">
-				name = <"cosigned">
-				type_def = <
-					container_type = <"List">
-					type = <"Attribution">
-				>
-				cardinality = <|>=0|>
 			>
 			["originatingFrom"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The encounter or episode of care from which this statement originates.">
 				name = <"originatingFrom">
 				type = <"ClinicalStatement">
 			>
-			["additionalText"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Unstructured notes appended to a clinical statement.">
-				name = <"additionalText">
-				type_def = <
-					container_type = <"List">
-					type = <"Annotation">
-				>
-				cardinality = <|>=0|>
-			>
-			["recordStatus"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Concept indicating the state of this record. E.g., 'entered in error'.">
-				name = <"recordStatus">
-				type = <"CODED_TEXT">
-			>
 			["encounter"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Encounter associated with this clinical statement.">
 				name = <"encounter">
-				type = <"ClinicalStatement">
+				type = <"Encounter">
 			>
 		>
 	>
@@ -295,7 +239,7 @@ This attribute aligns with the SNOMED CT Situation with Explicit Context (SWEC) 
 		ancestors = <"Component",...>
 	>
 	["DetailedAddress"] = <
-		documentation = <"An address line.">
+		documentation = <"A detailed address model.">
 		name = <"DetailedAddress">
 		ancestors = <"BaseAddress",...>
 		properties = <
@@ -1494,7 +1438,7 @@ WE SOLICIT COMMENTS FOR A BETTER DEFINITION.">
 		ancestors = <"BaseAddress",...>
 		properties = <
 			["addressPart"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"An address component that is not an address line.">
+				documentation = <"An address component.">
 				name = <"addressPart">
 				type_def = <
 					container_type = <"List">
@@ -2548,9 +2492,9 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 		>
 	>
 	["BaseEncounter"] = <
-		documentation = <"Abstract encounter class.">
+		documentation = <"An abstract class that represents an encounter class.">
 		name = <"BaseEncounter">
-		ancestors = <"BaseProcedureTopic",...>
+		ancestors = <"InformationEntry",...>
 		properties = <
 			["confidentialityCode"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Contains a set of values that control the disclosure of information about this patient">
@@ -2560,7 +2504,7 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 			["partOf"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"An encounter under which this encounter occurred. For instance, an encounter with a clinician while this patient was hospitalized.">
 				name = <"partOf">
-				type = <"ClinicalStatement">
+				type = <"BaseEncounter">
 			>
 		>
 	>
@@ -2578,10 +2522,13 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 				name = <"diagnosisCode">
 				type = <"CODED_TEXT">
 			>
-			["diagnosis"] = (P_BMM_SINGLE_PROPERTY) <
+			["diagnosis"] = (P_BMM_GENERIC_PROPERTY) <
 				documentation = <"Contains a pointer to the finding clinical statement that most closely identifies the condition or the diagnosis. ">
 				name = <"diagnosis">
-				type = <"ClinicalStatement">
+				type_def = <
+					root_type = <"ClinicalStatement">
+					generic_parameters = <"FindingTopic",...>
+				>
 			>
 			["role"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …).">
@@ -2965,7 +2912,7 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 		>
 	>
 	["BaseAssertion"] = <
-		documentation = <"Base assertion class required for specialization hierarchies. Associates with a key='Assertion', a name with the specific assertion being made.">
+		documentation = <"Base assertion class required for specialization hierarchies. Associates with a key='Assertion', a result with the specific assertion being made.">
 		name = <"BaseAssertion">
 		ancestors = <"FindingTopic",...>
 		properties = <
@@ -3290,117 +3237,6 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 			>
 		>
 	>
-	["AllergyIntolerance"] = <
-		documentation = <"Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.">
-		name = <"AllergyIntolerance">
-		ancestors = <"BaseAssertion",...>
-		properties = <
-			["entity"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"entity">
-				type = <"Entity">
-				is_mandatory = <True>
-			>
-			["type"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Identification of the underlying physiological mechanism for the reaction risk - e.g., Allergy, Intolerance.">
-				name = <"type">
-				type = <"CODED_TEXT">
-			>
-			["category"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Category of the identified substance when such category cannot be derived based on the substance's hierarchy - e.g., food, medication, environment, biologic.">
-				name = <"category">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-			["criticality"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"criticality">
-				type = <"CODED_TEXT">
-			>
-			["associatedReaction"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Adverse reactions related to this allergy&#47;intolerance assertion.
-">
-				name = <"associatedReaction">
-				type_def = <
-					container_type = <"List">
-					type = <"ClinicalStatement">
-				>
-				cardinality = <|>=0|>
-			>
-		>
-	>
-	["LaboratoryTestResult"] = <
-		documentation = <"Measurement resulted from a laboratory.">
-		name = <"LaboratoryTestResult">
-		ancestors = <"EvaluationResult",...>
-		properties = <
-			["diagnosticService"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The service completing the observations, e.g. biochemistry,  microbiology, blood bank, etc.">
-				name = <"diagnosticService">
-				type_def = <
-					container_type = <"List">
-					type = <"TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-			["specimen"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The specimen used for the analysis.">
-				name = <"specimen">
-				type_def = <
-					container_type = <"List">
-					type = <"Specimen">
-				>
-				cardinality = <|>=0|>
-			>
-			["poctIndicator"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"'Point of Care Testing (POCT)'
-
-Indicates whether this result was from point-of-care testing where POC testing.">
-				name = <"poctIndicator">
-				type = <"CODED_TEXT">
-			>
-			["diagnosis"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"A condition for which the lab result  is pathoneumonic. The lab result is sufficient to assert the diagnosis.">
-				name = <"diagnosis">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-		>
-	>
-	["PhysicalEvaluationResult"] = <
-		documentation = <"Measurement resulting from a physical assessment procedure.">
-		name = <"PhysicalEvaluationResult">
-		ancestors = <"EvaluationResult",...>
-		properties = <
-			["bodyLocation"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Captures the post-coordinated location on the body where the characteristic was observed.">
-				name = <"bodyLocation">
-				type_def = <
-					container_type = <"List">
-					type = <"AnatomicalLocation">
-				>
-				cardinality = <|>=0|>
-			>
-			["bodyLocationPrecoord"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Captures the pre-coordinated body location information, for example pre-coordinating body side left with body location hand to make left hand. .">
-				name = <"bodyLocationPrecoord">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-			["bodyPosition"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Captures the position of the body when an observation is done. E.g., supine, prone, etc...">
-				name = <"bodyPosition">
-				type = <"CODED_TEXT">
-			>
-		>
-	>
 	["Assertion"] = <
 		documentation = <"Clinical Assertions assert the existence of clinical conditions, diseases, symptoms, etc. in the patient.">
 		name = <"Assertion">
@@ -3497,8 +3333,184 @@ first episode | represents the first time the patient presents to their health c
 				cardinality = <|>=0|>
 			>
 			["causativeAgent"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Microorganism, force, or other agent that resulted in this assertion. ">
 				name = <"causativeAgent">
 				type = <"Entity">
+			>
+		>
+	>
+	["LaboratoryTestResult"] = <
+		documentation = <"Measurement resulted from a laboratory.">
+		name = <"LaboratoryTestResult">
+		ancestors = <"EvaluationResult",...>
+		properties = <
+			["diagnosticService"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The service completing the observations, e.g. biochemistry,  microbiology, blood bank, etc.">
+				name = <"diagnosticService">
+				type_def = <
+					container_type = <"List">
+					type = <"TEXT">
+				>
+				cardinality = <|>=0|>
+			>
+			["specimen"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The specimen used for the analysis.">
+				name = <"specimen">
+				type_def = <
+					container_type = <"List">
+					type = <"Specimen">
+				>
+				cardinality = <|>=0|>
+			>
+			["poctIndicator"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"'Point of Care Testing (POCT)'
+
+Indicates whether this result was from point-of-care testing where POC testing.">
+				name = <"poctIndicator">
+				type = <"CODED_TEXT">
+			>
+			["diagnosis"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"A condition for which the lab result  is pathoneumonic. The lab result is sufficient to assert the diagnosis.">
+				name = <"diagnosis">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
+			>
+		>
+	>
+	["PhysicalEvaluationResult"] = <
+		documentation = <"Measurement resulting from a physical assessment procedure.">
+		name = <"PhysicalEvaluationResult">
+		ancestors = <"EvaluationResult",...>
+		properties = <
+			["bodyLocation"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Captures the post-coordinated location on the body where the characteristic was observed.">
+				name = <"bodyLocation">
+				type_def = <
+					container_type = <"List">
+					type = <"AnatomicalLocation">
+				>
+				cardinality = <|>=0|>
+			>
+			["bodyLocationPrecoord"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Captures the pre-coordinated body location information, for example pre-coordinating body side left with body location hand to make left hand. .">
+				name = <"bodyLocationPrecoord">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
+			>
+			["bodyPosition"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Captures the position of the body when an observation is done. E.g., supine, prone, etc...">
+				name = <"bodyPosition">
+				type = <"CODED_TEXT">
+			>
+		>
+	>
+	["EvaluationResult"] = <
+		documentation = <"The outcome of an evaluation of a characteristic. This model holds a 'question' in the key and holds a value in the result. This value is further qualified through the model's properties.
+">
+		name = <"EvaluationResult">
+		ancestors = <"FindingTopic",...>
+		properties = <
+			["exceptionValue"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"A code if the result cannot be provided.">
+				name = <"exceptionValue">
+				type = <"CODED_TEXT">
+			>
+			["method"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The means by which a measurement, evaluation, or assessment was made.">
+				name = <"method">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
+			>
+			["deviceCode"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The device used to evaluate the characteristic such as the type of blood pressure cuff used on a patient.">
+				name = <"deviceCode">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
+			>
+			["device"] = (P_BMM_CONTAINER_PROPERTY) <
+				name = <"device">
+				type_def = <
+					container_type = <"List">
+					type = <"Device">
+				>
+				cardinality = <|>=0|>
+			>
+			["priority"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The urgency of the evaluation result. 
+
+To reviewers: should we retain this attribute in the model.">
+				name = <"priority">
+				type = <"CODED_TEXT">
+			>
+			["sequence"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Sequence is a number placed onto the data which refers to the order it occurred in or needs to be retrieved by.">
+				name = <"sequence">
+				type = <"CODED_TEXT">
+			>
+			["deltaFlag"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Flag indicating whether there was a significant change from previous results.">
+				name = <"deltaFlag">
+				type = <"CODED_TEXT">
+			>
+			["referenceRange"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The range for the measurement.">
+				name = <"referenceRange">
+				type_def = <
+					container_type = <"List">
+					type = <"ReferenceRange">
+				>
+				cardinality = <|>=0|>
+			>
+			["evaluationProcedureCode"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"evaluationProcedureCode">
+				type = <"CODED_TEXT">
+			>
+			["evaluationProcedure"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The evaluation procedure that is the source of the evaluation result.">
+				name = <"evaluationProcedure">
+				type = <"ClinicalStatement">
+			>
+			["interpretation"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"A clinical judgment concerning the significance of an observation. This attribute refers to the entity being evaluated or interpreted, when an evaluation, interpretation or “judgment” is intrinsic to the meaning of a concept. This attribute is usually grouped with the | HAS INTERPRETATION | attribute.">
+				name = <"interpretation">
+				type_def = <
+					container_type = <"List">
+					type = <"Interpretation">
+				>
+				cardinality = <|>=0|>
+			>
+			["interpretationCode"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"A clinical judgment about the significance of an evaluation result.
+
+Interpretation is used to clarify data from measurements and other evaluations. For example, if a measured analyte is greater than a predetermined threshold the interpretation could be Positive, or if a measurement is lower than a normal physiological range the interpretation could be low or critical low. Some values include normal, abnormal, panic high, panic low, ...
+
+Interpretation may also be used to indicate whether or not the result is outside the range for the patient.">
+				name = <"interpretationCode">
+				type = <"CODED_TEXT">
+			>
+			["precondition"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Describes the previously existing conditions or states that could effect a measurement or assesment. For example; a patients weight taken while clothed, a patients height with or without shoes, a patients blood pressure taken while standing or lying down.
+
+Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Precondition (attribute)|
+">
+				name = <"precondition">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
 			>
 		>
 	>
@@ -3517,7 +3529,10 @@ first episode | represents the first time the patient presents to their health c
 				name = <"findings">
 				type_def = <
 					container_type = <"List">
-					type = <"ClinicalStatement">
+					type_def = (P_BMM_GENERIC_TYPE) <
+						root_type = <"ClinicalStatement">
+						generic_parameters = <"FindingTopic",...>
+					>
 				>
 				cardinality = <|>=0|>
 			>
@@ -3789,6 +3804,28 @@ Note that this differs from an implant which remains in the body after the proce
 					type = <"CODED_TEXT">
 				>
 				cardinality = <|>=0|>
+			>
+		>
+	>
+	["ModifyTargetAction"] = <
+		documentation = <"Action intended to modify an existing action such as a request to discontinue the administration of a medication or a proposal to cancel an existing order.
+
+Experimental">
+		name = <"ModifyTargetAction">
+		ancestors = <"BaseProcedureTopic",...>
+		properties = <
+			["targetAction"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The target action that this topic modifies.">
+				name = <"targetAction">
+				type_def = <
+					container_type = <"List">
+					type_def = (P_BMM_GENERIC_TYPE) <
+						root_type = <"ClinicalStatement">
+						generic_parameters = <"BaseProcedureTopic",...>
+					>
+				>
+				cardinality = <|>=1|>
+				is_mandatory = <True>
 			>
 		>
 	>
@@ -4181,15 +4218,6 @@ Discontinue">
 				name = <"durationCode">
 				type = <"CODED_TEXT">
 			>
-			["supportingInformation"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Include additional information (for example, patient height and weight) that supports this order.">
-				name = <"supportingInformation">
-				type_def = <
-					container_type = <"List">
-					type = <"ClinicalStatement">
-				>
-				cardinality = <|>=0|>
-			>
 		>
 	>
 	["EventContext"] = <
@@ -4281,110 +4309,6 @@ Discontinue">
 			>
 		>
 	>
-	["EvaluationResult"] = <
-		documentation = <"The outcome of an evaluation of a characteristic. This model holds a 'question' in the key and holds a value in the result. This value is further qualified through the model's properties.
-">
-		name = <"EvaluationResult">
-		ancestors = <"FindingTopic",...>
-		properties = <
-			["exceptionValue"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"A code if the result cannot be provided.">
-				name = <"exceptionValue">
-				type = <"CODED_TEXT">
-			>
-			["method"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The means by which a measurement, evaluation, or assessment was made.">
-				name = <"method">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-			["deviceCode"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The device used to evaluate the characteristic such as the type of blood pressure cuff used on a patient.">
-				name = <"deviceCode">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-			["device"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"device">
-				type_def = <
-					container_type = <"List">
-					type = <"Device">
-				>
-				cardinality = <|>=0|>
-			>
-			["priority"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The urgency of the evaluation result. 
-
-To reviewers: should we retain this attribute in the model.">
-				name = <"priority">
-				type = <"CODED_TEXT">
-			>
-			["sequence"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Sequence is a number placed onto the data which refers to the order it occurred in or needs to be retrieved by.">
-				name = <"sequence">
-				type = <"CODED_TEXT">
-			>
-			["deltaFlag"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Flag indicating whether there was a significant change from previous results.">
-				name = <"deltaFlag">
-				type = <"CODED_TEXT">
-			>
-			["referenceRange"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The range for the measurement.">
-				name = <"referenceRange">
-				type_def = <
-					container_type = <"List">
-					type = <"ReferenceRange">
-				>
-				cardinality = <|>=0|>
-			>
-			["evaluationProcedureCode"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"evaluationProcedureCode">
-				type = <"CODED_TEXT">
-			>
-			["evaluationProcedure"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The evaluation procedure that is the source of the evaluation result.">
-				name = <"evaluationProcedure">
-				type = <"ClinicalStatement">
-			>
-			["interpretation"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"A clinical judgment concerning the significance of an observation. This attribute refers to the entity being evaluated or interpreted, when an evaluation, interpretation or “judgment” is intrinsic to the meaning of a concept. This attribute is usually grouped with the | HAS INTERPRETATION | attribute.">
-				name = <"interpretation">
-				type_def = <
-					container_type = <"List">
-					type = <"Interpretation">
-				>
-				cardinality = <|>=0|>
-			>
-			["interpretationCode"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"A clinical judgment about the significance of an evaluation result.
-
-Interpretation is used to clarify data from measurements and other evaluations. For example, if a measured analyte is greater than a predetermined threshold the interpretation could be Positive, or if a measurement is lower than a normal physiological range the interpretation could be low or critical low. Some values include normal, abnormal, panic high, panic low, ...
-
-Interpretation may also be used to indicate whether or not the result is outside the range for the patient.">
-				name = <"interpretationCode">
-				type = <"CODED_TEXT">
-			>
-			["precondition"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Describes the previously existing conditions or states that could effect a measurement or assesment. For example; a patients weight taken while clothed, a patients height with or without shoes, a patients blood pressure taken while standing or lying down.
-
-Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Precondition (attribute)|
-">
-				name = <"precondition">
-				type_def = <
-					container_type = <"List">
-					type = <"CODED_TEXT">
-				>
-				cardinality = <|>=0|>
-			>
-		>
-	>
 	["NoKnown"] = <
 		name = <"NoKnown">
 		ancestors = <"FindingContext",...>
@@ -4459,21 +4383,6 @@ For assertions, the key contains a concept specifying that an assertion is made.
 For acts, the key contains a concept specifying the procedure described.">
 				name = <"key">
 				type = <"CODED_TEXT">
-				is_mandatory = <True>
-			>
-		>
-	>
-	["OrderAction"] = <
-		name = <"OrderAction">
-		ancestors = <"BaseProcedureTopic",...>
-		properties = <
-			["targetAction"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"targetAction">
-				type_def = <
-					container_type = <"List">
-					type = <"ClinicalStatement">
-				>
-				cardinality = <|>=1|>
 				is_mandatory = <True>
 			>
 		>
@@ -5016,34 +4925,11 @@ For acts, the key contains a concept specifying the procedure described.">
 			>
 		>
 	>
-	["Person"] = <
+	["DetailedPerson"] = <
 		documentation = <"An entity representing a person.">
-		name = <"Person">
-		ancestors = <"Entity",...>
+		name = <"DetailedPerson">
+		ancestors = <"Person",...>
 		properties = <
-			["personName"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"personName">
-				type = <"BasePersonName">
-			>
-			["address"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"The person's address.">
-				name = <"address">
-				type_def = <
-					container_type = <"List">
-					type = <"BaseAddress">
-				>
-				cardinality = <|>=0|>
-			>
-			["electronicContact"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Contact information for the person.
-">
-				name = <"electronicContact">
-				type_def = <
-					container_type = <"List">
-					type = <"ElectronicContact">
-				>
-				cardinality = <|>=0|>
-			>
 			["contactPerson"] = (P_BMM_CONTAINER_PROPERTY) <
 				documentation = <"Contacts for this person.">
 				name = <"contactPerson">
@@ -5052,12 +4938,6 @@ For acts, the key contains a concept specifying the procedure described.">
 					type = <"ContactInformation">
 				>
 				cardinality = <|>=0|>
-			>
-			["administrativeGender"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The administrative gender of the person.
-">
-				name = <"administrativeGender">
-				type = <"CODED_TEXT">
 			>
 			["mothersIdentifier"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Identifier for the mother of the patient.">
@@ -5078,11 +4958,6 @@ For acts, the key contains a concept specifying the procedure described.">
 				documentation = <"The spouse's name">
 				name = <"spouseName">
 				type = <"PLAIN_TEXT">
-			>
-			["maritalStatus"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The person's marital status.">
-				name = <"maritalStatus">
-				type = <"TEXT">
 			>
 			["race"] = (P_BMM_CONTAINER_PROPERTY) <
 				documentation = <"The race code associated with this person.">
@@ -5130,31 +5005,12 @@ For acts, the key contains a concept specifying the procedure described.">
 				name = <"organDonorType">
 				type = <"CODED_TEXT">
 			>
-			["birthData"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Birth data information">
-				name = <"birthData">
-				type = <"BirthData">
-			>
-			["deathData"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Death data information">
-				name = <"deathData">
-				type = <"DeathData">
-			>
 			["biometricData"] = (P_BMM_CONTAINER_PROPERTY) <
 				documentation = <"Related biometric data.">
 				name = <"biometricData">
 				type_def = <
 					container_type = <"List">
 					type = <"BiometricData">
-				>
-				cardinality = <|>=0|>
-			>
-			["language"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Languages spoken by the person.">
-				name = <"language">
-				type_def = <
-					container_type = <"List">
-					type = <"LanguageCapability">
 				>
 				cardinality = <|>=0|>
 			>
@@ -5266,6 +5122,66 @@ For acts, the key contains a concept specifying the procedure described.">
 				documentation = <"The amount of the product that is in the package.">
 				name = <"amount">
 				type = <"QUANTITY">
+			>
+		>
+	>
+	["Person"] = <
+		documentation = <"Base person class.">
+		name = <"Person">
+		ancestors = <"Entity",...>
+		properties = <
+			["personName"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"personName">
+				type = <"BasePersonName">
+			>
+			["administrativeGender"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The administrative gender of the person.
+">
+				name = <"administrativeGender">
+				type = <"CODED_TEXT">
+			>
+			["address"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The person's address.">
+				name = <"address">
+				type_def = <
+					container_type = <"List">
+					type = <"BaseAddress">
+				>
+				cardinality = <|>=0|>
+			>
+			["electronicContact"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Contact information for the person.
+">
+				name = <"electronicContact">
+				type_def = <
+					container_type = <"List">
+					type = <"ElectronicContact">
+				>
+				cardinality = <|>=0|>
+			>
+			["maritalStatus"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The person's marital status.">
+				name = <"maritalStatus">
+				type = <"TEXT">
+			>
+			["birthData"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Birth data information">
+				name = <"birthData">
+				type = <"BirthData">
+			>
+			["deathData"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Death data information">
+				name = <"deathData">
+				type = <"DeathData">
+			>
+			["language"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Languages spoken by the person.">
+				name = <"language">
+				type_def = <
+					container_type = <"List">
+					type = <"LanguageCapability">
+				>
+				cardinality = <|>=0|>
 			>
 		>
 	>
@@ -5558,36 +5474,23 @@ The attachment of provenance information to a clinical statement in this manner 
 			>
 		>
 	>
-	["ReportableEvent"] = <
-		name = <"ReportableEvent">
-		ancestors = <"FindingTopic",...>
+	["ReportableEventEntry"] = <
+		documentation = <"A reportable event may be an untoward or unexpected finding observed during the course of an activity or an activity that may result in harm to a subject and which must be documented.">
+		name = <"ReportableEventEntry">
+		ancestors = <"InformationEntry",...>
 		properties = <
-			["category"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"category">
-				type = <"CODED_TEXT">
-			>
-			["location"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"location">
-				type = <"Location">
-			>
-			["seriousness"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"The seriousness of the breach.">
-				name = <"seriousness">
-				type = <"CODED_TEXT">
-			>
-			["eventParticipants"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"eventParticipants">
-				type = <"PARTICIPATION">
-			>
-			["associatedClinicalStudy"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"associatedClinicalStudy">
-				type = <"ResearchStudy">
+			["description"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Description of the adverse event in narrative.">
+				name = <"description">
+				type = <"PLAIN_TEXT">
 			>
 			["referenceDocumentation"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Any documentation supplied when documenting this event.">
 				name = <"referenceDocumentation">
 				type = <"COMPOSITION">
 			>
 			["relevantMedicalHistory"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Relevant medical history for documentation purposes.">
 				name = <"relevantMedicalHistory">
 				type_def = <
 					container_type = <"List">
@@ -5595,41 +5498,81 @@ The attachment of provenance information to a clinical statement in this manner 
 				>
 				cardinality = <|>=0|>
 			>
+			["reportingContext"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Attribution metadata relevant to the reporting of an act or finding not already captured in the associated act or finding statement.">
+				name = <"reportingContext">
+				type = <"Attribution">
+			>
 		>
 	>
-	["AdverseFindingReport"] = <
-		name = <"AdverseFindingReport">
-		ancestors = <"ReportableEvent",...>
+	["AdverseFindingReportEntry"] = <
+		documentation = <"An AdverseFinding is any unexpected clinical finding in a patient in the course of care or clinical investigation subject which does not necessarily have a causal relationship with a specific intervention.">
+		name = <"AdverseFindingReportEntry">
+		ancestors = <"ReportableEventEntry",...>
 		properties = <
-			["reportedFinding"] = (P_BMM_SINGLE_PROPERTY) <
+			["reportedFinding"] = (P_BMM_GENERIC_PROPERTY) <
 				name = <"reportedFinding">
-				type = <"ClinicalStatement">
+				type_def = <
+					root_type = <"ClinicalStatement">
+					generic_parameters = <"FindingTopic",...>
+				>
 				is_mandatory = <True>
 			>
 		>
 	>
-	["ProtocolBreachReport"] = <
-		name = <"ProtocolBreachReport">
-		ancestors = <"ReportableEvent",...>
+	["ProtocolBreachReportEntry"] = <
+		documentation = <"An undesired activity or breach of protocol, regardless of whether it resulted in harm to the subject, which must be documented.">
+		name = <"ProtocolBreachReportEntry">
+		ancestors = <"ReportableEventEntry",...>
 		properties = <
-			["reportedActivity"] = (P_BMM_SINGLE_PROPERTY) <
+			["seriousness"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Assessment whether this event was of real importance.">
+				name = <"seriousness">
+				type = <"CODED_TEXT">
+			>
+			["category"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The overall type of protocol breach intended for search and filtering purposes.">
+				name = <"category">
+				type = <"CODED_TEXT">
+			>
+			["reportedActivity"] = (P_BMM_GENERIC_PROPERTY) <
+				documentation = <"The activity which represents a breach of protocol.">
 				name = <"reportedActivity">
-				type = <"ClinicalStatement">
+				type_def = <
+					root_type = <"ClinicalStatement">
+					generic_parameters = <"Performance", "BaseProcedureTopic">
+				>
 				is_mandatory = <True>
 			>
-			["resultingCondition"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"resultingCondition">
+			["outcome"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The finding that resulted from the reported activity. ">
+				name = <"outcome">
 				type_def = <
 					container_type = <"List">
-					type = <"ClinicalStatement">
+					type_def = (P_BMM_GENERIC_TYPE) <
+						root_type = <"ClinicalStatement">
+						generic_parameters = <"FindingTopic",...>
+					>
 				>
 				cardinality = <|>=0|>
 			>
 		>
 	>
+	["ClinicalStudyAdverseFinding"] = <
+		documentation = <"An AdverseFinding is any unexpected clinical finding in a patient documented as part of a clinical investigation which does not necessarily have a causal relationship with a specific study intervention. For instance, a study participant developing a fever during the course of the study.">
+		name = <"ClinicalStudyAdverseFinding">
+		ancestors = <"AdverseFindingReportEntry",...>
+		properties = <
+			["associatedClinicalStudy"] = (P_BMM_SINGLE_PROPERTY) <
+				name = <"associatedClinicalStudy">
+				type = <"ResearchStudy">
+			>
+		>
+	>
 	["AdverseReaction"] = <
+		documentation = <"An unintended physical injury resulting from exposure to a substance.">
 		name = <"AdverseReaction">
-		ancestors = <"Assertion",...>
+		ancestors = <"FindingSiteAssertion",...>
 		properties = <
 			["suspectedEntity"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"An exogenous physical substance or force that causes the disease. It does not include vectors, e.g. a mosquito that transmits malaria.  The range of this attribute can be found in the following SNOMED CT hierarchies:
@@ -5640,8 +5583,7 @@ The attachment of provenance information to a clinical statement in this manner 
 | Physical force | 78621006 (&lt;&lt;)
 | Pharmaceutical &#47; biologic product | 373873005 (&lt;&lt; Q only)
 | SNOMED CT Concept | 138875005 (==)
-
-NOTE: NEED TO REFACTOR THIS TO SUPPORT BOTH ADVERSE REACTIONS AND ASSERTIONS THAT INVOLVE MICROORGANISMS">
+">
 				name = <"suspectedEntity">
 				type = <"SuspectEntity">
 				is_mandatory = <True>
@@ -5649,10 +5591,12 @@ NOTE: NEED TO REFACTOR THIS TO SUPPORT BOTH ADVERSE REACTIONS AND ASSERTIONS THA
 		>
 	>
 	["SuspectEntity"] = <
+		documentation = <"An entity whose exposure is suspected to be the cause of this adverse reaction.">
 		name = <"SuspectEntity">
 		properties = <
-			["instance"] = (P_BMM_CONTAINER_PROPERTY) <
-				name = <"instance">
+			["substance"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The entity suspected to be the cause of this adverse event.">
+				name = <"substance">
 				type_def = <
 					container_type = <"List">
 					type = <"Entity">
@@ -5661,6 +5605,9 @@ NOTE: NEED TO REFACTOR THIS TO SUPPORT BOTH ADVERSE REACTIONS AND ASSERTIONS THA
 				is_mandatory = <True>
 			>
 			["causality"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Information relating to the causality assertion related to the suspected entity.
+
+Note: May need to specialize Attribution as this class resembles Attribution.">
 				name = <"causality">
 				type_def = <
 					container_type = <"List">
@@ -5673,21 +5620,160 @@ NOTE: NEED TO REFACTOR THIS TO SUPPORT BOTH ADVERSE REACTIONS AND ASSERTIONS THA
 	["Causality"] = <
 		name = <"Causality">
 		properties = <
-			["assessment"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"assessment">
+			["confidence"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"An assessment of the confidence in the causal relationship - e.g., certain, likely, possible, unlikely, ...">
+				name = <"confidence">
 				type = <"CODED_TEXT">
 			>
 			["productRelatedness"] = (P_BMM_SINGLE_PROPERTY) <
 				name = <"productRelatedness">
 				type = <"TEXT">
 			>
-			["author"] = (P_BMM_SINGLE_PROPERTY) <
-				name = <"author">
-				type = <"PARTICIPATION">
+			["asserter"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Attribution information relating to the assessment of causality.
+">
+				name = <"asserter">
+				type = <"Attribution">
 			>
 			["method"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Method used to assess causality - e.g., probability scale, bayesian, or checklist.">
 				name = <"method">
 				type = <"CODED_TEXT">
+			>
+		>
+	>
+	["InformationEntry"] = <
+		name = <"InformationEntry">
+		ancestors = <"ENTRY",...>
+		properties = <
+			["key"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The 'key' attribute is an optional attribute allowing the coding of some of the information represented by the clinical statement. The range of this attribute (i.e., allowable codes assigned as a value for this attribute) must derive from and conform with the SNOMED CT Situation with Explicit Context (SWEC) concept hierarchies defined in SNOMED CT. Note that this attribute may consist of precoordinated codes (not recommended) or SNOMED CT expressions.">
+				name = <"key">
+				type = <"CODED_TEXT">
+			>
+			["identifier"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The unique identifier(s) of this clinical statement. It must be entered if user wants it returned as part of any output (e.g.,  a wound number), otherwise it will be auto-generated, if needed, by the system serving the record. An identifier does not need to be the actual identifier of the source system. 
+">
+				name = <"identifier">
+				type_def = <
+					container_type = <"List">
+					type = <"IDENTIFIER">
+				>
+				cardinality = <|>=0|>
+			>
+			["subjectOfInformation"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The entity being described by this statement. The entity may be animate (a patient, a relative of the patient, a veterinary patient, a cohort) or inanimate (a well, a geographical location). The subject of information is constrained in archetypes. 
+
+This attribute aligns with the SNOMED CT Situation with Explicit Context (SWEC) and is bound to the SNOMED attribute: 'Subject relationship context (attribute)' (SCTID: 408732007).
+
+">
+				name = <"subjectOfInformation">
+				type = <"SubjectOfInformation">
+			>
+			["authored"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Provenance information specific to the assertion being made (e.g., the author(s), when authored, the location where the assertion was made, etc...).">
+				name = <"authored">
+				type = <"Attribution">
+			>
+			["recorded"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Provenance information specific to the recording of the clinical statement (e.g., when recorded, where recorded, etc...).">
+				name = <"recorded">
+				type = <"Attribution">
+			>
+			["verified"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Provenance information specific to the verification process associated with this statement (e.g., verifier, verification method, when verified, etc...).">
+				name = <"verified">
+				type = <"Attribution">
+			>
+			["signed"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Provenance information specific to the signing of the clinical statement.">
+				name = <"signed">
+				type = <"Attribution">
+			>
+			["cosigned"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Provenance information specific to the cosigning of the clinical statement.">
+				name = <"cosigned">
+				type_def = <
+					container_type = <"List">
+					type = <"Attribution">
+				>
+				cardinality = <|>=0|>
+			>
+			["additionalText"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Unstructured notes appended to a clinical statement.">
+				name = <"additionalText">
+				type_def = <
+					container_type = <"List">
+					type = <"Annotation">
+				>
+				cardinality = <|>=0|>
+			>
+			["recordStatus"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Concept indicating the state of this record. E.g., 'entered in error'.">
+				name = <"recordStatus">
+				type = <"CODED_TEXT">
+			>
+		>
+	>
+	["AdverseSensitivityToSubstance"] = <
+		documentation = <"Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.">
+		name = <"AdverseSensitivityToSubstance">
+		ancestors = <"BaseAssertion",...>
+		properties = <
+			["substanceCode"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Code representing the substance the subject of information is allergic or sensitive to.">
+				name = <"substanceCode">
+				type = <"CODED_TEXT">
+			>
+			["substance"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The substance the subject of information is allergic or sensitive to.">
+				name = <"substance">
+				type = <"Entity">
+			>
+			["sensitivityType"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"A code that indicates whether this sensitivity is of an allergic nature or an intolerance to a substance.">
+				name = <"sensitivityType">
+				type = <"CODED_TEXT">
+			>
+			["category"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Category of the identified substance when such category cannot be derived based on the substance's hierarchy - e.g., food, medication, environment, biologic.">
+				name = <"category">
+				type_def = <
+					container_type = <"List">
+					type = <"CODED_TEXT">
+				>
+				cardinality = <|>=0|>
+			>
+			["criticality"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The potential seriousness of a future reaction. This represents a clinical judgment about the worst case scenario for a future reaction. It would be based on the severity of past reactions, the dose and route of exposure that produced past reactions, and the life-threatening or organ system threatening potential of the reaction type.">
+				name = <"criticality">
+				type = <"CODED_TEXT">
+			>
+			["associatedReaction"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Adverse reactions related to this allergy&#47;intolerance assertion. 
+">
+				name = <"associatedReaction">
+				type_def = <
+					container_type = <"List">
+					type_def = (P_BMM_GENERIC_TYPE) <
+						root_type = <"ClinicalStatement">
+						generic_parameters = <"AdverseReaction",...>
+					>
+				>
+				cardinality = <|>=1|>
+				is_mandatory = <True>
+			>
+			["sensitivityTest"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Tests performed to assess sensitivity to the subject.">
+				name = <"sensitivityTest">
+				type_def = <
+					container_type = <"List">
+					type_def = (P_BMM_GENERIC_TYPE) <
+						root_type = <"ClinicalStatement">
+						generic_parameters = <"Performance", "BaseProcedureTopic">
+					>
+				>
+				cardinality = <|>=0|>
 			>
 		>
 	>
