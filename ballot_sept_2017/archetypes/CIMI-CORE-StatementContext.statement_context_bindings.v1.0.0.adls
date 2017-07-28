@@ -2,7 +2,7 @@ archetype (adl_version=2.0.6; rm_release=2.0.2; generated)
 	CIMI-CORE-StatementContext.statement_context_bindings.v1.0.0
 
 specialize
-	CIMI-CORE-StatementContext.statement_context_struct.v1.0.0
+	CIMI-CORE-StatementContext.statement_context.v1
 
 language
   original_language = <[ISO_639-1::en]>

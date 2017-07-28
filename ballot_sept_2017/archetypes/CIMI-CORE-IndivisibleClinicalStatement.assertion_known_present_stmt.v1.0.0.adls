@@ -35,16 +35,16 @@ description
   >
 
 definition
-	IndivisibleClinicalStatement[id1.1.1.1.1.1] matches {
+	IndivisibleClinicalStatement[id1.1.1.1.1.1.1] matches {
 		topic matches {
-			use_archetype Assertion [id4.0.1.0.0.1, CIMI-CORE-Assertion.assertion_bindings.v1]
+			use_archetype BaseAssertion [id0.4.0.1.0.0.1, CIMI-CORE-BaseAssertion.base_assertion.v1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1.1"] = <
+			["id1.1.1.1.1.1.1"] = <
 				text = <"Assertion known present">
 				description = <"Parent archetype for statement of known presence of assertion">
 			>

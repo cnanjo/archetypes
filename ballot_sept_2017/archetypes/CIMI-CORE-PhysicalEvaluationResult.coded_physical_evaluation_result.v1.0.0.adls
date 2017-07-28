@@ -35,16 +35,16 @@ description
   >
 
 definition
-	PhysicalEvaluationResult[id1.1.1.1.1.1] matches {
+	PhysicalEvaluationResult[id1.1.1.1.1] matches {
 		result matches {
-			CODED_TEXT[id0.0.1.1.0.1]
+			CODED_TEXT[id0.1.0.0.1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1.1"] = <
+			["id1.1.1.1.1"] = <
 				text = <"Coded physical evaluation result">
 				description = <"A physical evaluation result whose value is a code.">
 			>

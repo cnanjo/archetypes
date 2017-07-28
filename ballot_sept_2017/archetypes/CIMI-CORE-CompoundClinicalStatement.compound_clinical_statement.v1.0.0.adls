@@ -2,7 +2,7 @@ archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
   CIMI-CORE-CompoundClinicalStatement.compound_clinical_statement.v1.0.0
 
 specialize
-  CIMI-CORE-BaseClinicalStatement.base_clinical_statement.v1
+  CIMI-CORE-ClinicalStatement.clinical_statement.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -35,22 +35,22 @@ description
   >
 
 definition
-  CompoundClinicalStatement[id1.1] matches {
-    entry existence matches {1..1} matches {
-      use_archetype BaseClinicalStatement [id0.1, CIMI-CORE-BaseClinicalStatement.base_clinical_statement.v1] occurrences matches {0..*}
+  CompoundClinicalStatement[id1.1.1] matches {
+    content matches {
+      use_archetype ClinicalStatement [id0.0.1, CIMI-CORE-ClinicalStatement.clinical_statement.v1] occurrences matches {0..*}
     }
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1"] = <
+      ["id1.1.1"] = <
         text = <"Compound Clinical Statement">
         description = <"Clinical statement representing information whose components may have an independent existence outside of the composition. For instance, a laboratory panel. A composite clinical statement may be composed of both indivisible clinical statements or composite clinical statements with arbitrary nesting. Nesting rules can be specified as constraints at the archetype level.">
       >
-      ["id0.1"] = <
-        text = <"Entry">
-        description = <"A contained clinical statement - May be indivisible or compound.">
+      ["id0.0.1"] = <
+        text = <"Content">
+        description = <"Clinical statements that make up the composite statement. For instance, panel entries in a panel. Each content item of a compositie clinical statement must be capable of standing alone, independent of its container compound clinical statement.">
       >
     >
   >

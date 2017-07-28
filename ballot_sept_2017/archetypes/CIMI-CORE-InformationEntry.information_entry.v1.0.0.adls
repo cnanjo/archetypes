@@ -1,5 +1,5 @@
 archetype (adl_version=2.0.6; rm_release=2.0.2; generated)
-  CIMI-CORE-BaseClinicalStatement.base_clinical_statement.v1.0.0
+  CIMI-CORE-InformationEntry.information_entry.v1.0.0
 
 language
   original_language = <[ISO_639-1::en]>
@@ -32,25 +32,16 @@ description
   >
 
 definition
-  BaseClinicalStatement[id1] matches {
+  InformationEntry[id1] matches {
     key matches {
       CODED_TEXT[id2]
     } 
     identifier matches {
-      IDENTIFIER[id3] occurrences matches {0..*}
+      IDENTIFIER[id3]
     } 
-    topic existence matches {0..1} matches {
-      use_archetype StatementTopic [id4, CIMI-CORE-StatementTopic.statement_topic.v1]
-    }
-    context existence matches {0..1} matches {
-      use_archetype StatementContext [id5, CIMI-CORE-StatementContext.statement_context_struct.v1]
-    }
-    contextAttribution existence matches {0..1} matches {
-      Attribution[id6]
-    }
-    contextStatusHistory matches {
-      Attribution[id7] occurrences matches {0..*}
-    }
+    subjectOfInformation matches {
+      SubjectOfInformation[id21]
+    } 
     authored matches {
       use_archetype Attribution [id8, CIMI-CORE-Attribution.author_action.v1]
     }
@@ -78,8 +69,8 @@ terminology
   term_definitions = <
     ["en"] = <
       ["id1"] = <
-        text = <"Base Clinical Statement">
-        description = <"The documentation of clinical information about a subject of information such as a patient or a relative of the patient, asserted by a particular source, recorded, and potentially verified. The ClinicalStatement class provides the core pattern for more specific clinical statement archetypes, such as a statement that a finding has been found in a patient or that a procedure has been proposed by a clinical decision support system. The ClinicalStatement pattern defines the core attributes common to most clinical statements and specifies a composition pattern that encourage model component reuse and better alignment with the SNOMED CT Concept Model. A clinical statement is composed of the StatementTopic class (grouping of attributes for capturing information about a procedure or a clinical finding) and the StatementContext class (grouping of attributes providing the context for the statement topic such as whether a procedure was performed, requested, not performed or whether a finding is suspected present or absent in the patient). At the archetype level, the topic and context components are coordinated to form the clinical statement. For instance, the composition of the ProcedureTopic with the NotPerformed context indicates that the given procedure was not performed. ">
+        text = <"InformationEntry">
+        description = <"The meta data for an Entry ">
       >
       ["id2"] = <
         text = <"Key">
@@ -88,23 +79,7 @@ terminology
       ["id3"] = <
         text = <"Identifier">
         description = <"The unique identifier(s) of this clinical statement. It must be entered if user wants it returned as part of any output (e.g.,  a wound number), otherwise it will be auto-generated, if needed, by the system serving the record. An identifier does not need to be the actual identifier of the source system.">
-      >
-      ["id4"] = <
-        text = <"Statement topic">
-        description = <"What the statement is about, e.g., the kind of finding or procedure asserted. Attribute aligns with the SNOMED CT Situation with Explicit Context (SWEC) Concept Model attributes 'Associated finding (attribute)' (SCTID: 246090004) and 'Associated procedure (attribute)' (SCTID: 363589002). The range of this attribute is a structure (StatementTopic) rather than a value set. The topic of the clinical statement must align with the range specified by the SWEC Concept Model. For instance, if the 'topic' attribute's meaning is bound to 'Associated finding', then the topic may not be a specialization of the Act statement topic.">
-      >
-      ["id5"] = <
-        text = <"Statement context">
-        description = <"The ontological status of the statement, e.g., whether it exists, does not exist, is planned, etc. Attribute aligns with the SNOMED CT Situation with Explicit Context Concept Model context attributes 'Finding context (attribute)' (SCTID: 408729009) and 'Procedure context (attribute)' (SCTID: 408730004). The range of this attribute is a structure (StatementContext) rather than a value set. The context of the clinical statement must align with the range specified by the SWEC Concept Model. For instance, if the 'context' attribute's meaning is bound to 'Finding context', then the context may not be a specialization of the ActionContext statement context. Instead, it should be a specialization of the FindingContext statement context.">
-      >
-      ["id6"] = <
-        text = <"Context attribution">
-        description = <"The attribution for the given context such as the who, what, when, where, how (e.g., origination mode) responsible for proposing, planning, ordering and authorizing, etc... The contextAttribution attribute is intended to be constrained appropriately within CIMI archetypes.">
-      >
-      ["id7"] = <
-        text = <"Context status history">
-        description = <"A record of the states for an action in a specified action context, e.g., an order may evolve from draft to placed to in progress to completed or canceled. The use of Attribution rather than a simple code for status supports the consistent capture of additional metadata associated with the specified status. For instance, if the proposal was declined, who declined it, when was it declined, and so on ...">
-      >
+      >     
       ["id8"] = <
         text = <"Authored">
         description = <"Provenance information specific to the assertion being made (e.g., the author(s), when authored, the location where the assertion was made, etc...).">
@@ -136,13 +111,7 @@ terminology
     >
   >
 
-  term_bindings = <
-    ["cimi"] = <
-      items = <
-        ["id4"] = <http://example.com/valueset/statement_topic_vs.v0.0.1>
-        ["id5"] = <http://example.com/valueset/statement_context_vs.v0.0.1>
-      >
-    >
-  >
+  
+>
 
 

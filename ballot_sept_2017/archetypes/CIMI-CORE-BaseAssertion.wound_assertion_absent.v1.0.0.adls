@@ -36,7 +36,7 @@ description
 
 definition
 	BaseAssertion[id1.1.1.1.1] matches {
-    /code[id3.1.1.0.1] matches {[ac0.2.1.0.1]}
+    /result[id3.1.1.0.1] matches {[ac0.2.1.0.1]}
   }
 
 terminology
@@ -47,7 +47,7 @@ terminology
 				description = <"Known absense of a wound.">
 			>
       ["id3.1.1.0.1"] = <
-        text = <"Code">
+        text = <"Result">
 		  >
       ["ac0.2.1.0.1"] = <
         text = <"Wound absent assertion topic code range binding">

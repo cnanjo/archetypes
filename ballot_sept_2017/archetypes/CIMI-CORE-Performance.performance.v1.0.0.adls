@@ -37,20 +37,17 @@ description
 definition
   Performance[id1.1.1.1] matches {
     /context matches {[ac0.1.1.1]}
-    performer matches {
-      PARTICIPATION[id0.0.0.1]
-    }
-    performedOn matches {
-      INTERVAL_VALUE<DATE_TIME>[id0.0.0.2]
-    }
+    performed matches {
+      use_archetype Attribution [id0.0.0.1, CIMI-CORE-Attribution.perform_action.v1]
+    }   
     enactsPlan matches {
-      BaseClinicalStatement[id0.0.0.3]
+      ClinicalStatement[id0.0.0.3]
     }
     fulfillsOrder matches {
-      BaseClinicalStatement[id0.0.0.4]
+      ClinicalStatement[id0.0.0.4]
     }
     basedOn matches {
-      BaseClinicalStatement[id0.0.0.5]
+      ClinicalStatement[id0.0.0.5]
     }
     duration matches {
       QUANTITY[id0.0.0.7]
@@ -65,12 +62,8 @@ terminology
         description = <"">
       >
       ["id0.0.0.1"] = <
-        text = <"Performer">
-        description = <"The party that performed the action.">
-      >
-      ["id0.0.0.2"] = <
-        text = <"Performed On">
-        description = <"When the activity was performed.">
+        text = <"Performed">
+        description = <"The performance attribution.">
       >
       ["id0.0.0.3"] = <
         text = <"Enacts plan">

@@ -12,7 +12,7 @@ rm_release = <"0.0.3">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Tue Jul 25 09:50:10 PDT 2017">
+schema_revision = <"Thu Jul 27 12:13:17 PDT 2017">
 schema_lifecycle_state = <"dstu">
 schema_description = <"CIMI_RM_CLINICAL.v0.0.3.mdzip - Schema generated from UML">
 
@@ -79,7 +79,7 @@ packages = <
 			>
 			["TopicCore"] = <
 				name = <"TopicCore">
-				classes = <"BaseProcedureTopic", "EventTopic", "FindingTopic", "StatementTopic">
+				classes = <"ProcedureTopic", "EventTopic", "FindingTopic", "StatementTopic">
 			>
 			["Entity"] = <
 				name = <"Entity">
@@ -184,7 +184,7 @@ A clinical statement is composed of the StatementTopic class (grouping of attrib
 			["context"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
 				documentation = <"The ontological status of the statement, e.g., whether it exists, does not exist, is planned, etc. Attribute aligns with the SNOMED CT Situation with Explicit Context Concept Model context attributes 'Finding context (attribute)' (SCTID: 408729009) and 'Procedure context (attribute)' (SCTID: 408730004). The range of this attribute is a structure (StatementContext) rather than a value set. The context of the clinical statement must align with the range specified by the SWEC Concept Model. For instance, if the 'context' attribute's meaning is bound to 'Finding context', then the context may not be a specialization of the ActionContext statement context. Instead, it should be a specialization of the FindingContext statement context.">
 				name = <"context">
-				type = <"T">
+				type = <"C">
 			>
 			["originatingFrom"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The encounter or episode of care from which this statement originates.">
@@ -1567,6 +1567,7 @@ WE SOLICIT COMMENTS FOR A BETTER DEFINITION.">
 		>
 	>
 	["ResearchStudy"] = <
+		documentation = <"Class representing a clinical trial or other research study. Class is a placeholder and will be further defined for the next ballot cycle.">
 		name = <"ResearchStudy">
 		ancestors = <"CLUSTER",...>
 	>
@@ -2025,7 +2026,7 @@ WE SOLICIT COMMENTS FOR A BETTER DEFINITION.">
 		>
 	>
 	["DosageInstruction"] = <
-		documentation = <"Pattern for the dosing of a medication. Currently the same pattern is used for retrospective and prospective statements.">
+		documentation = <"Pattern for the dosing of a medication. Describes how medication is to be administered or how it should be taken.">
 		name = <"DosageInstruction">
 		ancestors = <"CLUSTER", "Dosage">
 		properties = <
@@ -2036,6 +2037,7 @@ WE SOLICIT COMMENTS FOR A BETTER DEFINITION.">
 				is_mandatory = <True>
 			>
 			["additionalInstructions"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Supplemental instruction - e.g. 'with meals'">
 				name = <"additionalInstructions">
 				type_def = <
 					container_type = <"List">
@@ -2063,6 +2065,7 @@ WE SOLICIT COMMENTS FOR A BETTER DEFINITION.">
 				type = <"CODED_TEXT">
 			>
 			["doseRange"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Amount of medication per dose">
 				name = <"doseRange">
 				type = <"QuantitativeReferenceRange">
 			>
@@ -2094,7 +2097,7 @@ WE SOLICIT COMMENTS FOR A BETTER DEFINITION.">
 	["MedicationAct"] = <
 		documentation = <"Base class for the act of prescribing, documenting, administering, or dispensing a medication.">
 		name = <"MedicationAct">
-		ancestors = <"BaseProcedureTopic",...>
+		ancestors = <"ProcedureTopic",...>
 		properties = <
 			["medication"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Identifies the medication being administered, ordered, dispensed, or currently being taken.">
@@ -2116,6 +2119,7 @@ WE SOLICIT COMMENTS FOR A BETTER DEFINITION.">
 				cardinality = <|>=0|>
 			>
 			["dosage"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Information&#47;instructions pertaining to how the medication is to be dosed.">
 				name = <"dosage">
 				type_def = <
 					container_type = <"List">
@@ -2338,11 +2342,12 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 		>
 	>
 	["DosageEvent"] = <
-		documentation = <"Pattern for the dosing of a medication. Currently the same pattern is used for retrospective and prospective statements.">
+		documentation = <"Pattern for the dosing of a medication. Describes the medication dosage information details e.g. dose, rate, site, route, etc.">
 		name = <"DosageEvent">
 		ancestors = <"CLUSTER", "Dosage">
 	>
 	["Dosage"] = <
+		documentation = <"Base class for medication dosage instruction and dosage event.">
 		name = <"Dosage">
 		properties = <
 			["dosageAsText"] = (P_BMM_SINGLE_PROPERTY) <
@@ -2384,10 +2389,12 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 				type = <"QUANTITY">
 			>
 			["rate"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Rate at which this medication is administered.">
 				name = <"rate">
 				type = <"QUANTITY">
 			>
 			["rateRatio"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Rate at which this medication is administered as volume (numerator) per unit time (denominator).">
 				name = <"rateRatio">
 				type = <"RATIO">
 			>
@@ -2432,7 +2439,7 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 	["Admission"] = <
 		documentation = <"A record about the admission of a patient to a facility generally for the provision of care.">
 		name = <"Admission">
-		ancestors = <"BaseProcedureTopic",...>
+		ancestors = <"ProcedureTopic",...>
 		properties = <
 			["levelOfCare"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"'Indicates the acuity level assigned to the patient at the time of admission.' - HL7 Version 2.8, PV2-40. Possible values include (from HL7 Table 432): Acute; Chronic; Comatose; Critical; Improved; Moribund.">
@@ -2540,7 +2547,7 @@ Substitution Allowed By Prescriber but Plan Requests Brand - Patient's Plan Requ
 	["Discharge"] = <
 		documentation = <"A record pertaining to the discharge of a patient from an institution.">
 		name = <"Discharge">
-		ancestors = <"BaseProcedureTopic",...>
+		ancestors = <"ProcedureTopic",...>
 		properties = <
 			["disposition"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"'Contains the disposition of the patient at time of discharge (i.e., discharged to home, expired, etc.). ...use the Official Uniform Billing (UB) 04 2008 numeric codes found on form locator 17.' - HL7 Version 2.8, PV1-36 Note that while the encounter is still 'active' (i.e., the encounter does not have an end date yet) this attribute should be interpreted as the expected discharge disposition. When the encounter is 'completed' this attribute contains the actual discharge disposition.">
@@ -2825,7 +2832,7 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 	["Referral"] = <
 		documentation = <"Used to record and send details about a request for referral service or transfer of a patient to the care of another provider or provider organization.">
 		name = <"Referral">
-		ancestors = <"BaseProcedureTopic",...>
+		ancestors = <"ProcedureTopic",...>
 		properties = <
 			["groupIdentifier"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Composite request this is part of">
@@ -2891,7 +2898,7 @@ Possible values include (from HL7 V2 Table 9): No functional limitations; Ambula
 	["Transfer"] = <
 		documentation = <"The act of transferring a patient from one location or responsible organization to another. Note that a transfer from organization to another will, by definition, trigger a new encounter. Note that a transfer from one location to another may trigger a new encounter depending on whether the responsible organization has changed. A movement from one bed within the same ward to another probably will not, but a movement from one ward to another probably would.">
 		name = <"Transfer">
-		ancestors = <"BaseProcedureTopic",...>
+		ancestors = <"ProcedureTopic",...>
 		properties = <
 			["category"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Categorizes the patient transfer. Possible values include Admission, Transfer, Discharge, etc.">
@@ -3338,6 +3345,7 @@ first episode | represents the first time the patient presents to their health c
 				type = <"Entity">
 			>
 			["causativeAgentCode"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Code for a substance, medication, microorganism, force, or other agent that resulted in this assertion. ">
 				name = <"causativeAgentCode">
 				type = <"CODED_TEXT">
 			>
@@ -3444,6 +3452,7 @@ Indicates whether this result was from point-of-care testing where POC testing."
 				cardinality = <|>=0|>
 			>
 			["device"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The device used to evaluate the characteristic such as the type of blood pressure cuff used on a patient.">
 				name = <"device">
 				type_def = <
 					container_type = <"List">
@@ -3478,6 +3487,7 @@ To reviewers: should we retain this attribute in the model.">
 				cardinality = <|>=0|>
 			>
 			["evaluationProcedureCode"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The evaluation procedure that is the source of the evaluation result.">
 				name = <"evaluationProcedureCode">
 				type = <"CODED_TEXT">
 			>
@@ -3521,7 +3531,7 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 	["LaboratoryProcedure"] = <
 		documentation = <"Specialization of Procedure that represents a procedure performed on a collected specimen such as a blood panel or a biopsy.">
 		name = <"LaboratoryProcedure">
-		ancestors = <"BaseProcedureTopic",...>
+		ancestors = <"ProcedureTopic",...>
 		properties = <
 			["specimen"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Tissues, objects, or samples taken from the patient during the procedure including biopsies, aspiration fluid, or other samples sent for pathological analysis.">
@@ -3545,7 +3555,7 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 	["SpecimenCollection"] = <
 		documentation = <"Attribution specific to the collection of a specimen.">
 		name = <"SpecimenCollection">
-		ancestors = <"BaseProcedureTopic",...>
+		ancestors = <"ProcedureTopic",...>
 		properties = <
 			["collectionSite"] = (P_BMM_CONTAINER_PROPERTY) <
 				documentation = <"Anatomical collection site as a post-coordinated body site.">
@@ -3590,9 +3600,10 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 	["SurgicalProcedure"] = <
 		documentation = <"A surgical procedure.">
 		name = <"SurgicalProcedure">
-		ancestors = <"BaseProcedureTopic",...>
+		ancestors = <"ProcedureTopic",...>
 		properties = <
 			["directSite"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The site where the procedure is performed.">
 				name = <"directSite">
 				type_def = <
 					container_type = <"List">
@@ -3601,6 +3612,7 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 				cardinality = <|>=0|>
 			>
 			["directSiteCode"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The site where the procedure is performed.">
 				name = <"directSiteCode">
 				type_def = <
 					container_type = <"List">
@@ -3609,6 +3621,7 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 				cardinality = <|>=0|>
 			>
 			["indirectSite"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The indirect site for this procedure.">
 				name = <"indirectSite">
 				type_def = <
 					container_type = <"List">
@@ -3617,6 +3630,7 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 				cardinality = <|>=0|>
 			>
 			["indirectSiteCode"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The indirect site for this procedure.">
 				name = <"indirectSiteCode">
 				type_def = <
 					container_type = <"List">
@@ -3643,6 +3657,7 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 				cardinality = <|>=0|>
 			>
 			["usingDevice"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The device used to perform the procedure.">
 				name = <"usingDevice">
 				type_def = <
 					container_type = <"List">
@@ -3651,6 +3666,7 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 				cardinality = <|>=0|>
 			>
 			["usingDeviceCode"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The device used to perform the procedure.">
 				name = <"usingDeviceCode">
 				type_def = <
 					container_type = <"List">
@@ -3659,6 +3675,7 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 				cardinality = <|>=0|>
 			>
 			["usingAccessDevice"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The access device used to perform the procedure.">
 				name = <"usingAccessDevice">
 				type_def = <
 					container_type = <"List">
@@ -3667,6 +3684,7 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 				cardinality = <|>=0|>
 			>
 			["usingAccessDeviceCode"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The access device used to perform the procedure.">
 				name = <"usingAccessDeviceCode">
 				type_def = <
 					container_type = <"List">
@@ -3675,6 +3693,7 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 				cardinality = <|>=0|>
 			>
 			["indirectDevice"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"An indirect device used for this procedure.">
 				name = <"indirectDevice">
 				type_def = <
 					container_type = <"List">
@@ -3683,6 +3702,7 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 				cardinality = <|>=0|>
 			>
 			["indirectDeviceCode"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"An indirect device used for this procedure.">
 				name = <"indirectDeviceCode">
 				type_def = <
 					container_type = <"List">
@@ -3718,10 +3738,12 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 		>
 	>
 	["ImagingProcedure"] = <
+		documentation = <"Experimental class for an imaging procedure. Note that this class is still incomplete at this time.">
 		name = <"ImagingProcedure">
-		ancestors = <"BaseProcedureTopic",...>
+		ancestors = <"ProcedureTopic",...>
 		properties = <
 			["directSite"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"The site where the procedure is applied.">
 				name = <"directSite">
 				type_def = <
 					container_type = <"List">
@@ -3730,6 +3752,7 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 				cardinality = <|>=0|>
 			>
 			["directSiteCode"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Site where the procedure is applied.">
 				name = <"directSiteCode">
 				type_def = <
 					container_type = <"List">
@@ -3738,6 +3761,7 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 				cardinality = <|>=0|>
 			>
 			["usingSubstance"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Substance used for this imaging procedure such as a contrast agent.">
 				name = <"usingSubstance">
 				type_def = <
 					container_type = <"List">
@@ -3752,7 +3776,7 @@ Precondition aligns with the SNOMED CT Observable model attribute 704326004 |Pre
 
 Experimental">
 		name = <"ModifyTargetAction">
-		ancestors = <"BaseProcedureTopic",...>
+		ancestors = <"ProcedureTopic",...>
 		properties = <
 			["targetAction"] = (P_BMM_CONTAINER_PROPERTY) <
 				documentation = <"The target action that this topic modifies.">
@@ -3761,7 +3785,7 @@ Experimental">
 					container_type = <"List">
 					type_def = (P_BMM_GENERIC_TYPE) <
 						root_type = <"ClinicalStatement">
-						generic_parameters = <"BaseProcedureTopic",...>
+						generic_parameters = <"ProcedureTopic",...>
 					>
 				>
 				cardinality = <|>=1|>
@@ -3836,6 +3860,7 @@ E.g., documentation of heart rate before administering the medication in case me
 		ancestors = <"PresenceAbsenceContext",...>
 		properties = <
 			["certainty"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The confidence associated with this statement.">
 				name = <"certainty">
 				type = <"CODED_TEXT">
 			>
@@ -4132,6 +4157,7 @@ Discontinue">
 				cardinality = <|>=0|>
 			>
 			["expectedPerformerCode"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Persons who are expected to or intended to perform this action, e.g., the person who will perform the surgery. ">
 				name = <"expectedPerformerCode">
 				type = <"CODED_TEXT">
 			>
@@ -4171,6 +4197,7 @@ Discontinue">
 		ancestors = <"FindingContext",...>
 	>
 	["GoalContext"] = <
+		documentation = <"Clinical statement context for a goal.">
 		name = <"GoalContext">
 		ancestors = <"FindingContext",...>
 		properties = <
@@ -4250,13 +4277,14 @@ Discontinue">
 		>
 	>
 	["NoKnown"] = <
+		documentation = <"Context to express an assertion of absence within an open world context. Typically used for allergy and intolerance statements where the statement of no known drug allergy implies that there might be a medication the patient is allergic to but it is not known and has not been encountered at this time.">
 		name = <"NoKnown">
 		ancestors = <"FindingContext",...>
 	>
-	["BaseProcedureTopic"] = <
+	["ProcedureTopic"] = <
 		documentation = <"Description of a healthcare action, independent of action context.
 ">
-		name = <"BaseProcedureTopic">
+		name = <"ProcedureTopic">
 		ancestors = <"StatementTopic",...>
 		properties = <
 			["description"] = (P_BMM_SINGLE_PROPERTY) <
@@ -4356,6 +4384,7 @@ For acts, the key contains a concept specifying the procedure described.">
 		ancestors = <"Entity",...>
 		properties = <
 			["deviceCode"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The type of device.">
 				name = <"deviceCode">
 				type = <"CODED_TEXT">
 				is_mandatory = <True>
@@ -4460,6 +4489,7 @@ For acts, the key contains a concept specifying the procedure described.">
 				cardinality = <|>=0|>
 			>
 			["image"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"An image of this entity such as a profile image or a product image for a catalog.">
 				name = <"image">
 				type_def = <
 					container_type = <"List">
@@ -4475,6 +4505,7 @@ For acts, the key contains a concept specifying the procedure described.">
 		ancestors = <"Entity",...>
 		properties = <
 			["medicationCode"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The medication concept that represents this medication.">
 				name = <"medicationCode">
 				type = <"CODED_TEXT">
 				is_mandatory = <True>
@@ -4505,11 +4536,12 @@ For acts, the key contains a concept specifying the procedure described.">
 				type = <"Organization">
 			>
 			["form"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The medication form such as tablet, capsule, ampoule, etc...">
 				name = <"form">
 				type = <"CODED_TEXT">
 			>
 			["ingredient"] = (P_BMM_CONTAINER_PROPERTY) <
-				documentation = <"Active or inactive ingredient">
+				documentation = <"Active and&#47;or inactive ingredient">
 				name = <"ingredient">
 				type_def = <
 					container_type = <"List">
@@ -4539,6 +4571,7 @@ For acts, the key contains a concept specifying the procedure described.">
 				cardinality = <|>=0|>
 			>
 			["packageBatch"] = (P_BMM_CONTAINER_PROPERTY) <
+				documentation = <"Package batch information.">
 				name = <"packageBatch">
 				type_def = <
 					container_type = <"List">
@@ -4554,6 +4587,7 @@ For acts, the key contains a concept specifying the procedure described.">
 		ancestors = <"Entity",...>
 		properties = <
 			["organizationName"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The name of the organization.">
 				name = <"organizationName">
 				type = <"BaseOrganizationName">
 			>
@@ -4615,6 +4649,7 @@ For acts, the key contains a concept specifying the procedure described.">
 		ancestors = <"Entity",...>
 		properties = <
 			["specimenCode"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The concept that represents this specimen.">
 				name = <"specimenCode">
 				type = <"CODED_TEXT">
 				is_mandatory = <True>
@@ -4685,6 +4720,7 @@ For acts, the key contains a concept specifying the procedure described.">
 		ancestors = <"Entity",...>
 		properties = <
 			["substanceCode"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The concept that represents this substance.">
 				name = <"substanceCode">
 				type = <"CODED_TEXT">
 				is_mandatory = <True>
@@ -4807,11 +4843,12 @@ For acts, the key contains a concept specifying the procedure described.">
 				type = <"CODED_TEXT">
 			>
 			["substance"] = (P_BMM_SINGLE_PROPERTY) <
-				documentation = <"Identifies a component item.">
+				documentation = <"Identifies a component substance item.">
 				name = <"substance">
 				type = <"Substance">
 			>
 			["medication"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The medication ingredient">
 				name = <"medication">
 				type = <"Medication">
 			>
@@ -4821,6 +4858,7 @@ For acts, the key contains a concept specifying the procedure described.">
 				type = <"RATIO">
 			>
 			["isActive"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Flag indicating whether the ingredient is an active ingredient in a formulation.">
 				name = <"isActive">
 				type = <"CODED_TEXT">
 			>
@@ -5080,6 +5118,7 @@ For acts, the key contains a concept specifying the procedure described.">
 		ancestors = <"Entity",...>
 		properties = <
 			["personName"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The person's name.">
 				name = <"personName">
 				type = <"BasePersonName">
 			>
@@ -5390,7 +5429,7 @@ The attachment of provenance information to a clinical statement in this manner 
 	["PatientRelatedEducation"] = <
 		documentation = <"This class captures information about counselling or education provided to (or an attempt to provide to) the Patient or to the Patient's representative and provides a means to note how well the Patient understood the information provided. Patient Education may be in the form of written instructions – either pre-defined materials, or personalized instructions – as well as oral counseling. In the case of pre-defined written materials, the educationalMaterialsProvided property may be used to identify the kind of material provided rather than reproducing the text of that material in this class. When personalized written instructions are provided, the text of such instructions can be placed in the textProvided property. The textProvided property may also be used to store a summary of an oral conversation with the Patient.">
 		name = <"PatientRelatedEducation">
-		ancestors = <"BaseProcedureTopic",...>
+		ancestors = <"ProcedureTopic",...>
 		properties = <
 			["educationBarrier"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"Cognitive or sensory barriers to receiving counseling.">
@@ -5460,6 +5499,7 @@ The attachment of provenance information to a clinical statement in this manner 
 		ancestors = <"ReportableEventEntry",...>
 		properties = <
 			["reportedFinding"] = (P_BMM_GENERIC_PROPERTY) <
+				documentation = <"The adverse finding that is reported.">
 				name = <"reportedFinding">
 				type_def = <
 					root_type = <"ClinicalStatement">
@@ -5468,6 +5508,7 @@ The attachment of provenance information to a clinical statement in this manner 
 				is_mandatory = <True>
 			>
 			["resultOfBreach"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The protocol breach associated with this adverse finding if known and documented.">
 				name = <"resultOfBreach">
 				type = <"WorkflowBreachReportEntry">
 			>
@@ -5479,6 +5520,7 @@ The attachment of provenance information to a clinical statement in this manner 
 		ancestors = <"ReportableEventEntry",...>
 		properties = <
 			["workflowBreach"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"Details about the workflow breach that is reported. ">
 				name = <"workflowBreach">
 				type = <"WorkflowBreach">
 			>
@@ -5490,6 +5532,7 @@ The attachment of provenance information to a clinical statement in this manner 
 		ancestors = <"AdverseFindingReportEntry",...>
 		properties = <
 			["associatedClinicalStudy"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"The clinical study during which the clinical finding is observed and documented.">
 				name = <"associatedClinicalStudy">
 				type = <"ResearchStudy">
 			>
@@ -5517,7 +5560,7 @@ Workflow breaches may be referenced by a number of different report entries.">
 				name = <"reportedActivity">
 				type_def = <
 					root_type = <"ClinicalStatement">
-					generic_parameters = <"Performance", "BaseProcedureTopic">
+					generic_parameters = <"Performance", "ProcedureTopic">
 				>
 				is_mandatory = <True>
 			>
@@ -5526,7 +5569,7 @@ Workflow breaches may be referenced by a number of different report entries.">
 				name = <"expectedActivity">
 				type_def = <
 					root_type = <"ClinicalStatement">
-					generic_parameters = <"BaseProcedureTopic",...>
+					generic_parameters = <"ProcedureTopic",...>
 				>
 			>
 			["outcome"] = (P_BMM_CONTAINER_PROPERTY) <
@@ -5588,6 +5631,7 @@ Note that the manifestation of the adverse reaction is captured in FindingTopic.
 				type = <"CODED_TEXT">
 			>
 			["productRelatedness"] = (P_BMM_SINGLE_PROPERTY) <
+				documentation = <"TBD - Need to validate definition with Patient Care.">
 				name = <"productRelatedness">
 				type = <"TEXT">
 			>
@@ -5731,7 +5775,7 @@ This attribute aligns with the SNOMED CT Situation with Explicit Context (SWEC) 
 					container_type = <"List">
 					type_def = (P_BMM_GENERIC_TYPE) <
 						root_type = <"ClinicalStatement">
-						generic_parameters = <"Performance", "BaseProcedureTopic">
+						generic_parameters = <"Performance", "ProcedureTopic">
 					>
 				>
 				cardinality = <|>=0|>

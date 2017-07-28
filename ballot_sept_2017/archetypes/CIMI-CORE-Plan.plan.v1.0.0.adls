@@ -39,10 +39,10 @@ definition
 	Plan[id1.1.1.1] matches {
 		/context matches {[ac0.1.1.1]}
 		fulfillsOrder matches {
-			BaseClinicalStatement[id0.0.0.1]
+			ClinicalStatement[id0.0.0.1]
 		}
 		basedOn matches {
-			BaseClinicalStatement[id0.0.0.2]
+			ClinicalStatement[id0.0.0.2]
 		}
 		expectedPerformanceTime matches {
 			DATE_TIME[id0.0.0.3]

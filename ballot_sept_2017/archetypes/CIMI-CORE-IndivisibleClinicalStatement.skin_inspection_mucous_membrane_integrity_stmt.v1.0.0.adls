@@ -35,16 +35,16 @@ description
   >
 
 definition
-	IndivisibleClinicalStatement[id1.1.1.1.1.1.1] matches {
+	IndivisibleClinicalStatement[id1.1.1.1.1.1.1.1] matches {
     topic matches {
-      use_archetype PhysicalEvaluationResult [id4.0.1.0.0.1.1, CIMI-CORE-PhysicalEvaluationResult.skin_inspection_mucous_membrane_integrity.v1]
+      use_archetype PhysicalEvaluationResult [id0.4.0.1.0.0.1.1, CIMI-CORE-PhysicalEvaluationResult.skin_inspection_mucous_membrane_integrity.v1]
     }
   }
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1.1.1"] = <
+			["id1.1.1.1.1.1.1.1"] = <
 				text = <"Undermining direction">
 				description = <"Direction from center of wound to undermining, expressed as the clock number if the 12 position were at the cranial, superior, or proximal position of the wound">
 			>

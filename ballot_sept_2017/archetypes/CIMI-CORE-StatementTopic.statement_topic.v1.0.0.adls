@@ -36,9 +36,6 @@ definition
     key matches {
       CODED_TEXT[id2]
     }
-    code matches {
-      CODED_TEXT[id3]
-    }
   }
 
 terminology
@@ -52,10 +49,7 @@ terminology
         text = <"Key">
         description = <"Concept representing the statement topic category.">
       >
-      ["id3"] = <
-        text = <"Code">
-        description = <"The concept representing the thing being observed or the action/event being described. The code attribute is equivalent to either associatedFinding or associatedProcedure in the SNOMED CT Situation with Explicit Context Concept Model.">
-      >
+      
 		>
 	>
 
@@ -63,7 +57,6 @@ terminology
     ["cimi"] = <
       items = <
         ["id2"] = <http://example.com/valueset/statement_topic_key_vs.v0.0.1>
-        ["id3"] = <http://example.com/valueset/statement_topic_code_vs.v0.0.1>
       >
     >
   >

@@ -37,8 +37,6 @@ description
 definition
 	Absent[id1.1.1.1.1] matches {
     /context matches {[ac0.1.1.1.1]}
-		informationAbsentReason matches {
-			CODED_TEXT[id0.0.0.0.1]
 		}
 	}
 
@@ -48,11 +46,7 @@ terminology
 			["id1.1.1.1.1"] = <
 				text = <"Absent">
 				description = <"Context indicating the known absence of a finding in the subject of information. If the finding is suspected to be absent, use the known or suspected present context instead.">
-			>
-			["id0.0.0.0.1"] = <
-				text = <"Information absent reason">
-				description = <"The reason for missing information. Mostly relevant for evaluation results.">
-			>
+			> 
       ["ac0.1.1.1.1"] = <
         text = <"Absence context range">
         description = <"Value set containing a single code indicating that the finding context is for an absent finding (410594000 |Definitely NOT present (qualifier value)|).">

@@ -35,16 +35,16 @@ description
   >
 
 definition
-	IndivisibleClinicalStatement[id1.1.1.1.1] matches {
+	IndivisibleClinicalStatement[id1.1.1.1.1.1] matches {
 		topic matches {
-			use_archetype Procedure [id4.0.1.0.1, CIMI-CORE-Procedure.procedure.v1]
+			use_archetype ProcedureTopic [id0.4.0.1.0.1, CIMI-CORE-ProcedureTopic.procedure_topic.v1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1"] = <
+			["id1.1.1.1.1.1"] = <
 				text = <"Procedure not performed statement">
 				description = <"Parent archetype for all procedure non performance statements">
 			>

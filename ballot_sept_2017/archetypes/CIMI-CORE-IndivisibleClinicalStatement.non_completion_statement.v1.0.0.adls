@@ -35,16 +35,16 @@ description
   >
 
 definition
-	IndivisibleClinicalStatement[id1.1.1.1] matches {
+	IndivisibleClinicalStatement[id1.1.1.1.1] matches {
 		context matches {
-			use_archetype NonCompletion [id5.0.1.1, CIMI-CORE-NonCompletion.non_completion.v1]
+			use_archetype NonCompletion [id0.5.0.1.1, CIMI-CORE-NonCompletion.non_completion.v1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1"] = <
+			["id1.1.1.1.1"] = <
 				text = <"Non completion statement">
 				description = <"Parent archetype for all non completion statements">
 			>

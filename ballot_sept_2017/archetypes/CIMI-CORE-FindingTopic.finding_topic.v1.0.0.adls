@@ -1,5 +1,5 @@
 archetype (adl_version=2.0.6; rm_release=0.0.1)
-	CIMI-CORE-Event.event.v1.0.0
+	CIMI-CORE-FindingTopic.finding_topic.v1.0.0
 
 specialize
   CIMI-CORE-StatementTopic.statement_topic.v1
@@ -12,14 +12,14 @@ description
     ["name"] = <"Claude Nanjo">
     ["organisation"] = <"Cognitive Medical Systems">
     ["email"] = <"cnanjo@cognitivemedicine.com">
-    ["date"] = <"03/22/2017">
+    ["date"] = <"11/24/2016">
   >
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
       purpose = <"Top-level reference archetype for CIMI 'clinical statement' pattern">
       use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"event","topic">
+      keywords = <"finding","topic">
     >
   >
   other_details = <["model_level"] = <"reference">>
@@ -35,43 +35,51 @@ description
   >
 
 definition
-	Event[id1.1] matches {
-		/key[id2.1] matches {[ac0.1]}
-    /code[id3.1] matches {[ac0.2]}
+	FindingTopic[id1.1] matches {
+		/key matches {[ac0.1]}
+		result matches {
+			DATA_VALUE[id0.1]
+		}
+		description matches {
+			PLAIN_TEXT[id0.2]
+		}
+		multimedia matches {
+			MULTIMEDIA[id0.3]
+		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
 			["id1.1"] = <
-				text = <"Event">
-				description = <"A non-clinical event such as an earthquake or tornado.">
+				text = <"FindingTopic">
+				description = <"The characteristics looked for in medical investigations or diagnostics and the outcome.">
 			>
-      ["id2.1"] = <
-        text = <"Key">
-      >
-      ["id3.1"] = <
-        text = <"Code">
-      >
-      ["ac0.1"] = <
-        text = <"Event statement topic key range value set">
-        description = <"Value set containing concept representing an Event Statement Topic">
-      >
-      ["ac0.2"] = <
-        text = <"Event statement topic code range value set">
-        description = <"Range for the associated finding SWEC attribute restricted to the SNOMED CT Event subhierarchy">
-      >
+			["id0.2"] = <
+				text = <"Description">
+				description = <"Description of the finding.">
+			>
+			["id0.3"] = <
+				text = <"Multimedia">
+				description = <"Associated media produced during the evaluation such as an X-ray.">
+			>
+			["ac0.1"] = <
+				text = <"Finding statement topic key range value set">
+				description = <"Value set containing concept representing an Finding Statement Topic">
+			>
+			["ac0.2"] = <
+				text = <"Finding statement topic code range value set">
+				description = <"Range for the associated finding SWEC attribute restricted to findings and observable entities subhierarchy">
+			>
 		>
 	>
 
 	term_bindings = <
-  	["snomed-ct"] = <
+    	["snomed-ct"] = <
 			items = <
-				["id2.1"] = <http://example.com/valuesets/event_statement_topic_key_vs.v0.0.1>
-        ["id3.1"] = <http://example.com/valuesets/event_statement_topic_code_vs.v0.0.1>
-        ["ac0.1"] = <http://example.com/valuesets/event_statement_topic_key_range_vs.v0.0.1>
-        ["ac0.2"] = <http://example.com/valuesets/event_statement_topic_code_range_vs.v0.0.1>
+		        ["ac0.1"] = <http://example.com/valuesets/finding_statement_topic_key_range_vs.v0.0.1>
+		        ["ac0.2"] = <http://example.com/valuesets/finding_statement_topic_result_range_vs.v0.0.1>
 			>
-    >
+	    >
 	>
 

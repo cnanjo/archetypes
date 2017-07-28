@@ -36,7 +36,7 @@ description
 
 definition
 	Attribution[id1.1] matches { -- Sign action
-    datetimeRange matches {  -- Signing datetime range
+    activityTimeRange matches {  -- Signing datetime range
       INTERVAL_VALUE<DATE_TIME>[id6.1]
     }
     location matches {

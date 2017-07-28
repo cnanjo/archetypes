@@ -35,27 +35,27 @@ description
   >
 
 definition
-	IndivisibleClinicalStatement[id1.1.1] matches {
+	IndivisibleClinicalStatement[id1.1.1.1] matches {
 		topic matches {
-			use_archetype Act [id4.0.1, CIMI-CORE-Act.act.v1]
+			use_archetype ProcedureTopic [id0.4.0.1, CIMI-CORE-ProcedureTopic.procedure_topic.v1]
 		}
 		context matches {
-			use_archetype ActionContext [id5.0.1, CIMI-CORE-ActionContext.action_context.v1]
+			use_archetype ActionContext [id0.5.0.1, CIMI-CORE-ActionContext.action_context.v1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1"] = <
+			["id1.1.1.1"] = <
 				text = <"Act statement">
 				description = <"Parent archetype for all act statements">
 			>
-      ["id4.0.1"] = <
+      ["id0.4.0.1"] = <
         text = <"Associated procedure">
         description = <"The associated act topic for this clinical statement">
       >
-      ["id5.0.1"] = <
+      ["id0.5.0.1"] = <
         text = <"Procedure context">
         description = <"The associated act context for this clinical statement">
       >
@@ -65,8 +65,8 @@ terminology
   term_bindings = <
     ["cimi"] = <
       items = <
-        ["id4.0.1"] = <http://example.com/valueset/act_statement_topic_vs.v0.0.1>
-        ["id5.0.1"] = <http://example.com/valueset/act_statement_context_vs.v0.0.1>
+        ["id0.4.0.1"] = <http://example.com/valueset/act_statement_topic_vs.v0.0.1>
+        ["id0.5.0.1"] = <http://example.com/valueset/act_statement_context_vs.v0.0.1>
       >
     >
   >

@@ -1,8 +1,8 @@
 archetype (adl_version=2.0.6; rm_release=2.0.2)
-  CIMI-CORE-BaseAssertion.base_assertion_struct.v1.0.0
+  CIMI-CORE-ProcedureTopic.procedure_topic.v1.0.0
 
 specialize
-  CIMI-CORE-Finding.finding.v1
+  CIMI-CORE-StatementTopic.statement_topic.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -12,14 +12,14 @@ description
     ["name"] = <"Claude Nanjo">
     ["organisation"] = <"Cognitive Medical Systems">
     ["email"] = <"cnanjo@gmail.com">
-    ["date"] = <"06/15/2016">
+    ["date"] = <"11/24/2016">
   >
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
       purpose = <"CIMI base assertion archetype">
       use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"assertion","condition">
+      keywords = <"evaluation result","observation">
     >
   >
   other_details = <["model_level"] = <"reference">>
@@ -35,47 +35,23 @@ description
   >
 
 definition
-  BaseAssertion[id1.1.1] matches {
-    /key[id2.1.1] matches {[ac0.1.1]}
-    /code[id3.1.1] matches {[ac0.2.1]}
-  }
+  ProcedureTopic[id1.1] 
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1"] = <
-        text = <"Assertion">
-        description = <"Clinical Assertions assert the existence of clinical conditions, diseases, symptoms, etc. in the patient.">
+      ["id1.1"] = <
+        text = <"BaseProcedureTopic">
+        description = <"An action intended to treat, cure, or restore function or structure such as surgical and physical rehabilitation procedures.">
       >
-      ["id2.1.1"] = <
-        text = <"Key">
-      >
-      ["id3.1.1"] = <
-        text = <"Code">
-      >
-      ["id0.0.1"] = <
-        text = <"name">
-        description = <"Concept representing a clinical finding.">
-      >
-      ["ac0.1.1"] = <
-        text = <"Assertion statement topic key range value set">
-        description = <"Range for the key attribute which specifies that this topic is assertion topic">
-      >
-      ["ac0.2.1"] = <
-        text = <"Assertion statement topic code range value set">
-        description = <"Range for the associated finding SWEC attribute">
-      >
-    >
-  >
-  term_bindings = <
-    ["cimi"] = <
-      items = <
-        ["id2.1.1"] = <http://example.com/valuesets/assertion_statement_topic_key_vs.v0.0.1>
-        ["id3.1.1"] = <http://example.com/valuesets/assertion_statement_topic_code_vs.v0.0.1>
-        ["ac0.1.1"] = <http://example.com/valuesets/assertion_statement_topic_key_range_vs.v0.0.1>
-        ["ac0.2.1"] = <http://example.com/valuesets/assertion_statement_topic_code_range_vs.v0.0.1>
-        ["id0.0.1"] = <http://example.com/valuesets/assertion_statement_topic_name_vs.v0.0.1>
-      >
-    >
+    > 
   >
 
+  term_bindings = <
+    ["snomed-ct"] = <
+      items = <
+     
+      >
+    >
+    
+  >

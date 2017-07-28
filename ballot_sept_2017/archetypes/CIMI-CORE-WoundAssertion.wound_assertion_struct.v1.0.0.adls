@@ -36,7 +36,7 @@ description
 
 definition
 	WoundAssertion[id1.1.1.1.1.1.1] matches {
-		/code[id3.1.1.0.0.1.1] matches {[ac0.2.1.0.0.1.1]}
+		/result[id3.1.1.0.0.1.1] matches {[ac0.2.1.0.0.1.1]}
 		dueToCode matches {
 			CODED_TEXT[id0.0.0.5.0.0.1]
 		}

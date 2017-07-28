@@ -1,8 +1,8 @@
-archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
-  CIMI-CORE-Proposal.proposal.v1.0.0
+archetype (adl_version=2.0.6; rm_release=2.0.2)
+  CIMI-CORE-BaseAssertion.base_assertion.v1.0.0
 
 specialize
-  CIMI-CORE-Request.request.v1
+  CIMI-CORE-FindingTopic.finding_topic.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -11,15 +11,15 @@ description
   original_author = <
     ["name"] = <"Claude Nanjo">
     ["organisation"] = <"Cognitive Medical Systems">
-    ["email"] = <"cnanjo@cognitivemedicine.com">
-    ["date"] = <"11/24/2016">
+    ["email"] = <"cnanjo@gmail.com">
+    ["date"] = <"06/15/2016">
   >
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
-      purpose = <"Top-level reference archetype for CIMI 'clinical statement' pattern">
+      purpose = <"CIMI base assertion archetype">
       use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"context","proposal">
+      keywords = <"assertion","condition">
     >
   >
   other_details = <["model_level"] = <"reference">>
@@ -35,30 +35,42 @@ description
   >
 
 definition
-  Proposal[id1.1.1.1.1] matches {
-    /context matches {[ac0.1.1.1]}
+  BaseAssertion[id1.1.1] matches {
+    /key[id2.1.1] matches {[ac0.1.1]}
+    /result[id0.0.1] matches {[ac0.2.1]}
   }
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1.1"] = <
-        text = <"Proposal">
-        description = <"An offer or a suggestion to perform a healthcare act. A recommendation to a provider is an example of proposal made by a CDS system. A proposal must be accepted by an entity in order for it to be performed.">
+      ["id1.1.1"] = <
+        text = <"Assertion">
+        description = <"Clinical Assertions assert the existence of clinical conditions, diseases, symptoms, etc. in the patient.">
       >
-      ["ac0.1.1.1.1"] = <
-        text = <"Proposed context range">
-        description = <"Value set containing a single code indicating that the action was proposed (385642001 |Under consideration (qualifier value)|.">
+      ["id2.1.1"] = <
+        text = <"Key">
+      >
+      ["id0.0.1"] = <
+        text = <"Result">
+      >
+      ["ac0.1.1"] = <
+        text = <"Assertion statement topic key range value set">
+        description = <"Range for the key attribute which specifies that this topic is assertion topic">
+      >
+      ["ac0.2.1"] = <
+        text = <"Assertion statement topic code range value set">
+        description = <"Range for the associated finding SWEC attribute">
       >
     >
   >
-
   term_bindings = <
     ["cimi"] = <
       items = <
-        ["ac0.1.1.1.1"] = <http://example.com/valueset/proposal_context_range_vs.v0.0.1>
+        ["id2.1.1"] = <http://example.com/valuesets/assertion_statement_topic_key_vs.v0.0.1>
+        ["id0.0.1"] = <http://example.com/valuesets/assertion_statement_topic_code_vs.v0.0.1>
+        ["ac0.1.1"] = <http://example.com/valuesets/assertion_statement_topic_key_range_vs.v0.0.1>
+        ["ac0.2.1"] = <http://example.com/valuesets/assertion_statement_topic_code_range_vs.v0.0.1>
       >
     >
   >
-
 

@@ -35,16 +35,16 @@ description
   >
 
 definition
-	IndivisibleClinicalStatement[id1.1.1.1.1.1.1] matches {
+	IndivisibleClinicalStatement[id1.1.1.1.1.1.1.1] matches {
 		topic matches {
-			use_archetype WoundAssertion [id4.0.1.0.0.1.1, CIMI-CORE-WoundAssertion.wound_assertion_bindings.v1]
+			use_archetype WoundAssertion [id0.4.0.1.0.0.1.1, CIMI-CORE-WoundAssertion.wound_assertion_bindings.v1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1.1.1"] = <
+			["id1.1.1.1.1.1.1.1"] = <
 				text = <"Wound assertion statement">
 				description = <"A clinical statement asserting the known presence of a wound.">
 			>

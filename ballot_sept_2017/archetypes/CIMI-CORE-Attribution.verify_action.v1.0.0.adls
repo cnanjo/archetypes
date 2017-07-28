@@ -36,7 +36,7 @@ description
 
 definition
   Attribution[id1.1] matches { -- Verify action
-    datetimeRange matches {  -- Verification datetime range
+    activityTimeRange matches {  -- Verification datetime range
       INTERVAL_VALUE<DATE_TIME>[id6.1]
     }
     location matches {

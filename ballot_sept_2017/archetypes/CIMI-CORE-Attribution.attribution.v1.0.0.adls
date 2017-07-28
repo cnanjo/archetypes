@@ -44,7 +44,7 @@ definition
     recordedBy matches { 
       PARTICIPATION[id5] -- Recorded by
     }
-    datetimeRange matches { 
+    activityTimeRange matches { 
       INTERVAL_VALUE<DATE_TIME>[id6] -- Datetime range
     }
     reason matches {

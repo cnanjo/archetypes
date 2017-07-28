@@ -1,8 +1,8 @@
 archetype (adl_version=2.0.6; rm_release=2.0.2)
-  CIMI-CORE-Assertion.assertion_struct.v1.0.0
+  CIMI-CORE-Assertion.assertion.v1.0.0
 
 specialize
-  CIMI-CORE-BaseAssertion.base_assertion_struct.v1
+  CIMI-CORE-BaseAssertion.base_assertion.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -36,14 +36,11 @@ description
 
 definition
   Assertion[id1.1.1.1] matches {
-    causativeAgent matches {
-      CODED_TEXT[id0.0.0.4]
+    dueTo matches {
+      use_archetype ClinicalStatement [id0.0.0.6, CIMI-CORE-ClinicalStatement.clinical_statement.v1] occurrences matches {0..*}
     }
     dueToCode matches {
       CODED_TEXT[id0.0.0.5]
-    }
-    dueTo matches {
-      use_archetype IndivisibleClinicalStatement [id0.0.0.6, CIMI-CORE-IndivisibleClinicalStatement.indivisible_clinical_statement.v1] occurrences matches {0..*}
     }
     severity matches {
       CODED_TEXT[id0.0.0.7]
@@ -51,26 +48,8 @@ definition
     clinicalCourse matches {
       CODED_TEXT[id0.0.0.8]
     }
-    interpretation matches {
-      Interpretation[id0.0.0.9]
-    }
-    findingMethod matches {
-      CODED_TEXT[id0.0.0.11]
-    }
-    ageAtOnset matches {
-      QUANTITY[id0.0.0.12]
-    }
-    dateAbated matches {
-      DATE_TIME[id0.0.0.13]
-    }
-    clinicalStatus matches {
-      CODED_TEXT[id0.0.0.14]
-    }
-    verificationStatus matches {
-      CODED_TEXT[id0.0.0.15]
-    }
-    diagnosisDate matches {
-      DATE_TIME[id0.0.0.16]
+    episodicity matches {
+      CODED_TEXT[id0.0.0.24]
     }
     diseasePhase matches {
       CODED_TEXT[id0.0.0.17]
@@ -81,14 +60,17 @@ definition
     associatedSignAndSymptom matches {
      CODED_TEXT[id0.0.0.19]
     }
+    periodicity matches {
+     CODED_TEXT[id0.0.0.22]
+    }
     alleviatingFactor matches {
      CODED_TEXT[id0.0.0.20]
     }
     exacerbatingFactor matches {
      CODED_TEXT[id0.0.0.21]
-    }
-    periodicity matches {
-     CODED_TEXT[id0.0.0.22]
+    }    
+    causativeAgent matches {
+      ENTITY[id0.0.0.4]
     }
 
   }
@@ -119,10 +101,6 @@ terminology
       ["id0.0.0.8"] = <
         text = <"Clinical course">
         description = <"Both the course and onset of a disease. Many conditions with an acute (sudden) onset also have an acute (short duration) course. Few diseases with a chronic (long - term) course would need to have their onset sub-divided into rapid or gradual subtypes, and thus there is no clear need for separating the rapidity of onset from the duration of a disease; based on testing by implementers and modelers, a single attribute with values that combine these meanings has clearly been more reproducible and useful than two attributes that attempt to separate the meanings.">
-      >
-      ["id0.0.0.9"] = <
-        text = <"Interpretation">
-        description = <"A clinical judgment concerning the significance of an observation. This attribute refers to the entity being evaluated or interpreted, when an evaluation, interpretation or “judgment” is intrinsic to the meaning of a concept. This attribute is usually grouped with the | HAS INTERPRETATION | attribute.">
       >
       ["id0.0.0.11"] = <
         text = <"Finding method">
@@ -185,7 +163,6 @@ terminology
         ["id0.0.0.6"] = <http://snomed.info/id/42752001> -- |Due to (attribute)|
         ["id0.0.0.7"] = <http://snomed.info/id/246112005> -- |Severity (attribute)|
         ["id0.0.0.8"] = <http://snomed.info/id/263502005> -- |Clinical course (attribute)|
-        ["id0.0.0.9"] = <http://snomed.info/id/363714003> -- |Interprets (attribute)|
         ["id0.0.0.11"] = <http://snomed.info/id/418775008> -- |Finding method (attribute)|
         ["id0.0.0.18"] = <http://snomed.info/id/47429007> -- |Associated with (attribute)|
         ["id0.0.0.20"] = <http://snomed.info/id/47429007> -- |Associated with (attribute)|

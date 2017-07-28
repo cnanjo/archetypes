@@ -35,27 +35,27 @@ description
   >
 
 definition
-	IndivisibleClinicalStatement[id1.1.1] matches {
+	IndivisibleClinicalStatement[id1.1.1.1] matches {
 		topic matches {
-			use_archetype Finding [id4.0.1, CIMI-CORE-Finding.finding.v1]
+			use_archetype FindingTopic [id0.4.0.1, CIMI-CORE-FindingTopic.finding_topic.v1]
 		}
 		context matches {
-			use_archetype FindingContext [id5.0.1, CIMI-CORE-FindingContext.finding_context.v1]
+			use_archetype FindingContext [id0.5.0.1, CIMI-CORE-FindingContext.finding_context.v1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1"] = <
+			["id1.1.1.1"] = <
 				text = <"Finding statement">
 				description = <"Parent archetype for all finding statements">
 			>
-      ["id4.0.1"] = <
+      ["id0.4.0.1"] = <
         text = <"Associated finding">
         description = <"The associated finding topic for this clinical statement">
       >
-      ["id5.0.1"] = <
+      ["id0.5.0.1"] = <
         text = <"Finding context">
         description = <"The associated finding context for this clinical statement">
       >
@@ -65,8 +65,8 @@ terminology
   term_bindings = <
     ["cimi"] = <
       items = <
-        ["id4.0.1"] = <http://example.com/valueset/finding_statement_topic_vs.v0.0.1>
-        ["id5.0.1"] = <http://example.com/valueset/finding_statement_context_vs.v0.0.1>
+        ["id0.4.0.1"] = <http://example.com/valueset/finding_statement_topic_vs.v0.0.1>
+        ["id0.5.0.1"] = <http://example.com/valueset/finding_statement_context_vs.v0.0.1>
       >
     >
   >

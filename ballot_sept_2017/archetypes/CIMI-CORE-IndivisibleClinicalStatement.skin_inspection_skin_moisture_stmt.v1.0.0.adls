@@ -35,16 +35,16 @@ description
   >
 
 definition
-	IndivisibleClinicalStatement[id1.1.1.1.1.1.1] matches {
+	IndivisibleClinicalStatement[id1.1.1.1.1.1.1.1] matches {
 		topic matches {
-			use_archetype PhysicalEvaluationResult [id4.0.1.0.0.1.1, CIMI-CORE-PhysicalEvaluationResult.skin_inspection_skin_moisture.v1]
+			use_archetype PhysicalEvaluationResult [id0.4.0.1.0.0.1.1, CIMI-CORE-PhysicalEvaluationResult.skin_inspection_skin_moisture.v1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1.1.1"] = <
+			["id1.1.1.1.1.1.1.1"] = <
 				text = <"Wound-area-appearance-to-bed-area ratio statement">
 				description = <"The area of identified wound bed appearance (necrotic, sloughing, etc.; see LOINC 72371-8) compared to the total area of the wound bed. For example, 40% of the wound bed is necrotic. Results can either be subjective or measured.">
 			>

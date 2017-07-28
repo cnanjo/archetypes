@@ -35,16 +35,16 @@ description
   >
 
 definition
-	IndivisibleClinicalStatement[id1.1.1.1.1.1] matches {
+	IndivisibleClinicalStatement[id1.1.1.1.1.1.1] matches {
 		topic matches {
-			use_archetype EvaluationResult [id4.0.1.0.0.1, CIMI-CORE-EvaluationResult.evaluation_result.v1]
+			use_archetype EvaluationResult [id0.4.0.1.0.0.1, CIMI-CORE-EvaluationResult.evaluation_result.v1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1.1"] = <
+			["id1.1.1.1.1.1.1"] = <
 				text = <"Evaluation result known present">
 				description = <"Statement indicating presence of evaluation result">
 			>

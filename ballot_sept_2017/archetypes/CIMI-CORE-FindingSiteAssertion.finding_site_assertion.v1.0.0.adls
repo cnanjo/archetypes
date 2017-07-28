@@ -37,7 +37,7 @@ description
 definition
   FindingSiteAssertion[id1.1.1.1.1.1] matches {
     /key[id2.1.1.0.0.1] matches {[ac0.1.1.0.0.1]}
-    /code[id3.1.1.0.0.1] matches {[ac0.2.1.0.0.1]}
+    /result[id3.1.1.0.0.1] matches {[ac0.2.1.0.0.1]}
     findingSite matches {
       AnatomicalLocation[id0.0.0.0.0.1]
     }

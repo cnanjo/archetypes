@@ -1,8 +1,8 @@
 archetype (adl_version=2.0.6; rm_release=0.0.1)
-	CIMI-CORE-BaseEvaluationResult.base_evaluation_result.v1.0.0
+	CIMI-CORE-EventTopic.event_topic.v1.0.0
 
 specialize
-  CIMI-CORE-Finding.finding.v1
+  CIMI-CORE-StatementTopic.statement_topic.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -12,14 +12,14 @@ description
     ["name"] = <"Claude Nanjo">
     ["organisation"] = <"Cognitive Medical Systems">
     ["email"] = <"cnanjo@cognitivemedicine.com">
-    ["date"] = <"11/24/2016">
+    ["date"] = <"03/22/2017">
   >
   details = <
     ["en"] = <
       language = <[ISO_639-1::en]>
       purpose = <"Top-level reference archetype for CIMI 'clinical statement' pattern">
       use = <"Use as a specialisation precursor for other high-level reference archetypes.">
-      keywords = <"finding","topic">
+      keywords = <"event","topic">
     >
   >
   other_details = <["model_level"] = <"reference">>
@@ -35,52 +35,33 @@ description
   >
 
 definition
-	BaseEvaluationResult[id1.1.1] matches {
-		/code[id3.1.1] matches {[ac0.2.1]}
-	    result matches {
-	      	DATA_VALUE[id0.0.1]
-	    }
-		exceptionValue matches {
-			CODED_TEXT[id0.0.2]
-		}
+	EventTopic[id1.1] matches {
+		/key[id2.1] matches {[ac0.1]}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1"] = <
-				text = <"Base Evaluation Result">
-				description = <"The characteristics looked for in medical investigations or diagnostics and the outcome.">
+			["id1.1"] = <
+				text = <"EventTopic">
+				description = <"A non-clinical event such as an earthquake or tornado.">
 			>
-			["id0.0.1"] = <
-				text = <"Result">
-				description = <"The unqualified value of the evaluation.">
-			>
-			["id0.0.2"] = <
-				text = <"Exception Value">
-				description = <"A coded value representing the result when the result cannot be properly quantified.">
-			>
-			["id3.1.1"] = <
-		        text = <"Code">
-		    >
-		    ["ac0.2.1"] = <
-		        text = <"Evaluation result statement topic code range value set">
-		        description = <"Range for the associated finding SWEC attribute">
-		    >
+      ["id2.1"] = <
+        text = <"Key">
+      >
+      ["ac0.1"] = <
+        text = <"Event statement topic key range value set">
+        description = <"Value set containing concept representing an Event Statement Topic">
+      >
 		>
 	>
 
 	term_bindings = <
-	    ["snomed-ct"] = <
-	      items = <
-	      	["id0.0.1"] = <http://snomed.info/id/TBD> -- Attribute binding for result.
-	      	["id0.0.2"] = <http://snomed.info/id/TBD> -- Attribute binding for exception value.
-	    	>
-		>
-		["cimi"] = <
-	      items = <
-	      	["id3.1.1"] = <http://example.com/valuesets/evaluationresult_statement_topic_code_vs.v0.0.1>
-        	["ac0.2.1"] = <http://example.com/valuesets/evaluationresult_statement_topic_code_range_vs.v0.0.1>
-	    	>
-		>
-  	>
+  	["snomed-ct"] = <
+			items = <
+				["id2.1"] = <http://example.com/valuesets/event_statement_topic_key_vs.v0.0.1>
+        ["ac0.1"] = <http://example.com/valuesets/event_statement_topic_key_range_vs.v0.0.1>
+			>
+    >
+	>
+

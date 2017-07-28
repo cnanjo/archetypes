@@ -35,16 +35,16 @@ description
   >
 
 definition
-	IndivisibleClinicalStatement[id1.1.1.1] matches {
+	IndivisibleClinicalStatement[id1.1.1.1.1] matches {
 		context matches {
-			use_archetype Absent [id5.0.1.1, CIMI-CORE-Absent.absent.v1]
+			use_archetype Absent [id0.5.0.1.1, CIMI-CORE-Absent.absent.v1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1"] = <
+			["id1.1.1.1.1"] = <
 				text = <"Finding absent">
 				description = <"Parent archetype for statement of absence of finding">
 			>

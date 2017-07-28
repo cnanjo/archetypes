@@ -35,16 +35,16 @@ description
   >
 
 definition
-	PhysicalEvaluationResult[id1.1.1.1.1.1] matches {
+	PhysicalEvaluationResult[id1.1.1.1.1] matches {
 		result matches {
-			PROPORTION[id0.0.1.1.0.1]
+			PROPORTION[id0.1.0.0.1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1.1"] = <
+			["id1.1.1.1.1"] = <
 				text = <"Ratio physical evaluation result">
 				description = <"A physical evaluation result of type RATIO.">
 			>

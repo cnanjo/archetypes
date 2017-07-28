@@ -35,49 +35,49 @@ description
   >
 
 definition
-  BradenAssessment[id1.1.1.1.1.1.1] matches {
-    /moistureExposure matches {[ac0.0.0.0.0.0.1]}
-    /sensoryPerception matches {[ac0.0.0.0.0.0.2]}
-    /physicalActivity matches {[ac0.0.0.0.0.0.3]}
-    /physicalMobility matches {[ac0.0.0.0.0.0.4]}
-    /nutritionIntakePattern matches {[ac0.0.0.0.0.0.5]}
-    /frictionAndShear matches {[ac0.0.0.0.0.0.6]}
-    /riskLevel matches {[ac0.0.0.0.0.0.7]}
+  BradenAssessment[id1.1.1.1.1] matches {
+    /moistureExposure matches {[ac0.0.0.0.1]}
+    /sensoryPerception matches {[ac0.0.0.0.2]}
+    /physicalActivity matches {[ac0.0.0.0.3]}
+    /physicalMobility matches {[ac0.0.0.0.4]}
+    /nutritionIntakePattern matches {[ac0.0.0.0.5]}
+    /frictionAndShear matches {[ac0.0.0.0.6]}
+    /riskLevel matches {[ac0.0.0.0.7]}
   }
 
 terminology
   
   term_definitions = <
     ["en"] = <
-      ["id1.1.1.1.1.1.1"] = <
+      ["id1.1.1.1.1"] = <
           text = <"Braden Assessment">
           description = <"A Braden Assessment represents the Braden score used to assess an adult patient's susceptibility to skin breakdown. The summation of the scores range is from 6-23.">
       >
-      ["ac0.0.0.0.0.0.1"] = <
+      ["ac0.0.0.0.1"] = <
           text = <"Moisture exposure value set">
           description = <"Moisture exposure value set">
       >
-      ["ac0.0.0.0.0.0.2"] = <
+      ["ac0.0.0.0.2"] = <
           text = <"Sensory perception value set">
           description = <"Sensory perception value set.">
       >
-      ["ac0.0.0.0.0.0.3"] = <
+      ["ac0.0.0.0.3"] = <
           text = <"Physical activity value set">
           description = <"Physical activity value set.">
       >
-      ["ac0.0.0.0.0.0.4"] = <
+      ["ac0.0.0.0.4"] = <
           text = <"Physical mobility value set">
           description = <"Physical mobility value set.">
       >
-      ["ac0.0.0.0.0.0.5"] = <
+      ["ac0.0.0.0.5"] = <
           text = <"Nutrition intake pattern value set">
           description = <"Nutrition intake pattern value set.">
       >
-      ["ac0.0.0.0.0.0.6"] = <
+      ["ac0.0.0.0.6"] = <
           text = <"Friction and shear value set">
           description = <"Friction and shear value set.">
       >
-      ["ac0.0.0.0.0.0.7"] = <
+      ["ac0.0.0.0.7"] = <
           text = <"Risk level value set">
           description = <"Risk level value set.">
       >
@@ -86,13 +86,13 @@ terminology
   term_bindings = <
     ["snomed-ct"] = <
       items = <
-        ["ac0.0.0.0.0.0.1"] = <http://example.com/valueset/moisture_exposure_braden_scale_range_vs.v0.0.1>
-        ["ac0.0.0.0.0.0.2"] = <http://example.com/valueset/sensory_perception_braden_scale_range_vs.v0.0.2>
-        ["ac0.0.0.0.0.0.3"] = <http://example.com/valueset/physical_activity_braden_scale_range_vs.v0.0.3>
-        ["ac0.0.0.0.0.0.4"] = <http://example.com/valueset/physical_mobility_braden_scale_range_vs.v0.0.4>
-        ["ac0.0.0.0.0.0.5"] = <http://example.com/valueset/nutrition_intake_pattern_braden_scale_range_vs.v0.0.5>
-        ["ac0.0.0.0.0.0.6"] = <http://example.com/valueset/friction_and_shear_braden_scale_range_vs.v0.0.6>
-        ["ac0.0.0.0.0.0.7"] = <http://example.com/valueset/risk_level_braden_scale_range_vs.v0.0.7>
+        ["ac0.0.0.0.1"] = <http://example.com/valueset/moisture_exposure_braden_scale_range_vs.v0.0.1>
+        ["ac0.0.0.0.2"] = <http://example.com/valueset/sensory_perception_braden_scale_range_vs.v0.0.2>
+        ["ac0.0.0.0.3"] = <http://example.com/valueset/physical_activity_braden_scale_range_vs.v0.0.3>
+        ["ac0.0.0.0.4"] = <http://example.com/valueset/physical_mobility_braden_scale_range_vs.v0.0.4>
+        ["ac0.0.0.0.5"] = <http://example.com/valueset/nutrition_intake_pattern_braden_scale_range_vs.v0.0.5>
+        ["ac0.0.0.0.6"] = <http://example.com/valueset/friction_and_shear_braden_scale_range_vs.v0.0.6>
+        ["ac0.0.0.0.7"] = <http://example.com/valueset/risk_level_braden_scale_range_vs.v0.0.7>
       >
     >
   >

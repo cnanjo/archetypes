@@ -35,16 +35,16 @@ description
   >
 
 definition
-	IndivisibleClinicalStatement[id1.1.1.1.1.1] matches {
+	IndivisibleClinicalStatement[id1.1.1.1.1.1.1] matches {
 		topic matches {
-			use_archetype LaboratoryProcedure [id4.0.1.0.1.1, CIMI-CORE-LaboratoryProcedure.laboratory_procedure.v1]
+			use_archetype LaboratoryProcedure [id0.4.0.1.0.1.1, CIMI-CORE-LaboratoryProcedure.laboratory_procedure.v1]
 		}
 	}
 
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1.1"] = <
+			["id1.1.1.1.1.1.1"] = <
 				text = <"Laboratory procedure not performed statement">
 				description = <"Parent archetype for all laboratory procedure non performance statements">
 			>

@@ -2,7 +2,7 @@ archetype (adl_version=1.5.1; rm_release=2.0.2; generated)
   CIMI-CORE-IndivisibleClinicalStatement.indivisible_clinical_statement.v1.0.0
 
 specialize
-  CIMI-CORE-BaseClinicalStatement.base_clinical_statement.v1
+  CIMI-CORE-ClinicalStatement.clinical_statement.v1
 
 language
   original_language = <[ISO_639-1::en]>
@@ -35,12 +35,12 @@ description
   >
 
 definition
-  IndivisibleClinicalStatement[id1.1]
+  IndivisibleClinicalStatement[id1.1.1]
 
 terminology
   term_definitions = <
     ["en"] = <
-      ["id1.1"] = <
+      ["id1.1.1"] = <
         text = <"Indivisible Clinical Statement">
         description = <"An ENTRY representing an atomic unit of information that is identifiable and can be referenced independently of a parent context such as a specific hematocrit measurement viewed in isolation of its parent panel.">
       >

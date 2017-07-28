@@ -35,9 +35,9 @@ description
   >
 
 definition
-	PhysicalEvaluationResult[id1.1.1.1.1.1] matches {
+	PhysicalEvaluationResult[id1.1.1.1.1] matches {
 		result matches {
-			QUANTITY[id0.0.1.1.0.1]
+			QUANTITY[id0.1.0.0.1]
 		}
 	}
 		
@@ -45,7 +45,7 @@ definition
 terminology
 	term_definitions = <
 		["en"] = <
-			["id1.1.1.1.1.1"] = <
+			["id1.1.1.1.1"] = <
 				text = <"Quantitative physical evaluation result">
 				description = <"An physical evaluation result constrained to a Quantity">
 			>
