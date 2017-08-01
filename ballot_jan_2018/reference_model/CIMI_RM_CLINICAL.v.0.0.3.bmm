@@ -12,9 +12,9 @@ rm_release = <"0.0.3">
 -- ----------------------------------
 -- schema documentation
 -- ----------------------------------
-schema_revision = <"Fri Jul 28 17:57:05 PDT 2017">
+schema_revision = <"Tue Aug 01 09:07:22 EDT 2017">
 schema_lifecycle_state = <"dstu">
-schema_description = <"CIMI_RM_CLINICAL.v0.0.3.mdzip - Schema generated from UML">
+schema_description = <"CIMI_RM_CLINICAL.v0.0.4.mdzip - Schema generated from UML">
 
 
 -- ----------------------------------
@@ -23,10 +23,10 @@ schema_description = <"CIMI_RM_CLINICAL.v0.0.3.mdzip - Schema generated from UML
 archetype_rm_closure_packages = <"CIMI_Clinical.ClinicalStatement", "CIMI_Clinical.CommonDataStructures", "CIMI_Clinical.Party", "CIMI_Clinical.Relationship", "CIMI_Clinical.Participation", "CIMI_Clinical.Pharmacy", "CIMI_Clinical.Encounter", "CIMI_Clinical.Assertion", "CIMI_Clinical.EvaluationResult", "CIMI_Clinical.Procedure", "CIMI_Clinical.ContextCore", "CIMI_Clinical.TopicCore", "CIMI_Clinical.Entity", "CIMI_Clinical.Association", "CIMI_Clinical.Provenance", "CIMI_Clinical.PatientEducation", "CIMI_Clinical.AdverseEventReporting", "CIMI_Clinical.AdverseReaction", "CIMI_Clinical.InformationEntry", "CIMI_Clinical.AdverseSensitivityToSubstance">
 includes = <
 	["1"] = <
-		id = <"cimi_rm_core_0.0.3">
+		id = <"cimi_rm_core_0.0.4">
 	>
 	["2"] = <
-		id = <"cimi_rm_foundation_0.0.3">
+		id = <"cimi_rm_foundation_0.0.4">
 	>
 >
 packages = <
