@@ -173,7 +173,7 @@ A clinical statement is composed of the StatementTopic class (grouping of attrib
 			["context"] = (P_BMM_SINGLE_PROPERTY_OPEN) <
 				documentation = <"The ontological status of the statement, e.g., whether it exists, does not exist, is planned, etc. Attribute aligns with the SNOMED CT Situation with Explicit Context Concept Model context attributes 'Finding context (attribute)' (SCTID: 408729009) and 'Procedure context (attribute)' (SCTID: 408730004). The range of this attribute is a structure (StatementContext) rather than a value set. The context of the clinical statement must align with the range specified by the SWEC Concept Model. For instance, if the 'context' attribute's meaning is bound to 'Finding context', then the context may not be a specialization of the ActionContext statement context. Instead, it should be a specialization of the FindingContext statement context.">
 				name = <"context">
-				type = <"T">
+				type = <"C">
 			>
 			["originatingFrom"] = (P_BMM_SINGLE_PROPERTY) <
 				documentation = <"The encounter or episode of care from which this statement originates.">
